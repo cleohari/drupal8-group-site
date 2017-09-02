@@ -32,3 +32,6 @@ core/README.txt
 
 # Jetbrains
 .idea/
+
+# Development modules
+/modules/contrib/devel
