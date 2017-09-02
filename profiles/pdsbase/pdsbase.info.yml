@@ -21,7 +21,7 @@ dependencies:
   - editor
   - help
   - image
-  - menu_ui
+  - menu_uigit pull
   - options
   - path
   - page_cache
@@ -42,6 +42,7 @@ dependencies:
   - token
   - group
   - clamav
+  - filebrowser
 themes:
   - bartik
   - seven
