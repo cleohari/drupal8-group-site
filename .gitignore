@@ -1,5 +1,6 @@
 # Ignore configuration files that may contain sensitive information.
-sites/*/*settings*.php
+# sites/*/*settings*.php
+sites/*/settings.php
 sites/example.sites.php
 
 # Ignore paths that contain generated content.
@@ -31,3 +32,6 @@ core/README.txt
 
 # Jetbrains
 .idea/
+
+# Development modules
+/modules/contrib/devel
