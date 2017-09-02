@@ -43,6 +43,7 @@ dependencies:
   - group
   - clamav
   - sendgrid_integration
+  - filebrowser
 themes:
   - bartik
   - seven
