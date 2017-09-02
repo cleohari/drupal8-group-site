@@ -21,7 +21,7 @@ dependencies:
   - editor
   - help
   - image
-  - menu_uigit pull
+  - menu_ui
   - options
   - path
   - page_cache
@@ -42,6 +42,7 @@ dependencies:
   - token
   - group
   - clamav
+  - sendgrid_integration
   - filebrowser
 themes:
   - bartik
