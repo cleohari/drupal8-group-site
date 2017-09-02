@@ -42,6 +42,7 @@ dependencies:
   - token
   - group
   - clamav
+  - sendgrid_integration
 themes:
   - bartik
   - seven
