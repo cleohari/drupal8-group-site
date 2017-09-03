@@ -14,9 +14,9 @@ class ComposerStaticInitDrupal8
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -30,6 +30,10 @@ class ComposerStaticInitDrupal8
         'W' => 
         array (
             'Wikimedia\\Composer\\' => 19,
+        ),
+        'T' => 
+        array (
+            'Twig\\' => 5,
         ),
         'S' => 
         array (
@@ -74,6 +78,7 @@ class ComposerStaticInitDrupal8
             'Drupal\\Core\\Composer\\' => 21,
             'Drupal\\Core\\' => 12,
             'Drupal\\Component\\' => 17,
+            'Doctrine\\Common\\Inflector\\' => 26,
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\' => 16,
         ),
@@ -81,6 +86,10 @@ class ComposerStaticInitDrupal8
         array (
             'Composer\\Semver\\' => 16,
             'Composer\\Installers\\' => 20,
+        ),
+        'A' => 
+        array (
+            'Asm89\\Stack\\' => 12,
         ),
     );
 
@@ -104,6 +113,10 @@ class ComposerStaticInitDrupal8
         'Wikimedia\\Composer\\' => 
         array (
             0 => __DIR__ . '/..' . '/wikimedia/composer-merge-plugin/src',
+        ),
+        'Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
         'Symfony\\Polyfill\\Php55\\' => 
         array (
@@ -221,6 +234,10 @@ class ComposerStaticInitDrupal8
         array (
             0 => __DIR__ . '/../..' . '/core/lib/Drupal/Component',
         ),
+        'Doctrine\\Common\\Inflector\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
+        ),
         'Doctrine\\Common\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
@@ -236,6 +253,10 @@ class ComposerStaticInitDrupal8
         'Composer\\Installers\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
+        ),
+        'Asm89\\Stack\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack',
         ),
     );
 
@@ -271,10 +292,6 @@ class ComposerStaticInitDrupal8
             array (
                 0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
             ),
-            'Doctrine\\Common\\Inflector\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
-            ),
             'Doctrine\\Common\\Collections\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
@@ -282,13 +299,6 @@ class ComposerStaticInitDrupal8
             'Doctrine\\Common\\Annotations\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/annotations/lib',
-            ),
-        ),
-        'A' => 
-        array (
-            'Asm89\\Stack' => 
-            array (
-                0 => __DIR__ . '/..' . '/asm89/stack-cors/src',
             ),
         ),
     );
