@@ -41,9 +41,12 @@ dependencies:
   - webform
   - token
   - group
+  - gnode
   - clamav
   - sendgrid_integration
   - filebrowser
+  - rules
+  - typed_data
 themes:
   - bartik
   - seven
