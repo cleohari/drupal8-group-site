@@ -47,6 +47,7 @@ dependencies:
   - filebrowser
   - rules
   - typed_data
+  - redis
 themes:
   - bartik
   - seven
