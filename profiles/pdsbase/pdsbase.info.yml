@@ -47,6 +47,21 @@ dependencies:
   - filebrowser
   - rules
   - typed_data
+  - metatag_views
+  - metatag_open_graph
+  - metatag_hreflang
+  - metatag_google_plus
+  - metatag_mobile
+  - metatag_favicons
+  - metatag_facebook
+  - metatag_dc_advanced
+  - metatag_dc
+  - metatag
+  - metatag_verification
+  - metatag_google_cse
+  - metatag_twitter_cards
+  - metatag_app_links
+
 themes:
   - bartik
   - seven
