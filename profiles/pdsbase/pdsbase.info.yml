@@ -39,8 +39,12 @@ dependencies:
   - tour
   - automated_cron
   - webform
+  - webform_ui
+  - webform_bootstrap
+  - webform_node
   - token
   - group
+  - group_node
   - gnode
   - clamav
   - sendgrid_integration
@@ -48,6 +52,29 @@ dependencies:
   - rules
   - typed_data
   - redis
+  - ctools
+  - ctools_blocks
+  - panels
+  - panels_ui
+  - entity_browser
+  - page_manager
+  - page_manager_ui
+  - layout_discovery
+  - metatag_views
+  - metatag_open_graph
+  - metatag_hreflang
+  - metatag_google_plus
+  - metatag_mobile
+  - metatag_favicons
+  - metatag_facebook
+  - metatag_dc_advanced
+  - metatag_dc
+  - metatag
+  - metatag_verification
+  - metatag_google_cse
+  - metatag_twitter_cards
+  - metatag_app_links
+
 themes:
   - bartik
   - seven
