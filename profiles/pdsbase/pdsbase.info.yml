@@ -73,6 +73,7 @@ dependencies:
   - metatag_google_cse
   - metatag_twitter_cards
   - metatag_app_links
+  - pathauto
 
 themes:
   - bartik
