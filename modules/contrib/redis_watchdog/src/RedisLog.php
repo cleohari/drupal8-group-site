@@ -1,5 +1,7 @@
 <?php
 
+namespace Drupal\redis_watchdog\redis;
+
 /**
  * Class RedisLog
  *
