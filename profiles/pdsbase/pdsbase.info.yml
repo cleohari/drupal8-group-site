@@ -39,14 +39,26 @@ dependencies:
   - tour
   - automated_cron
   - webform
+  - webform_ui
+  - webform_bootstrap
+  - webform_node
   - token
   - group
+  - group_node
   - gnode
   - clamav
   - sendgrid_integration
   - filebrowser
   - rules
   - typed_data
+  - ctools
+  - ctools_blocks
+  - panels
+  - panels_ui
+  - entity_browser
+  - page_manager
+  - page_manager_ui
+  - layout_discovery
   - metatag_views
   - metatag_open_graph
   - metatag_hreflang
