@@ -1,6 +1,8 @@
 <?php
 
-namespace Drupal\redis_watchdog\redis;
+namespace Drupal\redis_watchdog;
+use Drupal\redis;
+use Drupal\redis\ClientFactory as RedisClient;
 
 /**
  * Class RedisLog
@@ -19,8 +21,10 @@ class RedisLog {
 
   protected $archivelimit;
 
-  public function __construct($prefix = '', $recentlength = 100, $archivelimit = 5000) {
-    $this->client = Redis_Client::getManager()->getClient();
+  public function __construct($prefix = '', $recentlength = 200, $archivelimit = 5000) {
+    // @todo remove this when converstion to Drupal 8 is finished.
+    // $this->client = Redis_Client::getManager()->getClient();
+    $this->client = RedisClient::getClient();
     if (!empty($prefix)) {
       $this->key = 'drupal:watchdog:' . $prefix . ':';
     }
