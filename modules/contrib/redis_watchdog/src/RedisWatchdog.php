@@ -1,7 +1,9 @@
 <?php
 
 namespace Drupal\redis_watchdog;
-use Drupal\redis_watchdog\redis;
+
+use Drupal\redis_watchdog as Redis;
+use Drupal\Component\Utility as Util;
 
 class RedisWatchdog {
 
@@ -11,11 +13,12 @@ class RedisWatchdog {
    * @return object
    */
 
-  public function redis_watchdog_client() {
-    $prefix = variable_get('redis_watchdogprefix', '');
-    $limit = variable_get('redis_watchdogrecentlimit', 200);
-    $archive = variable_get('redis_watchdogarchivelimit', 5000);
-    $client = new Drupal\redis_watchdog\redis($prefix, $limit, $archive);
+  public static function redis_watchdog_client() {
+    $config = \Drupal::config('redis_watchdog.settings');
+    $prefix = $config->get('watchdogprefix');
+    $limit = $config->get('recentlimit');
+    $archive = $config->get('archivelimit');
+    $client = new Redis\RedisLog($prefix, $limit, $archive);
     return $client;
   }
 
@@ -25,8 +28,8 @@ class RedisWatchdog {
    * @return string
    */
 
-  public function redis_watchdog_csv_export() {
-    $client = redis_watchdog_client();
+  public static function redis_watchdog_csv_export() {
+    $client = self::redis_watchdog_client();
     $logs_to_export = $client->getAllMessages();
     ob_start();
     $df = fopen('php://output', 'w');
@@ -41,14 +44,13 @@ class RedisWatchdog {
   }
 
 
-
   /**
    * Sets the page headers to force the browser to download a file.
    *
    * @param string $filename
    */
-  public function redis_watchdog_download_send_headers($filename) {
-    $filename = filter_xss($filename);
+  public static function redis_watchdog_download_send_headers($filename) {
+    $filename = Util\Xss::filter($filename);
     // Disable caching.
     $now = gmdate('D, d M Y H:i:s');
     header('Expires: Tue, 03 Jul 2001 06:00:00 GMT');
@@ -65,13 +67,13 @@ class RedisWatchdog {
     header('Content-Transfer-Encoding: binary');
   }
 
-   /**
+  /**
    * Destroys all Redis information.
    *
    * @return bool
    */
-  public function redis_watchdog_redis_destroy() {
-    $client = redis_watchdog_client();
+  public static function redis_watchdog_redis_destroy() {
+    $client = self::redis_watchdog_client();
     if ($client->clear()) {
       return TRUE;
     }
@@ -85,7 +87,7 @@ class RedisWatchdog {
    *
    * @return array|mixed
    */
-  public function _redis_watchdog_get_message_types() {
+  public function get_message_types() {
     $log = $this->redis_watchdog_client();
     return $log->getMessageTypes();
   }
@@ -95,7 +97,7 @@ class RedisWatchdog {
    *
    * @return array|mixed
    */
-  public function _redis_watchdog_get_message_types_count() {
+  public function get_message_types_count() {
     $log = $this->redis_watchdog_client();
     return $log->getMessageTypesCounts();
   }
