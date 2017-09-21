@@ -1,0 +1,9 @@
+name: CKEditor Addin Placeholder Select
+type: module
+description: This plugin adds in the Placeholder Select plugin and enhances it to pull from a custom set of tokens
+core: 8.x
+package: CKEditor
+version: 8.x-1.x-dev
+dependencies:
+  - ckeditor
+  - libraries
