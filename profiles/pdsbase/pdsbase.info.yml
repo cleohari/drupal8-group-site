@@ -42,9 +42,11 @@ dependencies:
   - webform_ui
   - webform_bootstrap
   - webform_node
+  - book
+  - rules
   - token
   - group
-  - group_node
+  - gnode
   - gnode
   - clamav
   - sendgrid_integration
@@ -53,9 +55,9 @@ dependencies:
   - typed_data
   - redis
   - ctools
-  - ctools_blocks
+  - ctools_block
   - panels
-  - panels_ui
+  - panels_ipe
   - entity_browser
   - page_manager
   - page_manager_ui
@@ -74,6 +76,7 @@ dependencies:
   - metatag_google_cse
   - metatag_twitter_cards
   - metatag_app_links
+  - pathauto
 
 themes:
   - bartik
