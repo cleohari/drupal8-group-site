@@ -2,22 +2,63 @@
 
 namespace Drupal\redis_watchdog;
 
+use Drupal\Component\Utility\Unicode;
 use Drupal\redis\ClientFactory as RedisClient;
 use Psr\Log\AbstractLogger;
+use Drupal\Core\Logger\LogMessageParserInterface;
 
 
 class RedisWatchdogLogger extends AbstractLogger
 {
 
+    /**
+     * Redis client object.
+     *
+     * @var object
+     */
     protected $client;
 
+    /**
+     * The key to use for Redis calls. Always starts with drupal:watchdog.
+     *
+     * @var string
+     */
     protected $key;
 
+    /**
+     * Array of names of the log types.
+     *
+     * @var array
+     */
     protected $types = [];
 
+    /**
+     * The limit of the recent logs to show and store.
+     *
+     * @var int
+     */
     protected $recent;
 
+    /**
+     * Limit of each log type to keep.
+     *
+     * @var int
+     */
     protected $archivelimit;
+
+    /**
+     * The count of messages per type.
+     *
+     * @var int
+     */
+    protected $typescount;
+
+    /**
+     * The message's placeholders parser.
+     *
+     * @var \Drupal\Core\Logger\LogMessageParserInterface
+     */
+    protected $parser;
 
     public function __construct($prefix = '', $recentlength = 200, $archivelimit = 5000)
     {
@@ -45,7 +86,9 @@ class RedisWatchdogLogger extends AbstractLogger
         // translated too in runtime.
         $message_placeholders = $this->parser->parseMessagePlaceholders($message, $context);
 
-        $log_entry = [
+        $wid = $this->getPushLogCounter();
+        $message = [
+            'wid' => $wid,
             'uid' => $context['uid'],
             'type' => Unicode::substr($context['channel'], 0, 64),
             'message' => $message,
@@ -56,23 +99,6 @@ class RedisWatchdogLogger extends AbstractLogger
             'referer' => $context['referer'],
             'hostname' => Unicode::substr($context['ip'], 0, 128),
             'timestamp' => $context['timestamp'],
-        ];
-
-        // The user object may not exist in all conditions, so 0 is substituted if needed.
-        $user_uid = isset($log_entry['user']->uid) ? $log_entry['user']->uid : 0;
-        $wid = $this->getPushLogCounter();
-        $message = [
-            'wid' => $wid,
-            'uid' => $user_uid,
-            'type' => substr($log_entry['type'], 0, 64),
-            'message' => $log_entry['message'],
-            'variables' => serialize($log_entry['variables']),
-            'severity' => $log_entry['severity'],
-            'link' => substr($log_entry['link'], 0, 255),
-            'location' => $log_entry['request_uri'],
-            'referer' => $log_entry['referer'],
-            'hostname' => substr($log_entry['ip'], 0, 128),
-            'timestamp' => $log_entry['timestamp'],
         ];
 
         // Record the type only if it doesn't already exist in the hash.
@@ -129,7 +155,7 @@ class RedisWatchdogLogger extends AbstractLogger
 
     /**
      * Returns the value of the typeid counter. This will indicate the number of
-     * types stored
+     * types stored.
      *
      * @return integer
      *
@@ -166,9 +192,9 @@ class RedisWatchdogLogger extends AbstractLogger
     }
 
     /**
-     * Return the count of messages per type
+     * Return the count of messages per type.
      *
-     * @return array
+     * @return int
      */
     public function getMessageTypesCounts()
     {
@@ -183,7 +209,7 @@ class RedisWatchdogLogger extends AbstractLogger
     }
 
     /**
-     * Retrieve a single log entry
+     * Retrieve a single log entry.
      *
      * @param int $wid
      *  Log key ID number.
@@ -270,7 +296,6 @@ class RedisWatchdogLogger extends AbstractLogger
      *
      * @return array
      */
-
     public function getAllMessages()
     {
         $types = $this->getMessageTypes();
@@ -331,6 +356,4 @@ class RedisWatchdogLogger extends AbstractLogger
             return FALSE;
         }
     }
-
-
 }
