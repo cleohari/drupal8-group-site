@@ -72,3 +72,28 @@ function pdsbase_install() {
   // Enable the admin theme.
   \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
 }
+
+
+/**
+ * Implements hook_install_tasks().
+ */
+
+function pdsbase_install_tasks($install_state) {
+  return [
+    'pdsbase_cleanup' => [
+      'display_name' => t('Rebuild and Cleanup'),
+      'display' => TRUE,
+      'run' => INSTALL_TASK_RUN_IF_NOT_COMPLETED,
+      'type' => 'batch',
+      'function' => 'pds_cleanup_tasks',
+    ],
+  ];
+}
+
+
+/**
+ * This function rebuilds all the node permissions.
+ */
+function pds_cleanup_tasks() {
+  node_access_rebuild();
+}
