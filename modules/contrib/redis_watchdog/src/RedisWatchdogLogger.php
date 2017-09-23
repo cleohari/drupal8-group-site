@@ -60,16 +60,19 @@ class RedisWatchdogLogger extends AbstractLogger
      */
     protected $parser;
 
-    public function __construct($prefix = '', $recentlength = 200, $archivelimit = 5000)
+    public function __construct(RedisClient $redis, $prefix = '', $recentlength = 200, $archivelimit = 5000)
     {
         // @todo remove this when converstion to Drupal 8 is finished.
         // $this->client = Redis_Client::getManager()->getClient();
-        $this->client = RedisClient::getClient();
-        if (!empty($prefix)) {
-            $this->key = 'drupal:watchdog:' . $prefix . ':';
-        } else {
-            $this->key = 'drupal:watchdog';
-        }
+        // $this->client = RedisClient::getClient();
+        // if (!empty($prefix)) {
+        //     $this->key = 'drupal:watchdog:' . $prefix . ':';
+        // } else {
+        //     $this->key = 'drupal:watchdog';
+        // }
+
+        $this->client = $redis;
+        $this->key = (!empty($prefix)) ? 'drupal:watchdog:' . $prefix . ':' :  'drupal:watchdog:';
         $this->recent = $recentlength;
         $this->archivelimit = $archivelimit;
     }
