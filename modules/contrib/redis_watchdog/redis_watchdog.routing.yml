@@ -9,7 +9,7 @@ redis_watchdog.logs:
 redis_watchdog.event:
   path: 'admin/reports/redislog/event/{event_id}'
   defaults:
-    _form: '\Drupal\redis_watchdog\Pages\EventDetails::buildEventForm'
+    _form: '\Drupal\redis_watchdog\Form\EventDetails::buildEventForm'
     _title: 'Redis Log Event Details'
    requirements:
     _permission: 'access site reports'
