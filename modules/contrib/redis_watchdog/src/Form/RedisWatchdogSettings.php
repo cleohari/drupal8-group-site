@@ -44,7 +44,7 @@ class RedisWatchdogSettings extends ConfigFormBase {
       '#description' => t('You may specify a prefix if you are using a single Redis server for multiple sites. This will add a prefix to the beginning of the keys.'),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
-      '#default_value' => $config->get('redis_watchdogprefix'),
+      '#default_value' => $config->get('prefix'),
     ];
     $form['watchdog']['redis_watchdogrecentlimit'] = [
       '#type' => 'textfield',
@@ -53,7 +53,7 @@ class RedisWatchdogSettings extends ConfigFormBase {
       '#description' => t('This is a limit on the display of recent logs in the default log view. This can be any number, but the larger the number the larger the dataset that is pulled into the default log page.'),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
-      '#default_value' => $config->get('redis_watchdogrecentlimit'),
+      '#default_value' => $config->get('recentlimit'),
     ];
     $form['watchdog']['redis_watchdogtypepagelimit'] = [
       '#type' => 'textfield',
@@ -62,7 +62,7 @@ class RedisWatchdogSettings extends ConfigFormBase {
       '#description' => t('Page size for view logs of a specific type.'),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
-      '#default_value' => $config->get('redis_watchdogrecentlimit'),
+      '#default_value' => $config->get('pagelimit'),
     ];
     $form['watchdog']['redis_watchdogarchivelimit'] = [
       '#type' => 'textfield',
@@ -71,7 +71,7 @@ class RedisWatchdogSettings extends ConfigFormBase {
       '#description' => t('This is the limit on the amount of logs that will be saved for any log type.'),
       '#collapsible' => TRUE,
       '#collapsed' => TRUE,
-      '#default_value' => $config->get('redis_watchdogarchivelimit'),
+      '#default_value' => $config->get('archivelimit'),
     ];
     return $form;
   }
@@ -84,10 +84,10 @@ class RedisWatchdogSettings extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     \Drupal::configFactory()->getEditable('redis_watchdog.serttings')
-      ->set('redis_watchdogprefix', $form_state->getValue('redis_watchdogprefix'))
-      ->set('redis_watchdogrecentlimit', $form_state->getValue('redis_watchdogrecentlimit'))
-      ->set('redis_watchdogtypepagelimit', $form_state->getValue('redis_watchdogtypepagelimit'))
-      ->set('redis_watchdogarchivelimit', $form_state->getValue('redis_watchdogarchivelimit'))
+      ->set('prefix', $form_state->getValue('redis_watchdogprefix'))
+      ->set('recentlimit', $form_state->getValue('redis_watchdogrecentlimit'))
+      ->set('pagelimit', $form_state->getValue('redis_watchdogtypepagelimit'))
+      ->set('archivelimit', $form_state->getValue('redis_watchdogarchivelimit'))
       ->save();
     parent::submitForm($form, $form_state);
   }
