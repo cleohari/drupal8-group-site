@@ -3,6 +3,7 @@ type: module
 description: 'Redis storage for watchdog logs.'
 core: 8.x
 package: 'Performance'
+configure: redis_watchdog.settings
 dependencies:
   - redis
 php: 7.0
