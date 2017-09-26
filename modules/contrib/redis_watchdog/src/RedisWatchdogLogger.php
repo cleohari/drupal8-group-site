@@ -5,6 +5,7 @@ namespace Drupal\redis_watchdog;
 use Drupal\Component\Utility\Unicode;
 use Drupal\redis\ClientFactory as RedisClient;
 use Psr\Log\AbstractLogger;
+use Drupal\Core\Logger\RfcLogLevel;
 
 
 class RedisWatchdogLogger extends AbstractLogger {
