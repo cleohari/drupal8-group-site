@@ -6,7 +6,7 @@ use Drupal\Component\Utility as Util;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\redis_watchdog as rWatch;
-use Drupal\redis_watchdog\Form;
+use Drupal\redis_watchdog\Form as rForm;
 
 class RedisWatchdogOverview extends FormBase {
 
@@ -81,7 +81,7 @@ class RedisWatchdogOverview extends FormBase {
       // $typeid = check_plain(array_pop($_SESSION['redis_watchdog_overview_filter']['type']));
       $typeid = Util\SafeMarkup::checkPlain(array_pop($_SESSION['redis_watchdog_overview_filter']['type']));
       // $build['redis_watchdog_table'] = redis_watchdog_type($typeid);
-      $build['redis_watchdog_table'] = \Drupal\redis_watchdog\Form\TypeDetailsForm($typeid);
+      $build['redis_watchdog_table'] = rForm\TypeDetailsForm::buildTypeForm($typeid);
     }
     else {
       $build['redis_watchdog_table'] = [
