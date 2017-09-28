@@ -6,6 +6,7 @@ use Drupal\Component\Utility as Util;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\redis_watchdog as rWatch;
+use Drupal\redis_watchdog\Form;
 
 class RedisWatchdogOverview extends FormBase {
 
@@ -32,7 +33,7 @@ class RedisWatchdogOverview extends FormBase {
     ];
     // @todo remove when working
     // $log = redis_watchdog_client();
-    $log = rWatch\redis_watchdog_client();
+    $log = rWatch\RedisWatchdog::redis_watchdog_client();
     $result = $log->getRecentLogs();
     foreach ($result as $log) {
       $rows[] = [
@@ -42,8 +43,16 @@ class RedisWatchdogOverview extends FormBase {
             ['class' => 'icon'],
             t($log->type),
             \Drupal::service('date.formater')->format($log->timestamp, 'short'),
-            theme('redis_watchdog_message', ['event' => $log, 'link' => TRUE]),
-            theme('username', ['account' => $log]),
+            // theme('redis_watchdog_message', ['event' => $log, 'link' => TRUE]),
+            [
+              '#theme' => 'redis_watchdog_message',
+              ['event' => $log, 'link' => TRUE],
+            ],
+            // theme('username', ['account' => $log]),
+            [
+              '#theme' => 'username',
+              ['account' => $log],
+            ],
             Util\Xss::filter($log->link),
           ],
         // Attributes for tr
@@ -56,18 +65,23 @@ class RedisWatchdogOverview extends FormBase {
 
     // Log type selector menu.
     // $build['redis_watchdog_filter_form'] = drupal_get_form('redis_watchdog_filter_form');
-    $build['redis_watchdog_filter_form'] = \Drupal::formBuilder()->getForm($this->filterForm());
+    $build['redis_watchdog_filter_form'] = \Drupal::formBuilder()
+      ->getForm($this->filterForm($form));
     // Clear log form.
     // $build['redis_watchdog_clear_log_form'] = drupal_get_form('redis_watchdog_clear_log_form');
-    $build['redis_watchdog_filter_form'] = \Drupal::formBuilder()->getForm($this->redis_watchdog_clear_log_form());
+    $build['redis_watchdog_filter_form'] = \Drupal::formBuilder()
+      ->getForm($this->redis_watchdog_clear_log_form($form));
 
 
     // Summary of log types stored and the number of items in the log.
     $build['redis_watchdog_type_count_table'] = redis_watchdog_log_type_count_table();
 
     if (isset($_SESSION['redis_watchdog_overview_filter']['type']) && !empty($_SESSION['redis_watchdog_overview_filter']['type'])) {
-      $typeid = check_plain(array_pop($_SESSION['redis_watchdog_overview_filter']['type']));
-      $build['redis_watchdog_table'] = redis_watchdog_type($typeid);
+      // @todo remove this if it works
+      // $typeid = check_plain(array_pop($_SESSION['redis_watchdog_overview_filter']['type']));
+      $typeid = Util\SafeMarkup::checkPlain(array_pop($_SESSION['redis_watchdog_overview_filter']['type']));
+      // $build['redis_watchdog_table'] = redis_watchdog_type($typeid);
+      $build['redis_watchdog_table'] = \Drupal\redis_watchdog\Form\TypeDetailsForm($typeid);
     }
     else {
       $build['redis_watchdog_table'] = [
