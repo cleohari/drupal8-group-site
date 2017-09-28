@@ -1,12 +1,13 @@
 <?php
 
 namespace Drupal\redis_watchdog\Form;
+
+use Drupal\Component\Utility as Util;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\redis_watchdog as rWatch;
-use Drupal\Component\Utility as Util;
 
-class RedisWatchdogOverview extends FormBase{
+class RedisWatchdogOverview extends FormBase {
 
   public function buildForm(array $form, FormStateInterface $form_state) {
     $rows = [];
@@ -96,7 +97,7 @@ class RedisWatchdogOverview extends FormBase{
     // TODO: Implement submitForm() method.
   }
 
-  private function filterForm($form){
+  private function filterForm($form) {
     // Message types.
     // @todo remove this once working
     // $wd_types = _redis_watchdog_get_message_types();
