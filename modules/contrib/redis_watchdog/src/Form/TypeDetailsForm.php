@@ -36,7 +36,9 @@ class TypeDetailsForm extends ControllerBase {
       ['data' => t('User'), 'field' => 'u.name'],
       ['data' => t('Operations')],
     ];
-    $log = redis_watchdog_client();
+    // @todo remove when working
+    // $log = redis_watchdog_client();
+    // $log = rWatch\RedisWatchdog::redis_watchdog_client();
     // @todo pagination needed
     $result = $log->getMultipleByType($pagesize, $tid);
     foreach ($result as $log) {
@@ -48,8 +50,16 @@ class TypeDetailsForm extends ControllerBase {
             t($log->type),
             \Drupal::service('date.formatter')
               ->format($log->timestamp, 'short'),
-            theme('redis_watchdog_message', ['event' => $log, 'link' => TRUE]),
-            theme('username', ['account' => $log]),
+            // theme('redis_watchdog_message', ['event' => $log, 'link' => TRUE]),
+            [
+              '#theme' => 'redis_watchdog_message',
+              ['event' => $log, 'link' => TRUE],
+            ],
+            // theme('username', ['account' => $log]),
+            [
+              '#theme' => 'username',
+              ['account' => $log],
+            ],
             Util\Xss::filter($log->link),
           ],
         // Attributes for tr
