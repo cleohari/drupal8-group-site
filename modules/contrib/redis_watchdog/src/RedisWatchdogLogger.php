@@ -6,6 +6,7 @@ use Drupal\Component\Utility\Unicode;
 use Drupal\redis\ClientFactory as RedisClient;
 use Psr\Log\AbstractLogger;
 use Drupal\Core\Logger\RfcLogLevel;
+use Drupal\Core\Logger\LogMessageParserInterface;
 
 
 class RedisWatchdogLogger extends AbstractLogger {
@@ -74,12 +75,19 @@ class RedisWatchdogLogger extends AbstractLogger {
   protected $prefix;
 
   /**
+   * Limit for pagination of results.
+   *
+   * @var string
+   */
+  protected $pagelimit;
+
+  /**
    * Set the hash key.
    *
    * @param string $key
    */
   public function setKey(string $key) {
-    $this->key = (!empty($prefix)) ? 'drupal:watchdog:' . $prefix . ':' : 'drupal:watchdog:';
+    $this->key = (!empty($this->prefix)) ? 'drupal:watchdog:' . $this->prefix . ':' : 'drupal:watchdog:';
   }
 
   /**
@@ -145,7 +153,25 @@ class RedisWatchdogLogger extends AbstractLogger {
     return $this->recent;
   }
 
-  public function __construct(RedisClient $redis, $prefix = '', $recentlength = 200, $archivelimit = 5000, LogMessageParserInterface $parser) {
+  /**
+   * Set the page limit.
+   *
+   * @param int $limit
+   */
+  public function setPageLimit(int $limit) {
+    $this->pagelimit = $limit;
+  }
+
+  /**
+   * Return the page limit.
+   *
+   * @return string
+   */
+  public function getPageLimit() {
+    return $this->pagelimit;
+  }
+
+  public function __construct(RedisClient $redis, LogMessageParserInterface $parser) {
     // @todo remove this when converstion to Drupal 8 is finished.
     // $this->client = Redis_Client::getManager()->getClient();
     // $this->client = RedisClient::getClient();
@@ -155,10 +181,12 @@ class RedisWatchdogLogger extends AbstractLogger {
     //     $this->key = 'drupal:watchdog';
     // }
 
+    $config = \Drupal::config('redis_watchdog.settings');
+    $this->setRecentLength($config->get('prefix'));
+    $this->setArchiveLimit($config->get('archivelimit'));
+    $this->setPrefix($config->get('prefix'));
+
     $this->client = $redis;
-    $this->key = (!empty($prefix)) ? 'drupal:watchdog:' . $prefix . ':' : 'drupal:watchdog:';
-    $this->recent = $recentlength;
-    $this->archivelimit = $archivelimit;
     $this->parser = $parser;
   }
 
