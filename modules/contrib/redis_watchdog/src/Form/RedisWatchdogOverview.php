@@ -79,7 +79,7 @@ class RedisWatchdogOverview extends FormBase {
     if (isset($_SESSION['redis_watchdog_overview_filter']['type']) && !empty($_SESSION['redis_watchdog_overview_filter']['type'])) {
       // @todo remove this if it works
       // $typeid = check_plain(array_pop($_SESSION['redis_watchdog_overview_filter']['type']));
-      $typeid = Util\SafeMarkup::checkPlain(array_pop($_SESSION['redis_watchdog_overview_filter']['type']));
+      $typeid = (int) Util\SafeMarkup::checkPlain(array_pop($_SESSION['redis_watchdog_overview_filter']['type']));
       // $build['redis_watchdog_table'] = redis_watchdog_type($typeid);
       $build['redis_watchdog_table'] = rForm\TypeDetailsForm::buildTypeForm($typeid);
     }
