@@ -11,6 +11,13 @@ use Drupal\Core\Logger\RfcLogLevel;
 class RedisWatchdogLogger extends AbstractLogger {
 
   /**
+   * Redis connection.
+   *
+   * @var object
+   */
+  protected $redis;
+
+  /**
    * Redis client object.
    *
    * @var object
@@ -59,7 +66,86 @@ class RedisWatchdogLogger extends AbstractLogger {
    */
   protected $parser;
 
-  public function __construct(RedisClient $redis, $prefix = '', $recentlength = 200, $archivelimit = 5000) {
+  /**
+   * Prefix to the hash tables.
+   *
+   * @var string
+   */
+  protected $prefix;
+
+  /**
+   * Set the hash key.
+   *
+   * @param string $key
+   */
+  public function setKey(string $key) {
+    $this->key = (!empty($prefix)) ? 'drupal:watchdog:' . $prefix . ':' : 'drupal:watchdog:';
+  }
+
+  /**
+   * Get the hash key.
+   *
+   * @return string
+   */
+  public function getKey() {
+    return $this->key;
+  }
+
+  /**
+   * Set the prefix of the hash keys.
+   *
+   * @param string $prefix
+   */
+  public function setPrefix(string $prefix) {
+    $this->prefix = $prefix;
+  }
+
+  /**
+   * Get the prefix of the hash key.
+   *
+   * @return string
+   */
+  public function getPrefix() {
+    return $this->prefix;
+  }
+
+  /**
+   * Set the archive limit.
+   *
+   * @param int $limit
+   */
+  public function setArchiveLimit(int $limit) {
+    $this->archivelimit = $limit;
+  }
+
+  /**
+   * Get the archive limit.
+   *
+   * @return int
+   */
+  public function getArchiveLimit() {
+    return $this->archivelimit;
+  }
+
+  /**
+   * Set the recent log limit.
+   *
+   * @param int $length
+   */
+  public function setRecentLength(int $length) {
+    $this->recent = $length;
+  }
+
+  /**
+   * Get the recent log limit.
+   *
+   * @return int
+   */
+  public function getRecentLength() {
+    return $this->recent;
+  }
+
+  public function __construct(RedisClient $redis, $prefix = '', $recentlength = 200, $archivelimit = 5000, LogMessageParserInterface $parser) {
     // @todo remove this when converstion to Drupal 8 is finished.
     // $this->client = Redis_Client::getManager()->getClient();
     // $this->client = RedisClient::getClient();
@@ -73,7 +159,9 @@ class RedisWatchdogLogger extends AbstractLogger {
     $this->key = (!empty($prefix)) ? 'drupal:watchdog:' . $prefix . ':' : 'drupal:watchdog:';
     $this->recent = $recentlength;
     $this->archivelimit = $archivelimit;
+    $this->parser = $parser;
   }
+
 
   /**
    * {@inheritDoc}
