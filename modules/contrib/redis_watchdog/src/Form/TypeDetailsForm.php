@@ -4,6 +4,7 @@ namespace Drupal\redis_watchdog\Form;
 
 use Drupal\Component\Utility as Util;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\redis_watchdog as rWatch;
 
 
 class TypeDetailsForm extends ControllerBase {
@@ -38,7 +39,7 @@ class TypeDetailsForm extends ControllerBase {
     ];
     // @todo remove when working
     // $log = redis_watchdog_client();
-    // $log = rWatch\RedisWatchdog::redis_watchdog_client();
+    $log = rWatch\RedisWatchdog::redis_watchdog_client();
     // @todo pagination needed
     $result = $log->getMultipleByType($pagesize, $tid);
     foreach ($result as $log) {
