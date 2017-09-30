@@ -181,11 +181,14 @@ class RedisWatchdogLogger extends AbstractLogger {
     //     $this->key = 'drupal:watchdog';
     // }
 
+    // Set class variables from the Drupal configuration.
     $config = \Drupal::config('redis_watchdog.settings');
     $this->setRecentLength($config->get('prefix'));
     $this->setArchiveLimit($config->get('archivelimit'));
     $this->setPrefix($config->get('prefix'));
+    $this->setPageLimit($config->get('pagelimit'));
 
+    // Set the client and parser.
     $this->client = $redis;
     $this->parser = $parser;
   }
@@ -215,7 +218,7 @@ class RedisWatchdogLogger extends AbstractLogger {
       'referer' => $context['referer'],
       'hostname' => Unicode::substr($context['ip'], 0, 128),
       'timestamp' => $context['timestamp'],
-    ];
+      ];
 
     // Record the type only if it doesn't already exist in the hash.
     if (!$this->client->hExists($this->key . ':type', $message['type'])) {
@@ -240,8 +243,6 @@ class RedisWatchdogLogger extends AbstractLogger {
     lTrim($this->key . ':logs:' . $tid, $this->archivelimit);
 
     $this->client->hSet($this->key, $wid, serialize($message));
-
-
   }
 
 
@@ -253,7 +254,6 @@ class RedisWatchdogLogger extends AbstractLogger {
    * @see https://github.com/phpredis/phpredis#hget
    */
   protected function getLogCounter() {
-
     return $this->client->hGet($this->key . ':counters', 'logs');
   }
 
