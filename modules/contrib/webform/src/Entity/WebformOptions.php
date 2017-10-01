@@ -21,7 +21,8 @@ use Drupal\webform\WebformOptionsInterface;
  *     "access" = "Drupal\webform\WebformOptionsAccessControlHandler",
  *     "list_builder" = "Drupal\webform\WebformOptionsListBuilder",
  *     "form" = {
- *       "default" = "Drupal\webform\WebformOptionsForm",
+ *       "add" = "Drupal\webform\WebformOptionsForm",
+ *       "edit" = "Drupal\webform\WebformOptionsForm",
  *       "duplicate" = "Drupal\webform\WebformOptionsForm",
  *       "delete" = "Drupal\Core\Entity\EntityDeleteForm",
  *     }
@@ -169,7 +170,7 @@ class WebformOptions extends ConfigEntityBase implements WebformOptionsInterface
   /**
    * {@inheritdoc}
    */
-  public static function getElementOptions(array $element, $property_name = '#options') {
+  public static function getElementOptions(array &$element, $property_name = '#options') {
     // If element already has #options return them.
     // NOTE: Only WebformOptions can be altered. If you need to alter an
     // element's options, @see hook_webform_element_alter().

@@ -32,6 +32,7 @@ class WebformLikert extends WebformElementBase {
     return [
       'title' => '',
       // General settings.
+      'help' => '',
       'description' => '',
       'default_value' => [],
       // Form display.
@@ -323,7 +324,7 @@ class WebformLikert extends WebformElementBase {
       return $this->formatHtml($element, $webform_submission);
     }
   }
-  
+
   /**
    * {@inheritdoc}
    */
@@ -341,7 +342,7 @@ class WebformLikert extends WebformElementBase {
       ],
     ];
   }
-  
+
   /**
    * {@inheritdoc}
    */

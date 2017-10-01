@@ -40,8 +40,9 @@ function webform_drush_command() {
       // Tabular export options.
       'header-keys' => 'Set to "label" (default) or "key"',
       'options-item-format' => 'Set to "label" (default) or "key". Set to "key" to print select list values by their keys instead of labels.',
-      'options-format' => 'Set to "separate" (default) or "compact" to determine how select list values are exported.',
-      'entity-reference-format' => 'Set to "link" (default) or "id" to determine how entity references are exported.',
+      'options-single-format' => 'Set to "separate" (default) or "compact" to determine how single select list values are exported.',
+      'options-multiple-format' => 'Set to "separate" (default) or "compact" to determine how multiple select list values are exported.',
+      'entity-reference-items' => 'Comma-separated list of entity reference items (id, title, and/or url) to be exported.',
       'excluded-columns' => 'Comma-separated list of component IDs or webform keys to exclude.',
       // Download options.
       'entity-type' => 'The entity type to which this submission was submitted from.',
@@ -87,9 +88,10 @@ function webform_drush_command() {
     'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_ROOT,
     'options' => [
       'dependencies' => 'Add module dependencies to installed webform and options configuration entities.',
+      'prefix' => 'Prefix for file names to be tidied. (Defaults to webform)'
     ],
     'arguments' => [
-      'module' => "The module that needs its YAML configuration files (config/install) tidied. (Defaults to webform)",
+      'module' => "The module (config/install) or config directory (sync) that needs its YAML configuration files tidied. (Defaults to webform)",
     ],
     'examples' => [
       'drush webform-tidy webform' => "Tidies YAML configuration files in 'webform/config' for the Webform module",
@@ -290,10 +292,14 @@ function drush_webform_export($webform_id = NULL) {
   $submission_exporter->setSourceEntity($source_entity);
 
   // Get command options as export options.
+  $default_options = $submission_exporter->getDefaultExportOptions();
   $export_options = drush_redispatch_get_options();
   // Convert dashes to underscores.
   foreach ($export_options as $key => $value) {
     unset($export_options[$key]);
+    if (isset($default_options[$key]) && is_array($default_options[$key])) {
+      $value = explode(',', $value);
+    }
     $export_options[str_replace('-', '_', $key)] = $value;
   }
   $export_options += $submission_exporter->getDefaultExportOptions();
@@ -407,12 +413,13 @@ function drush_webform_purge($webform_id = NULL) {
  * Implements drush_hook_COMMAND_validate().
  */
 function drush_webform_tidy_validate($module = 'webform') {
-  if (!file_exists(drupal_get_path('module', $module) . '/config')) {
+  global $config_directories;
+  if (!isset($config_directories[$module]) && !file_exists(drupal_get_path('module', $module) . '/config')) {
     $t_args = [
       '@module' => $module,
       '@directory' => drupal_get_path('module', $module) . '/config',
     ];
-    return drush_set_error(dt("@module does not contain a '@module/config' directory (@directory).", $t_args));
+    return drush_set_error(dt("@module does not contain a '@module/config' directory (@directory) or config directory does not exist.", $t_args));
   }
 }
 
@@ -420,10 +427,20 @@ function drush_webform_tidy_validate($module = 'webform') {
  * Implements drush_hook_COMMAND().
  */
 function drush_webform_tidy($module = 'webform') {
-  $dependencies = drush_get_option('dependencies');
-  $file_directory_path = drupal_get_path('module', $module) . '/config';
-  $files = file_scan_directory($file_directory_path, '/.*\.yml$/');
-  drush_print(dt('Reviewing @count YAML configuration files for the @module.module.', ['@count' => count($files), '@module' => $module]));
+  global $config_directories;
+  $prefix = drush_get_option('prefix', 'webform');
+
+  if (isset($config_directories[$module])) {
+    $file_directory_path = DRUPAL_ROOT . '/' . $config_directories[$module];
+    $dependencies = drush_get_option('dependencies');
+  }
+  else {
+    $file_directory_path = drupal_get_path('module', $module) . '/config';
+    $dependencies = FALSE;
+  }
+  $files = file_scan_directory($file_directory_path, ($prefix) ? '/^' . preg_quote($prefix, '/.') . '.*\.yml$/' : '/.*\.yml$/');
+  drush_print(dt("Reviewing @count YAML configuration '@prefix.*' files in '@module'.", ['@count' => count($files), '@module' => $module, '@prefix' => $prefix]));
+
   $total = 0;
   foreach ($files as $file) {
     $original_yaml = file_get_contents($file->uri);
@@ -694,7 +711,7 @@ function drush_webform_repair() {
   _webform_update_field_storage_definitions();
 
   drush_print('Repairing webform submission storage schema...');
-   _webform_update_webform_submission_storage_schema();
+  _webform_update_webform_submission_storage_schema();
 
   // Copied from: outside_in_install().
   drush_print('Repairing quick links...');

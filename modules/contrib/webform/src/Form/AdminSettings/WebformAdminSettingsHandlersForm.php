@@ -2,7 +2,6 @@
 
 namespace Drupal\webform\Form\AdminSettings;
 
-
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\webform\Plugin\WebformHandlerManagerInterface;
@@ -24,7 +23,7 @@ class WebformAdminSettingsHandlersForm extends WebformAdminSettingsBaseForm {
   /**
    * The webform token manager.
    *
-   *@var \Drupal\webform\WebformTokenManagerInterface
+   * @var \Drupal\webform\WebformTokenManagerInterface
    */
   protected $tokenManager;
 
@@ -116,6 +115,18 @@ class WebformAdminSettingsHandlersForm extends WebformAdminSettingsBaseForm {
       '#description' => $this->t("Enter an email address to which bounce messages are delivered. Leave blank to automatically use the 'From email' address."),
       '#default_value' => $config->get('mail.default_return_path'),
     ];
+    $form['mail']['default_sender_mail'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Default sender email'),
+      '#description' => $this->t('The default sender address for emailed webform results; often the email address of the maintainer of your forms. The person or agent submitting the message to the network, if other than shown by the From header'),
+      '#default_value' => $config->get('mail.default_sender_mail'),
+    ];
+    $form['mail']['default_sender_name'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Default sender name'),
+      '#description' => $this->t('The default sender name which is used along with the default sender address.'),
+      '#default_value' => $config->get('mail.default_sender_name'),
+    ];    
     $form['mail']['default_subject'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Default email subject'),
@@ -181,7 +192,5 @@ class WebformAdminSettingsHandlersForm extends WebformAdminSettingsBaseForm {
 
     parent::submitForm($form, $form_state);
   }
-
-
 
 }
