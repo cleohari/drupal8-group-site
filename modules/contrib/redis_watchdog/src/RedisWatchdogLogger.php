@@ -3,13 +3,19 @@
 namespace Drupal\redis_watchdog;
 
 use Drupal\Component\Utility\Unicode;
+use Drupal\Core\Logger\LogMessageParserInterface;
 use Drupal\redis\ClientFactory as RedisClient;
 use Psr\Log\AbstractLogger;
-use Drupal\Core\Logger\RfcLogLevel;
-use Drupal\Core\Logger\LogMessageParserInterface;
+// To be used in the near future.
+// use Drupal\Core\Logger\RfcLogLevel;
 
 
 class RedisWatchdogLogger extends AbstractLogger {
+
+  /**
+   * Prefix to use on keys.
+   */
+  const REDISPREFIX = 'drupal:';
 
   /**
    * Redis connection.
@@ -83,11 +89,9 @@ class RedisWatchdogLogger extends AbstractLogger {
 
   /**
    * Set the hash key.
-   *
-   * @param string $key
    */
-  public function setKey(string $key) {
-    $this->key = (!empty($this->prefix)) ? 'drupal:watchdog:' . $this->prefix . ':' : 'drupal:watchdog:';
+  public function setKey() {
+    $this->key = (!empty($this->prefix)) ? self::REDISPREFIX . ':' . $this->prefix . ':' : self::REDISPREFIX . ':';
   }
 
   /**
@@ -185,7 +189,10 @@ class RedisWatchdogLogger extends AbstractLogger {
     $config = \Drupal::config('redis_watchdog.settings');
     $this->setRecentLength($config->get('prefix'));
     $this->setArchiveLimit($config->get('archivelimit'));
+    // Set the prefix to the key.
     $this->setPrefix($config->get('prefix'));
+    // Now the prefix is set, set the key.
+    $this->setKey();
     $this->setPageLimit($config->get('pagelimit'));
 
     // Set the client and parser.
@@ -218,7 +225,7 @@ class RedisWatchdogLogger extends AbstractLogger {
       'referer' => $context['referer'],
       'hostname' => Unicode::substr($context['ip'], 0, 128),
       'timestamp' => $context['timestamp'],
-      ];
+    ];
 
     // Record the type only if it doesn't already exist in the hash.
     if (!$this->client->hExists($this->key . ':type', $message['type'])) {
