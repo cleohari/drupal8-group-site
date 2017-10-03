@@ -25,6 +25,7 @@ abstract class WebformComputedBase extends WebformElementBase implements Webform
       // Markup settings.
       'display_on' => static::DISPLAY_ON_BOTH,
       // General settings.
+      'help' => '',
       'title' => '',
       'description' => '',
       // Form display.
@@ -92,7 +93,7 @@ abstract class WebformComputedBase extends WebformElementBase implements Webform
   public function getValue(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
     if (!empty($element['#store'])) {
       // Get stored value if it is set.
-      $value = $webform_submission->getData($element['#webform_key']);
+      $value = $webform_submission->getElementData($element['#webform_key']);
       if (isset($value)) {
         return $value;
       }

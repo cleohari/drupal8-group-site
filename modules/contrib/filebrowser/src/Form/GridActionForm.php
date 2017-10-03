@@ -80,7 +80,7 @@ class GridActionForm extends FormBase {
   protected $error;
 
   public function getFormId() {
-    return 'action_form';
+    return 'grid_action_form';
   }
 
   /**

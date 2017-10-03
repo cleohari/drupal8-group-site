@@ -135,6 +135,7 @@ handlers:
     label: 'Select yes option'
     handler_id: select
     status: true
+    conditions: {  }
     weight: 0
     settings:
       states:
@@ -160,11 +161,14 @@ handlers:
       debug: true
       reply_to: ''
       return_path: ''
+      sender_mail: ''
+      sender_name: ''
   empty:
     id: email
     label: 'Select empty'
     handler_id: empty
     status: true
+    conditions: {  }
     weight: 0
     settings:
       states:
@@ -190,11 +194,14 @@ handlers:
       debug: true
       reply_to: ''
       return_path: ''
+      sender_mail: ''
+      sender_name: ''
   default:
     id: email
     label: 'Select default'
     handler_id: empty
     status: true
+    conditions: {  }
     weight: 0
     settings:
       states:
@@ -220,11 +227,14 @@ handlers:
       debug: true
       reply_to: ''
       return_path: ''
+      sender_mail: ''
+      sender_name: ''
   checkboxes:
     id: email
     label: Checkboxes
     handler_id: checkboxes
     status: true
+    conditions: {  }
     weight: 1
     settings:
       states:
@@ -252,11 +262,14 @@ handlers:
       debug: true
       reply_to: ''
       return_path: ''
+      sender_mail: ''
+      sender_name: ''
   radios_other:
     id: email
     label: 'Radios other'
     handler_id: radios_other
     status: true
+    conditions: {  }
     weight: 2
     settings:
       states:
@@ -282,3 +295,5 @@ handlers:
       debug: true
       reply_to: ''
       return_path: ''
+      sender_mail: ''
+      sender_name: ''
