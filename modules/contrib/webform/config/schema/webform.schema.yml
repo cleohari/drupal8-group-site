@@ -223,6 +223,12 @@ webform.settings:
         default_return_path:
           type: label
           label: 'Default return path email'
+        default_sender_mail:
+          type: email
+          label: 'Default sender email'
+        default_sender_name:
+          type: label
+          label: 'Default sender name'
         default_subject:
           type: label
           label: 'Default email subject'
@@ -269,15 +275,21 @@ webform.settings:
         header_prefix_label_delimiter:
           type: string
           label: 'Column header prefix label delimiter'
-        entity_reference_format:
+        entity_reference_items:
+          type: sequence
+          label: 'Entity reference format items'
+          sequence:
+            type: string
+            label: 'Entity reference format item'
+        options_single_format:
           type: string
-          label: 'Options format'
-        options_format:
+          label: 'Options single value format'
+        options_multiple_format:
           type: string
-          label: 'Options item format'
+          label: 'Options multiple values format'
         options_item_format:
           type: string
-          label: 'Entity reference format'
+          label: 'Options item format'
         likert_answers_format:
           type: string
           label: 'Likert answers format'
@@ -337,9 +349,9 @@ webform.settings:
         dialog_disabled:
           type: boolean
           label: 'Disable dialogs'
-        help_menu_disabled:
+        about_disabled:
           type: boolean
-          label: 'Disable help menu'
+          label: 'Disable about'
         offcanvas_disabled:
           type: boolean
           label: 'Disable system tray'
@@ -349,6 +361,9 @@ webform.settings:
         details_save:
           type: boolean
           label: 'Save details open/close state'
+        description_help:
+          type: boolean
+          label: 'Display element description as help icon (tooltip)'
     libraries:
       type: mapping
       label: 'Library settings'
@@ -359,6 +374,19 @@ webform.settings:
         cdn:
           type: boolean
           label: 'Use CDN'
+    requirements:
+      type: mapping
+      label: 'Requirements'
+      mapping:
+        cdn:
+          type: boolean
+          label: 'Check if CDN is being used for external libraries.'
+        bootstrap:
+          type: boolean
+          label: 'Check if Webform Bootstrap Integration module is installed when using the Bootstrap theme.'
+        spam:
+          type: boolean
+          label: 'Check if SPAM protection module is installed.'
     third_party_settings:
       type: sequence
       label: 'Third party settings'
@@ -795,14 +823,22 @@ webform.webform.*:
         mapping:
           id:
             type: string
+            label: 'Handle plugin ID'
           handler_id:
             type: string
+            label: 'Handler instance ID'
           label:
             type: label
+            label: 'Label'
           status:
             type: boolean
+            label: 'Status'
+          conditions:
+            type: ignore
+            label: 'Conditional logic'
           weight:
             type: integer
+            label: 'Weight'
           settings:
             type: webform.handler.[%parent.id]
     third_party_settings:
@@ -863,6 +899,12 @@ webform.handler.email:
     return_path:
       type: label
       label: 'Return path email'
+    sender_mail:
+      type: email
+      label: 'Sender email'
+    sender_name:
+      type: label
+      label: 'Sender name'
     subject:
       label: 'Email subject'
       type: label
@@ -980,7 +1022,7 @@ block.settings.webform_block:
   label: 'Webforms block'
   mapping:
     webform_id:
-      type: text
+      type: string
       label: 'Webform'
     default_data:
       type: text
@@ -1009,13 +1051,13 @@ block.settings.webform_submission_limit_block:
       type: label
       label: 'Progress bar message'
     webform_id:
-      type: text
+      type: string
       label: 'Webform'
     entity_type:
-      type: text
+      type: string
       label: 'Source entity type'
     entity_id:
-      type: text
+      type: string
       label: 'Source entity id'
 
 # Schema for the configuration of the webform field type.

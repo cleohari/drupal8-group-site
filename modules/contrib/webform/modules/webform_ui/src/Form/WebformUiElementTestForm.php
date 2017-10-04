@@ -127,7 +127,7 @@ class WebformUiElementTestForm extends WebformUiElementFormBase {
       '#value' => '',
     ];
 
-    $form['properties'] = $webform_element->buildConfigurationForm([], $form_state);
+    $form['properties'] = $webform_element->buildConfigurationForm(['#tabs' => FALSE], $form_state);
     $form['properties']['#tree'] = TRUE;
     $form['properties']['custom']['#open'] = TRUE;
 
@@ -175,8 +175,8 @@ class WebformUiElementTestForm extends WebformUiElementFormBase {
     // Rebuild is throwing the below error.
     // LogicException: Settings can not be serialized.
     // $form_state->setRebuild();
-    // @todo Determine what object is being serialized with webform.
-
+    // @todo Determine what object is being serialized with webform
+    //
     // The webform element configuration is stored in the 'properties' key in
     // the webform, pass that through for submission.
     $element_form_state = clone $form_state;

@@ -149,6 +149,7 @@ handlers:
     label: 'Email Notification'
     handler_id: email_notification
     status: true
+    conditions: {  }
     weight: 1
     settings:
       states:
@@ -172,3 +173,5 @@ handlers:
       debug: false
       reply_to: ''
       return_path: ''
+      sender_mail: ''
+      sender_name: ''
