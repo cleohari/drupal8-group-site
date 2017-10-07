@@ -27,6 +27,7 @@ class Textarea extends TextBase {
     return [
       'title' => '',
       // General settings.
+      'help' => '',
       'description' => '',
       'default_value' => '',
       // Form display.
@@ -42,6 +43,8 @@ class Textarea extends TextBase {
       'required' => FALSE,
       'required_error' => '',
       'unique' => FALSE,
+      'unique_user' => FALSE,
+      'unique_entity' => FALSE,
       'unique_error' => '',
       'counter_type' => '',
       'counter_maximum' => '',

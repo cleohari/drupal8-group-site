@@ -32,13 +32,16 @@
   Drupal.behaviors.webformDisableAutoSubmit = {
     attach: function (context) {
       // @see http://stackoverflow.com/questions/11235622/jquery-disable-form-submit-on-enter
-      $(context).find('.webform-submission-form.js-webform-disable-autosubmit input').once('webform-disable-autosubmit').on('keyup keypress', function (e) {
-        var keyCode = e.keyCode || e.which;
-        if (keyCode === 13) {
-          e.preventDefault();
-          return false;
-        }
-      });
+      $(context).find('.webform-submission-form.js-webform-disable-autosubmit input')
+        .not(':button, :input[type="image"], :input[type="file"]')
+        .once('webform-disable-autosubmit')
+        .on('keyup keypress', function (e) {
+          var keyCode = e.keyCode || e.which;
+          if (keyCode === 13) {
+            e.preventDefault();
+            return false;
+          }
+        });
     }
   };
 
@@ -102,22 +105,6 @@
             function() {this.setCustomValidity('');
           });
         });
-    }
-  };
-
-  /**
-   * Disable validate when save draft submit button is clicked.
-   *
-   * @type {Drupal~behavior}
-   *
-   * @prop {Drupal~behaviorAttach} attach
-   *   Attaches the behavior for the webform draft submit button.
-   */
-  Drupal.behaviors.webformDraft = {
-    attach: function (context) {
-      $(context).find('#edit-draft').once('webform-draft').on('click', function () {
-        $(this.form).attr('novalidate', 'novalidate');
-      });
     }
   };
 
@@ -189,7 +176,7 @@
       }
 
       if ($table.length) {
-        $filter_rows = $table.find('div.webform-form-filter-text-source');
+        $filter_rows = $table.find('.webform-form-filter-text-source');
         $input.on('keyup', filterElementList);
         if ($input.val()) {
           $input.keyup();

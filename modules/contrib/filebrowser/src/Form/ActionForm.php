@@ -62,7 +62,7 @@ class ActionForm extends FormBase {
   protected $error;
 
   public function getFormId() {
-    return 'action_form';
+    return 'base_action_form';
   }
 
   /**
