@@ -2,9 +2,11 @@
 
 namespace Drupal\webform\Form\AdminSettings;
 
+use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteBuilderInterface;
 use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -21,6 +23,20 @@ class WebformAdminSettingsAdvancedForm extends WebformAdminSettingsBaseForm {
   protected $moduleHandler;
 
   /**
+   * The render cache bin.
+   *
+   * @var \Drupal\Core\Cache\CacheBackendInterface
+   */
+  protected $renderCache;
+
+  /**
+   * The router builder.
+   *
+   * @var \Drupal\Core\Routing\RouteBuilderInterface
+   */
+  protected $routerBuilder;
+
+  /**
    * {@inheritdoc}
    */
   public function getFormId() {
@@ -34,10 +50,16 @@ class WebformAdminSettingsAdvancedForm extends WebformAdminSettingsBaseForm {
    *   The factory for configuration objects.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler.
+   * @param \Drupal\Core\Cache\CacheBackendInterface $render_cache
+   *   The render cache service.
+   * @param \Drupal\Core\Routing\RouteBuilderInterface $route_builder
+   *   The router builder service.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, ModuleHandlerInterface $module_handler) {
+  public function __construct(ConfigFactoryInterface $config_factory, ModuleHandlerInterface $module_handler, CacheBackendInterface $render_cache, RouteBuilderInterface $router_builder) {
     parent::__construct($config_factory);
     $this->moduleHandler = $module_handler;
+    $this->renderCache = $render_cache;
+    $this->routerBuilder = $router_builder;
   }
 
   /**
@@ -46,7 +68,9 @@ class WebformAdminSettingsAdvancedForm extends WebformAdminSettingsBaseForm {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('config.factory'),
-      $container->get('module_handler')
+      $container->get('module_handler'),
+      $container->get('cache.render'),
+      $container->get('router.builder')
     );
   }
 
@@ -74,6 +98,13 @@ class WebformAdminSettingsAdvancedForm extends WebformAdminSettingsBaseForm {
       ],
       '#default_value' => $config->get('ui.video_display'),
     ];
+    $form['ui']['description_help'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Display element description as help icon (tooltip)'),
+      '#description' => $this->t("If checked, all element description will be moved to help icons."),
+      '#return_value' => TRUE,
+      '#default_value' => $config->get('ui.description_help'),
+    ];
     $form['ui']['details_save'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Save details open/close state'),
@@ -91,12 +122,12 @@ class WebformAdminSettingsAdvancedForm extends WebformAdminSettingsBaseForm {
       '#return_value' => TRUE,
       '#default_value' => $config->get('ui.dialog_disabled'),
     ];
-    $form['ui']['help_menu_disabled'] = [
+    $form['ui']['about_disabled'] = [
       '#type' => 'checkbox',
-      '#title' => $this->t('Disable help menu'),
-      '#description' => $this->t("If checked, 'How can we help you?' menu will be disabled."),
+      '#title' => $this->t('Disable about'),
+      '#description' => $this->t("If checked, 'About' tab will be disabled."),
       '#return_value' => TRUE,
-      '#default_value' => $config->get('ui.help_menu_disabled'),
+      '#default_value' => $config->get('ui.about_disabled'),
     ];
     $form['ui']['offcanvas_disabled'] = [
       '#type' => 'checkbox',
@@ -117,7 +148,7 @@ class WebformAdminSettingsAdvancedForm extends WebformAdminSettingsBaseForm {
       '#type' => 'checkbox',
       '#title' => $this->t('Disable promotions'),
       '#description' => $this->t('If checked, dismissible promotion messages that appear when the Webform module is updated will be disabled.') . ' ' .
-        $this->t('Promotions on the <a href=":href">Webform: Add-ons</a> page will still be displayed.', [':href' =>  Url::fromRoute('webform.addons')->toString()]) . '<br/>' .
+        $this->t('Promotions on the <a href=":href">Webform: Add-ons</a> page will still be displayed.', [':href' => Url::fromRoute('webform.addons')->toString()]) . '<br/>' .
         $this->t('Note: Promotions are only visible to users who can <em>administer modules</em>.'),
       '#return_value' => TRUE,
       '#default_value' => $config->get('ui.promotions_disabled'),
@@ -137,6 +168,36 @@ class WebformAdminSettingsAdvancedForm extends WebformAdminSettingsBaseForm {
         '#weight' => -100,
       ];
     }
+
+    // Requirements.
+    $form['requirements'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Requirements'),
+      '#description' => $this->t('The below requirements are checked by the <a href=":href">Status report</a>.', [':href' => Url::fromRoute('system.status')->toString()]),
+      '#open' => TRUE,
+      '#tree' => TRUE,
+    ];
+    $form['requirements']['cdn'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Check if CDN is being used for external libraries.'),
+      '#description' => $this->t('If unchecked, all warnings about missing libraries will be disabled.'),
+      '#return_value' => TRUE,
+      '#default_value' => $config->get('requirements.cdn'),
+    ];
+    $form['requirements']['bootstrap'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Check if Webform Bootstrap Integration module is installed when using the Bootstrap theme.'),
+      '#description' => $this->t('If unchecked, all warnings about the Webform Bootstrapp Integration module will be disabled.'),
+      '#return_value' => TRUE,
+      '#default_value' => $config->get('requirements.bootstrap'),
+    ];
+    $form['requirements']['spam'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Check if SPAM protection module is installed.'),
+      '#description' => $this->t('If unchecked, all warnings about Webform SPAM protection will be disabled.'),
+      '#return_value' => TRUE,
+      '#default_value' => $config->get('requirements.spam'),
+    ];
 
     // Test.
     $form['test'] = [
@@ -159,7 +220,6 @@ class WebformAdminSettingsAdvancedForm extends WebformAdminSettingsBaseForm {
       '#description' => $this->t("Above test data is keyed by full or partial element names. For example, Using 'zip' will populate fields that are named 'zip' and 'zip_code' but not 'zipcode' or 'zipline'."),
       '#default_value' => $config->get('test.names'),
     ];
-
 
     // Batch.
     $form['batch'] = [
@@ -199,9 +259,16 @@ class WebformAdminSettingsAdvancedForm extends WebformAdminSettingsBaseForm {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = $this->config('webform.settings');
     $config->set('ui', $form_state->getValue('ui'));
+    $config->set('requirements', $form_state->getValue('requirements'));
     $config->set('test', $form_state->getValue('test'));
     $config->set('batch', $form_state->getValue('batch'));
     $config->save();
+    
+    // Clear render cache so that local tasks can be updated.
+    // @see webform_local_tasks_alter()
+    $this->renderCache->deleteAll();
+    \Drupal::service('router.builder')->rebuild();
+
     parent::submitForm($form, $form_state);
   }
 

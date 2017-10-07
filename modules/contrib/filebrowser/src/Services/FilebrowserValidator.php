@@ -30,7 +30,7 @@ class FilebrowserValidator {
         ], [
           '|',
           '.*'
-        ], preg_quote($patterns, '/')) . ')$/';
+        ], preg_quote($patterns, '/')) . ')$/i';
     }
     $result = preg_match($regexps[$patterns], $this->safeBaseName($path)) == 1;
     return $result;

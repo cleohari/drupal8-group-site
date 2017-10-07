@@ -3,8 +3,10 @@ description: 'Example module how to generate custom metadata for your files. Thi
 # core: 8.x
 package: Filebrowser
 type: module
-# Information added by Drupal.org packaging script on 2017-08-23
-version: '8.x-2.0-rc4'
+dependencies:
+  - filebrowser
+# Information added by Drupal.org packaging script on 2017-09-28
+version: '8.x-2.0-rc6'
 core: '8.x'
 project: 'filebrowser'
-datestamp: 1503481148
+datestamp: 1506598448

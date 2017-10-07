@@ -18,13 +18,24 @@ details details {
   background-color: #f8f8f8;
 }
 
+/* Reduce the width of number inputs */
+input.form-number {
+  width: 6em;
+}
+
 details details details {
   background-color: #fff;
 }
 
-/* Add white background to tooltips */
+/* Add yellow background to tooltips and tabs */
 .ui-tooltip.ui-widget {
-  background: #fff;
+  background: #fe6;;
+  border: 1px solid #ed5;
+}
+
+.webform-tabs .ui-tabs-active.ui-state-active {
+  background: #fe6;
+  border: 1px solid #ed5;
 }
 
 /* CodeMirror viewer */
@@ -81,4 +92,9 @@ pre.webform-codemirror-runmode {
   color: #840;
   background: #fe6;
   border: solid 1px #ed5;
+}
+
+/* jQuery UI tabs */
+.ui-tabs .ui-tabs-panel {
+  padding: 0;
 }
