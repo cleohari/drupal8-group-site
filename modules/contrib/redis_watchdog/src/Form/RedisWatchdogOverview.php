@@ -73,8 +73,8 @@ class RedisWatchdogOverview extends FormBase {
       ->getForm($this->redis_watchdog_clear_log_form($form));
 
 
-    // Summary of log types stored and the number of items in the log.
-    $build['redis_watchdog_type_count_table'] = redis_watchdog_log_type_count_table();
+    // // Summary of log types stored and the number of items in the log.
+    // $build['redis_watchdog_type_count_table'] = \Drupal::formBuilder()->getForm($this->redis_watchdog_log_type_count_table());
 
     if (isset($_SESSION['redis_watchdog_overview_filter']['type']) && !empty($_SESSION['redis_watchdog_overview_filter']['type'])) {
       // @todo remove this if it works
@@ -112,45 +112,7 @@ class RedisWatchdogOverview extends FormBase {
   }
 
   private function filterForm($form) {
-    // Message types.
-    // @todo remove this once working
-    // $wd_types = _redis_watchdog_get_message_types();
-    $wd_types = rWatch\RedisWatchdog::get_message_types();
 
-    // Build a selection list of log types.
-    $form['filters'] = [
-      '#type' => 'fieldset',
-      '#title' => t('Filter log messages by type'),
-      '#collapsible' => empty($_SESSION['redis_watchdog_overview_filter']),
-      '#collapsed' => TRUE,
-    ];
-    $form['filters']['type'] = [
-      '#title' => t('Available types'),
-      '#type' => 'select',
-      '#multiple' => TRUE,
-      '#size' => 8,
-      '#options' => array_flip($wd_types),
-    ];
-    $form['filters']['actions'] = [
-      '#type' => 'actions',
-      '#attributes' => ['class' => ['container-inline']],
-    ];
-    $form['filters']['actions']['submit'] = [
-      '#type' => 'submit',
-      '#value' => t('Filter'),
-    ];
-
-    if (!empty($_SESSION['redis_watchdog_overview_filter'])) {
-      $form['filters']['actions']['reset'] = [
-        '#type' => 'submit',
-        '#value' => t('Reset'),
-      ];
-    }
-
-    if (!empty($_SESSION['redis_watchdog_overview_filter']['type'])) {
-      $form['filters']['type']['#default_value'] = $_SESSION['redis_watchdog_overview_filter']['type'];
-    }
-    return $form;
   }
 
   /**
@@ -187,5 +149,40 @@ class RedisWatchdogOverview extends FormBase {
     $log->clear();
 
     drupal_set_message(t('Database log cleared.'));
+  }
+
+  /**
+   * This returns a themeable form that displays the total log count for different
+   * types of logs.
+   *
+   * @return array
+   */
+  public function redis_watchdog_log_type_count_table() {
+    // Get the counts.
+    $wd_types_count = _redis_watchdog_get_message_types_count();
+    $header = [
+      t('Log Type'),
+      t('Count'),
+    ];
+    $rows = [];
+    foreach ($wd_types_count as $key => $value) {
+      $rows[] = [
+        'data' => [
+          // Cells
+          $key,
+          $value,
+        ],
+      ];
+    }
+    // Table of log items.
+    $build['redis_watchdog_type_count_table'] = [
+      '#theme' => 'table',
+      '#header' => $header,
+      '#rows' => $rows,
+      '#attributes' => ['id' => 'admin-redis_watchdog_type_count'],
+      '#empty' => t('No log messages available.'),
+    ];
+
+    return $build;
   }
 }
