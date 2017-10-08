@@ -6,11 +6,15 @@ use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Logger\LogMessageParserInterface;
 use Drupal\redis\ClientFactory as RedisClient;
 use Psr\Log\AbstractLogger;
+use Drupal\Core\Config\ConfigFactoryInterface;
+
 // To be used in the near future.
 // use Drupal\Core\Logger\RfcLogLevel;
 
 
-class RedisWatchdogLogger extends AbstractLogger {
+class Logger extends AbstractLogger {
+
+  const CONFIG_NAME = 'redis_watchdog.settings';
 
   /**
    * Prefix to use on keys.
@@ -175,7 +179,7 @@ class RedisWatchdogLogger extends AbstractLogger {
     return $this->pagelimit;
   }
 
-  public function __construct(RedisClient $redis, LogMessageParserInterface $parser) {
+  public function __construct(RedisClient $redis, LogMessageParserInterface $parser, ConfigFactoryInterface $config_factory) {
     // @todo remove this when converstion to Drupal 8 is finished.
     // $this->client = Redis_Client::getManager()->getClient();
     // $this->client = RedisClient::getClient();
@@ -185,8 +189,9 @@ class RedisWatchdogLogger extends AbstractLogger {
     //     $this->key = 'drupal:watchdog';
     // }
 
+    $config = $config_factory->get(static::CONFIG_NAME);
+
     // Set class variables from the Drupal configuration.
-    $config = \Drupal::config('redis_watchdog.settings');
     $this->setRecentLength($config->get('prefix'));
     $this->setArchiveLimit($config->get('archivelimit'));
     // Set the prefix to the key.
