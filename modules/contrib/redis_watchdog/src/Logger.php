@@ -3,10 +3,10 @@
 namespace Drupal\redis_watchdog;
 
 use Drupal\Component\Utility\Unicode;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Logger\LogMessageParserInterface;
 use Drupal\redis\ClientFactory as RedisClient;
 use Psr\Log\AbstractLogger;
-use Drupal\Core\Config\ConfigFactoryInterface;
 
 // To be used in the near future.
 // use Drupal\Core\Logger\RfcLogLevel;
@@ -193,12 +193,12 @@ class Logger extends AbstractLogger {
 
     // Set class variables from the Drupal configuration.
     $this->setRecentLength($config->get('prefix'));
+    $this->setPageLimit($config->get('pagelimit'));
     $this->setArchiveLimit($config->get('archivelimit'));
     // Set the prefix to the key.
     $this->setPrefix($config->get('prefix'));
     // Now the prefix is set, set the key.
     $this->setKey();
-    $this->setPageLimit($config->get('pagelimit'));
 
     // Set the client and parser.
     $this->client = $redis;
