@@ -6,6 +6,7 @@ use Drupal\Component\Utility as Util;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\redis_watchdog as rWatch;
 use Drupal\redis_watchdog\Form as rForm;
+use Drupal\redis_watchdog\RedisWatchdog;
 
 class RedisWatchdogOverview extends ControllerBase {
 
@@ -32,8 +33,10 @@ class RedisWatchdogOverview extends ControllerBase {
     ];
     // @todo remove when working
     // $log = redis_watchdog_client();
-    $log = rWatch\RedisWatchdog::redis_watchdog_client();
-    $result = $log->getRecentLogs();
+    // $log = rWatch\RedisWatchdog::redis_watchdog_client();
+    $redis = new RedisWatchdog();
+
+    $result = $redis->getRecentLogs();
     foreach ($result as $log) {
       $rows[] = [
         'data' =>

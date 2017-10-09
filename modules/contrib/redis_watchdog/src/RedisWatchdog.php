@@ -3,7 +3,8 @@
 namespace Drupal\redis_watchdog;
 
 use Drupal\Component\Utility as Util;
-use Drupal\redis_watchdog as Redis;
+use Drupal\redis\ClientFactory;
+use Drupal\redis\RedisPrefixTrait;
 
 /**
  * Class RedisWatchdog.
@@ -12,8 +13,45 @@ use Drupal\redis_watchdog as Redis;
  *
  * @package Drupal\redis_watchdog
  */
-
 class RedisWatchdog {
+
+  use RedisPrefixTrait;
+
+  protected $logprefix;
+
+  protected $prefix;
+
+  protected $limit;
+
+  protected $archive;
+
+  private $client;
+
+  protected $key;
+
+  public function __construct() {
+    $config = \Drupal::config('redis_watchdog.settings');
+    $this->prefix = $this->getDefaultPrefix();
+    $this->logprefix = $config->get('prefix');
+    $this->key = 'drupal:' . $this->prefix;
+    $this->limit = $config->get('recentlimit');
+    $this->archive = $config->get('archivelimit');
+    $this->client = ClientFactory::getClient();
+  }
+
+  /**
+   * Return the Redis client for log activity.
+   *
+   * @deprecated To be removed before release.
+   *
+   * @return object
+   */
+
+  public static function redis_watchdog_client() {
+    $config = \Drupal::config('redis_watchdog.settings');
+    $client = ClientFactory::getClient();
+    return $client;
+  }
 
   /**
    * Return the Redis client for log activity.
@@ -21,13 +59,8 @@ class RedisWatchdog {
    * @return object
    */
 
-  public static function redis_watchdog_client() {
-    $config = \Drupal::config('redis_watchdog.settings');
-    $prefix = $config->get('prefix');
-    $limit = $config->get('recentlimit');
-    $archive = $config->get('archivelimit');
-    $client = new Redis\RedisLog($prefix, $limit, $archive);
-    return $client;
+  public function getClient() {
+    return $this->client;
   }
 
   /**
@@ -36,9 +69,8 @@ class RedisWatchdog {
    * @return string
    */
 
-  public static function redis_watchdog_csv_export() {
-    $client = self::redis_watchdog_client();
-    $logs_to_export = $client->getAllMessages();
+  public function exportCSV() {
+    $logs_to_export = $this->client->getAllMessages();
     ob_start();
     $df = fopen('php://output', 'w');
     foreach ($logs_to_export as $row) {
@@ -57,7 +89,7 @@ class RedisWatchdog {
    *
    * @param string $filename
    */
-  public static function redis_watchdog_download_send_headers($filename) {
+  public function downloadSendHeaders($filename) {
     $filename = Util\Xss::filter($filename);
     // Disable caching.
     $now = gmdate('D, d M Y H:i:s');
@@ -76,28 +108,12 @@ class RedisWatchdog {
   }
 
   /**
-   * Destroys all Redis information.
-   *
-   * @return bool
-   */
-  public static function redis_watchdog_redis_destroy() {
-    $client = self::redis_watchdog_client();
-    if ($client->clear()) {
-      return TRUE;
-    }
-    else {
-      return FALSE;
-    }
-  }
-
-  /**
    * Private function to return the types of messages stored.
    *
    * @return array|mixed
    */
-  public static function get_message_types() {
-    $log = self::redis_watchdog_client();
-    return $log->getMessageTypes();
+  public function get_message_types() {
+    return $this->getMessageTypes();
   }
 
   /**
@@ -105,9 +121,8 @@ class RedisWatchdog {
    *
    * @return array|mixed
    */
-  public static function get_message_types_count() {
-    $log = self::redis_watchdog_client();
-    return $log->getMessageTypesCounts();
+  public function get_message_types_count() {
+    return $this->getMessageTypesCounts();
   }
 
   /**
@@ -329,4 +344,18 @@ class RedisWatchdog {
     return $this->client->hIncrBy($this->key . ':counters', 'logs', 1);
   }
 
+  /**
+   * Destroys all Redis information. This function is static to be accessible
+   * externally without substantiating the class.
+   *
+   * @return bool
+   */
+  public static function redis_watchdog_redis_destroy() {
+    if (self::clear()) {
+      return TRUE;
+    }
+    else {
+      return FALSE;
+    }
+  }
 }
