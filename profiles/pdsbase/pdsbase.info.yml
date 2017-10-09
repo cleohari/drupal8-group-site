@@ -27,7 +27,6 @@ dependencies:
   - page_cache
   - dynamic_page_cache
   - taxonomy
-  - dblog
   - search
   - shortcut
   - toolbar
@@ -54,6 +53,7 @@ dependencies:
   - rules
   - typed_data
   - redis
+  - redis_watchdog
   - ctools
   - ctools_block
   - panels
