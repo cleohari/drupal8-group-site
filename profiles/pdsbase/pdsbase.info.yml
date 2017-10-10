@@ -76,7 +76,9 @@ dependencies:
   - metatag_twitter_cards
   - metatag_app_links
   - pathauto
+  - libraries
   - ckeditor_templates
+  - ckeditor_addin_placeholder
 
 themes:
   - bartik

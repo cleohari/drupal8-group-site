@@ -1,0 +1,9 @@
+name: CKEditor Placeholder
+type: module
+description: Adds the Placeholder add-in for creating tokens within the editor.
+core: 8.x
+version: 8.x-1.x-dev
+package: CKEditor
+dependencies:
+  - ckeditor
+  - libraries
