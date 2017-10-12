@@ -9,7 +9,7 @@
 
     init: function( editor )
     {
-
+      alert('hi!!');
       var config = editor.config;
       editor.ui.addRichCombo( 'Zoom',
           {
