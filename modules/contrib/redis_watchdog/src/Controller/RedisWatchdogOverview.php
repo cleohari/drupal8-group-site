@@ -11,7 +11,7 @@ use Drupal\Core\Logger\RfcLogLevel;
 
 class RedisWatchdogOverview extends ControllerBase {
 
-
+  const SEVERITY_PREFIX = 'redis_watchdog__severity_';
   const SEVERITY_CLASSES = [
     RfcLogLevel::DEBUG => self::SEVERITY_PREFIX . LogLevel::DEBUG,
     RfcLogLevel::INFO => self::SEVERITY_PREFIX . LogLevel::INFO,
@@ -166,25 +166,24 @@ class RedisWatchdogOverview extends ControllerBase {
             // Cells
             ['class' => 'icon'],
             t($log->type),
-            \Drupal::service('date.formatter')
-              ->format($log->timestamp, 'short'),
+            \Drupal::service('date.formatter')->format($log->timestamp, 'short'),
             // theme('redis_watchdog_message', ['event' => $log, 'link' => TRUE]),
             [
               '#theme' => 'redis_watchdog_message',
-              ['event' => $log, 'link' => TRUE],
+              ['event' => $log->message, 'link' => TRUE],
             ],
             // theme('username', ['account' => $log]),
             [
               '#theme' => 'username',
-              ['account' => $log],
+              ['account' => $log->uid],
             ],
             Util\Xss::filter($log->link),
           ],
         // Attributes for tr
-        'class' => [
-          Util\Html::cleanCssIdentifier('dblog-' . $log->type),
-        ],
-        'class' => static::SEVERITY_CLASSES[$template->severity],
+        // 'class' => [
+        //   Util\Html::cleanCssIdentifier('dblog-' . $log->type),
+        // ],
+        'class' => static::SEVERITY_CLASSES[$log->severity],
       ];
 
       return [
@@ -193,8 +192,6 @@ class RedisWatchdogOverview extends ControllerBase {
         '#rows' => $rows,
         '#empty' => t('No log messages available.'),
       ];
-
     }
-
   }
 }
