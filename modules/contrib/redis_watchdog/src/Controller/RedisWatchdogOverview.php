@@ -184,7 +184,7 @@ class RedisWatchdogOverview extends ControllerBase {
         $output = t($log->message, unserialize($log->variables));
       }
       $message = Util\Unicode::truncate(Util\Xss::filter($output, []), 56, TRUE, TRUE);
-      $message = Link::createFromRoute($message, 'admin/reports/redislog/event/' . $log->wid);
+      $message = Link::createFromRoute($message, 'redis_watchdog.event', ['eventid' => $log->wid]);
       $username = [
         '#theme' => 'username',
         '#account' => $this->userStorage->load($log->uid),
