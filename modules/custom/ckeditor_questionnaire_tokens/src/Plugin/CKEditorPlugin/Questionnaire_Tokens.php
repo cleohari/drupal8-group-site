@@ -33,7 +33,7 @@ class Questionnaire_Tokens extends CKEditorPluginBase {
     return [
       'Questionnaire_tokens' => [
         'label' => t('Questionnaire Tokens'),
-        'image' => base_path() . 'libraries/questionnaire_tokens/icons/token.png',
+        'image' => base_path() . 'libraries/questionnaire_tokens/icons/questionnaire_tokens.png',
       ],
     ];
   }

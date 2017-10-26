@@ -13,6 +13,8 @@ function ckeditor_questionnaire_tokens_form_alter(&$form, \Drupal\Core\Form\Form
       print_r($node->toArray());
       /*$form['text']['#markup'] = t('Some text.');*/
     }
-
   }
+  $form[$form_id] = ['#markup' => '<div id=\'available_tokens\'>Test value 1,Test Value 2,Test Value 3</div>',
+    '#allowed_tags'=>['div',],
+    ];
 }
