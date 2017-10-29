@@ -14,7 +14,7 @@ use Drupal\Core\Form\FormStateInterface;
  * Allows the profile to alter the site configuration form.
  */
 function pdsbase_form_install_configure_form_alter(&$form, FormStateInterface $form_state) {
-  $form['#submit'][] = 'standard_form_install_configure_submit';
+  $form['#submit'][] = 'pdsbase_form_install_configure_submit';
 }
 
 /**
