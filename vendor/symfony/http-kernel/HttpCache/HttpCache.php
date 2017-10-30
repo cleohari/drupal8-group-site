@@ -36,6 +36,8 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
     private $traces = array();
 
     /**
+     * Constructor.
+     *
      * The available options are:
      *
      *   * debug:                 If true, the traces are added as a HTTP header to ease debugging
@@ -157,27 +159,7 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
      */
     public function getSurrogate()
     {
-        if (!$this->surrogate instanceof Esi) {
-            throw new \LogicException('This instance of HttpCache was not set up to use ESI as surrogate handler. You must overwrite and use createSurrogate');
-        }
-
         return $this->surrogate;
-    }
-
-    /**
-     * Gets the Esi instance.
-     *
-     * @return Esi An Esi instance
-     *
-     * @throws \LogicException
-     *
-     * @deprecated since version 2.6, to be removed in 3.0. Use getSurrogate() instead
-     */
-    public function getEsi()
-    {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 2.6 and will be removed in 3.0. Use the getSurrogate() method instead.', E_USER_DEPRECATED);
-
-        return $this->getSurrogate();
     }
 
     /**
@@ -482,7 +464,7 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
         // make sure HttpCache is a trusted proxy
         if (!in_array('127.0.0.1', $trustedProxies = Request::getTrustedProxies())) {
             $trustedProxies[] = '127.0.0.1';
-            Request::setTrustedProxies($trustedProxies);
+            Request::setTrustedProxies($trustedProxies, method_exists('Request', 'getTrustedHeaderSet') ? Request::getTrustedHeaderSet() : -1);
         }
 
         // always a "master" request (as the real master request can be in cache)
@@ -631,6 +613,14 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
      */
     private function restoreResponseBody(Request $request, Response $response)
     {
+        if ($request->isMethod('HEAD') || 304 === $response->getStatusCode()) {
+            $response->setContent(null);
+            $response->headers->remove('X-Body-Eval');
+            $response->headers->remove('X-Body-File');
+
+            return;
+        }
+
         if ($response->headers->has('X-Body-Eval')) {
             ob_start();
 
@@ -646,11 +636,7 @@ class HttpCache implements HttpKernelInterface, TerminableInterface
                 $response->headers->set('Content-Length', strlen($response->getContent()));
             }
         } elseif ($response->headers->has('X-Body-File')) {
-            // Response does not include possibly dynamic content (ESI, SSI), so we need
-            // not handle the content for HEAD requests
-            if (!$request->isMethod('HEAD')) {
-                $response->setContent(file_get_contents($response->headers->get('X-Body-File')));
-            }
+            $response->setContent(file_get_contents($response->headers->get('X-Body-File')));
         } else {
             return;
         }

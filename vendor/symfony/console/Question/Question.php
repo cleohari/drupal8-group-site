@@ -31,6 +31,8 @@ class Question
     private $normalizer;
 
     /**
+     * Constructor.
+     *
      * @param string $question The question to ask to the user
      * @param mixed  $default  The default answer to return if the user enters nothing
      */
@@ -162,7 +164,7 @@ class Question
      *
      * @return $this
      */
-    public function setValidator($validator)
+    public function setValidator(callable $validator = null)
     {
         $this->validator = $validator;
 
@@ -188,7 +190,7 @@ class Question
      *
      * @return $this
      *
-     * @throws InvalidArgumentException in case the number of attempts is invalid
+     * @throws InvalidArgumentException In case the number of attempts is invalid.
      */
     public function setMaxAttempts($attempts)
     {
@@ -222,7 +224,7 @@ class Question
      *
      * @return $this
      */
-    public function setNormalizer($normalizer)
+    public function setNormalizer(callable $normalizer)
     {
         $this->normalizer = $normalizer;
 

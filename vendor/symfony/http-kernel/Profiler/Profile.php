@@ -44,6 +44,8 @@ class Profile
     private $children = array();
 
     /**
+     * Constructor.
+     *
      * @param string $token The token
      */
     public function __construct($token)
@@ -288,6 +290,6 @@ class Profile
 
     public function __sleep()
     {
-        return array('token', 'parent', 'children', 'collectors', 'ip', 'method', 'url', 'time');
+        return array('token', 'parent', 'children', 'collectors', 'ip', 'method', 'url', 'time', 'statusCode');
     }
 }
