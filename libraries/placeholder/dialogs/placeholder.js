@@ -16,41 +16,16 @@ CKEDITOR.dialog.add( 'placeholder', function( editor ) {
 		generalLabel = editor.lang.common.generalTab,
 		validNameRegex = /^[^\[\]<>]+$/;
 
-	//var temparray = [ ['Company'], ['Email'], ['First Name'], ['Last Name'],['This guy'] ];
-  //var temparray = [ 'Company', 'Email', 'First Name', 'Last Name','This guy' ];
+  //  TODO - Need to finish the integration code after we decide on the specific Document content type structure.
 	var myString = document.getElementById('available_tokens').innerText;
 	var temparray = myString.split(",");
-
   var arr = new Array();
-  //arr[0] = [];
+
   for (var i = 0; i < temparray.length; i++) {
-    alert(temparray[i]);
     arr[i] = new Array();
     arr[i][0] = temparray[i];
-    //Do something
   }
 
-	/*var arr = [];
-	arr[0] = [];
-	arr[0][0] = temparray[0];
-  arr[0][1] = temparray[1];
-  arr[0][2] = temparray[2];*/
-	/*for(var i=0;i<3;++i){
-    arr[0][i] = temparray[i];
-		//alert(temparray[i]);
-	}*/
-	//alert(arr);
-	//arr[0] = temparray;
-	// for(var i=0; i< 1;i++)
-	// {
-	// 	var columns=[];
-	// 	for(var j=0; j<3; j++)
-	// 	{
-	//
-	// 	}
-	// 	arr[i]
-	// }
-	alert(arr);
 	return {
 		title: lang.title,
 		minWidth: 300,

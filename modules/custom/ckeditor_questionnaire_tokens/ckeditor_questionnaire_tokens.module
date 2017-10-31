@@ -4,17 +4,18 @@
  * Implements hook_form_alter().
  */
 function ckeditor_questionnaire_tokens_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  print_r('woot');
-  if ($form_id == "node_book_edit_form"){
+  //  TODO - Need to finish the integration code after we decide on the specific Document content type structure.
+  if ($form_id == "node_book_edit_form") {
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node instanceof \Drupal\node\NodeInterface) {
       // You can get nid and anything else you need from the node object.
       $nid = $node->id();
-      print_r($node->toArray());
-      /*$form['text']['#markup'] = t('Some text.');*/
+      //$current_node = \Drupal\node\NodeInterface::load($nid);
+      $form[$form_id] = [
+        '#markup' => '<div id=\'available_tokens\'>Test value 1,Test Value 2,Test Value 3</div>',
+        '#allowed_tags' => ['div',],
+      ];
     }
   }
-  $form[$form_id] = ['#markup' => '<div id=\'available_tokens\'>Test value 1,Test Value 2,Test Value 3</div>',
-    '#allowed_tags'=>['div',],
-    ];
+
 }
