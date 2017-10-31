@@ -98,6 +98,7 @@ dependencies:
   - pds_custom_tokens
   - pds_configuration_base_data
   - pds_configuration_pds_group_tenant
+  - ckeditor_questionnaire_tokens
 
 themes:
   - bartik
