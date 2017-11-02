@@ -1,0 +1,15 @@
+{
+  "name": "drupal/ckeditor_addin_placeholder",
+  "description": "Drupal module for integrating with the CK Editor Addin Placeholder.",
+  "type": "drupal-module",
+  "license": "GPL v2",
+  "authors": [
+    {
+      "name": "Scott Weiss",
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/ckeditor": "",
+  }
+}

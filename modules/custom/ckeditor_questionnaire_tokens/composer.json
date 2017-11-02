@@ -1,0 +1,15 @@
+{
+  "name": "drupal/ckeditor_questionnaire_tokens",
+  "description": "Drupal module for integrating with the CK Editor Questionnaire Tokens addin.",
+  "type": "drupal-module",
+  "license": "GPL v2",
+  "authors": [
+    {
+      "name": "Scott Weiss",
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/ckeditor": "",
+  }
+}
