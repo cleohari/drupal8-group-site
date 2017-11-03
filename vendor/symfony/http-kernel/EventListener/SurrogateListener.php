@@ -26,6 +26,8 @@ class SurrogateListener implements EventSubscriberInterface
     private $surrogate;
 
     /**
+     * Constructor.
+     *
      * @param SurrogateInterface $surrogate An SurrogateInterface instance
      */
     public function __construct(SurrogateInterface $surrogate = null)

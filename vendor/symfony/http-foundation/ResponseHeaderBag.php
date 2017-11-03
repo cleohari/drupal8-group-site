@@ -40,6 +40,8 @@ class ResponseHeaderBag extends HeaderBag
     protected $headerNames = array();
 
     /**
+     * Constructor.
+     *
      * @param array $headers An array of HTTP headers
      */
     public function __construct(array $headers = array())
@@ -279,7 +281,7 @@ class ResponseHeaderBag extends HeaderBag
     protected function computeCacheControlValue()
     {
         if (!$this->cacheControl && !$this->has('ETag') && !$this->has('Last-Modified') && !$this->has('Expires')) {
-            return 'no-cache';
+            return 'no-cache, private';
         }
 
         if (!$this->cacheControl) {

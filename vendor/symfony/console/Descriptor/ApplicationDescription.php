@@ -50,6 +50,8 @@ class ApplicationDescription
     private $aliases;
 
     /**
+     * Constructor.
+     *
      * @param Application $application
      * @param string|null $namespace
      */
@@ -110,7 +112,7 @@ class ApplicationDescription
 
             /** @var Command $command */
             foreach ($commands as $name => $command) {
-                if (!$command->getName()) {
+                if (!$command->getName() || $command->isHidden()) {
                     continue;
                 }
 

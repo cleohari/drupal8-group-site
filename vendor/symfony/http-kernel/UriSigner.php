@@ -21,6 +21,8 @@ class UriSigner
     private $secret;
 
     /**
+     * Constructor.
+     *
      * @param string $secret A secret
      */
     public function __construct($secret)
