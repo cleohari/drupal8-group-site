@@ -80,6 +80,7 @@ dependencies:
   - libraries
   - ckeditor_templates
   - ckeditor_addin_placeholder
+  - clientside_validation
 
 themes:
   - bartik

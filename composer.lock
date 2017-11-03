@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1163e63136ec35cc081019927d46ab28",
+    "content-hash": "2d996e580f8b6e454d207ae72cd6cfd5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -747,6 +747,61 @@
             }
         },
         {
+            "name": "drupal/clientside_validation",
+            "version": "1.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/clientside_validation",
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/clientside_validation-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "8a441f577458217d38c1c3d328bf58ec9d5ea541"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1470121140",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jelle_S",
+                    "homepage": "https://www.drupal.org/user/829198"
+                },
+                {
+                    "name": "attiks",
+                    "homepage": "https://www.drupal.org/user/105002"
+                },
+                {
+                    "name": "nikunjkotecha",
+                    "homepage": "https://www.drupal.org/user/694082"
+                }
+            ],
+            "description": "Add client side validation to forms.",
+            "homepage": "https://www.drupal.org/project/clientside_validation",
+            "support": {
+                "source": "http://cgit.drupalcode.org/clientside_validation"
+            }
+        },
+        {
             "name": "drupal/core",
             "version": "8.4.1",
             "source": {
@@ -1335,8 +1390,7 @@
                 "source": "http://cgit.drupalcode.org/libraries",
                 "issues": "http://drupal.org/project/issues/libraries",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            },
-            "time": "2017-03-15T17:04:08+00:00"
+            }
         },
         {
             "name": "drupal/mailsystem",
@@ -1929,8 +1983,7 @@
             ],
             "support": {
                 "source": "http://cgit.drupalcode.org/redis_watchdog"
-            },
-            "time": "2017-11-01T21:48:39+00:00"
+            }
         },
         {
             "name": "drupal/rules",
@@ -2040,8 +2093,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/sendgrid_integration",
                 "issues": "https://drupal.org/project/issues/sendgrid_integration"
-            },
-            "time": "2017-11-01T02:30:28+00:00"
+            }
         },
         {
             "name": "drupal/token",
