@@ -80,6 +80,8 @@ dependencies:
   - libraries
   - ckeditor_templates
   - ckeditor_addin_placeholder
+  - admin_toolbar
+  - admin_toolbar_tools
 
 themes:
   - bartik
