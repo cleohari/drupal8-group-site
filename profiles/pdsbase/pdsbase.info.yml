@@ -82,6 +82,7 @@ dependencies:
   - ckeditor_addin_placeholder
   - admin_toolbar
   - admin_toolbar_tools
+  - clientside_validation
 
 themes:
   - bartik
