@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\clientside_validation\ValidatorManager.
- */
-
 namespace Drupal\clientside_validation;
 
 use Drupal\Core\Plugin\DefaultPluginManager;
@@ -62,7 +57,7 @@ class ValidatorManager extends DefaultPluginManager implements ValidatorManagerI
     $validators = $this->getDefinitions();
     $element_validators = [];
     foreach ($validators as $validator) {
-      if (in_array($element['#type'], $validator['supports']['types'])) {
+      if (isset($element['#type']) && in_array($element['#type'], $validator['supports']['types'])) {
         $element_validators[$validator['id']] = $validator;
       }
       foreach ($validator['supports']['attributes'] as $attribute) {
