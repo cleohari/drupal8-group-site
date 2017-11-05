@@ -32,7 +32,7 @@ SET4_result="${SET4/redisBaseID/$RDNUMBER}"
 REDIS_SETTINGS=$'\n'"${SET0}"$'\n'"${SET1}"$'\n'"${SET2_result}"$'\n'"${SET3}"$'\n'"${SET4_result}"
 
 drush site-install pdsbase -y \
---site-name="Swing Surgeon" \
+--site-name="PDS" \
 --site-mail=drupal@fastglass.net \
 --account-name=adminpds \
 --account-pass=horse-staple-battery \
