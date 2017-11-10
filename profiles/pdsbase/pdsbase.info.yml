@@ -91,6 +91,7 @@ dependencies:
   - field_group
   - fontyourface
   - google_fonts_api
+  - paragraphs
 
 themes:
   - bartik
