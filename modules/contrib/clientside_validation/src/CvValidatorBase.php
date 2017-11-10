@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Provides Drupal\clientside_validation\CvValidatorBase.
- */
 
 namespace Drupal\clientside_validation;
 
@@ -54,8 +50,30 @@ abstract class CvValidatorBase extends PluginBase implements CvValidatorInterfac
       if (!isset($element['#attached'])) {
         $element['#attached'] = [];
       }
-      $element['#attached'] = NestedArray::mergeDeep($element['#attached'], $this->getPluginDefinition()['attached']);
+      $element['#attached'] = NestedArray::mergeDeep($element['#attached'], $this->getPluginDefinition()['attachments']);
     }
+  }
+
+  /**
+   * Get the value of an attribute of an element.
+   *
+   * @param array $element
+   *   The element to get the attribute from.
+   * @param string $attribute
+   *   The attribute of which to get the value.
+   *
+   * @return mixed
+   *   The attribute value.
+   */
+  protected function getAttributeValue(array $element, $attribute) {
+    return isset($element['#' . $attribute]) ?
+        $element['#' . $attribute]
+        : (isset($element['#attributes'][$attribute]) ? $element['#attributes'][$attribute] : NULL);
+  }
+
+  protected function getElementTitle(array $element, $default = 'This field') {
+    $title = $this->getAttributeValue($element, 'title');
+    return $title ? $title : t($default);
   }
 
 }

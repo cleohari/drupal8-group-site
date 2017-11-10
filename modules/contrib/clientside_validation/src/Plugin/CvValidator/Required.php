@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\clientside_validation\Plugin\CvValidator\Required.
- */
 
 namespace Drupal\clientside_validation\Plugin\CvValidator;
 
@@ -28,10 +24,10 @@ class Required extends CvValidatorBase {
   protected function getRules($element, FormStateInterface $form_state) {
     // Drupal already adds the required attribute, so we don't need to set the
     // required rule.
-    if ($element['#required']) {
+    if ($this->getAttributeValue($element, 'required')) {
       return [
         'messages' => [
-          'required' => $this->t('@title is required.', ['@title' => $element['#title']]),
+          'required' => $this->t('@title is required.', ['@title' => $this->getElementTitle($element)]),
         ],
       ];
     }
