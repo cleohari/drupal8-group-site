@@ -46,7 +46,8 @@
         "progress-tracker/progress-tracker": "1.4.0",
         "signature_pad/signature_pad": "1.5.3",
         "drupal/features": "^3.5",
-        "drupal/config_update": "^1.4"
+        "drupal/config_update": "^1.4",
+        "drupal/better_exposed_filters": "^3.0"
     },
     "replace": {
 
