@@ -87,6 +87,7 @@ dependencies:
   - clientside_validation
   - better_exposed_filters
   - entity_reference_revisions
+  - field_group
 
 themes:
   - bartik
