@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1dd8154c0c2d6137a9e4bb2363f20e79",
+    "content-hash": "bf5fcc51088ab20c8fe0cbe0b738cac0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2468,17 +2468,11 @@
         },
         {
             "name": "drupal/webform",
-            "version": "5.0.0-beta23",
+            "version": "dev-5.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/webform",
-                "reference": "8.x-5.0-beta23"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-beta23.zip",
-                "reference": "8.x-5.0-beta23",
-                "shasum": "b62f90be0adf25afba7932401f8b06eea69c4b83"
+                "reference": "8fe974ed94bd6615b31b488acb4c68eac0fa809b"
             },
             "require": {
                 "drupal/core": "*"
@@ -2489,11 +2483,11 @@
                     "dev-5.x": "5.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-5.0-beta23",
-                    "datestamp": "1509673984",
+                    "version": "8.x-5.0-beta23+20-dev",
+                    "datestamp": "1510265284",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -2545,7 +2539,8 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/webform",
                 "issues": "https://drupal.org/project/issues/webform"
-            }
+            },
+            "time": "2017-11-10T10:32:42+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
@@ -4835,7 +4830,7 @@
     "stability-flags": {
         "drupal/redis_watchdog": 20,
         "drupal/redis": 5,
-        "drupal/webform": 10,
+        "drupal/webform": 20,
         "drupal/typed_data": 15,
         "drupal/sendgrid_integration": 20,
         "drupal/rules": 15,

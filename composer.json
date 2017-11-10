@@ -13,7 +13,7 @@
         "drupal/core": "~8",
         "drupal/redis_watchdog": "1.x-dev",
         "drupal/redis": "^1.0@RC",
-        "drupal/webform": "^5.0@beta",
+        "drupal/webform": "5.x-dev",
         "drupal/typed_data": "^1.0@alpha",
         "drupal/token": "^1.0",
         "drupal/sendgrid_integration": "1.x-dev",
