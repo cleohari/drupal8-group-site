@@ -1,4 +1,4 @@
-#!/bin/bash
+    #!/bin/bash
 
 # Set these variables in your shell
 # PDS_DB_HOST=
