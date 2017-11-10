@@ -92,6 +92,7 @@ dependencies:
   - fontyourface
   - google_fonts_api
   - paragraphs
+  - superfish
 
 themes:
   - bartik
