@@ -92,6 +92,7 @@ dependencies:
   - google_fonts_api
   - paragraphs
   - superfish
+  - video_embed_field
 
 themes:
   - bartik
