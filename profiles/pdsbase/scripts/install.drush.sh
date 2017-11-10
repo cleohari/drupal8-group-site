@@ -6,7 +6,7 @@ SET2="\$settings['redis.connection']['host'] = 'redisAddress';"
 SET3="\$settings['cache']['default'] = 'cache.backend.redis';"
 SET4="\$settings['redis.connection']['base'] = redisBaseID;"
 
-echo "Enter the DB Host Name"
+adfecho "Enter the DB Host Name press enter to accept the default (localhost)"
 read DBHOST
 echo "Enter DB Username"
 read DBUSER
@@ -19,6 +19,9 @@ read RDHOST
 echo "Redis DB Number press enter to accept the default (1)"
 read RDNUMBER
 
+if [[ -z "${DBHOST// }" ]]; then
+  DBHOST="localhost"
+fi
 if [[ -z "${RDHOST// }" ]]; then
   RDHOST="localhost"
 fi
@@ -34,11 +37,10 @@ REDIS_SETTINGS=$'\n'"${SET0}"$'\n'"${SET1}"$'\n'"${SET2_result}"$'\n'"${SET3}"$'
 drush site-install pdsbase -y \
 --site-name="PDS" \
 --site-mail=drupal@fastglass.net \
---account-name=adminpds \
---account-pass=horse-staple-battery \
+--account-name=admin \
+--account-pass=pass \
 --account-mail=drupal@fastglass.net \
---db-url=mysql://$DBUSER:$DBPASS@$DBHOST/$DBNAME \
---db-prefix=pds_ ;
+--db-url=mysql://$DBUSER:$DBPASS@$DBHOST/$DBNAME ;
 
 chmod 777 ../../../sites/default
 chmod 644 ../../../sites/default/settings.php
@@ -46,6 +48,7 @@ echo "$REDIS_SETTINGS" >> ../../../sites/default/settings.php
 chmod 444 ../../../sites/default/settings.php
 chmod 555 ../../../sites/default
 
-drush pm-uninstall -y update;
+#TODO - commenting out the uninstall of update temporarily
+#drush pm-uninstall -y update;
 #last minute cleanse
 drush cr
