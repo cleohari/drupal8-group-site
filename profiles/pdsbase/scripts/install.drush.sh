@@ -6,7 +6,7 @@ SET2="\$settings['redis.connection']['host'] = 'redisAddress';"
 SET3="\$settings['cache']['default'] = 'cache.backend.redis';"
 SET4="\$settings['redis.connection']['base'] = redisBaseID;"
 
-adfecho "Enter the DB Host Name press enter to accept the default (localhost)"
+echo "Enter the DB Host Name press enter to accept the default (localhost)"
 read DBHOST
 echo "Enter DB Username"
 read DBUSER
