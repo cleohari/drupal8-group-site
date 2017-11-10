@@ -89,6 +89,8 @@ dependencies:
   - better_exposed_filters
   - entity_reference_revisions
   - field_group
+  - fontyourface
+  - google_fonts_api
 
 themes:
   - bartik
