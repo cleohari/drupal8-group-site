@@ -85,6 +85,7 @@ dependencies:
   - admin_toolbar
   - admin_toolbar_tools
   - clientside_validation
+  - pds_content_type_plan_document_plan_document
 
 themes:
   - bartik
