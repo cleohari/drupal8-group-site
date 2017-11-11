@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "511df6e24c9677149f48f3225c40e214",
+    "content-hash": "d2a433244cfca1d3aa1df5f883935d94",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -933,8 +933,7 @@
             "homepage": "https://www.drupal.org/project/clientside_validation",
             "support": {
                 "source": "http://cgit.drupalcode.org/clientside_validation"
-            },
-            "time": "2017-09-01T18:16:38+00:00"
+            }
         },
         {
             "name": "drupal/config_update",
@@ -1423,17 +1422,11 @@
         },
         {
             "name": "drupal/features",
-            "version": "3.5.0",
+            "version": "dev-3.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/features",
-                "reference": "8.x-3.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/features-8.x-3.5.zip",
-                "reference": "8.x-3.5",
-                "shasum": "546b34387018f9adbe742b6992c4d473f9447c41"
+                "reference": "6b530704738db77d5ec5bb2eeea20e6cb4d92ebc"
             },
             "require": {
                 "drupal/config_update": "*",
@@ -1445,11 +1438,11 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.5",
-                    "datestamp": "1488908583",
+                    "version": "8.x-3.5+2-dev",
+                    "datestamp": "1498958643",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -1491,7 +1484,8 @@
             "homepage": "https://www.drupal.org/project/features",
             "support": {
                 "source": "http://cgit.drupalcode.org/features"
-            }
+            },
+            "time": "2017-07-02T01:20:42+00:00"
         },
         {
             "name": "drupal/filebrowser",
@@ -3628,16 +3622,16 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v3.3.10",
+            "version": "v3.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "eb95d9ce8f18dcc1b3dfff00cb624c402be78ffd"
+                "reference": "74557880e2846b5c84029faa96b834da37e29810"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/eb95d9ce8f18dcc1b3dfff00cb624c402be78ffd",
-                "reference": "eb95d9ce8f18dcc1b3dfff00cb624c402be78ffd",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/74557880e2846b5c84029faa96b834da37e29810",
+                "reference": "74557880e2846b5c84029faa96b834da37e29810",
                 "shasum": ""
             },
             "require": {
@@ -3680,7 +3674,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-10-02T06:42:24+00:00"
+            "time": "2017-11-10T16:38:39+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -4844,7 +4838,8 @@
         "drupal/libraries": 20,
         "drupal/group": 5,
         "drupal/filebrowser": 5,
-        "drupal/clientside_validation": 20
+        "drupal/clientside_validation": 20,
+        "drupal/features": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

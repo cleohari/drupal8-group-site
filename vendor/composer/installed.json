@@ -1381,64 +1381,6 @@
         ]
     },
     {
-        "name": "symfony/debug",
-        "version": "v3.3.10",
-        "version_normalized": "3.3.10.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/debug.git",
-            "reference": "eb95d9ce8f18dcc1b3dfff00cb624c402be78ffd"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/debug/zipball/eb95d9ce8f18dcc1b3dfff00cb624c402be78ffd",
-            "reference": "eb95d9ce8f18dcc1b3dfff00cb624c402be78ffd",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.5.9|>=7.0.8",
-            "psr/log": "~1.0"
-        },
-        "conflict": {
-            "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
-        },
-        "require-dev": {
-            "symfony/http-kernel": "~2.8|~3.0"
-        },
-        "time": "2017-10-02T06:42:24+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.3-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\Debug\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Debug Component",
-        "homepage": "https://symfony.com"
-    },
-    {
         "name": "symfony/http-kernel",
         "version": "v3.2.13",
         "version_normalized": "3.2.13.0",
@@ -4871,80 +4813,6 @@
         }
     },
     {
-        "name": "drupal/features",
-        "version": "3.5.0",
-        "version_normalized": "3.5.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://git.drupal.org/project/features",
-            "reference": "8.x-3.5"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/features-8.x-3.5.zip",
-            "reference": "8.x-3.5",
-            "shasum": "546b34387018f9adbe742b6992c4d473f9447c41"
-        },
-        "require": {
-            "drupal/config_update": "*",
-            "drupal/core": "*"
-        },
-        "type": "drupal-module",
-        "extra": {
-            "branch-alias": {
-                "dev-3.x": "3.x-dev"
-            },
-            "drupal": {
-                "version": "8.x-3.5",
-                "datestamp": "1488908583",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
-            }
-        },
-        "installation-source": "dist",
-        "notification-url": "https://packages.drupal.org/8/downloads",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "authors": [
-            {
-                "name": "dawehner",
-                "homepage": "https://www.drupal.org/user/99340"
-            },
-            {
-                "name": "e2thex",
-                "homepage": "https://www.drupal.org/user/189123"
-            },
-            {
-                "name": "febbraro",
-                "homepage": "https://www.drupal.org/user/43670"
-            },
-            {
-                "name": "jmiccolis",
-                "homepage": "https://www.drupal.org/user/31731"
-            },
-            {
-                "name": "mpotter",
-                "homepage": "https://www.drupal.org/user/616192"
-            },
-            {
-                "name": "nedjo",
-                "homepage": "https://www.drupal.org/user/4481"
-            },
-            {
-                "name": "tim.plunkett",
-                "homepage": "https://www.drupal.org/user/241634"
-            }
-        ],
-        "description": "Enables administrators to package configuration into modules.",
-        "homepage": "https://www.drupal.org/project/features",
-        "support": {
-            "source": "http://cgit.drupalcode.org/features"
-        }
-    },
-    {
         "name": "drupal/clientside_validation",
         "version": "dev-1.x",
         "version_normalized": "dev-1.x",
@@ -4994,5 +4862,131 @@
         "support": {
             "source": "http://cgit.drupalcode.org/clientside_validation"
         }
+    },
+    {
+        "name": "drupal/features",
+        "version": "dev-3.x",
+        "version_normalized": "dev-3.x",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/features",
+            "reference": "6b530704738db77d5ec5bb2eeea20e6cb4d92ebc"
+        },
+        "require": {
+            "drupal/config_update": "*",
+            "drupal/core": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-3.x": "3.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-3.5+2-dev",
+                "datestamp": "1498958643",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Dev releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "source",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "dawehner",
+                "homepage": "https://www.drupal.org/user/99340"
+            },
+            {
+                "name": "e2thex",
+                "homepage": "https://www.drupal.org/user/189123"
+            },
+            {
+                "name": "febbraro",
+                "homepage": "https://www.drupal.org/user/43670"
+            },
+            {
+                "name": "jmiccolis",
+                "homepage": "https://www.drupal.org/user/31731"
+            },
+            {
+                "name": "mpotter",
+                "homepage": "https://www.drupal.org/user/616192"
+            },
+            {
+                "name": "nedjo",
+                "homepage": "https://www.drupal.org/user/4481"
+            },
+            {
+                "name": "tim.plunkett",
+                "homepage": "https://www.drupal.org/user/241634"
+            }
+        ],
+        "description": "Enables administrators to package configuration into modules.",
+        "homepage": "https://www.drupal.org/project/features",
+        "support": {
+            "source": "http://cgit.drupalcode.org/features"
+        }
+    },
+    {
+        "name": "symfony/debug",
+        "version": "v3.3.11",
+        "version_normalized": "3.3.11.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/debug.git",
+            "reference": "74557880e2846b5c84029faa96b834da37e29810"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/debug/zipball/74557880e2846b5c84029faa96b834da37e29810",
+            "reference": "74557880e2846b5c84029faa96b834da37e29810",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5.9|>=7.0.8",
+            "psr/log": "~1.0"
+        },
+        "conflict": {
+            "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
+        },
+        "require-dev": {
+            "symfony/http-kernel": "~2.8|~3.0"
+        },
+        "time": "2017-11-10T16:38:39+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Debug\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Debug Component",
+        "homepage": "https://symfony.com"
     }
 ]
