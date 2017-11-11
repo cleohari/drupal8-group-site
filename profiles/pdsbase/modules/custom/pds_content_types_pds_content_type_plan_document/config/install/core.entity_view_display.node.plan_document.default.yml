@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.plan_document.field_document_content
+    - node.type.plan_document
+  module:
+    - text
+    - user
+id: node.plan_document.default
+targetEntityType: node
+bundle: plan_document
+mode: default
+content:
+  field_document_content:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
