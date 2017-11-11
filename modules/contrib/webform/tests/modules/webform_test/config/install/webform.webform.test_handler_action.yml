@@ -1,21 +1,43 @@
+uuid: 76ccaf9f-f2c5-4fda-9939-316ce3bdc8f4
 langcode: en
 status: open
 dependencies:
   enforced:
     module:
       - webform_test
+_core:
+  default_config_hash: HXJTQ6yD8Ij1iWN_h9J_dG9hxJzLDyHhxn-GHiFwfWY
 open: null
 close: null
 uid: null
 template: false
-id: test_element_signature
-title: 'Test: Element: Signature'
-description: 'Test the signature element.'
-category: 'Test: Element'
+id: test_handler_action
+title: 'Test: Handler: Action'
+description: 'Test action handler.'
+category: 'Test: Handler'
 elements: |
-  signature:
-    '#type': webform_signature
-    '#title': signature
+  status:
+    '#type': fieldset
+    '#title': Status
+    sticky:
+      '#type': radios
+      '#title': Status
+      '#title_display': invisible
+      '#options':
+        flag: Flag/Star
+        unflag: Unflag/Unstar
+  notes:
+    '#type': fieldset
+    '#title': Notes
+    notes_add:
+      '#title': 'Add note'
+      '#type': textarea
+    notes_last:
+      '#title': 'Last note'
+      '#type': textarea
+      '#attributes':
+        readonly: readonly
+        style: 'background-color: #eee'
 css: ''
 javascript: ''
 settings:
@@ -59,14 +81,14 @@ settings:
   preview_attributes: {  }
   preview_excluded_elements: {  }
   preview_exclude_empty: true
-  draft: none
+  draft: authenticated
   draft_multiple: false
   draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: page
   confirmation_title: ''
-  confirmation_message: '[webform_submission:values:signature:html]'
+  confirmation_message: ''
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
@@ -83,7 +105,6 @@ settings:
   results_disabled: false
   results_disabled_ignore: false
   token_update: false
-  wizard_track: ''
 access:
   create:
     roles:
@@ -120,11 +141,70 @@ access:
     users: {  }
     permissions: {  }
 handlers:
-  debug:
-    id: debug
-    label: Debug
-    handler_id: debug
+  notes:
+    id: action
+    label: 'Notes'
+    handler_id: notes
     status: true
-    conditions: {  }
-    weight: 1
-    settings: {  }
+    conditions:
+      enabled:
+        ':input[name="notes_add"]':
+          filled: true
+    weight: -48
+    settings:
+      states:
+        - draft
+        - completed
+        - updated
+      notes: '[webform_submission:values:notes_add]'
+      sticky: null
+      data: |
+        notes_add: ''
+        notes_last: '[webform_submission:values:notes_add]'
+      message: 'Submission notes have been updated.'
+      message_type: status
+      debug: true
+  flag:
+    id: action
+    label: Flag
+    handler_id: flag
+    status: true
+    conditions:
+      enabled:
+        ':input[name="sticky"]':
+          value: flag
+    weight: -50
+    settings:
+      states:
+        - draft
+        - converted
+        - completed
+        - updated
+      notes: ''
+      sticky: true
+      data: ''
+      message: 'Submission has been flagged.'
+      message_type: status
+      debug: true
+  unflag:
+    id: action
+    label: Unflag
+    handler_id: unflag
+    status: true
+    conditions:
+      enabled:
+        ':input[name="sticky"]':
+          value: unflag
+    weight: -49
+    settings:
+      states:
+        - draft
+        - converted
+        - completed
+        - updated
+      notes: ''
+      sticky: false
+      data: ''
+      message: 'Submission has been unflagged.'
+      message_type: status
+      debug: true
