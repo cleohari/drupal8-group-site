@@ -1,5 +1,9 @@
 #!/bin/bash
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+suffix="profiles/pdsbase/scripts"
+DWD=${DIR%$suffix}
+
 SET0="#Redis Settings"
 SET1="\$settings['redis.connection']['interface'] = 'PhpRedis';"
 SET2="\$settings['redis.connection']['host'] = 'redisAddress';"
@@ -40,12 +44,12 @@ drush site-install pdsbase -y \
 --db-url=mysql://$DBUSER:$DBPASS@$DBHOST/$DBNAME \
 --db-prefix=pds_ ;
 
-chmod 777 ../../../sites/default
-chmod 644 ../../../sites/default/settings.php
-echo "$REDIS_SETTINGS" >> ../../../sites/default/settings.php
-chmod 444 ../../../sites/default/settings.php
-chmod 555 ../../../sites/default
+chmod 777 ${DWD}sites/default
+chmod 644 ${DWD}sites/default/settings.php
+echo "$REDIS_SETTINGS" >> ${DWD}sites/default/settings.php
+chmod 444 ${DWD}sites/default/settings.php
+chmod 555 ${DWD}sites/default
 
-drush pm-uninstall -y update;
+echo "Cleaning all caches."
 #last minute cleanse
 drush cr
