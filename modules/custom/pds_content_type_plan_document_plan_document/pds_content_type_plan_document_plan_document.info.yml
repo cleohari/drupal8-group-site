@@ -1,0 +1,12 @@
+name: 'Plan Document'
+description: 'Provides Plan Document content type and related configuration. A content type that encompasses plan documents created from questionnaires.'
+type: module
+core: 8.x
+dependencies:
+  - field
+  - menu_ui
+  - node
+  - path
+  - text
+  - user
+package: 'PDS Content Type Plan Document'
