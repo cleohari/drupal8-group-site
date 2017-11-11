@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.plan_document.field_document_sections
     - node.type.plan_document
   module:
     - user
@@ -14,4 +15,5 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_document_sections: true
