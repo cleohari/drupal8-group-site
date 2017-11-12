@@ -1,0 +1,8 @@
+
+pds_create_node_from_webform.create_node_controller_createNode:
+  path: '/plandocument/create'
+  defaults:
+    _controller: '\Drupal\pds_create_node_from_webform\Controller\CreateNodeController::createNode'
+    _title: 'Create Node Controller'
+  requirements:
+    _permission: 'access content'

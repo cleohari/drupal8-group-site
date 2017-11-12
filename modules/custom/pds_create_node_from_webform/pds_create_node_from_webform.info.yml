@@ -1,0 +1,7 @@
+name: pds_create_node_from_webform
+type: module
+description: Create a plan document from a webform
+core: 8.x
+package: PDS
+dependencies:
+  - pds_content_type_plan_document_plan_document
