@@ -15,7 +15,7 @@ category: 'Test: Element'
 elements: |
   states_basic:
     '#type': webform_element_states
-    '#title': states_basic
+    '#title': 'States basic'
     '#selector_options':
       selector_01: 'Selector 01 (selector_01)'
       selector_02: 'Selector 02 (selector_02)'
@@ -37,7 +37,7 @@ elements: |
             checked: true
   states_values:
     '#type': webform_element_states
-    '#title': states_values
+    '#title': 'States basic'
     '#selector_options':
       selector_01: 'Selector 01 (selector_01)'
       selector_02: 'Selector 02 (selector_02)'
@@ -55,7 +55,7 @@ elements: |
           checked: true
   states_custom_selector:
     '#type': webform_element_states
-    '#title': states_custom_selector
+    '#title': 'States custom selector'
     '#selector_options':
       selector_01: 'Selector 01 (selector_01)'
       selector_02: 'Selector 02 (selector_02)'
@@ -66,22 +66,14 @@ elements: |
           value: 'Yes'
   states_empty:
     '#type': webform_element_states
-    '#title': states_empty
-    '#selector_options':
-      selector_01: 'Selector 01 (selector_01)'
-      selector_02: 'Selector 02 (selector_02)'
-      selector_03: 'Selector 03 (selector_03)'
-  states_no_selector_other:
-    '#type': webform_element_states
-    '#title': 'states_no_selector_other'
-    '#selector_other': false
+    '#title': 'States empty'
     '#selector_options':
       selector_01: 'Selector 01 (selector_01)'
       selector_02: 'Selector 02 (selector_02)'
       selector_03: 'Selector 03 (selector_03)'
   states_single:
     '#type': webform_element_states
-    '#title': states_single
+    '#title': 'States single'
     '#selector_options':
       selector_01: 'Selector 01 (selector_01)'
       selector_02: 'Selector 02 (selector_02)'
@@ -89,7 +81,7 @@ elements: |
     '#multiple': false
   states_unsupported_operator:
     '#type': webform_element_states
-    '#title': states_unsupported_operator
+    '#title': 'States unsupport operator'
     '#default_value':
       required:
         - custom_selector:
@@ -99,7 +91,7 @@ elements: |
             value: 'Yes'
   states_unsupported_nesting:
     '#type': webform_element_states
-    '#title': states_unsupported_nesting
+    '#title': 'States unsupport nested multiple selectors'
     '#default_value':
       required:
         - selector_01:
@@ -136,7 +128,6 @@ settings:
   form_novalidate: false
   form_unsaved: false
   form_disable_back: false
-  form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
   submission_label: ''
@@ -148,7 +139,6 @@ settings:
   wizard_start_label: ''
   wizard_confirmation: true
   wizard_confirmation_label: ''
-  wizard_track: ''
   preview: 0
   preview_label: ''
   preview_title: ''
