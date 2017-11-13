@@ -98,3 +98,4 @@ dependencies:
 themes:
   - bartik
   - seven
+  - enterpriseplus
