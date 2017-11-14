@@ -87,8 +87,8 @@ abstract class WebformCompositeBase extends WebformElementBase {
         }
       }
       if (isset($properties[$composite_key . '__type'])) {
-        $properties[$composite_key . '__description'] = '';
-        $properties[$composite_key . '__help'] = '';
+        $properties[$composite_key . '__description'] = FALSE;
+        $properties[$composite_key . '__help'] = FALSE;
         $properties[$composite_key . '__required'] = FALSE;
         $properties[$composite_key . '__placeholder'] = '';
       }
@@ -377,10 +377,7 @@ abstract class WebformCompositeBase extends WebformElementBase {
       }
 
       $composite_element = $composite_elements[$composite_key];
-      $header[$composite_key] = [
-        'data' => (isset($composite_element['#title'])) ? $composite_element['#title'] : $composite_key,
-        'bgcolor' => '#eee',
-      ];
+      $header[$composite_key] = (isset($composite_element['#title'])) ? $composite_element['#title'] : $composite_key;
     }
 
     // Get rows.
@@ -402,11 +399,6 @@ abstract class WebformCompositeBase extends WebformElementBase {
       '#type' => 'table',
       '#header' => $header,
       '#rows' => $rows,
-      '#attributes' => [
-        'cellspacing' => 0,
-        'cellpadding' => 5,
-        'border' => 1,
-      ]
     ];
   }
 
