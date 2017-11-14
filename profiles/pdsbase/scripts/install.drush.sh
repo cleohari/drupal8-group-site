@@ -120,7 +120,9 @@ chmod 777 ${DWD}sites/default
 chmod 644 ${DWD}sites/default/settings.php
 echo "$REDIS_SETTINGS" >> ${DWD}sites/default/settings.php
 chmod 444 ${DWD}sites/default/settings.php
-chmod 555 ${DWD}sites/default
+#chmod 555 ${DWD}sites/default
+
+drush config-set system.theme default enterpriseplus -y
 
 echo "Cleaning all caches."
 # Last minute cleanse.
