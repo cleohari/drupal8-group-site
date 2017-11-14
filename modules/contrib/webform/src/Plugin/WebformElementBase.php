@@ -19,9 +19,6 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\webform\Element\WebformHtmlEditor;
 use Drupal\webform\Entity\WebformOptions;
-use Drupal\webform\Plugin\WebformElement\Checkbox;
-use Drupal\webform\Plugin\WebformElement\Checkboxes;
-use Drupal\webform\Plugin\WebformElement\Details;
 use Drupal\webform\Utility\WebformArrayHelper;
 use Drupal\webform\Utility\WebformElementHelper;
 use Drupal\webform\Utility\WebformFormHelper;
@@ -1812,20 +1809,21 @@ class WebformElementBase extends PluginBase implements WebformElementInterface {
       'optional' => $this->t('Optional'),
     ];
 
-    // Set checked/unchecked states for any element that contains checkboxes.
-    if ($this instanceof Checkbox || $this instanceof Checkboxes) {
-      $states += [
-        'checked' => $this->t('Checked'),
-        'unchecked' => $this->t('Unchecked'),
-      ];
-    }
+    // Set element type specific states.
+    switch ($this->getPluginId()) {
+      case 'checkbox':
+        $states += [
+          'checked' => $this->t('Checked'),
+          'unchecked' => $this->t('Unchecked'),
+        ];
+        break;
 
-    // Set expanded/collapsed states for any details element.
-    if ($this instanceof Details) {
-      $states += [
-        'expanded' => $this->t('Expanded'),
-        'collapsed' => $this->t('Collapsed'),
-      ];
+      case 'details':
+        $states += [
+          'expanded' => $this->t('Expanded'),
+          'collapsed' => $this->t('Collapsed'),
+        ];
+        break;
     }
 
     return $states;

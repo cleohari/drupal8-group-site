@@ -138,7 +138,6 @@ settings:
   form_novalidate: false
   form_unsaved: false
   form_disable_back: false
-  form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
   submission_label: ''
@@ -150,7 +149,6 @@ settings:
   wizard_start_label: ''
   wizard_confirmation: true
   wizard_confirmation_label: ''
-  wizard_track: ''
   preview: 0
   preview_label: ''
   preview_title: ''
@@ -239,6 +237,12 @@ settings:
     <tr><th width="50%">webform_submission:total:webform:source_entity</th><td width="50%">[webform_submission:total:webform:source_entity]</td></tr>
     <tr><th width="50%">webform_submission:limit:user:source_entity</th><td width="50%">[webform_submission:limit:user:source_entity]</td></tr>
     <tr><th width="50%">webform_submission:total:user:source_entity</th><td width="50%">[webform_submission:total:user:source_entity]</td></tr>
+    </table>
+
+    <h3>removed and ignored</h3>
+    <table class="table">
+    <tr><th width="50%">webform:removed:token</th><td width="50%">[webform:removed:token]</td></tr>
+    <tr><th width="50%">ignored:token</th><td width="50%">[ignored:token]</td></tr>
     </table>
   confirmation_url: ''
   confirmation_attributes: {  }

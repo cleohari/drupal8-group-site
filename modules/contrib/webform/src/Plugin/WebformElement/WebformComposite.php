@@ -57,7 +57,6 @@ class WebformComposite extends WebformCompositeBase {
    */
   public function getDefaultProperties() {
     $properties = $this->getDefaultMultipleProperties() + parent::getDefaultProperties();
-    $properties['title_display'] = '';
     $properties['element'] = [];
     unset($properties['flexbox']);
     return $properties;
