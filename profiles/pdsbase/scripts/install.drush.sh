@@ -122,6 +122,9 @@ echo "$REDIS_SETTINGS" >> ${DWD}sites/default/settings.php
 chmod 444 ${DWD}sites/default/settings.php
 chmod 555 ${DWD}sites/default
 
+echo "Optimize Composer Autoloader"
+cd ${DWD}
+composer dump-autoload --optimize
 echo "Cleaning all caches."
 # Last minute cleanse.
 drush cr
