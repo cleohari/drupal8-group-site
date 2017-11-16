@@ -1,0 +1,14 @@
+
+langcode: en
+status: true
+dependencies: {  }
+name: mt_icons
+label: 'Icons (80x80)'
+effects:
+  1d6b2ee3-93c6-4e3a-bde8-3e67c85e847f:
+
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 80
+      height: 80

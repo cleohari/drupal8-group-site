@@ -1,0 +1,9 @@
+
+langcode: en
+status: true
+dependencies: {  }
+name: Industries
+vid: mt_brands_tags
+description: ''
+hierarchy: 0
+weight: 0

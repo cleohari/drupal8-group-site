@@ -1,0 +1,21 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mt_slideshow_text
+    - node.type.page
+  module:
+    - text
+id: node.page.field_mt_slideshow_text
+field_name: field_mt_slideshow_text
+entity_type: node
+bundle: page
+label: 'Slideshow text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

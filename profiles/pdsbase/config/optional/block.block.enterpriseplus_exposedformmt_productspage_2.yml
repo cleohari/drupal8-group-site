@@ -1,0 +1,29 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.mt_products
+  module:
+    - system
+    - views
+  theme:
+    - enterpriseplus
+id: enterpriseplus_exposedformmt_productspage_2
+theme: enterpriseplus
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:mt_products-page_2'
+settings:
+  id: 'views_exposed_filter_block:mt_products-page_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /products-3-col
+    negate: false
+    context_mapping: {  }

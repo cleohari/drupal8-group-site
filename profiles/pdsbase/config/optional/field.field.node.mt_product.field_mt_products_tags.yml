@@ -1,0 +1,28 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mt_products_tags
+    - node.type.mt_product
+    - taxonomy.vocabulary.mt_product_tags
+id: node.mt_product.field_mt_products_tags
+field_name: field_mt_products_tags
+entity_type: node
+bundle: mt_product
+label: 'Products Tags'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      mt_product_tags: mt_product_tags
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

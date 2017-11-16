@@ -1,0 +1,47 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mt_google_maps
+    - field.field.block_content.mt_google_maps.field_mt_latitude
+    - field.field.block_content.mt_google_maps.field_mt_longitude
+    - field.field.block_content.mt_google_maps.field_mt_map_zoom
+id: block_content.mt_google_maps.default
+targetEntityType: block_content
+bundle: mt_google_maps
+mode: default
+content:
+  field_mt_latitude:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_mt_longitude:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_mt_map_zoom:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

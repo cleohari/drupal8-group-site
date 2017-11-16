@@ -1,0 +1,10 @@
+
+langcode: en
+status: true
+dependencies: {  }
+id: mt_site_name
+label: 'Site name'
+font_url: 'http://www.google.com/webfonts/family?family=Libre Franklin&subset=latin-ext#700'
+fallback: Sans-serif
+selectors: '.sff-fyf .site-name'
+theme: enterpriseplus

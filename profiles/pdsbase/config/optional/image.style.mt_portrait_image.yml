@@ -1,0 +1,14 @@
+
+langcode: en
+status: true
+dependencies: {  }
+name: mt_portrait_image
+label: 'Portrait Image (750x835)'
+effects:
+  bdfa9779-ef7b-408f-af36-9c452cd5d928:
+
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 835
