@@ -1382,8 +1382,8 @@
     },
     {
         "name": "symfony/debug",
-        "version": "v3.3.11",
-        "version_normalized": "3.3.11.0",
+        "version": "v3.3.12",
+        "version_normalized": "3.3.12.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/debug.git",
@@ -2999,8 +2999,8 @@
                 "dev-1.x": "1.x-dev"
             },
             "drupal": {
-                "version": "8.x-1.x-dev",
-                "datestamp": "1509403984",
+                "version": "8.x-1.0-beta1+1-dev",
+                "datestamp": "1509573184",
                 "security-coverage": {
                     "status": "not-covered",
                     "message": "Dev releases are not covered by Drupal security advisories."
@@ -3031,83 +3031,6 @@
         ],
         "support": {
             "source": "http://cgit.drupalcode.org/redis_watchdog"
-        }
-    },
-    {
-        "name": "drupal/webform",
-        "version": "dev-5.x",
-        "version_normalized": "dev-5.x",
-        "source": {
-            "type": "git",
-            "url": "https://git.drupal.org/project/webform",
-            "reference": "65d52863a1712ac1414a26338e7209581e1bb735"
-        },
-        "require": {
-            "drupal/core": "*"
-        },
-        "type": "drupal-module",
-        "extra": {
-            "branch-alias": {
-                "dev-5.x": "5.x-dev"
-            },
-            "drupal": {
-                "version": "8.x-5.0-beta23+21-dev",
-                "datestamp": "1510309984",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "Dev releases are not covered by Drupal security advisories."
-                }
-            }
-        },
-        "installation-source": "source",
-        "notification-url": "https://packages.drupal.org/8/downloads",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "authors": [
-            {
-                "name": "Jacob Rockowitz (jrockowitz)",
-                "homepage": "https://www.drupal.org/u/jrockowitz",
-                "role": "Maintainer"
-            },
-            {
-                "name": "Liam Morland",
-                "homepage": "https://www.drupal.org/user/493050"
-            },
-            {
-                "name": "fenstrat",
-                "homepage": "https://www.drupal.org/user/362649"
-            },
-            {
-                "name": "jrockowitz",
-                "homepage": "https://www.drupal.org/user/371407"
-            },
-            {
-                "name": "podarok",
-                "homepage": "https://www.drupal.org/user/116002"
-            },
-            {
-                "name": "quicksketch",
-                "homepage": "https://www.drupal.org/user/35821"
-            },
-            {
-                "name": "sanchiz",
-                "homepage": "https://www.drupal.org/user/1671246"
-            },
-            {
-                "name": "tedbow",
-                "homepage": "https://www.drupal.org/user/240860"
-            },
-            {
-                "name": "torotil",
-                "homepage": "https://www.drupal.org/user/865256"
-            }
-        ],
-        "description": "Enables the creation of webforms and questionnaires.",
-        "homepage": "https://drupal.org/project/webform",
-        "support": {
-            "source": "http://cgit.drupalcode.org/webform",
-            "issues": "https://drupal.org/project/issues/webform"
         }
     },
     {
@@ -3887,6 +3810,89 @@
         "homepage": "https://www.drupal.org/project/features",
         "support": {
             "source": "http://cgit.drupalcode.org/features"
+        }
+    },
+    {
+        "name": "drupal/webform",
+        "version": "5.0.0-beta23",
+        "version_normalized": "5.0.0.0-beta23",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/webform",
+            "reference": "8.x-5.0-beta23"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-beta23.zip",
+            "reference": "8.x-5.0-beta23",
+            "shasum": "b62f90be0adf25afba7932401f8b06eea69c4b83"
+        },
+        "require": {
+            "drupal/core": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-5.x": "5.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-5.0-beta23",
+                "datestamp": "1509673984",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Beta releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Jacob Rockowitz (jrockowitz)",
+                "homepage": "https://www.drupal.org/u/jrockowitz",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Liam Morland",
+                "homepage": "https://www.drupal.org/user/493050"
+            },
+            {
+                "name": "fenstrat",
+                "homepage": "https://www.drupal.org/user/362649"
+            },
+            {
+                "name": "jrockowitz",
+                "homepage": "https://www.drupal.org/user/371407"
+            },
+            {
+                "name": "podarok",
+                "homepage": "https://www.drupal.org/user/116002"
+            },
+            {
+                "name": "quicksketch",
+                "homepage": "https://www.drupal.org/user/35821"
+            },
+            {
+                "name": "sanchiz",
+                "homepage": "https://www.drupal.org/user/1671246"
+            },
+            {
+                "name": "tedbow",
+                "homepage": "https://www.drupal.org/user/240860"
+            },
+            {
+                "name": "torotil",
+                "homepage": "https://www.drupal.org/user/865256"
+            }
+        ],
+        "description": "Enables the creation of webforms and questionnaires.",
+        "homepage": "https://drupal.org/project/webform",
+        "support": {
+            "source": "http://cgit.drupalcode.org/webform",
+            "issues": "https://drupal.org/project/issues/webform"
         }
     },
     {
