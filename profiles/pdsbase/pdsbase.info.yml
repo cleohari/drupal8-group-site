@@ -94,7 +94,6 @@ dependencies:
   - paragraphs
   - superfish
   - video_embed_field
-  - default_content
 
 themes:
   - bartik
