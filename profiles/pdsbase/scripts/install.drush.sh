@@ -124,6 +124,9 @@ chmod 444 ${DWD}sites/default/settings.php
 
 drush config-set system.theme default enterpriseplus -y
 
+echo "Optimize Composer Autoloader"
+cd ${DWD}
+composer dump-autoload --optimize
 echo "Cleaning all caches."
 # Last minute cleanse.
 drush cr

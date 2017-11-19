@@ -2508,8 +2508,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.x-dev",
-                    "datestamp": "1509403984",
+                    "version": "8.x-1.0-beta1+1-dev",
+                    "datestamp": "1509573184",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
