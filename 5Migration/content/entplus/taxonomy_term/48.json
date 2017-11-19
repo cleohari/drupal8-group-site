@@ -1,0 +1,119 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/documents\/taxonomy\/term\/48?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/mt_collections"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/mt_collections\/field_mt_collection_image": [
+            {
+                "href": "http:\/\/documents\/sites\/default\/files\/2016-09\/collection-4.jpg"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/mt_collections\/field_mt_wide_collection_image": [
+            {
+                "href": "http:\/\/documents\/sites\/default\/files\/2016-09\/collection-4-landscape.jpg"
+            }
+        ]
+    },
+    "tid": [
+        {
+            "value": 48
+        }
+    ],
+    "uuid": [
+        {
+            "value": "586c6ebe-883f-4488-920e-f431c49a3b03"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "mt_collections"
+        }
+    ],
+    "name": [
+        {
+            "value": "Product Group Four",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 3
+        }
+    ],
+    "changed": [
+        {
+            "value": "2016-12-16T13:15:38+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "path": [
+        {
+            "alias": null,
+            "pid": null,
+            "langcode": "en",
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/mt_collections\/field_mt_collection_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/documents\/sites\/default\/files\/2016-09\/collection-4.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "1de0aec7-8038-4b4a-87ab-e97181737d41"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "http:\/\/documents\/sites\/default\/files\/2016-09\/collection-4.jpg"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/mt_collections\/field_mt_wide_collection_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/documents\/sites\/default\/files\/2016-09\/collection-4-landscape.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "aa05df10-eb11-4da3-9abd-f2ff1bf0630a"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "http:\/\/documents\/sites\/default\/files\/2016-09\/collection-4-landscape.jpg"
+                    }
+                ]
+            }
+        ]
+    }
+}
