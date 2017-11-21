@@ -1,0 +1,30 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.mt_articles_grid
+  module:
+    - system
+    - views
+  theme:
+    - enterpriseplus
+id: views_block__mt_articles_grid_block_1
+theme: enterpriseplus
+region: highlighted_top
+weight: -38
+provider: null
+plugin: 'views_block:mt_articles_grid-block_1'
+settings:
+  id: 'views_block:mt_articles_grid-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/node/16\r\n/node/17\r\n/node/40\r\n/node/53\r\n/node/54\r\n/node/55\r\n/blocks"
+    negate: false
+    context_mapping: {  }

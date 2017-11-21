@@ -1,0 +1,6 @@
+
+langcode: en
+status: true
+dependencies: {  }
+id: mt_main_slideshow_slide
+label: 'Main Slideshow Slide'

@@ -1,0 +1,86 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/documents\/sites\/default\/files\/pictures\/2016-06\/avatar.jpg"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/file\/file\/uid": [
+            {
+                "href": "http:\/\/documents\/user\/1?_format=hal_json"
+            }
+        ]
+    },
+    "fid": [
+        {
+            "value": 14
+        }
+    ],
+    "uuid": [
+        {
+            "value": "d8d810fe-4a06-48cf-aecc-a99ed60d33a0"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/file\/file\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/documents\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "9793666b-8825-4dc0-af5c-e1f3ece3b391"
+                    }
+                ]
+            }
+        ]
+    },
+    "filename": [
+        {
+            "value": "avatar.jpg"
+        }
+    ],
+    "uri": [
+        {
+            "value": "http:\/\/documents\/sites\/default\/files\/pictures\/2016-06\/avatar.jpg"
+        }
+    ],
+    "filemime": [
+        {
+            "value": "image\/jpeg"
+        }
+    ],
+    "filesize": [
+        {
+            "value": 1447
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "created": [
+        {
+            "value": "2016-06-07T20:26:37+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2016-06-07T20:26:40+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ]
+}

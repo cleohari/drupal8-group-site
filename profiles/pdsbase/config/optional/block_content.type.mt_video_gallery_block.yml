@@ -1,0 +1,8 @@
+
+langcode: en
+status: true
+dependencies: {  }
+id: mt_video_gallery_block
+label: 'Video Gallery block'
+revision: 0
+description: 'Display Youtube and Vimeo videos in a gallery slideshow block'

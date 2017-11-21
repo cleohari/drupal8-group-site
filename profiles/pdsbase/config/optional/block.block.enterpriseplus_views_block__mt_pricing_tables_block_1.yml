@@ -1,0 +1,32 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.mt_pricing_tables
+  module:
+    - node
+    - views
+  theme:
+    - enterpriseplus
+id: enterpriseplus_views_block__mt_pricing_tables_block_1
+theme: enterpriseplus
+region: featured_top
+weight: -27
+provider: null
+plugin: 'views_block:mt_pricing_tables-block_1'
+settings:
+  id: 'views_block:mt_pricing_tables-block_1'
+  label: 'Buying Options'
+  provider: views
+  label_display: visible
+  views_label: 'Buying Options'
+  items_per_page: none
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      mt_service: mt_service
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

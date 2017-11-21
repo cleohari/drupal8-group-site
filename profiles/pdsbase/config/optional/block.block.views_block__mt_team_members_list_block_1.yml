@@ -1,0 +1,32 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.mt_team_members_list
+  module:
+    - node
+    - views
+  theme:
+    - enterpriseplus
+id: views_block__mt_team_members_list_block_1
+theme: enterpriseplus
+region: sidebar_second
+weight: -37
+provider: null
+plugin: 'views_block:mt_team_members_list-block_1'
+settings:
+  id: 'views_block:mt_team_members_list-block_1'
+  label: 'Our Team'
+  provider: views
+  label_display: visible
+  views_label: 'Our Team'
+  items_per_page: none
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      mt_team_member: mt_team_member
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

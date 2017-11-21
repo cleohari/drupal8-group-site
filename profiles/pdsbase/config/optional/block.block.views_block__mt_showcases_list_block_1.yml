@@ -1,0 +1,32 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.mt_showcases_list
+  module:
+    - node
+    - views
+  theme:
+    - enterpriseplus
+id: views_block__mt_showcases_list_block_1
+theme: enterpriseplus
+region: sidebar_second
+weight: -38
+provider: null
+plugin: 'views_block:mt_showcases_list-block_1'
+settings:
+  id: 'views_block:mt_showcases_list-block_1'
+  label: 'Case Studies'
+  provider: views
+  label_display: visible
+  views_label: 'Case Studies'
+  items_per_page: none
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      mt_showcase: mt_showcase
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

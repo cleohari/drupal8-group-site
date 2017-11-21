@@ -1,0 +1,92 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/documents\/taxonomy\/term\/40?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/mt_brands_tags"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/mt_brands_tags\/field_mt_brand_image": [
+            {
+                "href": "http:\/\/documents\/sites\/default\/files\/2016-08\/brand-2.jpg"
+            }
+        ]
+    },
+    "tid": [
+        {
+            "value": 40
+        }
+    ],
+    "uuid": [
+        {
+            "value": "e6a2ab14-ce7a-46ae-b0d3-16e21f45af73"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "mt_brands_tags"
+        }
+    ],
+    "name": [
+        {
+            "value": "Industry Two",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 1
+        }
+    ],
+    "changed": [
+        {
+            "value": "2016-12-16T12:57:46+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "path": [
+        {
+            "alias": null,
+            "pid": null,
+            "langcode": "en",
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/mt_brands_tags\/field_mt_brand_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/documents\/sites\/default\/files\/2016-08\/brand-2.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "7932bc10-5bf5-4705-a4c9-dca8dbaa1f51"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "http:\/\/documents\/sites\/default\/files\/2016-08\/brand-2.jpg"
+                    }
+                ]
+            }
+        ]
+    }
+}

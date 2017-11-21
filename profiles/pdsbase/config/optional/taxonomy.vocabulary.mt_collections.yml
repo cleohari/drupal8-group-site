@@ -1,0 +1,9 @@
+
+langcode: en
+status: true
+dependencies: {  }
+name: 'Product Groups'
+vid: mt_collections
+description: ''
+hierarchy: 0
+weight: 0

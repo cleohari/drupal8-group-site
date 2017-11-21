@@ -1,0 +1,6 @@
+
+langcode: en
+status: true
+dependencies: {  }
+id: mt_featured_linked_text_tile
+label: 'Featured Linked Text Tile'

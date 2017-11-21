@@ -1,0 +1,6 @@
+
+langcode: en
+status: true
+dependencies: {  }
+id: mt_video_gallery_slide
+label: 'Video Gallery slide'

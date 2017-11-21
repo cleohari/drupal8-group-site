@@ -13,7 +13,7 @@
         "drupal/core": "~8",
         "drupal/redis_watchdog": "1.x-dev",
         "drupal/redis": "^1.0@RC",
-        "drupal/webform": "5.0.*@dev",
+        "drupal/webform": "^5.0@beta",
         "drupal/typed_data": "^1.0@alpha",
         "drupal/token": "^1.0",
         "drupal/sendgrid_integration": "1.x-dev",
@@ -46,7 +46,14 @@
         "progress-tracker/progress-tracker": "1.4.0",
         "signature_pad/signature_pad": "1.5.3",
         "drupal/features": "3.x-dev",
-        "drupal/config_update": "^1.4"
+        "drupal/config_update": "^1.4",
+        "drupal/better_exposed_filters": "^3.0",
+        "drupal/entity_reference_revisions": "^1.3",
+        "drupal/field_group": "^1.0",
+        "drupal/fontyourface": "^3.1",
+        "drupal/paragraphs": "^1.2",
+        "drupal/superfish": "^1.1",
+        "drupal/video_embed_field": "^2.0"
     },
     "replace": {
 

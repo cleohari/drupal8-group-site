@@ -1,0 +1,24 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.mt_photo_gallery
+  module:
+    - views
+  theme:
+    - enterpriseplus
+id: views_block__mt_photo_gallery_block_1
+theme: enterpriseplus
+region: footer_second
+weight: 0
+provider: null
+plugin: 'views_block:mt_photo_gallery-block_1'
+settings:
+  id: 'views_block:mt_photo_gallery-block_1'
+  label: 'Recent Case Studies'
+  provider: views
+  label_display: visible
+  views_label: 'Recent Case Studies'
+  items_per_page: none
+visibility: {  }
