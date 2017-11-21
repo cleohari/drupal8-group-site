@@ -1,16 +1,18 @@
     #!/bin/bash
 
-# Set these variables in your shell
- PDS_DB_HOST=
- PDS_DB_USERNAME=
- PDS_DB_USERPASSWORD=
- PDS_DB_NAME=
- PDS_RD_HOST=
- PDS_RD_NR=
- PDS_DRUPAL_NAME=
- PDS_DRUPAL_PASS=
- PDS_DRUPAL_SITENAME=
- PDS_DRUPAL_SITENEMAIL=
+# Set these variables in your shell environment . This is documenation and not
+# part of the script.
+# PDS_DB_HOST=
+# PDS_DB_USERNAME=
+# PDS_DB_USERPASSWORD=
+# PDS_DB_NAME=
+# PDS_RD_HOST=
+# PDS_RD_NR=
+# PDS_DRUPAL_NAME=
+# PDS_DRUPAL_PASS=
+# PDS_DRUPAL_SITENAME=
+# PDS_DRUPAL_SITENEMAIL=
+# End documentation.
 
 # This determines the location of this script.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
