@@ -1,0 +1,86 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/documents\/sites\/default\/files\/2016-11\/testimonial-5.jpg"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/file\/file\/uid": [
+            {
+                "href": "http:\/\/documents\/user\/1?_format=hal_json"
+            }
+        ]
+    },
+    "fid": [
+        {
+            "value": 95
+        }
+    ],
+    "uuid": [
+        {
+            "value": "9a67df51-b588-4a14-8bad-ce9d807e3f01"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/file\/file\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/documents\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "9793666b-8825-4dc0-af5c-e1f3ece3b391"
+                    }
+                ]
+            }
+        ]
+    },
+    "filename": [
+        {
+            "value": "testimonial-5.jpg"
+        }
+    ],
+    "uri": [
+        {
+            "value": "http:\/\/documents\/sites\/default\/files\/2016-11\/testimonial-5.jpg"
+        }
+    ],
+    "filemime": [
+        {
+            "value": "image\/jpeg"
+        }
+    ],
+    "filesize": [
+        {
+            "value": 2988
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "created": [
+        {
+            "value": "2016-11-10T17:46:13+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2016-11-10T17:46:18+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.mt_service.body
+    - field.field.node.mt_service.field_image
+    - field.field.node.mt_service.field_mt_banner_image
+    - field.field.node.mt_service.field_mt_buy_link
+    - field.field.node.mt_service.field_mt_price
+    - field.field.node.mt_service.field_mt_service_tags
+    - field.field.node.mt_service.field_mt_slideshow
+    - field.field.node.mt_service.field_mt_slideshow_image
+    - field.field.node.mt_service.field_mt_slideshow_text
+    - field.field.node.mt_service.field_mt_subheader_body
+    - field.field.node.mt_service.field_mt_video
+    - image.style.large
+    - node.type.mt_service
+  module:
+    - image
+    - link
+    - text
+    - user
+id: node.mt_service.teaser
+targetEntityType: node
+bundle: mt_service
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 1
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_image:
+    type: image
+    weight: 0
+    label: hidden
+    settings:
+      image_style: large
+      image_link: content
+    third_party_settings: {  }
+    region: content
+  field_mt_buy_link:
+    type: link
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    region: content
+  field_mt_service_tags:
+    type: entity_reference_label
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_mt_banner_image: true
+  field_mt_price: true
+  field_mt_slideshow: true
+  field_mt_slideshow_image: true
+  field_mt_slideshow_text: true
+  field_mt_subheader_body: true
+  field_mt_video: true

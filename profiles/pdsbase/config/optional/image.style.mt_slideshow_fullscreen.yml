@@ -1,0 +1,7 @@
+
+langcode: en
+status: true
+dependencies: {  }
+name: mt_slideshow_fullscreen
+label: 'Slideshow Full Screen'
+effects: {  }

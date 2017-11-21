@@ -1,0 +1,30 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.mt_slideshow_full_screen
+  module:
+    - system
+    - views
+  theme:
+    - enterpriseplus
+id: enterpriseplus_views_block__mt_slideshow_full_screen_block_1
+theme: enterpriseplus
+region: banner
+weight: -47
+provider: null
+plugin: 'views_block:mt_slideshow_full_screen-block_1'
+settings:
+  id: 'views_block:mt_slideshow_full_screen-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/17
+    negate: false
+    context_mapping: {  }

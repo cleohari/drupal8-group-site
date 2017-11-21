@@ -1,0 +1,63 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/documents\/taxonomy\/term\/13?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/tags"
+        }
+    },
+    "tid": [
+        {
+            "value": 13
+        }
+    ],
+    "uuid": [
+        {
+            "value": "e3093a51-03f7-48da-81a3-37d5b75d3ef4"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "tags"
+        }
+    ],
+    "name": [
+        {
+            "value": "Longer Tag 2",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "changed": [
+        {
+            "value": "2016-06-07T19:45:36+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "path": [
+        {
+            "alias": null,
+            "pid": null,
+            "langcode": "en",
+            "lang": "en"
+        }
+    ]
+}

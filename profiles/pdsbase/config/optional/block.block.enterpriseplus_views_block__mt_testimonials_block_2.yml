@@ -1,0 +1,30 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.mt_testimonials
+  module:
+    - system
+    - views
+  theme:
+    - enterpriseplus
+id: enterpriseplus_views_block__mt_testimonials_block_2
+theme: enterpriseplus
+region: sidebar_second
+weight: -40
+provider: null
+plugin: 'views_block:mt_testimonials-block_2'
+settings:
+  id: 'views_block:mt_testimonials-block_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/node/3\r\n/node/16\r\n/node/17\r\n/node/30\r\n/node/36\r\n/node/39\r\n/node/40\r\n/node/41\r\n/node/42\r\n/node/43\r\n/node/44\r\n/node/45\r\n/node/53\r\n/node/54\r\n/node/55\r\n/node/57\r\n/benefits\r\n/contact\r\n/contact/alternative\r\n/services-4-col\r\n/services-3-col\r\n/services-2-col\r\n/services-isotope\r\n/products-4-col\r\n/products-3-col\r\n/products-3-col/*\r\n/products-2-col\r\n/products-isotope\r\n/products-masonry\r\n/showcases*\r\n/articles-4-col\r\n/articles-3-col\r\n/articles-2-col\r\n/videos\r\n/industries\r\n/product-groups\r\n/product-groups-masonry\r\n/team-members*\r\n/about-us\r\n/pricing-tables\r\n/testimonials-3-col\r\n/testimonials-3-col-2\r\n/testimonials-masonry\r\n/investors\r\n/blocks"
+    negate: true
+    context_mapping: {  }

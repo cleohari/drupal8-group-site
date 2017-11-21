@@ -1,0 +1,22 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mt_subheader_body
+    - node.type.page
+  module:
+    - text
+id: node.page.field_mt_subheader_body
+field_name: field_mt_subheader_body
+entity_type: node
+bundle: page
+label: 'Subheader body'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

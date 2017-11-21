@@ -1,0 +1,92 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/documents\/taxonomy\/term\/49?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/mt_collections"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/mt_collections\/field_mt_collection_image": [
+            {
+                "href": "http:\/\/documents\/sites\/default\/files\/2016-09\/collection-5.jpg"
+            }
+        ]
+    },
+    "tid": [
+        {
+            "value": 49
+        }
+    ],
+    "uuid": [
+        {
+            "value": "fce54a0e-6e1b-4dd5-aa69-86842913d02e"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "mt_collections"
+        }
+    ],
+    "name": [
+        {
+            "value": "Product Group Five",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 4
+        }
+    ],
+    "changed": [
+        {
+            "value": "2016-12-16T13:15:47+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "path": [
+        {
+            "alias": null,
+            "pid": null,
+            "langcode": "en",
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/mt_collections\/field_mt_collection_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/documents\/sites\/default\/files\/2016-09\/collection-5.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "edae9f37-9628-4de8-8660-bc3049bd66ef"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "http:\/\/documents\/sites\/default\/files\/2016-09\/collection-5.jpg"
+                    }
+                ]
+            }
+        ]
+    }
+}

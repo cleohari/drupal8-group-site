@@ -1,0 +1,38 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.mt_product_tags
+  module:
+    - node
+    - system
+    - views
+  theme:
+    - enterpriseplus
+id: enterpriseplus_views_block__mt_product_tags_block_1
+theme: enterpriseplus
+region: highlighted_top
+weight: -51
+provider: null
+plugin: 'views_block:mt_product_tags-block_1'
+settings:
+  id: 'views_block:mt_product_tags-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      mt_product: mt_product
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: /blocks
+    negate: false
+    context_mapping: {  }

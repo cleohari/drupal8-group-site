@@ -1,0 +1,15 @@
+
+langcode: en
+status: true
+dependencies: {  }
+name: mt_brands
+label: 'Brands (scale width to 230)'
+effects:
+  96461fe8-e625-44ce-8620-f817dbb34609:
+
+    id: image_scale
+    weight: 1
+    data:
+      width: 230
+      height: null
+      upscale: false

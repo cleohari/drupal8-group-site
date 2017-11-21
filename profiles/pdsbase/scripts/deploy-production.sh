@@ -5,3 +5,4 @@
 # shell scripts for security.git push
 
 rm -rf ../scripts
+rm -rf ././../../../5Migration/

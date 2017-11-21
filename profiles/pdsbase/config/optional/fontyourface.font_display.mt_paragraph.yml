@@ -1,0 +1,10 @@
+
+langcode: en
+status: true
+dependencies: {  }
+id: mt_paragraph
+label: Paragraph
+font_url: 'http://www.google.com/webfonts/family?family=Libre Franklin&subset=latin-ext#regular'
+fallback: Sans-serif
+selectors: body.pff-fyf
+theme: enterpriseplus

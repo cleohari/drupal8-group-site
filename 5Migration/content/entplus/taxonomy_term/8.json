@@ -1,0 +1,63 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/documents\/taxonomy\/term\/8?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/mt_showcase_tags"
+        }
+    },
+    "tid": [
+        {
+            "value": 8
+        }
+    ],
+    "uuid": [
+        {
+            "value": "631d3d8a-8b63-4100-baed-d4be5f4e405c"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "mt_showcase_tags"
+        }
+    ],
+    "name": [
+        {
+            "value": "Showcase tag 4",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "changed": [
+        {
+            "value": "2016-06-07T17:15:30+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "path": [
+        {
+            "alias": null,
+            "pid": null,
+            "langcode": "en",
+            "lang": "en"
+        }
+    ]
+}

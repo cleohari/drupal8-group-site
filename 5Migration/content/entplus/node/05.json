@@ -1,0 +1,227 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/documents\/services-3-col\/fifth-service?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/node\/mt_service"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/node\/mt_service\/revision_uid": [
+            {
+                "href": "http:\/\/documents\/user\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/mt_service\/uid": [
+            {
+                "href": "http:\/\/documents\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/mt_service\/field_image": [
+            {
+                "href": "http:\/\/documents\/sites\/default\/files\/2016-06\/service-5.jpg",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/mt_service\/field_mt_service_tags": [
+            {
+                "href": "http:\/\/documents\/taxonomy\/term\/2?_format=hal_json"
+            }
+        ]
+    },
+    "nid": [
+        {
+            "value": 5
+        }
+    ],
+    "uuid": [
+        {
+            "value": "3fd00865-461f-4add-b44e-339c05461cfa"
+        }
+    ],
+    "vid": [
+        {
+            "value": 5
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "mt_service"
+        }
+    ],
+    "revision_timestamp": [
+        {
+            "value": "2016-06-07T17:50:12+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/node\/mt_service\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/documents\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "9793666b-8825-4dc0-af5c-e1f3ece3b391"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/mt_service\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/documents\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "9793666b-8825-4dc0-af5c-e1f3ece3b391"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/mt_service\/field_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/documents\/sites\/default\/files\/2016-06\/service-5.jpg"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "fe9864d8-e237-4f4f-a141-fe79860225a3"
+                    }
+                ],
+                "uri": [
+                    {
+                        "value": "http:\/\/documents\/sites\/default\/files\/2016-06\/service-5.jpg"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/mt_service\/field_mt_service_tags": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/documents\/taxonomy\/term\/2?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/mt_service_tags"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "6e5870ce-2848-4d1b-b084-cfedf1fb81c0"
+                    }
+                ]
+            }
+        ]
+    },
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "title": [
+        {
+            "value": "Fifth Service",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2016-06-07T17:49:10+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2016-08-31T18:03:31+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "promote": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "sticky": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "path": [
+        {
+            "alias": "\/services-3-col\/fifth-service",
+            "pid": 5,
+            "langcode": "en",
+            "lang": "en"
+        }
+    ],
+    "body": [
+        {
+            "value": "<p>Phosfluorescently e-enable adaptive synergy for strategic quality vectors. Continually transform fully tested expertise <a href=\"#\">with competitive technologies<\/a>. Appropriately communicate adaptive imperatives rather than value-added potentialities. Conveniently harness frictionless outsourcing whereas state of the art interfaces. Quickly enable prospective technology rather than open-source technologies.<\/p>\r\n\r\n<blockquote>Phosfluorescently e-enable adaptive synergy for strategic quality vectors. Continually transform fully tested expertise with competitive technologies. Appropriately communicate adaptive imperatives rather than value-added potentialities.<\/blockquote>\r\n\r\n<p>Phosfluorescently e-enable adaptive synergy for strategic quality vectors. Continually transform fully tested expertise <a href=\"#\">with competitive technologies<\/a>. Appropriately communicate adaptive imperatives rather than value-added potentialities. Conveniently harness frictionless outsourcing whereas state of the art interfaces. Quickly enable prospective technology rather than open-source technologies.<\/p>\r\n",
+            "format": "basic_html",
+            "summary": "",
+            "lang": "en"
+        }
+    ],
+    "field_mt_buy_link": [
+        {
+            "uri": "http:\/\/sites.fastspring.com\/morethanthemes\/product\/fullbundlesubscription?option=show_contents",
+            "title": "Buy Now",
+            "options": [],
+            "lang": "en"
+        }
+    ],
+    "field_mt_price": [
+        {
+            "value": "$49.99",
+            "lang": "en"
+        }
+    ],
+    "field_mt_slideshow": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ]
+}

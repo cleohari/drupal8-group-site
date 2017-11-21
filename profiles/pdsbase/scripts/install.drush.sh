@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Set these variables in your shell
+# Set these variables in your shell environment . This is documenation and not
+# part of the script.
 # PDS_DB_HOST=
 # PDS_DB_USERNAME=
 # PDS_DB_USERPASSWORD=
@@ -11,6 +12,7 @@
 # PDS_DRUPAL_PASS=
 # PDS_DRUPAL_SITENAME=
 # PDS_DRUPAL_SITENEMAIL=
+# End documentation.
 
 # This determines the location of this script.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -120,11 +122,15 @@ chmod 777 ${DWD}sites/default
 chmod 644 ${DWD}sites/default/settings.php
 echo "$REDIS_SETTINGS" >> ${DWD}sites/default/settings.php
 chmod 444 ${DWD}sites/default/settings.php
-chmod 555 ${DWD}sites/default
+#chmod 555 ${DWD}sites/default
+
+drush config-set system.theme default enterpriseplus -y
 
 echo "Optimize Composer Autoloader"
 cd ${DWD}
 composer dump-autoload --optimize
 echo "Cleaning all caches."
 # Last minute cleanse.
+drush cr
+drush scr ${DWD}/5Migration/base_data_import.php
 drush cr

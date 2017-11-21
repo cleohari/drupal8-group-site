@@ -1,0 +1,19 @@
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_mt_fli_button_icon
+    - paragraphs.paragraphs_type.mt_fancy_linked_image
+id: paragraph.mt_fancy_linked_image.field_mt_fli_button_icon
+field_name: field_mt_fli_button_icon
+entity_type: paragraph
+bundle: mt_fancy_linked_image
+label: 'Button Icon'
+description: 'Enter the class of the icon you want from the Font Awesome library e.g.: fa-film. A list of the available classes is provided here: <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet" target="_blank">http://fortawesome.github.io/Font-Awesome/cheatsheet</a>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

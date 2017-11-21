@@ -1,0 +1,9 @@
+
+langcode: en
+status: true
+dependencies: {  }
+name: 'Product Tags'
+vid: mt_product_tags
+description: ''
+hierarchy: 0
+weight: 0

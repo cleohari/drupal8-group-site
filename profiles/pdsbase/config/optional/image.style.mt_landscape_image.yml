@@ -1,0 +1,14 @@
+
+langcode: en
+status: true
+dependencies: {  }
+name: mt_landscape_image
+label: 'Landscape Image (750x401)'
+effects:
+  ab62830d-202b-44bd-aef0-9e905300c06c:
+
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 401
