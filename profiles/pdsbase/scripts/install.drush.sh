@@ -1,4 +1,4 @@
-    #!/bin/bash
+#!/bin/bash
 
 # Set these variables in your shell environment . This is documenation and not
 # part of the script.
