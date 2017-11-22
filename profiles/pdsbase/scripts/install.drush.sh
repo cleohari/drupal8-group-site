@@ -124,7 +124,11 @@ echo "$REDIS_SETTINGS" >> ${DWD}sites/default/settings.php
 chmod 444 ${DWD}sites/default/settings.php
 #chmod 555 ${DWD}sites/default
 
+#Set the theme to Enterprise Plus
 drush config-set system.theme default enterpriseplus -y
+
+#Enable the main menu for the theme.
+drush en mtt_enterpriseplus_theme_mtt_main_navigation -y
 
 echo "Optimize Composer Autoloader"
 cd ${DWD}
