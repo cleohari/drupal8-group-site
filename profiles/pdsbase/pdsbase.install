@@ -90,11 +90,13 @@ function pdsbase_install() {
     ->set('default', 'enterpriseplus')
     ->save();
 
+  // Admin theme.
   \Drupal::configFactory()
     ->getEditable('system.theme')
     ->set('admin', 'seven')
     ->save();
 
+  // Modules that must be enabled after the theme is active.
   $modules = [
     'mtt_enterpriseplus_theme_mtt_main_navigation',
   ];
