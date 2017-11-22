@@ -35,16 +35,13 @@ class CreateNodeController extends ControllerBase {
    *   Return Hello string.
    */
   public function createNodePage() {
-    $groupMemmberShip = new GroupMembershipLoader();
-
-
-
-
+    $groupMemmbership = new GroupMembershipLoader();
+    // Get the array of group memberships for the currentUser.
+    $access = $groupMemmbership->loadByUser($this->currentUser);
 
     return [
       '#type' => 'markup',
-      '#markup' => $this->t('Implement method: createNode'),
+      '#markup' => $this->t('Your Membership is: ' . print_r($access)),
     ];
   }
-
 }
