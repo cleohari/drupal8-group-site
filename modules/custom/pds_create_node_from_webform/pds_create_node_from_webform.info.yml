@@ -1,4 +1,4 @@
-name: pds_create_node_from_webform
+name: Initiate a Plan Document from a Webform
 type: module
 description: Create a plan document from a webform
 core: 8.x
