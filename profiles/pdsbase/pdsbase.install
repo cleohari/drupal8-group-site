@@ -2,12 +2,13 @@
 
 /**
  * @file
- * Install, update and uninstall functions for the standard installation profile.
+ * Install, update and uninstall functions for the standard installation
+ *   profile.
  */
 
+use Drupal\shortcut\Entity\Shortcut;
 use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
-use Drupal\shortcut\Entity\Shortcut;
 
 /**
  * Implements hook_install().
@@ -18,15 +19,23 @@ use Drupal\shortcut\Entity\Shortcut;
  */
 function pdsbase_install() {
   // Set front page to "node".
-  \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/node')->save(TRUE);
+  \Drupal::configFactory()
+    ->getEditable('system.site')
+    ->set('page.front', '/node')
+    ->save(TRUE);
 
   // Allow visitor account creation with administrative approval.
   $user_settings = \Drupal::configFactory()->getEditable('user.settings');
-  $user_settings->set('register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)->save(TRUE);
+  $user_settings->set('register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)
+    ->save(TRUE);
 
   // Enable default permissions for system roles.
   user_role_grant_permissions(RoleInterface::ANONYMOUS_ID, ['access comments']);
-  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['access comments', 'post comments', 'skip comment approval']);
+  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, [
+    'access comments',
+    'post comments',
+    'skip comment approval',
+  ]);
 
   // Assign user 1 the "administrator" role.
   $user = User::load(1);
@@ -70,7 +79,29 @@ function pdsbase_install() {
   user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['search content']);
 
   // Enable the admin theme.
-  \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
+  \Drupal::configFactory()
+    ->getEditable('node.settings')
+    ->set('use_admin_theme', TRUE)
+    ->save(TRUE);
+
+  // Can add code in here to make nodes, terms, etc.
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('default', 'enterpriseplus')
+    ->save();
+
+  // Admin theme.
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('admin', 'seven')
+    ->save();
+
+  // Modules that must be enabled after the theme is active.
+  $modules = [
+    'mtt_enterpriseplus_theme_mtt_main_navigation',
+  ];
+  \Drupal::service('module_installer')->install($modules);
+
 }
 
 
