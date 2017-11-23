@@ -127,4 +127,10 @@ function pdsbase_install_tasks($install_state) {
  */
 function pds_cleanup_tasks() {
   node_access_rebuild();
+
+  // Modules that must be enabled after the site is installed.
+  $modules = [
+    'pds_configuration_pds_group_tenant',
+  ];
+  \Drupal::service('module_installer')->install($modules);
 }
