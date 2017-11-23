@@ -94,7 +94,6 @@ dependencies:
   - paragraphs
   - superfish
   - video_embed_field
-  - pds_configuration_pds_group_tentant
 
 themes:
   - bartik
