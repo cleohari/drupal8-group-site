@@ -1,0 +1,16 @@
+name: 'PDS Group Tentant'
+description: 'This feature contains the basic Tenant group information for segregating customer information.'
+type: module
+core: 8.x
+dependencies:
+  - block
+  - field
+  - gnode
+  - group
+  - node
+  - path
+  - system
+  - user
+  - views
+version: 8.x-1.0-aplha1
+package: 'PDS Configuration'
