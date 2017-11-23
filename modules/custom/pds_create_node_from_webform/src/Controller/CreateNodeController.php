@@ -3,8 +3,9 @@
 namespace Drupal\pds_create_node_from_webform\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Session\AccountProxy;
 use Drupal\group\GroupMembershipLoader;
+
 /**
  * Class CreateNodeController.
  */
@@ -15,18 +16,17 @@ class CreateNodeController extends ControllerBase {
    *
    * @var \Drupal\Core\Session\AccountInterface
    */
-  private $currentUser;
+  protected $currentUser;
 
   /**
    * Constructs a new CreateNodeController.
    *
-   * @param \Drupal\Core\Session\AccountInterface $current_user
+   * @param \Drupal\Core\Session\AccountProxy $current_user
    *   The current user.
    */
-  public function __construct(AccountInterface $current_user) {
-    $this->currentUser = $current_user;
-  }
+  public function __construct() {
 
+  }
 
   /**
    * Createnode.
@@ -37,7 +37,7 @@ class CreateNodeController extends ControllerBase {
   public function createNodePage() {
     $groupMemmbership = new GroupMembershipLoader();
     // Get the array of group memberships for the currentUser.
-    $access = $groupMemmbership->loadByUser($this->currentUser);
+    $access = $groupMemmbership->loadByUser($this->currentUser, []);
 
     return [
       '#type' => 'markup',
