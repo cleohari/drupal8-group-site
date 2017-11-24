@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: tenant
+label: Tenant
+description: 'This is the group that will house all of the customers for a particular client.'
+creator_membership: true
+creator_wizard: true
+creator_roles: {  }
