@@ -134,4 +134,19 @@ function pds_cleanup_tasks() {
     'pds_configuration_base_data',
   ];
   \Drupal::service('module_installer')->install($modules);
+
+  //Adding the base users to the Groups.
+  $group = \Drupal\group\Entity\Group::load(1);
+  $group->addMember(user_load_by_name('user1_ta_g1'));
+  $group->addMember(user_load_by_name('user2_ta_g1'));
+  $group->addMember(user_load_by_name('user1_tu_g1'));
+  $group->addMember(user_load_by_name('user2_tu_g1'));
+  $result = $group->save();
+
+  $group = \Drupal\group\Entity\Group::load(2);
+  $group->addMember(user_load_by_name('user1_ta_g2'));
+  $group->addMember(user_load_by_name('user2_ta_g2'));
+  $group->addMember(user_load_by_name('user1_tu_g2'));
+  $group->addMember(user_load_by_name('user2_tu_g2'));
+  $result = $group->save();
 }
