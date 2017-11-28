@@ -131,6 +131,7 @@ function pds_cleanup_tasks() {
   // Modules that must be enabled after the site is installed.
   $modules = [
     'pds_configuration_pds_group_tenant',
+    'pds_configuration_base_data',
   ];
   \Drupal::service('module_installer')->install($modules);
 }
