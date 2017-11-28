@@ -11,7 +11,7 @@ dependencies:
     - enterpriseplus
 id: enterpriseplus_exposedformmt_productspage_1
 theme: enterpriseplus
-region: sidebar_first
+region: hidden_blocks_collection
 weight: 0
 provider: null
 plugin: 'views_exposed_filter_block:mt_products-page_1'
