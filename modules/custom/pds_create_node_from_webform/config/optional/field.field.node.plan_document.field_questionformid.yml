@@ -1,0 +1,19 @@
+uuid: aabf9782-156f-4a40-b7a2-084c600a3742
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_questionformid
+    - node.type.plan_document
+id: node.plan_document.field_questionformid
+field_name: field_questionformid
+entity_type: node
+bundle: plan_document
+label: QuestionFormID
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

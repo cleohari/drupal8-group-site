@@ -1,0 +1,22 @@
+uuid: 7591dbee-3cae-41f2-9d6d-87505d80394a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.plan_document.field_document_sections
+    - node.type.plan_document
+  module:
+    - user
+_core:
+  default_config_hash: XMIhrJPYC0K2T93wY1XPWRMYKPeseJI140AGAjKUEdE
+id: node.plan_document.teaser
+targetEntityType: node
+bundle: plan_document
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_document_sections: true

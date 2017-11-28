@@ -1,0 +1,78 @@
+uuid: c6e135b1-3c95-4c91-80f5-c99d4e3cfb10
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.plan_document.field_document_sections
+    - field.field.node.plan_document.field_questionformid
+    - node.type.plan_document
+  module:
+    - path
+    - text
+_core:
+  default_config_hash: _rXG0gfl4Zj8G9Sz3YfmVUs25Apa5vYleyi41ATo_z4
+id: node.plan_document.default
+targetEntityType: node
+bundle: plan_document
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_document_sections:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  field_questionformid: true
