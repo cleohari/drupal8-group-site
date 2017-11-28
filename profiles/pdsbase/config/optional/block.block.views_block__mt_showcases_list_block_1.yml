@@ -11,7 +11,7 @@ dependencies:
     - enterpriseplus
 id: views_block__mt_showcases_list_block_1
 theme: enterpriseplus
-region: sidebar_second
+region: hidden_blocks_collection
 weight: -38
 provider: null
 plugin: 'views_block:mt_showcases_list-block_1'
