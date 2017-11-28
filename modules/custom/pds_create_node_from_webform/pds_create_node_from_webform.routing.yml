@@ -6,4 +6,4 @@ pds_create_node_from_webform.create_node_controller_createNode:
     _title: 'Create A New Document'
   requirements:
     _permission: 'access content'
-    _csrf_token: 'TRUE'
+    
