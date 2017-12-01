@@ -26,6 +26,8 @@ class CreateNodeController extends ControllerBase {
       $gid[] = $membership->getGroup()->id();
     }
 
+    // @TODO contribute a service wrapper to Group module for this.
+
     // Load node entity.
     $form = Node::load($webformid);
     // Load the gorup information for the entity.
