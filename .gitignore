@@ -4,7 +4,7 @@ sites/*/settings.php
 sites/example.sites.php
 
 # Composer vendor directory
-vendor
+vendor/*
 
 # Ignore paths that contain generated content.
 files/
