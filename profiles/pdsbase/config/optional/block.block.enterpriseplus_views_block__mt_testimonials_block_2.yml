@@ -11,7 +11,7 @@ dependencies:
     - enterpriseplus
 id: enterpriseplus_views_block__mt_testimonials_block_2
 theme: enterpriseplus
-region: sidebar_second
+region: hidden_blocks_collection
 weight: -40
 provider: null
 plugin: 'views_block:mt_testimonials-block_2'
