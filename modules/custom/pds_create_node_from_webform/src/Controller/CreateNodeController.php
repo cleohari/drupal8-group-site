@@ -5,10 +5,14 @@ namespace Drupal\pds_create_node_from_webform\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\node\Entity\Node;
 use Drupal\group\Entity\GroupContent;
+use joshtronic\LoremIpsum;
+
 /**
  * Class CreateNodeController.
  */
 class CreateNodeController extends ControllerBase {
+
+  private $lorem;
 
   /**
    * Createnode.
@@ -43,6 +47,20 @@ class CreateNodeController extends ControllerBase {
     // Group ID number.
     $id = $refEntity->id();
 
+    $lipsom = new LoremIpsum();
+    $content = $lipsom->paragraphs(4);
+
+
+    $node = Node::create([
+      'type' => 'plan_document',
+      'questionformid' => $webformid,
+      'title' => t('New Document'),
+      'document_sections' => [
+        'value' => $content,
+      ]
+    ]);
+    $node->save();
+    $newnodeid = $node->id();
     $stuff = 1;
     return [
       '#type' => 'markup',
