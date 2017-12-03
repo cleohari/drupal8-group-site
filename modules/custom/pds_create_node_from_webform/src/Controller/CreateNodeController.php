@@ -69,13 +69,9 @@ class CreateNodeController extends ControllerBase {
     }
     else {
       $build = [];
-      $build['#title'] = t('Closed dooors. Do not pass go.');
-
-      return [
-        '#type' => 'markup',
-        '#markup' => $this->t('You account does not permit you access to this information.'),
-      ];
-
+      $build['#title'] = $this->t('Closed dooors. Do not pass go.');
+      $build['#markup'] = $this->t('You account does not permit you access to this information.');
+      return $build;
     }
 
 
