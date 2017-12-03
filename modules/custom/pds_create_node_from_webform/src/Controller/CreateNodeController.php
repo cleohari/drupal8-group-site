@@ -6,6 +6,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\group\Entity\GroupContent;
 use Drupal\node\Entity\Node;
 use joshtronic\LoremIpsum;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Class CreateNodeController.
@@ -29,9 +30,7 @@ class CreateNodeController extends ControllerBase {
     foreach ($access as $membership) {
       $usergids[] = $membership->getGroup()->id();
     }
-
     // @TODO contribute a service wrapper to Group module for this.
-
     // Load node entity.
     $form = Node::load($webformid);
     // Load the gorup information for the entity.
@@ -49,23 +48,22 @@ class CreateNodeController extends ControllerBase {
 
     if (in_array($id, $usergids)) {
       $lipsom = new LoremIpsum();
-      $content = $lipsom->paragraphs(4);
+      $content = $lipsom->paragraphs(3, 'p');
 
       $node = Node::create([
         'type' => 'plan_document',
         'questionformid' => $webformid,
         'title' => t('New Document'),
-        'document_sections' => [
-          ['value' => $content],
-        ],
       ]);
+      $node->set('field_document_sections', [
+        'format' => 'full_html',
+        'value' => $content,
+      ]);
+
       $node->save();
       $newnodeid = $node->id();
-      $stuff = 1;
-      return [
-        '#type' => 'markup',
-        '#markup' => $this->t('Your Membership is: '),
-      ];
+      $response = new RedirectResponse("/node/$newnodeid/edit");
+      $response->send();
     }
     else {
       $build = [];
@@ -73,7 +71,5 @@ class CreateNodeController extends ControllerBase {
       $build['#markup'] = $this->t('You account does not permit you access to this information.');
       return $build;
     }
-
-
   }
 }
