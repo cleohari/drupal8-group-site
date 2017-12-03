@@ -3,8 +3,8 @@
 namespace Drupal\pds_create_node_from_webform\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\node\Entity\Node;
 use Drupal\group\Entity\GroupContent;
+use Drupal\node\Entity\Node;
 use joshtronic\LoremIpsum;
 
 /**
@@ -25,9 +25,9 @@ class CreateNodeController extends ControllerBase {
     // Get the array of group memberships for the currentUser.
     $access = $groupMemmbership->loadByUser($this->currentUser());
     // Array for group IDs.
-    $gid = [];
+    $usergids = [];
     foreach ($access as $membership) {
-      $gid[] = $membership->getGroup()->id();
+      $usergids[] = $membership->getGroup()->id();
     }
 
     // @TODO contribute a service wrapper to Group module for this.
@@ -47,24 +47,37 @@ class CreateNodeController extends ControllerBase {
     // Group ID number.
     $id = $refEntity->id();
 
-    $lipsom = new LoremIpsum();
-    $content = $lipsom->paragraphs(4);
+    if (in_array($id, $usergids)) {
+      $lipsom = new LoremIpsum();
+      $content = $lipsom->paragraphs(4);
+
+      $node = Node::create([
+        'type' => 'plan_document',
+        'questionformid' => $webformid,
+        'title' => t('New Document'),
+        'document_sections' => [
+          ['value' => $content],
+        ],
+      ]);
+      $node->save();
+      $newnodeid = $node->id();
+      $stuff = 1;
+      return [
+        '#type' => 'markup',
+        '#markup' => $this->t('Your Membership is: '),
+      ];
+    }
+    else {
+      $build = [];
+      $build['#title'] = t('Closed dooors. Do not pass go.');
+
+      return [
+        '#type' => 'markup',
+        '#markup' => $this->t('You account does not permit you access to this information.'),
+      ];
+
+    }
 
 
-    $node = Node::create([
-      'type' => 'plan_document',
-      'questionformid' => $webformid,
-      'title' => t('New Document'),
-      'document_sections' => [
-        'value' => $content,
-      ]
-    ]);
-    $node->save();
-    $newnodeid = $node->id();
-    $stuff = 1;
-    return [
-      '#type' => 'markup',
-      '#markup' => $this->t('Your Membership is: '),
-    ];
   }
 }
