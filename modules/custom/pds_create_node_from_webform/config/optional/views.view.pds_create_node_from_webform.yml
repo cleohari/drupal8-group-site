@@ -317,7 +317,7 @@ display:
           group_type: group
           admin_label: ''
           label: 'Custom text'
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: 'Create Document'
@@ -358,18 +358,105 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+        dropbutton:
+          id: dropbutton
+          table: views
+          field: dropbutton
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Dropbutton
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          fields:
+            nothing: nothing
+            nid: '0'
+            node_bulk_form: '0'
+            title: '0'
+            changed: '0'
+          destination: true
+          plugin_id: dropbutton
       filters:
         status:
-          value: '1'
+          id: status
           table: node_field_data
           field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Publish Status of Questionnaire '
+            description: ''
+            use_operator: false
+            operator: status_op
+            identifier: status
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              tenant_admin: '0'
+              tenant_user: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           plugin_id: boolean
           entity_type: node
           entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
         type:
           id: type
           table: node_field_data
@@ -398,16 +485,31 @@ display:
       title: 'Create A New Plan Document'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'There have been no questionnaires created. A questionnaire is required to start a plan document.'
+            format: basic_html
+          plugin_id: text
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      use_ajax: false
     cache_metadata:
       max-age: 0
       contexts:
         - group_membership.roles.permissions
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
       tags: {  }
@@ -419,7 +521,7 @@ display:
     display_options:
       display_extenders:
         metatag_display_extender: {  }
-      path: plandocument/overview
+      path: plandocument/%group/overview
       display_description: 'Page to load all Webforms and create a document'
       display_comment: 'View to create documents from webforms'
     cache_metadata:
@@ -428,6 +530,7 @@ display:
         - group_membership.roles.permissions
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
       tags: {  }
