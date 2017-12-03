@@ -85,7 +85,6 @@ dependencies:
   - admin_toolbar
   - admin_toolbar_tools
   - clientside_validation
-  - pds_content_type_plan_document_plan_document
   - better_exposed_filters
   - entity_reference_revisions
   - field_group
@@ -95,6 +94,7 @@ dependencies:
   - superfish
   - video_embed_field
   - default_content
+  - pds_create_node_from_webform
 
 themes:
   - bartik

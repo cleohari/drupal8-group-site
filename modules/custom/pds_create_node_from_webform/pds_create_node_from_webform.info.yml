@@ -6,3 +6,4 @@ package: PDS
 dependencies:
   - pds_content_type_plan_document_plan_document
   - group
+  - webform
