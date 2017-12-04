@@ -37,7 +37,6 @@ function pds_custom_tokens_tokens($type, $tokens, array $data, array $options, \
   $replacements = [];
 
   if ($type == 'user' && !empty($data['user'])) {
-    /** @var \Drupal\node\NodeInterface $node */
     $user = $data['user'];
     foreach ($tokens as $name => $original) {
       switch ($name) {
