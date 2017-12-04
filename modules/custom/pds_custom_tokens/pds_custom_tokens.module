@@ -1,0 +1,69 @@
+<?php
+
+use Drupal\Core\Datetime\Entity\DateFormat;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_token_info()
+ */
+
+function pds_custom_tokens_token_info() {
+  $type['current-user'] = [
+    'name' => t('Current user'),
+    'description' => t('Tokens related to the currently logged in user.'),
+    'type' => 'user',
+  ];
+
+  // Add group_id token.
+  $user['group-id'] = [
+    'name' => t("group-id"),
+    'description' => t("The ID value for the Group the user is in."),
+  ];
+
+  return [
+    'types' => ['user' => $type],
+    'tokens' => ['user' => $user],
+  ];
+}
+
+/**
+ * Implements hook_tokens()
+ */
+
+function pds_custom_tokens_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
+  $token_service = \Drupal::token();
+
+  $replacements = [];
+
+  if ($type == 'user' && !empty($data['user'])) {
+    /** @var \Drupal\node\NodeInterface $node */
+    $user = $data['user'];
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        // Simple key values on the node.
+        case 'group-id':
+          //Define variables
+          $group_string = '';
+
+          //Get required data
+          $grp_membership_service = \Drupal::service('group.membership_loader');
+          $grps = $grp_membership_service->loadByUser($user);
+
+          //Loops through the arrya to get the group id's.
+          foreach ($grps as $grp) {
+            $group_string = $group_string . $grp->getGroup()->id() . ',';
+          }
+
+          //Clean up the string and return the values.
+          $group_string = rtrim($group_string, ',');
+          $array = array_filter(array_map('trim', explode(',', $group_string)));
+          asort($array);
+          $group_string = implode(',', $array);
+          $replacements[$original] = $group_string;
+          break;
+      }
+    }
+  }
+  return $replacements;
+}

@@ -1,0 +1,6 @@
+name: 'PDS Custom Tokens'
+description: 'This module contains custom tokens for us to use for the project.'
+type: module
+core: 8.x
+version: 8.x-1.0-aplha1
+package: 'PDS Configuration'
