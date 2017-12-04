@@ -94,6 +94,8 @@ dependencies:
   - superfish
   - video_embed_field
   - default_content
+  - token_filter
+  - pds_custom_tokens_tokens
   - pds_create_node_from_webform
 
 themes:
