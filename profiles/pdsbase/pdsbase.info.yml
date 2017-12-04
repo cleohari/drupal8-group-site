@@ -95,6 +95,8 @@ dependencies:
   - superfish
   - video_embed_field
   - default_content
+  - token_filter
+  - pds_custom_tokens_tokens
 
 themes:
   - bartik

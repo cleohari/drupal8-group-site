@@ -54,7 +54,8 @@
         "drupal/paragraphs": "^1.2",
         "drupal/superfish": "^1.1",
         "drupal/video_embed_field": "^2.0",
-        "drupal/default_content": "^1.0"
+        "drupal/default_content": "^1.0",
+        "drupal/token_filter": "^1.0"
     },
     "replace": {
 
