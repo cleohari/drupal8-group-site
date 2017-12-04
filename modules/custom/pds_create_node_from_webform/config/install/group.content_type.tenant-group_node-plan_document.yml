@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.tenant
+    - node.type.plan_document
+  module:
+    - gnode
+    - node
+id: tenant-group_node-plan_document
+label: 'Tenant: Group node (Plan Document)'
+description: 'Adds <em class="placeholder">Plan Document</em> content to groups both publicly and privately.'
+group_type: tenant
+content_plugin: 'group_node:plan_document'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false
