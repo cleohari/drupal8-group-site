@@ -4,11 +4,6 @@
   "description": "Base Data to be enabled by the site on enabling the module.",
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
-  "homepage": "https://www.drupal.org/project/pds_configuration_base_data",
   "minimum-stability": "dev",
-  "support": {
-    "issues": "https://www.drupal.org/project/issues/pds_configuration_base_data",
-    "source": "http://cgit.drupalcode.org/pds_configuration_base_data"
-  },
   "require": { }
 }
