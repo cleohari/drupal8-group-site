@@ -96,7 +96,9 @@ dependencies:
   - video_embed_field
   - default_content
   - token_filter
-  - pds_custom_tokens_tokens
+  - pds_custom_tokens
+  - pds_configuration_base_data
+  - pds_configuration_pds_group_tenant
 
 themes:
   - bartik
