@@ -6,3 +6,4 @@ package: PDS
 dependencies:
   - group
   - webform
+  - pds_configuration_pds_group_tenant
