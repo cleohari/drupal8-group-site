@@ -1,4 +1,0 @@
-bundle: pds_configuration
-excluded:
-  - block.block.enterpriseplus_views_block__mt_popular_tags_block_1
-required: true
