@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.custom_tenant_admin_landing_page
+  module:
+    - panels
+id: custom_tenant_admin_landing_page-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks: {  }
+  id: panels_variant
+  label: null
+  weight: 0
+  layout: layout_twocol_bricks
+  layout_settings: {  }
+  page_title: 'At A Glance'
+  storage_type: page_manager
+  storage_id: custom_tenant_admin_landing_page-panels_variant-0
+  builder: standard
+page: custom_tenant_admin_landing_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
