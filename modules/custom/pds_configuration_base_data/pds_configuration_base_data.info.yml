@@ -4,4 +4,6 @@ description: Base Data to be enabled by the site on enabling the module.
 core: 8.x
 package: 'PDS Configuration'
 dependencies:
-  - default_content:default_content
+  - default_content
+  - group
+  - pds_configuration_pds_group_tenant
