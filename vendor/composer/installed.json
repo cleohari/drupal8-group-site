@@ -5523,5 +5523,145 @@
         "support": {
             "source": "http://cgit.drupalcode.org/default_content"
         }
+    },
+    {
+        "name": "drupal/token_filter",
+        "version": "1.0.0-beta1",
+        "version_normalized": "1.0.0.0-beta1",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/token_filter",
+            "reference": "8.x-1.0-beta1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/token_filter-8.x-1.0-beta1.zip",
+            "reference": "8.x-1.0-beta1",
+            "shasum": "a5fa4eef46cf410353315dbb348bc99669b54b9a"
+        },
+        "require": {
+            "drupal/core": "*",
+            "drupal/token": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.0-beta1",
+                "datestamp": "1459376639",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Beta releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Dave Reid",
+                "homepage": "https://www.drupal.org/user/53892"
+            },
+            {
+                "name": "Deciphered",
+                "homepage": "https://www.drupal.org/user/103796"
+            },
+            {
+                "name": "ademarco",
+                "homepage": "https://www.drupal.org/user/186696"
+            },
+            {
+                "name": "asciikewl",
+                "homepage": "https://www.drupal.org/user/147292"
+            },
+            {
+                "name": "pescetti",
+                "homepage": "https://www.drupal.org/user/436244"
+            },
+            {
+                "name": "pvhee",
+                "homepage": "https://www.drupal.org/user/108811"
+            }
+        ],
+        "description": "This is a very simple module to make global token values available as an input filter.",
+        "homepage": "https://www.drupal.org/project/token_filter",
+        "support": {
+            "source": "http://cgit.drupalcode.org/token_filter"
+        }
+    },
+    {
+        "name": "drupal/menu_token",
+        "version": "1.0.0-alpha1",
+        "version_normalized": "1.0.0.0-alpha1",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/menu_token",
+            "reference": "8.x-1.0-alpha1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/menu_token-8.x-1.0-alpha1.zip",
+            "reference": "8.x-1.0-alpha1",
+            "shasum": "97652b6de021aaad606cb6f99e27967413fe4431"
+        },
+        "require": {
+            "drupal/core": "~8.0",
+            "drupal/token": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.0-alpha1",
+                "datestamp": "1507833544",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Alpha releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "alexweber",
+                "homepage": "https://www.drupal.org/user/850856"
+            },
+            {
+                "name": "dealancer",
+                "homepage": "https://www.drupal.org/user/243418"
+            },
+            {
+                "name": "develCuy",
+                "homepage": "https://www.drupal.org/user/125473"
+            },
+            {
+                "name": "fubhy",
+                "homepage": "https://www.drupal.org/user/761344"
+            },
+            {
+                "name": "peter.draucbaher",
+                "homepage": "https://www.drupal.org/user/2409142"
+            },
+            {
+                "name": "ygerasimov",
+                "homepage": "https://www.drupal.org/user/257311"
+            }
+        ],
+        "description": "Menu Token module provides tokens, that can be used in title or in path of menu items (links).",
+        "homepage": "https://www.drupal.org/project/menu_token",
+        "support": {
+            "source": "http://cgit.drupalcode.org/menu_token"
+        }
     }
 ]
