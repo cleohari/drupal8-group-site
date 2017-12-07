@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_custom_middle_initial
+  module:
+    - user
+id: user.user.field_custom_middle_initial
+field_name: field_custom_middle_initial
+entity_type: user
+bundle: user
+label: 'Middle Initial'
+description: 'The Middle Initial of the user.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
