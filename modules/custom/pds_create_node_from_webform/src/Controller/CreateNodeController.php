@@ -55,7 +55,7 @@ class CreateNodeController extends ControllerBase {
 
       $node = Node::create([
         'type' => 'plan_document',
-        'questionformid' => $webformid,
+        'field_questionformid' => $webformid,
         'title' => t('New Document'),
       ]);
       $node->set('field_document_sections', [
