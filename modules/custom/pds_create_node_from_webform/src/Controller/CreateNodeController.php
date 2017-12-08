@@ -3,6 +3,7 @@
 namespace Drupal\pds_create_node_from_webform\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\group\Entity\Group;
 use Drupal\group\Entity\GroupContent;
 use Drupal\node\Entity\Node;
 use joshtronic\LoremIpsum;
@@ -13,14 +14,16 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  */
 class CreateNodeController extends ControllerBase {
 
-  private $lorem;
-
   /**
-   * Createnode.
+   * Create a node from a webform.
+   *
+   * @param int $webformid
+   *  Webform Node ID.
    *
    * @return array
    */
   public function createNodePage($webformid) {
+
     // Call the service to get group membership information.
     $groupMemmbership = \Drupal::service('group.membership_loader');
     // Get the array of group memberships for the currentUser.
@@ -33,7 +36,7 @@ class CreateNodeController extends ControllerBase {
     // @TODO contribute a service wrapper to Group module for this.
     // Load node entity.
     $form = Node::load($webformid);
-    // Load the gorup information for the entity.
+    // Load the group information for the entity.
     $group = current(GroupContent::loadByEntity($form));
     /** @var \Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem $referenceItem */
     $referenceItem = $group->get('gid')->first();
@@ -62,6 +65,13 @@ class CreateNodeController extends ControllerBase {
 
       $node->save();
       $newnodeid = $node->id();
+      // Load the new node Entity.
+      $newnodeinstance = Node::load($newnodeid);
+
+      // Load group and add our newly created node to it.
+      $group = \Drupal::entityTypeManager()->getStorage('group')->load($id);
+      $group->addContent($newnodeinstance, 'group_node:plan_document');
+
       $response = new RedirectResponse("/node/$newnodeid/edit");
       $response->send();
     }
