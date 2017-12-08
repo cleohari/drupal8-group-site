@@ -322,8 +322,8 @@ display:
             alter_text: true
             text: 'Create Document'
             make_link: true
-            path: '/plandocument/create/{{ nid }}'
-            absolute: false
+            path: 'plandocument/create/{{ nid }}'
+            absolute: true
             external: false
             replace_spaces: false
             path_case: none
@@ -365,7 +365,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Dropbutton
+          label: 'Create Action'
           exclude: false
           alter:
             alter_text: false
@@ -412,7 +412,7 @@ display:
             node_bulk_form: '0'
             title: '0'
             changed: '0'
-          destination: true
+          destination: false
           plugin_id: dropbutton
       filters:
         status:
