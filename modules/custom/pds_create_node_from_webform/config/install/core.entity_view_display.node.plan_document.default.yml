@@ -1,0 +1,32 @@
+uuid: 6181ec3d-4816-4bd4-8f04-5f8234553c34
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.plan_document.field_document_sections
+    - field.field.node.plan_document.field_questionformid
+    - node.type.plan_document
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: qACwLEb50eYTEh8ldh8CMjjkI0F_RVymIGQZD-mUFrc
+id: node.plan_document.default
+targetEntityType: node
+bundle: plan_document
+mode: default
+content:
+  field_document_sections:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_questionformid: true

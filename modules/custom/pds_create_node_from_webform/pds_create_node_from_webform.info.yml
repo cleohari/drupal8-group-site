@@ -1,0 +1,9 @@
+name: PDS Custom Module Initiate a Plan Document from a Webform
+type: module
+description: Create a plan document from a webform
+core: 8.x
+package: PDS
+dependencies:
+  - group
+  - webform
+  - pds_configuration_pds_group_tenant

@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains pds_create_node_from_webform.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function pds_create_node_from_webform_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pds_create_node_from_webform module.
+    case 'help.page.pds_create_node_from_webform':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Create a plan document from a webform') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function pds_create_node_from_webform_theme() {
+  return [
+    'pds_create_node_from_webform' => [
+      'render element' => 'children',
+    ],
+  ];
+}

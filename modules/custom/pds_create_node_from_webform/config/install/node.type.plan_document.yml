@@ -1,0 +1,19 @@
+uuid: 7f258f47-d610-4489-8cd4-05266a61c82b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: JYRWCWmSjD0ritRQukNZfSPA-aTVf_qB-GgnKYOaWu4
+name: 'Plan Document'
+type: plan_document
+description: 'A content type that encompasses plan documents created from questionnaires.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

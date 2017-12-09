@@ -83,7 +83,6 @@ dependencies:
   - admin_toolbar
   - admin_toolbar_tools
   - clientside_validation
-  - pds_content_type_plan_document_plan_document
   - better_exposed_filters
   - entity_reference_revisions
   - field_group
@@ -94,6 +93,7 @@ dependencies:
   - video_embed_field
   - default_content
   - token_filter
+  - pds_create_node_from_webform
   - menu_token
   - pds_custom_tokens
   - pds_configuration_base_data
