@@ -26,6 +26,7 @@ SET3="\$settings['cache']['default'] = 'cache.backend.redis';"
 SET4="\$settings['redis.connection']['base'] = redisBaseID;"
 
 
+composer update --no-dev
 
 if [[ -z "${PDS_DB_HOST}" ]]; then
   echo "Enter the DB Host Name"
