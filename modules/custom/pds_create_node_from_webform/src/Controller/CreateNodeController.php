@@ -23,6 +23,7 @@ class CreateNodeController extends ControllerBase {
    * @return array
    */
   public function createNodePage($webformid) {
+    global $base_url;
 
     // Call the service to get group membership information.
     $groupMemmbership = \Drupal::service('group.membership_loader');
@@ -72,7 +73,7 @@ class CreateNodeController extends ControllerBase {
       $group = \Drupal::entityTypeManager()->getStorage('group')->load($id);
       $group->addContent($newnodeinstance, 'group_node:plan_document');
 
-      $response = new RedirectResponse("/node/$newnodeid/edit");
+      $response = new RedirectResponse($base_url . "/node/$newnodeid/edit");
       $response->send();
     }
     else {
