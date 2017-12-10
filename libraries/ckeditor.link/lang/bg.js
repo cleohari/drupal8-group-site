@@ -1,67 +1,25 @@
-﻿/*
+/*
 Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
-CKEDITOR.plugins.setLang( 'link', 'bg', {
-	acccessKey: 'Ключ за достъп',
-	advanced: 'Разширено',
-	advisoryContentType: 'Препоръчителен тип на съдържанието',
-	advisoryTitle: 'Препоръчително заглавие',
-	anchor: {
-		toolbar: 'Котва',
-		menu: 'Промяна на котва',
-		title: 'Настройки на котва',
-		name: 'Име на котва',
-		errorName: 'Моля въведете име на котвата',
-		remove: 'Премахване на котва'
-	},
-	anchorId: 'По ID на елемент',
-	anchorName: 'По име на котва',
-	charset: 'Тип на свързания ресурс',
-	cssClasses: 'Класове за CSS',
-	download: 'Force Download', // MISSING
-	displayText: 'Display Text', // MISSING
-	emailAddress: 'E-mail aдрес',
-	emailBody: 'Съдържание',
-	emailSubject: 'Тема',
-	id: 'ID',
-	info: 'Инфо за връзката',
-	langCode: 'Код за езика',
-	langDir: 'Посока на езика',
-	langDirLTR: 'Ляво на Дясно (ЛнД)',
-	langDirRTL: 'Дясно на Ляво (ДнЛ)',
-	menu: 'Промяна на връзка',
-	name: 'Име',
-	noAnchors: '(Няма котви в текущия документ)',
-	noEmail: 'Моля въведете e-mail aдрес',
-	noUrl: 'Моля въведете URL адреса',
-	other: '<друго>',
-	popupDependent: 'Зависимост (Netscape)',
-	popupFeatures: 'Функции на изкачащ прозорец',
-	popupFullScreen: 'Цял екран (IE)',
-	popupLeft: 'Лява позиция',
-	popupLocationBar: 'Лента с локацията',
-	popupMenuBar: 'Лента за меню',
-	popupResizable: 'Оразмеряем',
-	popupScrollBars: 'Скролери',
-	popupStatusBar: 'Статусна лента',
-	popupToolbar: 'Лента с инструменти',
-	popupTop: 'Горна позиция',
-	rel: 'Връзка',
-	selectAnchor: 'Изберете котва',
-	styles: 'Стил',
-	tabIndex: 'Ред на достъп',
-	target: 'Цел',
-	targetFrame: '<frame>',
-	targetFrameName: 'Име на целевият прозорец',
-	targetPopup: '<изкачащ прозорец>',
-	targetPopupName: 'Име на изкачащ прозорец',
-	title: 'Връзка',
-	toAnchor: 'Връзка към котва в текста',
-	toEmail: 'E-mail',
-	toUrl: 'Уеб адрес',
-	toolbar: 'Връзка',
-	type: 'Тип на връзката',
-	unlink: 'Премахни връзката',
-	upload: 'Качване'
+CKEDITOR.plugins.setLang( 'image', 'bg', {
+	alt: 'Алтернативен текст',
+	border: 'Рамка',
+	btnUpload: 'Изпрати я на сървъра',
+	button2Img: 'Do you want to transform the selected image button on a simple image?', // MISSING
+	hSpace: 'Хоризонтален отстъп',
+	img2Button: 'Do you want to transform the selected image on a image button?', // MISSING
+	infoTab: 'Инфо за снимка',
+	linkTab: 'Връзка',
+	lockRatio: 'Заключване на съотношението',
+	menu: 'Настройки за снимка',
+	resetSize: 'Нулиране на размер',
+	title: 'Настройки за снимка',
+	titleButton: 'Настойки за бутон за снимка',
+	upload: 'Качване',
+	urlMissing: 'Image source URL is missing.', // MISSING
+	vSpace: 'Вертикален отстъп',
+	validateBorder: 'Border must be a whole number.', // MISSING
+	validateHSpace: 'HSpace must be a whole number.', // MISSING
+	validateVSpace: 'VSpace must be a whole number.' // MISSING
 } );

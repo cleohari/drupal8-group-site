@@ -1,67 +1,25 @@
-﻿/*
+/*
 Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
-CKEDITOR.plugins.setLang( 'link', 'en-au', {
-	acccessKey: 'Access Key',
-	advanced: 'Advanced',
-	advisoryContentType: 'Advisory Content Type',
-	advisoryTitle: 'Advisory Title',
-	anchor: {
-		toolbar: 'Anchor',
-		menu: 'Edit Anchor',
-		title: 'Anchor Properties',
-		name: 'Anchor Name',
-		errorName: 'Please type the anchor name',
-		remove: 'Remove Anchor'
-	},
-	anchorId: 'By Element Id',
-	anchorName: 'By Anchor Name',
-	charset: 'Linked Resource Charset',
-	cssClasses: 'Stylesheet Classes',
-	download: 'Force Download', // MISSING
-	displayText: 'Display Text', // MISSING
-	emailAddress: 'E-Mail Address',
-	emailBody: 'Message Body',
-	emailSubject: 'Message Subject',
-	id: 'Id',
-	info: 'Link Info',
-	langCode: 'Language Code',
-	langDir: 'Language Direction',
-	langDirLTR: 'Left to Right (LTR)',
-	langDirRTL: 'Right to Left (RTL)',
-	menu: 'Edit Link',
-	name: 'Name',
-	noAnchors: '(No anchors available in the document)',
-	noEmail: 'Please type the e-mail address',
-	noUrl: 'Please type the link URL',
-	other: '<other>',
-	popupDependent: 'Dependent (Netscape)',
-	popupFeatures: 'Popup Window Features',
-	popupFullScreen: 'Full Screen (IE)',
-	popupLeft: 'Left Position',
-	popupLocationBar: 'Location Bar',
-	popupMenuBar: 'Menu Bar',
-	popupResizable: 'Resizable',
-	popupScrollBars: 'Scroll Bars',
-	popupStatusBar: 'Status Bar',
-	popupToolbar: 'Toolbar',
-	popupTop: 'Top Position',
-	rel: 'Relationship', // MISSING
-	selectAnchor: 'Select an Anchor',
-	styles: 'Style',
-	tabIndex: 'Tab Index',
-	target: 'Target',
-	targetFrame: '<frame>',
-	targetFrameName: 'Target Frame Name',
-	targetPopup: '<popup window>',
-	targetPopupName: 'Popup Window Name',
-	title: 'Link',
-	toAnchor: 'Link to anchor in the text',
-	toEmail: 'E-mail',
-	toUrl: 'URL',
-	toolbar: 'Link',
-	type: 'Link Type',
-	unlink: 'Unlink',
-	upload: 'Upload'
+CKEDITOR.plugins.setLang( 'image', 'en-au', {
+	alt: 'Alternative Text',
+	border: 'Border',
+	btnUpload: 'Send it to the Server',
+	button2Img: 'Do you want to transform the selected image button on a simple image?',
+	hSpace: 'HSpace',
+	img2Button: 'Do you want to transform the selected image on a image button?',
+	infoTab: 'Image Info',
+	linkTab: 'Link',
+	lockRatio: 'Lock Ratio',
+	menu: 'Image Properties',
+	resetSize: 'Reset Size',
+	title: 'Image Properties',
+	titleButton: 'Image Button Properties',
+	upload: 'Upload',
+	urlMissing: 'Image source URL is missing.', // MISSING
+	vSpace: 'VSpace',
+	validateBorder: 'Border must be a whole number.', // MISSING
+	validateHSpace: 'HSpace must be a whole number.', // MISSING
+	validateVSpace: 'VSpace must be a whole number.' // MISSING
 } );
