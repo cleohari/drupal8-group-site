@@ -25,8 +25,9 @@ SET2="\$settings['redis.connection']['host'] = 'redisAddress';"
 SET3="\$settings['cache']['default'] = 'cache.backend.redis';"
 SET4="\$settings['redis.connection']['base'] = redisBaseID;"
 
+# Composer install is run as this will load what is in the composer.lock
 
-composer update --no-dev
+composer install
 
 if [[ -z "${PDS_DB_HOST}" ]]; then
   echo "Enter the DB Host Name"

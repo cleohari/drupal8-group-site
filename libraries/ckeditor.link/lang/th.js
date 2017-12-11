@@ -1,67 +1,25 @@
-﻿/*
+/*
 Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
-CKEDITOR.plugins.setLang( 'link', 'th', {
-	acccessKey: 'แอคเซส คีย์',
-	advanced: 'ขั้นสูง',
-	advisoryContentType: 'ชนิดของคำเกริ่นนำ',
-	advisoryTitle: 'คำเกริ่นนำ',
-	anchor: {
-		toolbar: 'แทรก/แก้ไข Anchor',
-		menu: 'รายละเอียด Anchor',
-		title: 'รายละเอียด Anchor',
-		name: 'ชื่อ Anchor',
-		errorName: 'กรุณาระบุชื่อของ Anchor',
-		remove: 'Remove Anchor'
-	},
-	anchorId: 'ไอดี',
-	anchorName: 'ชื่อ',
-	charset: 'ลิงค์เชื่อมโยงไปยังชุดตัวอักษร',
-	cssClasses: 'คลาสของไฟล์กำหนดลักษณะการแสดงผล',
-	download: 'Force Download', // MISSING
-	displayText: 'Display Text', // MISSING
-	emailAddress: 'อีเมล์ (E-Mail)',
-	emailBody: 'ข้อความ',
-	emailSubject: 'หัวเรื่อง',
-	id: 'ไอดี',
-	info: 'รายละเอียด',
-	langCode: 'การเขียน-อ่านภาษา',
-	langDir: 'การเขียน-อ่านภาษา',
-	langDirLTR: 'จากซ้ายไปขวา (LTR)',
-	langDirRTL: 'จากขวามาซ้าย (RTL)',
-	menu: 'แก้ไข ลิงค์',
-	name: 'ชื่อ',
-	noAnchors: '(ยังไม่มีจุดเชื่อมโยงภายในหน้าเอกสารนี้)',
-	noEmail: 'กรุณาระบุอีเมล์ (E-mail)',
-	noUrl: 'กรุณาระบุที่อยู่อ้างอิงออนไลน์ (URL)',
-	other: '<อื่น ๆ>',
-	popupDependent: 'แสดงเต็มหน้าจอ (Netscape)',
-	popupFeatures: 'คุณสมบัติของหน้าจอเล็ก (Pop-up)',
-	popupFullScreen: 'แสดงเต็มหน้าจอ (IE5.5++ เท่านั้น)',
-	popupLeft: 'พิกัดซ้าย (Left Position)',
-	popupLocationBar: 'แสดงที่อยู่ของไฟล์',
-	popupMenuBar: 'แสดงแถบเมนู',
-	popupResizable: 'สามารถปรับขนาดได้',
-	popupScrollBars: 'แสดงแถบเลื่อน',
-	popupStatusBar: 'แสดงแถบสถานะ',
-	popupToolbar: 'แสดงแถบเครื่องมือ',
-	popupTop: 'พิกัดบน (Top Position)',
-	rel: 'ความสัมพันธ์',
-	selectAnchor: 'ระบุข้อมูลของจุดเชื่อมโยง (Anchor)',
-	styles: 'ลักษณะการแสดงผล',
-	tabIndex: 'ลำดับของ แท็บ',
-	target: 'การเปิดหน้าลิงค์',
-	targetFrame: '<เปิดในเฟรม>',
-	targetFrameName: 'ชื่อทาร์เก็ตเฟรม',
-	targetPopup: '<เปิดหน้าจอเล็ก (Pop-up)>',
-	targetPopupName: 'ระบุชื่อหน้าจอเล็ก (Pop-up)',
-	title: 'ลิงค์เชื่อมโยงเว็บ อีเมล์ รูปภาพ หรือไฟล์อื่นๆ',
-	toAnchor: 'จุดเชื่อมโยง (Anchor)',
-	toEmail: 'ส่งอีเมล์ (E-Mail)',
-	toUrl: 'ที่อยู่อ้างอิง URL',
-	toolbar: 'แทรก/แก้ไข ลิงค์',
-	type: 'ประเภทของลิงค์',
-	unlink: 'ลบ ลิงค์',
-	upload: 'อัพโหลดไฟล์'
+CKEDITOR.plugins.setLang( 'image', 'th', {
+	alt: 'คำประกอบรูปภาพ',
+	border: 'ขนาดขอบรูป',
+	btnUpload: 'อัพโหลดไฟล์ไปเก็บไว้ที่เครื่องแม่ข่าย (เซิร์ฟเวอร์)',
+	button2Img: 'Do you want to transform the selected image button on a simple image?', // MISSING
+	hSpace: 'ระยะแนวนอน',
+	img2Button: 'Do you want to transform the selected image on a image button?', // MISSING
+	infoTab: 'ข้อมูลของรูปภาพ',
+	linkTab: 'ลิ้งค์',
+	lockRatio: 'กำหนดอัตราส่วน กว้าง-สูง แบบคงที่',
+	menu: 'คุณสมบัติของ รูปภาพ',
+	resetSize: 'กำหนดรูปเท่าขนาดจริง',
+	title: 'คุณสมบัติของ รูปภาพ',
+	titleButton: 'คุณสมบัติของ ปุ่มแบบรูปภาพ',
+	upload: 'อัพโหลดไฟล์',
+	urlMissing: 'Image source URL is missing.', // MISSING
+	vSpace: 'ระยะแนวตั้ง',
+	validateBorder: 'Border must be a whole number.', // MISSING
+	validateHSpace: 'HSpace must be a whole number.', // MISSING
+	validateVSpace: 'VSpace must be a whole number.' // MISSING
 } );

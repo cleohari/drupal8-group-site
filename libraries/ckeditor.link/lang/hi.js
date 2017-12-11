@@ -1,67 +1,25 @@
-﻿/*
+/*
 Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
-CKEDITOR.plugins.setLang( 'link', 'hi', {
-	acccessKey: 'ऍक्सॅस की',
-	advanced: 'ऍड्वान्स्ड',
-	advisoryContentType: 'परामर्श कन्टॅन्ट प्रकार',
-	advisoryTitle: 'परामर्श शीर्शक',
-	anchor: {
-		toolbar: 'ऐंकर इन्सर्ट/संपादन',
-		menu: 'ऐंकर प्रॉपर्टीज़',
-		title: 'ऐंकर प्रॉपर्टीज़',
-		name: 'ऐंकर का नाम',
-		errorName: 'ऐंकर का नाम टाइप करें',
-		remove: 'Remove Anchor'
-	},
-	anchorId: 'ऍलीमॅन्ट Id से',
-	anchorName: 'ऐंकर नाम से',
-	charset: 'लिंक रिसोर्स करॅक्टर सॅट',
-	cssClasses: 'स्टाइल-शीट क्लास',
-	download: 'Force Download', // MISSING
-	displayText: 'Display Text', // MISSING
-	emailAddress: 'ई-मेल पता',
-	emailBody: 'संदेश',
-	emailSubject: 'संदेश विषय',
-	id: 'Id',
-	info: 'लिंक  ',
-	langCode: 'भाषा लिखने की दिशा',
-	langDir: 'भाषा लिखने की दिशा',
-	langDirLTR: 'बायें से दायें (LTR)',
-	langDirRTL: 'दायें से बायें (RTL)',
-	menu: 'लिंक संपादन',
-	name: 'नाम',
-	noAnchors: '(डॉक्यूमॅन्ट में ऐंकर्स की संख्या)',
-	noEmail: 'ई-मेल पता टाइप करें',
-	noUrl: 'लिंक URL टाइप करें',
-	other: '<अन्य>',
-	popupDependent: 'डिपेन्डॅन्ट (Netscape)',
-	popupFeatures: 'पॉप-अप विन्डो फ़ीचर्स',
-	popupFullScreen: 'फ़ुल स्क्रीन (IE)',
-	popupLeft: 'बायीं तरफ',
-	popupLocationBar: 'लोकेशन बार',
-	popupMenuBar: 'मॅन्यू बार',
-	popupResizable: 'आकार बदलने लायक',
-	popupScrollBars: 'स्क्रॉल बार',
-	popupStatusBar: 'स्टेटस बार',
-	popupToolbar: 'टूल बार',
-	popupTop: 'दायीं तरफ',
-	rel: 'संबंध',
-	selectAnchor: 'ऐंकर चुनें',
-	styles: 'स्टाइल',
-	tabIndex: 'टैब इन्डॅक्स',
-	target: 'टार्गेट',
-	targetFrame: '<फ़्रेम>',
-	targetFrameName: 'टार्गेट फ़्रेम का नाम',
-	targetPopup: '<पॉप-अप विन्डो>',
-	targetPopupName: 'पॉप-अप विन्डो का नाम',
-	title: 'लिंक',
-	toAnchor: 'इस पेज का ऐंकर',
-	toEmail: 'ई-मेल',
-	toUrl: 'URL',
-	toolbar: 'लिंक इन्सर्ट/संपादन',
-	type: 'लिंक प्रकार',
-	unlink: 'लिंक हटायें',
-	upload: 'अपलोड'
+CKEDITOR.plugins.setLang( 'image', 'hi', {
+	alt: 'वैकल्पिक टेक्स्ट',
+	border: 'बॉर्डर',
+	btnUpload: 'इसे सर्वर को भेजें',
+	button2Img: 'Do you want to transform the selected image button on a simple image?', // MISSING
+	hSpace: 'हॉरिज़ॉन्टल स्पेस',
+	img2Button: 'Do you want to transform the selected image on a image button?', // MISSING
+	infoTab: 'तस्वीर की जानकारी',
+	linkTab: 'लिंक',
+	lockRatio: 'लॉक अनुपात',
+	menu: 'तस्वीर प्रॉपर्टीज़',
+	resetSize: 'रीसॅट साइज़',
+	title: 'तस्वीर प्रॉपर्टीज़',
+	titleButton: 'तस्वीर बटन प्रॉपर्टीज़',
+	upload: 'अपलोड',
+	urlMissing: 'Image source URL is missing.', // MISSING
+	vSpace: 'वर्टिकल स्पेस',
+	validateBorder: 'Border must be a whole number.', // MISSING
+	validateHSpace: 'HSpace must be a whole number.', // MISSING
+	validateVSpace: 'VSpace must be a whole number.' // MISSING
 } );
