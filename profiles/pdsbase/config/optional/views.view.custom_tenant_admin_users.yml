@@ -563,9 +563,9 @@ display:
       tags:
         - 'config:field.storage.user.field_custom_first_name'
         - 'config:field.storage.user.field_custom_last_name'
-  page_1:
+  page_er_group_users_lastname_firstname:
     display_plugin: page
-    id: page_1
+    id: page_er_group_users_lastname_firstname
     display_title: Page
     position: 1
     display_options:
