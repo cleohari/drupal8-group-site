@@ -5,11 +5,16 @@
  */
 function ckeditor_questionnaire_tokens_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   //  TODO - Need to finish the integration code after we decide on the specific Document content type structure.
-  if ($form_id == "node_book_edit_form") {
+  if ($form_id == "node_plan_document_edit_form") {
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node instanceof \Drupal\node\NodeInterface) {
       // You can get nid and anything else you need from the node object.
       $nid = $node->id();
+      // Load the hidden field that has the webform ID.
+      $webformid = $node->get('field_questionformid');
+
+
+
       //$current_node = \Drupal\node\NodeInterface::load($nid);
       $form[$form_id] = [
         '#markup' => '<div id=\'available_tokens\'>Test value 1,Test Value 2,Test Value 3</div>',
