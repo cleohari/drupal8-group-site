@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\ckeditor_questionnaire_tokens\Functional;
+namespace Drupal\Tests\ckeditor_addin_placeholder\Functional;
 
 use Drupal\Core\Url;
 use Drupal\Tests\BrowserTestBase;
@@ -17,7 +17,7 @@ class LoadTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['ckeditor_questionnaire_tokens'];
+  public static $modules = ['ckeditor_addin_placeholder'];
 
   /**
    * A user with permission to administer site configuration.
