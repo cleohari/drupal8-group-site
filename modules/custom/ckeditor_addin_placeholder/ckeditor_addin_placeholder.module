@@ -39,33 +39,14 @@ function ckeditor_addin_placeholder_form_alter(&$form, \Drupal\Core\Form\FormSta
       }
 
       $tokens = [];
+      $tokennames = [];
       foreach ($elements as $key => $value) {
         $tokens[$key] = $value['#title'];
+        $tokennames[] = $value['#title'];
       }
-      // Array
-      // (
-      //   [check_this_box_if_you_want_plan_a] => Array
-      //   (
-      //     [#type] => checkbox
-      //       [#title] => Check this Box If you Want Plan A
-      //         )
-      //
-      //   [what_type_of_delivery] => Array
-      //       (
-      //         [#type] => radios
-      //           [#title] => What type of delivery
-      //             [#options] => Array
-      //               (
-      //               [digital] => Digital
-      //               [hard] => Hard Copy
-      //                 )
-      //
-      //         )
-      //
-      // )
 
-
-      $form['#attached']['drupalSettings']['questionTokens'] = $tokens;
+      $form['#attached']['drupalSettings']['ckeditoraddinplaceholder']['questionTokenNames'] = $tokennames;
+      $form['#attached']['drupalSettings']['ckeditoraddinplaceholder']['questionTokenArray'] = $tokens;
 
       $form[$form_id] = [
         '#markup' => '<div id=\'available_tokens\'>Test value 1,Test Value 2,Test Value 3</div>',

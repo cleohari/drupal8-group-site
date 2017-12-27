@@ -17,7 +17,7 @@ CKEDITOR.dialog.add('placeholder', function (editor) {
 
   //  TODO - Need to finish the integration code after we decide on the specific Document content type structure.
   var elements = new Array();
-  elements = drupalSettings.ckeditoraddinplaceholder.questionTokens;
+  elements = drupalSettings.ckeditoraddinplaceholder.questionTokenNames;
   var arr = new Array();
 
   for (var i = 0; i < elements.length; i++) {
