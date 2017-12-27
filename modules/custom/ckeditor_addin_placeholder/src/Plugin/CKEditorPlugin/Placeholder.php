@@ -33,7 +33,7 @@ class Placeholder extends CKEditorPluginBase {
     return [
       'CreatePlaceholder' => [
         'label' => t('Create Placeholder'),
-        'image' => base_path() . 'libraries/placeholder/icons/placeholder.png',
+        'image' => $this->getPluginPath() . '/icons/placeholder.png',
       ],
     ];
   }
@@ -44,7 +44,7 @@ class Placeholder extends CKEditorPluginBase {
   public function getFile() {
     // Make sure that the path to the plugin.js matches the file structure of
     // the CKEditor plugin you are implementing.
-    return base_path() . 'libraries/placeholder/plugin.js';
+    return $this->getPluginPath() . '/plugin.js';
   }
 
   /**
@@ -73,6 +73,14 @@ class Placeholder extends CKEditorPluginBase {
    */
   public function getConfig(Editor $editor) {
     return [];
+  }
+
+  /**
+   * Return the path to the plugin.
+   * @return string
+   */
+  private function getPluginPath() {
+    return 'libraries/ckeditor.placeholder';
   }
 
 }

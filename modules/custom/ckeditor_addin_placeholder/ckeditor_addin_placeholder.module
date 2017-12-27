@@ -1,1 +1,77 @@
 <?php
+
+use Drupal\node\Entity\Node;
+use Drupal\webform\Entity\Webform;
+
+/**
+ * Implements hook_form_alter().
+ */
+function ckeditor_ckeditor_addin_placeholder_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  //  TODO - Need to finish the integration code after we decide on the specific Document content type structure.
+  if ($form_id == "node_plan_document_edit_form") {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      // You can get nid and anything else you need from the node object.
+      $nid = $node->id();
+      // Load the hidden field that has the webform ID.
+      $webformid = $node->get('field_questionformid')->value;
+
+      // Load the content containing the webform.
+      $questionnaire = Node::load($webformid);
+
+      // Load the referenced entity - the webform we need.
+      $referenceWebform = $questionnaire->get('webform')
+        ->first()
+        ->get('entity')
+        ->getTarget()
+        ->getValue();
+      // Get the webform target id - string variable.
+      $webformTargetId = $referenceWebform->id();
+
+      // Load the webform now that we have the target id.
+      $questionnaireWebform = Webform::load($webformTargetId);
+
+      // Get the elements of the webform.
+      $elements = $questionnaireWebform->getElementsDecoded();
+      // Drop the actions.
+      if (isset($elements['actions'])) {
+        unset($elements['actions']);
+      }
+
+      $tokens = [];
+      foreach ($elements as $key => $value) {
+        $tokens[$key] = $value['#title'];
+      }
+      // Array
+      // (
+      //   [check_this_box_if_you_want_plan_a] => Array
+      //   (
+      //     [#type] => checkbox
+      //       [#title] => Check this Box If you Want Plan A
+      //         )
+      //
+      //   [what_type_of_delivery] => Array
+      //       (
+      //         [#type] => radios
+      //           [#title] => What type of delivery
+      //             [#options] => Array
+      //               (
+      //               [digital] => Digital
+      //               [hard] => Hard Copy
+      //                 )
+      //
+      //         )
+      //
+      // )
+
+
+      $form['#attached']['drupalSettings']['questionTokens'] = $tokens;
+
+      $form[$form_id] = [
+        '#markup' => '<div id=\'available_tokens\'>Test value 1,Test Value 2,Test Value 3</div>',
+        '#allowed_tags' => ['div',],
+      ];
+    }
+  }
+
+}
