@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\node\Entity\Node;
+use Drupal\webform\Entity\Webform;
+
 /**
  * Implements hook_form_alter().
  */
@@ -11,9 +14,31 @@ function ckeditor_questionnaire_tokens_form_alter(&$form, \Drupal\Core\Form\Form
       // You can get nid and anything else you need from the node object.
       $nid = $node->id();
       // Load the hidden field that has the webform ID.
-      $webformid = $node->get('field_questionformid');
+      $webformid = $node->get('field_questionformid')->value;
+
+      $questionaire = Node::load($webformid);
+
+      $referenceWebform = $questionaire->get('webform')
+        ->first()
+        ->get('entity')
+        ->getTarget()
+        ->getValue();
+      $webformTargetId = $referenceWebform->id();
+
+      $questionaireWebform = Webform::load($webformTargetId);
 
 
+      $webformtranslationmanager = \Drupal::service('webform.translation_manager');
+      // $elements = $webformtranslationmanager->getBaseElements($questionaireWebform);
+
+
+      $stuff = 1;
+      // $webform = \Drupal::entityTypeManager()->getStorage('webform')->load('my_webform');
+      // $webform = $webform->getSubmissionForm();
+
+
+      $stuff = 1;
+      // $webform = Webform::load($webformid);
 
       //$current_node = \Drupal\node\NodeInterface::load($nid);
       $form[$form_id] = [
