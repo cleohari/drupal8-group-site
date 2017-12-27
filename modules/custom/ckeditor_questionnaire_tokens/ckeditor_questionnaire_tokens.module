@@ -27,18 +27,10 @@ function ckeditor_questionnaire_tokens_form_alter(&$form, \Drupal\Core\Form\Form
 
       $questionaireWebform = Webform::load($webformTargetId);
 
-
-      $webformtranslationmanager = \Drupal::service('webform.translation_manager');
-      // $elements = $webformtranslationmanager->getBaseElements($questionaireWebform);
-
-
-      $stuff = 1;
-      // $webform = \Drupal::entityTypeManager()->getStorage('webform')->load('my_webform');
-      // $webform = $webform->getSubmissionForm();
-
-
-      $stuff = 1;
-      // $webform = Webform::load($webformid);
+      $elements = $questionaireWebform->getElementsDecoded();
+      if (isset($elements['actions'])){
+        unset($elements['actions']);
+      }
 
       //$current_node = \Drupal\node\NodeInterface::load($nid);
       $form[$form_id] = [
