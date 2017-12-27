@@ -16,27 +16,34 @@ function ckeditor_questionnaire_tokens_form_alter(&$form, \Drupal\Core\Form\Form
       // Load the hidden field that has the webform ID.
       $webformid = $node->get('field_questionformid')->value;
 
-      $questionaire = Node::load($webformid);
+      // Load the content containing the webform.
+      $questionnaire = Node::load($webformid);
 
-      $referenceWebform = $questionaire->get('webform')
+      // Load the referenced entity - the webform we need.
+      $referenceWebform = $questionnaire->get('webform')
         ->first()
         ->get('entity')
         ->getTarget()
         ->getValue();
+      // Get the webform target id - string variable.
       $webformTargetId = $referenceWebform->id();
 
-      $questionaireWebform = Webform::load($webformTargetId);
+      // Load the webform now that we have the target id.
+      $questionnaireWebform = Webform::load($webformTargetId);
 
-      $elements = $questionaireWebform->getElementsDecoded();
+      // Get the elements of the webform.
+      $elements = $questionnaireWebform->getElementsDecoded();
+      // Drop the actions.
       if (isset($elements['actions'])){
         unset($elements['actions']);
       }
 
-      //$current_node = \Drupal\node\NodeInterface::load($nid);
-      $form[$form_id] = [
-        '#markup' => '<div id=\'available_tokens\'>Test value 1,Test Value 2,Test Value 3</div>',
-        '#allowed_tags' => ['div',],
-      ];
+      $form['#attached']['drupalSettings']['questionTokens'] = $elements;
+
+      // $form[$form_id] = [
+      //   '#markup' => '<div id=\'available_tokens\'>Test value 1,Test Value 2,Test Value 3</div>',
+      //   '#allowed_tags' => ['div',],
+      // ];
     }
   }
 
