@@ -6,7 +6,7 @@ use Drupal\webform\Entity\Webform;
 /**
  * Implements hook_form_alter().
  */
-function ckeditor_ckeditor_addin_placeholder_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function ckeditor_addin_placeholder_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   //  TODO - Need to finish the integration code after we decide on the specific Document content type structure.
   if ($form_id == "node_plan_document_edit_form") {
     $node = \Drupal::routeMatch()->getParameter('node');
