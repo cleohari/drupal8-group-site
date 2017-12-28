@@ -56,7 +56,8 @@
         "drupal/default_content": "^1.0",
         "drupal/token_filter": "^1.0",
         "drupal/menu_token": "^1.0",
-        "joshtronic/php-loremipsum": "dev-master"
+        "joshtronic/php-loremipsum": "dev-master",
+        "drupal/advagg": "^3.4"
     },
     "replace": {
 
