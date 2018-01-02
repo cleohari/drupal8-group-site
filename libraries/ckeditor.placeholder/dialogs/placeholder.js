@@ -15,7 +15,7 @@ CKEDITOR.dialog.add('placeholder', function (editor) {
     generalLabel = editor.lang.common.generalTab,
     validNameRegex = /^[^\[\]<>]+$/;
 
-  //  TODO - Need to finish the integration code after we decide on the specific Document content type structure.
+  // PDS Custom code to make replacements from Webform.
   var elements = new Array();
   elements = drupalSettings.ckeditoraddinplaceholder.questionTokenNames;
   var arr = new Array();
@@ -24,6 +24,7 @@ CKEDITOR.dialog.add('placeholder', function (editor) {
     arr[i] = new Array();
     arr[i][0] = elements[i];
   }
+  // End custom PDS code.
 
   return {
     title: lang.title,
