@@ -17,6 +17,7 @@ CKEDITOR.dialog.add('placeholder', function (editor) {
 
   // PDS Custom code to make replacements from Webform.
   var elements = new Array();
+  // Read the Drupal variable set by the module in the hook_alter_form.
   elements = drupalSettings.ckeditoraddinplaceholder.questionTokenNames;
   var arr = new Array();
 
