@@ -91,6 +91,7 @@ dependencies:
   - paragraphs
   - superfish
   - video_embed_field
+  - user_default_page
   - default_content
   - token_filter
   - pds_create_node_from_webform
