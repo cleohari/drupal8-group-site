@@ -13,7 +13,6 @@ access_conditions:
   -
     id: user_role
     roles:
-      administrator: administrator
       tenant_admin: tenant_admin
     negate: false
     context_mapping:
