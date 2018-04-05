@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+id: tenant_admin_default_page
+label: 'Tenant Admin Default Page'
+user_roles:
+  tenant_admin: tenant_admin
+users: null
+weight: -1
+login_redirect: /tenant-admin/home
+login_redirect_message: ''
+logout_redirect: ''
+logout_redirect_message: ''
