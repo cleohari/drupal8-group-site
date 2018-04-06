@@ -59,8 +59,6 @@ dependencies:
   - panels
   - panels_ipe
   - entity_browser
-  - page_manager
-  - page_manager_ui
   - layout_discovery
   - metatag_views
   - metatag_open_graph
