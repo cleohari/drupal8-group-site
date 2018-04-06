@@ -47,6 +47,27 @@ class WebformEntityListBuilder extends ConfigEntityListBuilder {
   protected $submissionStorage;
 
   /**
+   * User storage.
+   *
+   * @var \Drupal\user\UserStorageInterface
+   */
+  protected $userStorage;
+
+  /**
+   * Role storage.
+   *
+   * @var \Drupal\user\RoleStorageInterface
+   */
+  protected $roleStorage;
+
+  /**
+   * Associative array container total results for all webforms.
+   *
+   * @var array
+   */
+  protected $resultsTotals;
+
+  /**
    * {@inheritdoc}
    */
   public function __construct(EntityTypeInterface $entity_type, EntityStorageInterface $storage) {
@@ -56,6 +77,8 @@ class WebformEntityListBuilder extends ConfigEntityListBuilder {
     $this->category = \Drupal::request()->query->get('category');
     $this->state = \Drupal::request()->query->get('state');
     $this->submissionStorage = \Drupal::entityTypeManager()->getStorage('webform_submission');
+    $this->userStorage = \Drupal::entityTypeManager()->getStorage('user');
+    $this->roleStorage = \Drupal::entityTypeManager()->getStorage('user_role');
   }
 
   /**
@@ -80,22 +103,32 @@ class WebformEntityListBuilder extends ConfigEntityListBuilder {
           '#type' => 'link',
           '#title' => $this->t('Add webform'),
           '#url' => new Url('entity.webform.add_form'),
-          '#attributes' => WebformDialogHelper::getModalDialogAttributes(700, ['button', 'button-action', 'button--primary', 'button--small']),
+          '#attributes' => WebformDialogHelper::getModalDialogAttributes(WebformDialogHelper::DIALOG_NARROW, ['button', 'button-action', 'button--primary', 'button--small']),
         ],
       ];
     }
 
     // Add the filter by key(word) and/or state.
-    $state_options = [
-      '' => $this->t('All [@total]', ['@total' => $this->getTotal(NULL, NULL)]),
-      WebformInterface::STATUS_OPEN => $this->t('Open [@total]', ['@total' => $this->getTotal(NULL, WebformInterface::STATUS_OPEN)]),
-      WebformInterface::STATUS_CLOSED => $this->t('Closed [@total]', ['@total' => $this->getTotal(NULL, WebformInterface::STATUS_CLOSED)]),
-      WebformInterface::STATUS_SCHEDULED => $this->t('Scheduled [@total]', ['@total' => $this->getTotal(NULL, WebformInterface::STATUS_SCHEDULED)]),
-    ];
+    if (\Drupal::currentUser()->hasPermission('administer webform')) {
+      $state_options = [
+        '' => $this->t('All [@total]', ['@total' => $this->getTotal(NULL, NULL)]),
+        WebformInterface::STATUS_OPEN => $this->t('Open [@total]', ['@total' => $this->getTotal(NULL, NULL, WebformInterface::STATUS_OPEN)]),
+        WebformInterface::STATUS_CLOSED => $this->t('Closed [@total]', ['@total' => $this->getTotal(NULL, NULL, WebformInterface::STATUS_CLOSED)]),
+        WebformInterface::STATUS_SCHEDULED => $this->t('Scheduled [@total]', ['@total' => $this->getTotal(NULL, NULL, WebformInterface::STATUS_SCHEDULED)]),
+      ];
+    }
+    else {
+      $state_options = [
+        '' => $this->t('All'),
+        WebformInterface::STATUS_OPEN => $this->t('Open'),
+        WebformInterface::STATUS_CLOSED => $this->t('Closed'),
+        WebformInterface::STATUS_SCHEDULED => $this->t('Scheduled'),
+      ];
+    }
     $build['filter_form'] = \Drupal::formBuilder()->getForm('\Drupal\webform\Form\WebformEntityFilterForm', $this->keys, $this->category, $this->state, $state_options);
 
     // Display info.
-    if ($total = $this->getTotal($this->keys, $this->category, $this->state)) {
+    if (\Drupal::currentUser()->hasPermission('administer webform') && ($total = $this->getTotal($this->keys, $this->category, $this->state))) {
       $build['info'] = [
         '#markup' => $this->formatPlural($total, '@total webform', '@total webforms', ['@total' => $total]),
         '#prefix' => '<div>',
@@ -119,34 +152,46 @@ class WebformEntityListBuilder extends ConfigEntityListBuilder {
   public function buildHeader() {
     $header['title'] = [
       'data' => $this->t('Title'),
+      'specifier' => 'title',
+      'field' => 'title',
+      'sort' => 'asc',
     ];
     $header['description'] = [
       'data' => $this->t('Description'),
       'class' => [RESPONSIVE_PRIORITY_LOW],
+      'specifier' => 'description',
+      'field' => 'description',
     ];
     $header['category'] = [
       'data' => $this->t('Category'),
       'class' => [RESPONSIVE_PRIORITY_LOW],
+      'specifier' => 'category',
+      'field' => 'category',
     ];
     $header['status'] = [
       'data' => $this->t('Status'),
       'class' => [RESPONSIVE_PRIORITY_LOW],
+      'specifier' => 'status',
+      'field' => 'status',
     ];
     $header['author'] = [
       'data' => $this->t('Author'),
       'class' => [RESPONSIVE_PRIORITY_LOW],
+      'specifier' => 'uid',
+      'field' => 'uid',
     ];
     $header['results_total'] = [
       'data' => $this->t('Total Results'),
       'class' => [RESPONSIVE_PRIORITY_MEDIUM],
+      'specifier' => 'results_total',
+      'field' => 'results_total',
     ];
     $header['results_operations'] = [
       'data' => $this->t('Operations'),
       'class' => [RESPONSIVE_PRIORITY_MEDIUM],
     ];
-    $header['operations'] = [
-      'data' => '',
-    ];
+    $header['operations'] = '';
+
     return $header;
   }
 
@@ -181,7 +226,7 @@ class WebformEntityListBuilder extends ConfigEntityListBuilder {
         break;
     }
     $row['owner'] = ($owner = $entity->getOwner()) ? $owner->toLink() : '';
-    $row['results_total'] = $this->submissionStorage->getTotal($entity) . (!empty($settings['results_disabled']) ? ' ' . $this->t('(Disabled)') : '');
+    $row['results_total'] = $this->getResultsTotal($entity->id()) . ($entity->isResultsDisabled() ? ' ' . $this->t('(Disabled)') : '');
     $row['results_operations']['data'] = [
       '#type' => 'operations',
       '#links' => $this->getDefaultOperations($entity, 'results'),
@@ -257,13 +302,12 @@ class WebformEntityListBuilder extends ConfigEntityListBuilder {
           'title' => $this->t('Duplicate'),
           'weight' => 26,
           'url' => Url::fromRoute('entity.webform.duplicate_form', $route_parameters),
-          'attributes' => WebformDialogHelper::getModalDialogAttributes(700),
+          'attributes' => WebformDialogHelper::getModalDialogAttributes(WebformDialogHelper::DIALOG_NARROW),
         ];
       }
       if (isset($operations['delete'])) {
-        $operations['delete']['attributes'] = WebformDialogHelper::getModalDialogAttributes(700);
+        $operations['delete']['attributes'] = WebformDialogHelper::getModalDialogAttributes(WebformDialogHelper::DIALOG_NARROW);
       }
-
     }
     return $operations;
   }
@@ -272,10 +316,74 @@ class WebformEntityListBuilder extends ConfigEntityListBuilder {
    * {@inheritdoc}
    */
   protected function getEntityIds() {
-    return $this->getQuery($this->keys, $this->category, $this->state)
-      ->sort('title')
-      ->pager($this->getLimit())
-      ->execute();
+    $header = $this->buildHeader();
+    if (\Drupal::request()->query->get('order') === (string) $header['results_total']['data']) {
+      // Get results totals for all returned entity ids.
+      $results_totals = $this->getQuery($this->keys, $this->category, $this->state)
+        ->execute();
+      foreach ($results_totals as $entity_id) {
+        $results_totals[$entity_id] = $this->getResultsTotal($entity_id);
+      }
+
+      // Sort results totals.
+      asort($results_totals, SORT_NUMERIC);
+      if (\Drupal::request()->query->get('sort') === 'desc') {
+        $results_totals = array_reverse($results_totals, TRUE);
+      }
+
+      // Build an associative array of entity ids.
+      $entity_ids = array_keys($results_totals);
+      $entity_ids = array_combine($entity_ids, $entity_ids);
+
+      // Manually initialize and apply paging to the entity ids.
+      $page = \Drupal::request()->query->get('page') ?: 0;
+      $total = count($entity_ids);
+      $limit = $this->getLimit();
+      $start = ($page * $limit);
+      pager_default_initialize($total, $limit);
+      return array_slice($entity_ids, $start, $limit, TRUE);
+    }
+    else {
+      $query = $this->getQuery($this->keys, $this->category, $this->state);
+      $query->tableSort($header);
+      $query->pager($this->getLimit());
+      return $query->execute();
+    }
+  }
+
+  /**
+   * Get total number of results for a webform.
+   *
+   * @param string $webform_id
+   *   A webform id.
+   *
+   * @return int
+   *   Total number of results for a webform.
+   */
+  protected function getResultsTotal($webform_id) {
+    $results_totals = $this->getResultsTotals();
+    return (isset($results_totals[$webform_id])) ? $results_totals[$webform_id] : 0;
+  }
+
+  /**
+   * Get total results for all webforms.
+   *
+   * @return array
+   *   An associative array keyed by webform id contains total results for
+   *   all webforms.
+   */
+  protected function getResultsTotals() {
+    if (isset($this->resultsTotals)) {
+      return $this->resultsTotals;
+    }
+
+    $query = \Drupal::database()->select('webform_submission', 'ws');
+    $query->fields('ws', ['webform_id']);
+    $query->addExpression('COUNT(sid)', 'results_total');
+    $query->groupBy('webform_id');
+
+    $this->resultsTotals = array_map('intval', $query->execute()->fetchAllKeyed());
+    return $this->resultsTotals;
   }
 
   /**
@@ -316,11 +424,45 @@ class WebformEntityListBuilder extends ConfigEntityListBuilder {
     // Filter by key(word).
     if ($keys) {
       $or = $query->orConditionGroup()
-        ->condition('id', $this->keys, 'CONTAINS')
-        ->condition('title', $this->keys, 'CONTAINS')
-        ->condition('description', $this->keys, 'CONTAINS')
-        ->condition('category', $this->keys, 'CONTAINS')
-        ->condition('elements', $this->keys, 'CONTAINS');
+        ->condition('id', $keys, 'CONTAINS')
+        ->condition('title', $keys, 'CONTAINS')
+        ->condition('description', $keys, 'CONTAINS')
+        ->condition('category', $keys, 'CONTAINS')
+        ->condition('elements', $keys, 'CONTAINS');
+
+      // Users and roles we need to scan all webforms.
+      $access_value = NULL;
+      if ($accounts = $this->userStorage->loadByProperties(['name' => $keys])) {
+        $account = reset($accounts);
+        $access_type = 'users';
+        $access_value = $account->id();
+      }
+      elseif ($role = $this->roleStorage->load($keys)) {
+        $access_type = 'roles';
+        $access_value = $role->id();
+      }
+      if ($access_value) {
+        // Collect the webform ids that the user or role has access to.
+        $webform_ids = [];
+        /** @var \Drupal\webform\WebformInterface $webforms */
+        $webforms = $this->getStorage()->loadMultiple();
+        foreach ($webforms as $webform) {
+          $access_rules = $webform->getAccessRules();
+          foreach ($access_rules as $access_rule) {
+            if (!empty($access_rule[$access_type]) && in_array($access_value, $access_rule[$access_type])) {
+              $webform_ids[] = $webform->id();
+              break;
+            }
+          }
+        }
+        if ($webform_ids) {
+          $or->condition('id', $webform_ids, 'IN');
+        }
+        // Also check the webform's owner.
+        if ($access_type == 'users') {
+          $or->condition('uid', $access_value);
+        }
+      }
       $query->condition($or);
     }
 
@@ -381,6 +523,13 @@ class WebformEntityListBuilder extends ConfigEntityListBuilder {
   protected function isAdmin() {
     $account = \Drupal::currentUser();
     return ($account->hasPermission('administer webform') || $account->hasPermission('edit any webform') || $account->hasPermission('view any webform submission'));
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function ensureDestination(Url $url) {
+    return $url;
   }
 
 }

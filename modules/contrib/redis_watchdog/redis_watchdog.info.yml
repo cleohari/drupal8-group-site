@@ -1,9 +1,15 @@
 name: 'Redis Watchdog'
 type: module
 description: 'Redis storage for watchdog logs.'
-core: 8.x
+# core: 8.x
 package: 'Performance'
 configure: redis_watchdog.settings
 dependencies:
   - redis
 php: 7.x
+
+# Information added by Drupal.org packaging script on 2017-11-15
+version: '8.x-1.0-beta2'
+core: '8.x'
+project: 'redis_watchdog'
+datestamp: 1510709587

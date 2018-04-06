@@ -5,6 +5,8 @@
  * Google Fonts module file.
  */
 
+use Drupal\Core\Link;
+
 /**
  * Implements hook_fontyourface_api().
  */
@@ -13,6 +15,18 @@ function google_fonts_api_fontyourface_api() {
     'version' => '3',
     'name' => 'Google Fonts',
   ];
+}
+
+/**
+ * Implements hook_modules_installed().
+ *
+ * Use this hook instead of hook_install, because the route "font.settings" is
+ * not defined otherwise.
+ */
+function google_fonts_api_modules_installed($modules) {
+  if (in_array('google_fonts_api', $modules)) {
+    drupal_set_message(t('Due to the number of fonts, automated import from install for Google Fonts is disabled. Please use @link to import Google Fonts.', ['@link' => Link::createFromRoute('@font-your-face settings', 'font.settings')->toString()]));
+  }
 }
 
 /**
@@ -82,11 +96,7 @@ function google_fonts_api_generate_font_family_css(array $fonts) {
       $families[$family] = urlencode($family) . ':' . implode(',', $variants);
     }
 
-    $base = 'http://fonts.googleapis.com/css?family=';
-
-    if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
-      $base = 'https://fonts.googleapis.com/css?family=';
-    }
+    $base = 'https://fonts.googleapis.com/css?family=';
 
     $url = $base . implode('|', $families) . '&subset=' . implode(',', $all_subsets);
 
@@ -202,7 +212,7 @@ function _google_fonts_api_convert_api_results(array $json_font_list) {
 
         $fonts[$font_id] = new stdClass();
         $fonts[$font_id]->name = $font_id;
-        $fonts[$font_id]->url = 'http://www.google.com/webfonts/family?family=' . $json_font->family . '&subset=' . $json_font_subset . '#' . $json_font_variant;
+        $fonts[$font_id]->url = 'https://www.google.com/webfonts/family?family=' . $json_font->family . '&subset=' . $json_font_subset . '#' . $json_font_variant;
         $fonts[$font_id]->provider = 'google_fonts_api';
         $fonts[$font_id]->css_family = $json_font->family;
         $fonts[$font_id]->css_style = $css_style;

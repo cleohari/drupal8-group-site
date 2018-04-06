@@ -2,14 +2,12 @@
 
 namespace Drupal\webform\Tests\Element;
 
-use Drupal\webform\Tests\WebformTestBase;
-
 /**
  * Tests for webform element multiple.
  *
  * @group Webform
  */
-class WebformElementMultipleTest extends WebformTestBase {
+class WebformElementMultipleTest extends WebformElementTestBase {
 
   /**
    * Webforms to load.
@@ -140,6 +138,20 @@ webform_multiple_elements_flattened:
     $this->assertFieldByName('webform_multiple_default[items][2][_item_]', 'Three');
     $this->assertFieldByName('webform_multiple_default[items][3][_item_]', '');
     $this->assertNoFieldByName('webform_multiple_default[items][4][_item_]', '');
+
+    // Check adding empty after one.
+    $this->drupalPostAjaxForm(NULL, $edit, 'webform_multiple_default_table_add_0');
+    $this->assertFieldByName('webform_multiple_default[items][0][_item_]', 'One');
+    $this->assertFieldByName('webform_multiple_default[items][1][_item_]', '');
+    $this->assertNoFieldByName('webform_multiple_default[items][1][_item_]', 'Two');
+    $this->assertFieldByName('webform_multiple_default[items][2][_item_]', 'Two');
+    $this->assertFieldByName('webform_multiple_default[items][3][_item_]', 'Three');
+
+    // Check removing empty after one.
+    $this->drupalPostAjaxForm(NULL, $edit, 'webform_multiple_default_table_remove_1');
+    $this->assertFieldByName('webform_multiple_default[items][0][_item_]', 'One');
+    $this->assertFieldByName('webform_multiple_default[items][1][_item_]', 'Two');
+    $this->assertFieldByName('webform_multiple_default[items][2][_item_]', 'Three');
 
     // Check adding 'four' and 1 more option.
     $edit = [

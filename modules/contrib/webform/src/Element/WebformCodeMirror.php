@@ -5,10 +5,11 @@ namespace Drupal\webform\Element;
 use Drupal\Core\Serialization\Yaml;
 use Drupal\Core\Render\Element\Textarea;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\webform\Twig\TwigExtension;
 use Drupal\webform\Utility\WebformYaml;
 
 /**
- * Provides a webform element for HTML, YAML, or Plain text using CodeMirror.
+ * Provides a webform element for using CodeMirror.
  *
  * Known Issues/Feature Requests:
  *
@@ -88,13 +89,22 @@ class WebformCodeMirror extends Textarea {
       $element['#mode'] = 'text';
     }
 
-    // Set validation.
-    if (isset($element['#element_validate'])) {
-      $element['#element_validate'] = array_merge([[get_called_class(), 'validateWebformCodeMirror']], $element['#element_validate']);
+    // Check edit Twig template permission and complete disable editing.
+    if ($element['#mode'] == 'twig') {
+      if (!TwigExtension::hasEditTwigAccess()) {
+        $element['#disable'] = TRUE;
+        $element['#attributes']['disabled'] = 'disabled';
+        $element['#field_prefix'] = [
+          '#type' => 'webform_message',
+          '#message_type' => 'warning',
+          '#message_message' => t("Only webform administrators and user's assigned the 'Edit webform Twig templates' permission are allowed to edit this Twig template."),
+        ];
+      }
     }
-    else {
-      $element['#element_validate'] = [[get_called_class(), 'validateWebformCodeMirror']];
-    }
+
+    // Add validate callback.
+    $element += ['#element_validate' => []];
+    array_unshift($element['#element_validate'], [get_called_class(), 'validateWebformCodeMirror']);
 
     return $element;
   }
@@ -121,7 +131,14 @@ class WebformCodeMirror extends Textarea {
    * Webform element validation handler for #type 'webform_codemirror'.
    */
   public static function validateWebformCodeMirror(&$element, FormStateInterface $form_state, &$complete_form) {
-    if ($errors = static::getErrors($element, $form_state, $complete_form)) {
+    // If element is disabled then use the #default_value.
+    if (!empty($element['#disable'])) {
+      $element['#value'] = $element['#default_value'];
+      $form_state->setValueForElement($element, $element['#default_value']);
+    }
+
+    $errors = static::getErrors($element, $form_state, $complete_form);
+    if ($errors) {
       $build = [
         'title' => [
           '#markup' => t('%title is not valid.', ['%title' => (isset($element['#title']) ? $element['#title'] : t('YAML'))]),
@@ -133,16 +150,18 @@ class WebformCodeMirror extends Textarea {
       ];
       $form_state->setError($element, \Drupal::service('renderer')->render($build));
     }
-
-    if ($element['#mode'] == 'yaml' && (isset($element['#default_value']) && is_array($element['#default_value']))) {
-      // Handle rare case where single array value is not parsed correctly.
-      if (preg_match('/^- (.*?)\s*$/', $element['#value'], $match)) {
-        $value = [$match[1]];
+    else {
+      // If editing YAML and #default_value is an array, decode #value.
+      if ($element['#mode'] == 'yaml' && (isset($element['#default_value']) && is_array($element['#default_value']))) {
+        // Handle rare case where single array value is not parsed correctly.
+        if (preg_match('/^- (.*?)\s*$/', $element['#value'], $match)) {
+          $value = [$match[1]];
+        }
+        else {
+          $value = $element['#value'] ? Yaml::decode($element['#value']) : [];
+        }
+        $form_state->setValueForElement($element, $value);
       }
-      else {
-        $value = $element['#value'] ? Yaml::decode($element['#value']) : [];
-      }
-      $form_state->setValueForElement($element, $value);
     }
   }
 

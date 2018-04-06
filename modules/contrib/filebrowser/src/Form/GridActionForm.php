@@ -90,35 +90,39 @@ class GridActionForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, $items = null, $params = null) {
-
     $this->common = \Drupal::service('filebrowser.common');
     $this->helper = \Drupal::service('form.helper');
     $this->node = $params['node'];
-    $this->nid  = $this->node->id();
+    $this->nid = $this->node->id();
     $this->relativeFid = empty($params['data']['fid']) ? 0 : $params['data']['fid'];
 
     $form = [];
     $this->helper->initForm($form, $params['node']);
-    $form['#tree'] = true;
+    $form['#tree'] = TRUE;
     $form['#attached']['library'][] = 'views/views.module';
-    $column_width = round(100/$items['options']['columns'])-1;
+    $column_width = round(100 / $items['options']['columns']) - 1;
 
     // Create the form action elements
-    // Creates $form['actions']
-    $this->helper->createActionBar($form, $params['actions'], $this->relativeFid);
+    // If user has permissions that needs a button or checkbox then has_actions will be true.
+    $has_actions = !empty($params['actions']);
+    if ($has_actions) {
+      // Create the bar containing the action buttons
+      $this->helper->createActionBar($form, $params['actions'], $this->relativeFid);
 
-    // Select all items
-    $form['select_all'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Select all'),
-      '#title_display' => 'before',
-      '#ajax' => [
-        'callback' => [
-          $this, 'selectAll'
+      // Create a "Select all" checkbox
+      $form['select_all'] = [
+        '#type' => 'checkbox',
+        '#title' => $this->t('Select all'),
+        '#title_display' => 'before',
+        '#ajax' => [
+          'callback' => [
+            $this,
+            'selectAll'
+          ],
+          'progress' => 'none',
         ],
-        'progress' => 'none',
-      ],
-    ];
+      ];
+    }
 
     // main container
     $form['container'] = [
@@ -153,15 +157,21 @@ class GridActionForm extends FormBase {
             'width' => $column_width,
           ],
         ];
-        $form['container'][$row_name][$col_name][$content['content']['file']->fid] = [
-          '#type' => 'checkbox',
-          '#title' => '',
-          '#attributes' => ['class' => ['filebrowser-checkbox',],],
-          '#field_suffix' => $content['content']['grid'],
-        ];
+        if ($has_actions) {
+          $form['container'][$row_name][$col_name][$content['content']['file']->fid] = [
+            '#type' => 'checkbox',
+            '#title' => '',
+            '#attributes' => ['class' => ['filebrowser-checkbox',],],
+            '#field_suffix' => $content['content']['grid'],
+          ];
+        }
+        else {
+          $form['container'][$row_name][$col_name][$content['content']['file']->fid] = [
+            '#markup' => render($content['content']['grid']),
+          ];
+        }
       }
     }
-
     return $form;
   }
 
@@ -169,7 +179,6 @@ class GridActionForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    // \Drupal::logger('filebrowser')->notice('NORMAL ACTION FORM VALIDATE');
     // All submit button needs selected items. If noting selected generate form_error
     $element = $form_state->getTriggeringElement();
     $this->fids = $this->getFids($form, $form_state);
@@ -179,7 +188,6 @@ class GridActionForm extends FormBase {
   }
 
   public function ajaxValidate(&$form, FormStateInterface $form_state) {
-    // \Drupal::logger('filebrowser')->notice('AJAX FORM VALIDATE');
     // All submit button needs selected items. If noting selected generate form_error
     $this->fids = $this->getFids($form, $form_state);
     if (empty($this->fids)) {
@@ -196,7 +204,6 @@ class GridActionForm extends FormBase {
     // No items are selected and we have to display an error. We have to do
     // it here for the ajax enabled buttons. For the normal submit buttons
     // this will be handled by the form validation method.
-    //  \Drupal::logger('filebrowser')->notice('SUBMIT FORM');
     if ($this->error) {
       // set the error in the slide down window
       $form_state->setRedirect('filebrowser.no_items_error');

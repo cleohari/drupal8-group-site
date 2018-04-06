@@ -74,7 +74,7 @@ class UploadForm extends FormBase {
 
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Save Upload')
+      '#value' => $this->t('Save Upload'),
     ];
     return $form;
   }
@@ -83,9 +83,7 @@ class UploadForm extends FormBase {
    * @inheritdoc
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    if (empty($form_state->getValue('u_file'))) {
-      $form_state->setErrorByName('u_file', $this->t('Please select a file first'));
-    }
+  // all required validation is done in filebrowser_managed_file form element
   }
 
   /**

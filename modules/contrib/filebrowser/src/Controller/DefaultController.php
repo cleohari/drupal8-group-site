@@ -11,12 +11,16 @@ use Drupal\filebrowser\Filebrowser;
 use Drupal\filebrowser\FilebrowserManager;
 use Drupal\filebrowser\Services\FilebrowserValidator;
 use Drupal\filebrowser\Services\Common;
+use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Default controller for the filebrowser module.
@@ -69,6 +73,7 @@ class DefaultController extends ControllerBase {
    * @return \Symfony\Component\HttpFoundation\RedirectResponse
    */
   public function pageDownload($fid) {
+    /* @var NodeInterface $node **/
     $node_content = $this->common->nodeContentLoad($fid);
     $file_data = unserialize($node_content['file_data']);
     $filebrowser = new Filebrowser($node_content['nid']);
@@ -81,23 +86,36 @@ class DefaultController extends ControllerBase {
     }
     // we will stream the file
     else {
-      // Stream the file
-      $file = $file_data->uri;
-      // in case you need the container
-      //$container = $this->container;
-      $response = new StreamedResponse(function () use ($file) {
-        $handle = fopen($file, 'r');
-        while (!feof($handle)) {
-          $buffer = fread($handle, 1024);
-          echo $buffer;
-          flush();
-        }
-        fclose($handle);
-      });
-      $response->headers->set('Content-Type', $file_data->mimetype);
-      $content_disposition = $filebrowser->forceDownload ? 'attachment' : 'inline';
-      $response->headers->set('Content-Disposition', $content_disposition . '; filename="' . $file_data->filename . '";');
-      return $response;
+      // load the node containing the file so we can check
+      // for the access rights
+      // User needs "view" permission on the node to download the file
+      $node = Node::load($node_content['nid']);
+      if (isset($node) && $node->access('view')) {
+        // Stream the file
+        $file = $file_data->uri;
+        // in case you need the container
+        //$container = $this->container;
+        $response = new StreamedResponse(function () use ($file) {
+          $handle = fopen($file, 'r') or exit("Cannot open file $file");
+          while (!feof($handle)) {
+            $buffer = fread($handle, 1024);
+            echo $buffer;
+            flush();
+          }
+          fclose($handle);
+        });
+        $response->headers->set('Content-Type', $file_data->mimetype);
+        $content_disposition = $filebrowser->forceDownload ? 'attachment' : 'inline';
+        $response->headers->set('Content-Disposition', $content_disposition . '; filename="' . $file_data->filename . '";');
+        return $response;
+
+      }
+      elseif (isset($node)) {
+        throw new AccessDeniedHttpException();
+      }
+      else {
+        throw new NotFoundHttpException();
+      }
     }
   }
 
