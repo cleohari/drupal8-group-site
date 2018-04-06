@@ -5,9 +5,8 @@ namespace Drupal\webform\Element;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Render\Element\FormElement;
-use Drupal\Core\Render\Markup;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\webform\Utility\WebformArrayHelper;
+use Drupal\Core\Template\Attribute;
 use Drupal\webform\Utility\WebformElementHelper;
 
 /**
@@ -50,6 +49,9 @@ class WebformMultiple extends FormElement {
         [$class, 'processWebformMultiple'],
       ],
       '#theme_wrappers' => ['form_element'],
+      // Add '#markup' property to add an 'id' attribute to the form element.
+      // @see template_preprocess_form_element()
+      '#markup' => '',
     ];
   }
 
@@ -69,7 +71,7 @@ class WebformMultiple extends FormElement {
       }
     }
     elseif (is_array($input) && isset($input['items'])) {
-      return $input['items'];
+      return static::convertValuesToItems($element, $input['items']);
     }
     else {
       return NULL;
@@ -80,6 +82,7 @@ class WebformMultiple extends FormElement {
    * Process items and build multiple elements widget.
    */
   public static function processWebformMultiple(&$element, FormStateInterface $form_state, &$complete_form) {
+    // Set tree.
     $element['#tree'] = TRUE;
 
     // Disable operation when #cardinality is set.
@@ -88,12 +91,8 @@ class WebformMultiple extends FormElement {
     }
 
     // Add validate callback that extracts the array of items.
-    if (isset($element['#element_validate'])) {
-      $element['#element_validate'] = array_merge([[get_called_class(), 'validateWebformMultiple']], $element['#element_validate']);
-    }
-    else {
-      $element['#element_validate'] = [[get_called_class(), 'validateWebformMultiple']];
-    }
+    $element += ['#element_validate' => []];
+    array_unshift($element['#element_validate'], [get_called_class(), 'validateWebformMultiple']);
 
     // Wrap this $element in a <div> that handle #states.
     WebformElementHelper::fixStatesWrapper($element);
@@ -129,18 +128,19 @@ class WebformMultiple extends FormElement {
 
       $number_of_items = $form_state->get($number_of_items_storage_key);
     }
+
     $table_id = implode('_', $element['#parents']) . '_table';
 
-    // DEBUG: Disable Ajax callback by commenting out the below callback and
-    // wrapper.
+    // DEBUG:
+    // Disable Ajax callback by commenting out the below callback and wrapper.
     $ajax_settings = [
       'callback' => [get_called_class(), 'ajaxCallback'],
       'wrapper' => $table_id,
       'progress' => ['type' => 'none'],
     ];
 
-    // Track element child keys.
-    $element['#child_keys'] = Element::children($element['#element']);
+    // Initialize, prepare, and finalize sub-elements.
+    static::initializeElement($element, $form_state, $complete_form);
 
     // Build (single) element header.
     $header = static::buildElementHeader($element);
@@ -150,6 +150,7 @@ class WebformMultiple extends FormElement {
     $weight = 0;
     $rows = [];
 
+
     if (!$form_state->isProcessingInput() && isset($element['#default_value']) && is_array($element['#default_value'])) {
       $default_values = $element['#default_value'];
     }
@@ -157,6 +158,13 @@ class WebformMultiple extends FormElement {
       $default_values = $element['#value'];
     }
     else {
+      $default_values = [];
+    }
+
+    // When adding/removing elements we don't need to set any default values.
+    $action_key = static::getStorageKey($element, 'action');
+    if ($form_state->get($action_key)) {
+      $form_state->set($action_key, FALSE);
       $default_values = [];
     }
 
@@ -175,13 +183,16 @@ class WebformMultiple extends FormElement {
     }
 
     // Build table.
+    $attributes = ['id' => $table_id, 'class' => ['webform-multiple-table']];
+    if (count($element['#element']) > 1) {
+      $attributes['class'][] = 'webform-multiple-table-responsive';
+    }
     $element['items'] = [
-        '#prefix' => '<div id="' . $table_id . '" class="webform-multiple-table">',
-        '#suffix' => '</div>',
-        '#type' => 'table',
-        '#header' => $header,
-
-      ] + $rows;
+      '#prefix' => '<div' . new Attribute($attributes) . '>',
+      '#suffix' => '</div>',
+      '#type' => 'table',
+      '#header' => $header,
+    ] + $rows;
 
     // Add sorting to table.
     if ($element['#sorting']) {
@@ -214,12 +225,115 @@ class WebformMultiple extends FormElement {
         '#max' => 100,
         '#default_value' => $element['#add_more'],
         '#field_suffix' => t('more @labels', ['@labels' => $element['#labels']]),
+        '#error_no_message' => TRUE,
       ];
     }
 
     $element['#attached']['library'][] = 'webform/webform.element.multiple';
 
     return $element;
+  }
+
+  /**
+   * Initialize element.
+   *
+   * @param array $element
+   *   The element.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The current state of the form.
+   * @param array $complete_form
+   *    An associative array containing the structure of the form.
+   */
+  protected static function initializeElement(array &$element, FormStateInterface $form_state, array &$complete_form) {
+    // Track element child keys.
+    $element['#child_keys'] = Element::children($element['#element']);
+
+    if (!$element['#child_keys']) {
+      // Apply multiple element's required/optional #states to the
+      // individual element.
+      if (isset($element['#_webform_states'])) {
+        $element['#element'] += ['#states' => []];
+        $element['#element']['#states'] = array_intersect_key(
+          WebformElementHelper::getStates($element),
+          ['required' => 'required', 'optional' => 'optional']
+        );
+      }
+    }
+    else {
+      // Initialize, prepare, and finalize composite sub-elements.
+      // Get composite element required/options states from visible/hidden states.
+      $required_states = WebformElementHelper::getRequiredFromVisibleStates($element);
+      static::initializeElementRecursive($element, $form_state, $complete_form, $element['#element'], $required_states);
+    }
+  }
+
+  /**
+   * Initialize, prepare, and finalize composite sub-elements recursively.
+   *
+   * @param array $element
+   *   The main element.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The current state of the form.
+   * @param array $complete_form
+   *    An associative array containing the structure of the form.
+   * @param array $sub_elements
+   *   The sub element.
+   * @param array $required_states
+   *   An associative array of required states froim the main element's
+   *   visible/hidden states.
+   */
+  protected static function initializeElementRecursive(array $element, FormStateInterface $form_state, array &$complete_form, array &$sub_elements, array $required_states) {
+    $child_keys = Element::children($sub_elements);
+
+    // Exit immediate if the sub elements has no children.
+    if (!$child_keys) {
+      return;
+    }
+
+    // Determine if the sub elements are the main element for each table cell.
+    $is_root = ($element['#element'] === $sub_elements) ? TRUE : FALSE;
+
+    /** @var \Drupal\webform\Plugin\WebformElementManagerInterface $element_manager */
+    $element_manager = \Drupal::service('plugin.manager.webform.element');
+    foreach ($child_keys as $child_key) {
+      $sub_element =& $sub_elements[$child_key];
+
+      $element_plugin = $element_manager->getElementInstance($sub_element);
+
+      // If the element's #access is FALSE, apply it to all sub elements.
+      if (isset($element['#access']) && $element['#access'] === FALSE) {
+        $sub_element['#access'] = FALSE;
+      }
+
+      // If #header and root input then hide the sub element's #title.
+      if ($element['#header']
+        && ($is_root && $element_plugin->isInput($sub_element))
+        && !isset($sub_element['#title_display'])) {
+        $sub_element['#title_display'] = 'invisible';
+      }
+
+      // Initialize the composite sub-element.
+      $element_manager->initializeElement($sub_element);
+
+      // Build the composite sub-element.
+      $element_manager->buildElement($sub_element, $complete_form, $form_state);
+
+      // Custom validate required sub-element because they can be hidden
+      // via #access or #states.
+      // @see \Drupal\webform\Element\WebformCompositeBase::validateWebformComposite
+      if ($required_states && !empty($sub_element['#required'])) {
+        unset($sub_element['#required']);
+        $sub_element['#_required'] = TRUE;
+        if (!isset($sub_element['#states'])) {
+          $sub_element['#states'] = [];
+        }
+        $sub_element['#states'] += $required_states;
+      }
+
+      if (is_array($sub_element)) {
+        static::initializeElementRecursive($element, $form_state, $complete_form, $sub_element, $required_states);
+      }
+    }
   }
 
   /**
@@ -231,7 +345,7 @@ class WebformMultiple extends FormElement {
    * @return array
    *   A render array containing inputs for an element's header.
    */
-  public static function buildElementHeader(array $element) {
+  protected static function buildElementHeader(array $element) {
     $table_id = implode('-', $element['#parents']) . '-table';
 
     $colspan = 0;
@@ -263,6 +377,8 @@ class WebformMultiple extends FormElement {
       if ($element['#operations']) {
         $header[] = ['class' => ["$table_id--handle", "webform-multiple-table--operations"]];
       }
+
+      return $header;
     }
     elseif (is_string($element['#header'])) {
       return [
@@ -286,6 +402,12 @@ class WebformMultiple extends FormElement {
           $title['title'] = [
             '#markup' => (!empty($element['#element'][$child_key]['#title'])) ? $element['#element'][$child_key]['#title'] : '',
           ];
+          if (!empty($element['#element'][$child_key]['#required']) || !empty($element['#element'][$child_key]['#_required'])) {
+            $title['title'] += [
+              '#prefix' => '<span class="form-required">',
+              '#suffix' => '</span>',
+            ];
+          }
           if (!empty($element['#element'][$child_key]['#help'])) {
             $title['help'] = [
               '#type' => 'webform_help',
@@ -341,7 +463,7 @@ class WebformMultiple extends FormElement {
    * @return array
    *   A render array containing inputs for an element's value and weight.
    */
-  public static function buildElementRow($table_id, $row_index, array $element, $default_value, $weight, array $ajax_settings) {
+  protected static function buildElementRow($table_id, $row_index, array $element, $default_value, $weight, array $ajax_settings) {
     if ($element['#child_keys']) {
       static::setElementRowDefaultValueRecursive($element['#element'], (array) $default_value);
     }
@@ -356,7 +478,7 @@ class WebformMultiple extends FormElement {
       $row['_handle_'] = [
         '#wrapper_attributes' => [
           'class' => ['webform-multiple-table--handle'],
-        ]
+        ],
       ];
     }
 
@@ -385,7 +507,13 @@ class WebformMultiple extends FormElement {
           // Convert element to rendered hidden element.
           if (!isset($element['#access']) || $element['#access'] !== FALSE) {
             $hidden_elements[$child_key]['#type'] = 'hidden';
-            unset($hidden_elements[$child_key]['#access']);
+            // Unset #access, #element_validate, and #pre_render.
+            // @see \Drupal\webform\Plugin\WebformElementBase::prepare().
+            unset(
+              $hidden_elements[$child_key]['#access'],
+              $hidden_elements[$child_key]['#element_validate'],
+              $hidden_elements[$child_key]['#pre_render']
+            );
           }
           static::setElementRowParentsRecursive($hidden_elements[$child_key], $child_key, $hidden_parents);
         }
@@ -420,7 +548,7 @@ class WebformMultiple extends FormElement {
       $row['_operations_'] = [
         '#wrapper_attributes' => [
           'class' => ['webform-multiple-table--operations'],
-        ]
+        ],
       ];
       $row['_operations_']['add'] = [
         '#type' => 'image_button',
@@ -534,6 +662,8 @@ class WebformMultiple extends FormElement {
    *
    * @param array $element
    *   The child element.
+   * @param string $element_key
+   *   The child element's key.
    * @param array $parents
    *   The main element's parents.
    */
@@ -572,7 +702,10 @@ class WebformMultiple extends FormElement {
     $form_state->setValueForElement($element['items'], $element['items']['#value']);
     NestedArray::setValue($form_state->getUserInput(), $element['items']['#parents'], $element['items']['#value']);
 
-    // Rebuild the webform.
+    $action_key = static::getStorageKey($element, 'action');
+    $form_state->set($action_key, TRUE);
+
+      // Rebuild the webform.
     $form_state->setRebuild();
   }
 
@@ -593,7 +726,7 @@ class WebformMultiple extends FormElement {
     foreach ($element['items']['#value'] as $row_index => $value) {
       $values[] = $value;
       if ($row_index == $button['#row_index']) {
-        $values[] = ['item' => '', 'text' => ''];
+        $values[] = [];
       }
     }
 
@@ -605,6 +738,9 @@ class WebformMultiple extends FormElement {
     // Reset values.
     $form_state->setValueForElement($element['items'], $values);
     NestedArray::setValue($form_state->getUserInput(), $element['items']['#parents'], $values);
+
+    $action_key = static::getStorageKey($element, 'action');
+    $form_state->set($action_key, TRUE);
 
     // Rebuild the webform.
     $form_state->setRebuild();
@@ -639,6 +775,9 @@ class WebformMultiple extends FormElement {
     $form_state->setValueForElement($element['items'], $values);
     NestedArray::setValue($form_state->getUserInput(), $element['items']['#parents'], $values);
 
+    $action_key = static::getStorageKey($element, 'action');
+    $form_state->set($action_key, TRUE);
+
     // Rebuild the webform.
     $form_state->setRebuild();
   }
@@ -662,28 +801,22 @@ class WebformMultiple extends FormElement {
     // @see \Drupal\webform\Element\WebformEmailConfirm::validateWebformEmailConfirm
     // @see \Drupal\webform\Element\WebformOtherBase::validateWebformOther
     $values = NestedArray::getValue($form_state->getValues(), $element['#parents']);
-    // Convert values to items and validate duplicate keys.
-    try {
-      $items = static::convertValuesToItems($element, $values['items']);
-    }
-    catch (\Exception $exception) {
-      $form_state->setError($element, Markup::create($exception->getMessage()));
+
+    // Validate unique keys.
+    if ($error_message = static::validateUniqueKeys($element, $values['items'])) {
+      $form_state->setError($element, $error_message);
       return;
     }
 
+    // Convert values to items and validate duplicate keys.
+    $items = static::convertValuesToItems($element, $values['items']);
+
     // Validate required items.
     if (!empty($element['#required']) && empty($items)) {
-      if (isset($element['#required_error'])) {
-        $form_state->setError($element, $element['#required_error']);
-      }
-      elseif (isset($element['#title'])) {
-        $form_state->setError($element, t('@name field is required.', ['@name' => $element['#title']]));
-      }
-      else {
-        $form_state->setError($element);
-      }
+      WebformElementHelper::setRequiredError($element, $form_state);
     }
 
+    $element['#value'] = $items;
     $form_state->setValueForElement($element, $items);
   }
 
@@ -754,13 +887,6 @@ class WebformMultiple extends FormElement {
         $key_name = $element['#key'];
         $key_value = $item[$key_name];
         unset($item[$key_name]);
-
-        // Validate unique #key.
-        if (isset($items[$key_value])) {
-          $key_title = isset($element['#element'][$key_name]['#title']) ? $element['#element'][$key_name]['#title'] : $key_name;
-          throw new \Exception(t("The %title '@key' is already in use. It must be unique.", ['@key' => $key_value, '%title' => $key_title]));
-        }
-
         $items[$key_value] = $item;
       }
       else {
@@ -769,6 +895,44 @@ class WebformMultiple extends FormElement {
     }
 
     return $items;
+  }
+
+  /**
+   * Validate composite element has unique keys.
+   *
+   * @param array $element
+   *   The multiple element.
+   * @param array $values
+   *   An array containing of item and weight.
+   *
+   * @return null|string
+   *   NULL if element has unique keys, else an error message with
+   *   the duplicate key.
+   */
+  protected static function validateUniqueKeys(array $element, array $values) {
+    // Only validate if the element's #key is defined.
+    if (!isset($element['#key'])) {
+      return NULL;
+    }
+
+    $unique_keys = [];
+    foreach ($values as $value) {
+      $item = (isset($value['_item_'])) ? $value['_item_'] : $value;
+      $key_name = $element['#key'];
+      $key_value = $item[$key_name];
+      if (empty($key_value)) {
+        continue;
+      }
+
+      if (isset($unique_keys[$key_value])) {
+        $key_title = isset($element['#element'][$key_name]['#title']) ? $element['#element'][$key_name]['#title'] : $key_name;
+        $t_args = ['@key' => $key_value, '%title' => $key_title];
+        return t("The %title '@key' is already in use. It must be unique.", $t_args);
+      }
+
+      $unique_keys[$key_value] = $key_value;
+    }
+    return NULL;
   }
 
   /**

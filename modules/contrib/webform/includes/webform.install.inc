@@ -5,11 +5,11 @@
  * Webform install helper functions.
  */
 
+use Drupal\Core\Render\Element;
 use Drupal\Core\Serialization\Yaml;
 use Drupal\system\Entity\Action;
 use Drupal\webform\Entity\Webform;
 use Drupal\webform\WebformInterface;
-use Drupal\webform\Plugin\WebformHandlerInterface;
 
 /**
  * Update admin settings to reflect changes in the default settings.
@@ -123,34 +123,40 @@ function _webform_update_webform_settings() {
     // Set settings.
     $data['settings'] = $settings;
 
+    // Set access.
+    $data['access'] += Webform::getDefaultAccessRules();
+
     // Save data.
     $webform_config->setData($data)->save();
   }
 }
 
 /**
- * Update webform handler setting to reflect changes in a handler's default configuration.
+ * Update webform handler configuration and settings to reflect changes in a handler's default configuration.
  *
  * Must be called by passing in the handler's class using ::class.
  *
  * Example usage:
  * @code
- * _webform_update_webform_handler_class_settings(EmailWebformHandler::class);
+ * _webform_update_webform_handler_configuration();
+ * _webform_update_webform_handler_configuration(EmailWebformHandler::class);
  * @endcode
  *
  * @param string $handler_class
- *   A handler class instance.
+ *   A handler class instance. If NULL all handlers will be updated.
+ *   Defaults to NULL.
  *
  * @see \Drupal\webform\Plugin\WebformHandlerInterface
  */
-function _webform_update_webform_handler_class_settings($handler_class) {
+function _webform_update_webform_handler_configuration($handler_class = NULL) {
   /** @var \Drupal\webform\WebformInterface[] $webforms */
   $webforms = Webform::loadMultiple();
   foreach ($webforms as $webform) {
     $has_handler = FALSE;
     $handlers = $webform->getHandlers();
     foreach ($handlers as $handler) {
-      if ($handler instanceof $handler_class) {
+      $is_handler_class = ($handler_class === NULL || $handler instanceof $handler_class);
+      if ($is_handler_class) {
         $has_handler = TRUE;
         $configuration = $handler->getConfiguration();
 
@@ -254,3 +260,52 @@ function _webform_update_webform_submission_storage_schema() {
   $manager = \Drupal::entityDefinitionUpdateManager();
   $manager->updateEntityType($manager->getEntityType('webform_submission'));
 }
+
+/**
+ * Clear/remove selected webform element properties.
+ *
+ * @param array $properties
+ *   An associative array of webform element properties.
+ */
+function _webform_update_elements_clear_properties(array $properties) {
+  $pattern = '/(?:' . implode('|', array_keys($properties)) . ')/';
+  $config_factory = \Drupal::configFactory();
+  foreach ($config_factory->listAll('webform.webform.') as $webform_config_name) {
+    $webform_config = $config_factory->getEditable($webform_config_name);
+    $data = $webform_config->getRawData();
+
+    // Make sure elements contains the properties.
+    if (!preg_match($pattern, $data['elements'])) {
+      continue;
+    }
+
+    $elements = Yaml::decode($data['elements']);
+    _webform_update_elements_clear_properties_recursive($elements, $properties);
+    $data['elements'] = Yaml::encode($elements);
+
+    $webform_config->setData($data);
+    $webform_config->save();
+  }
+}
+
+/**
+ * Recursively clear/remove selected webform element properties.
+ *
+ * @param array $element
+ *   An element.
+ * @param array $properties
+ *   An associative array of webform element properties.
+ */
+function _webform_update_elements_clear_properties_recursive(array &$element, array $properties) {
+  foreach ($properties as $property_name => $property_value) {
+    if (isset($element[$property_name]) && $element[$property_name] === $property_value) {
+      unset($element[$property_name]);
+    }
+  }
+  foreach (Element::children($element) as $key) {
+    if (is_array($element[$key])) {
+      _webform_update_elements_clear_properties_recursive($element[$key], $properties);
+    }
+  }
+}
+

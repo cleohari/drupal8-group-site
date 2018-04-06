@@ -9,6 +9,7 @@ define('TYPEKIT_API_BASE_URL', 'https://typekit.com/api/v1/json/');
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\Unicode;
+use Drupal\Core\Link;
 
 /**
  * Implements hook_fontyourface_api().
@@ -18,6 +19,18 @@ function typekit_api_fontyourface_api() {
     'version' => '3',
     'name' => 'Typekit',
   ];
+}
+
+/**
+ * Implements hook_modules_installed().
+ *
+ * Use this hook instead of hook_install, because the route "font.settings" is
+ * not defined otherwise.
+ */
+function typekit_api_modules_installed($modules) {
+  if (in_array('typekit_api', $modules)) {
+    drupal_set_message(t('Typekit needs to be set up in order for fonts to be imported. Please use @link to import Typekit fonts.', ['@link' => Link::createFromRoute('@font-your-face settings', 'font.settings')->toString()]));
+  }
 }
 
 /**
@@ -104,15 +117,15 @@ function typekit_api_fontyourface_import($font_context = []) {
           ];
           $font_data = new stdClass();
           $font_data->name = $variant->name;
-          $font_data->url = 'http://typekit.com/fonts/' . $family->slug . '#' . $variant_id;
+          $font_data->url = 'https://typekit.com/fonts/' . $family->slug . '#' . $variant_id;
           $font_data->provider = 'typekit_api';
           $font_data->css_family = "'" . implode("', '", $family->css_names) . "'";
           $font_data->css_style = $variant->font_style;
           $font_data->css_weight = $variant->font_weight;
-          $font_data->foundry_url = 'http://typekit.com/foundries/' . $variant->foundry->slug;
+          $font_data->foundry_url = 'https://typekit.com/foundries/' . $variant->foundry->slug;
           $font_data->metadata = $metadata;
           $font = fontyourface_save_font($font_data);
-          $font->enable();
+          $font->activate();
         }
       }
     }
