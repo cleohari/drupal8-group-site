@@ -1,16 +1,16 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\clientside_validation\ValidatorManagerInterface.
+ */
+
 namespace Drupal\clientside_validation;
 
 use Drupal\Component\Plugin\PluginManagerInterface;
 use Drupal\Component\Plugin\Discovery\CachedDiscoveryInterface;
 use Drupal\Core\Form\FormStateInterface;
 
-/**
- * Interface ValidatorManagerInterface.
- *
- * @package Drupal\clientside_validation
- */
 interface ValidatorManagerInterface extends PluginManagerInterface, CachedDiscoveryInterface {
 
   /**
@@ -18,7 +18,7 @@ interface ValidatorManagerInterface extends PluginManagerInterface, CachedDiscov
    *
    * @param array $element
    *   The form element to get the validators for.
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   * @param FormStateInterface $form_state
    *   The form state of the form this element belongs to.
    */
   public function getValidators(array $element, FormStateInterface $form_state);

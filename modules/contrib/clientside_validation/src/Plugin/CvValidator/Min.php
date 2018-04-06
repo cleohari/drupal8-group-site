@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\clientside_validation\Plugin\CvValidator\Min.
+ */
 
 namespace Drupal\clientside_validation\Plugin\CvValidator;
 
@@ -26,10 +30,7 @@ class Min extends CvValidatorBase {
     // rule.
     return [
       'messages' => [
-        'min' => $this->t('The value in @title has to be greater than @min.', [
-          '@title' => $this->getElementTitle($element),
-          '@min' => $this->getAttributeValue($element, 'min'),
-        ]),
+        'min' => $this->t('The value in @title has to be greater than @min.', ['@title' => $element['#title'], '@min' => $element['#min']]),
       ],
     ];
   }

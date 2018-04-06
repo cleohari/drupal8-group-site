@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\clientside_validation\Plugin\CvValidator\Max.
+ */
 
 namespace Drupal\clientside_validation\Plugin\CvValidator;
 
@@ -26,10 +30,7 @@ class Max extends CvValidatorBase {
     // rule.
     return [
       'messages' => [
-        'max' => $this->t('The value in @title has to be less than @max.', [
-          '@title' => $this->getElementTitle($element),
-          '@max' => $this->getAttributeValue($element, 'max'),
-        ]),
+        'max' => $this->t('The value in @title has to be greater than @max.', ['@title' => $element['#title'], '@max' => $element['#max']]),
       ],
     ];
   }

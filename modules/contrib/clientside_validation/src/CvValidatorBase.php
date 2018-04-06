@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Provides Drupal\clientside_validation\CvValidatorBase.
+ */
 
 namespace Drupal\clientside_validation;
 
@@ -9,11 +13,6 @@ use Drupal\Component\Utility\Unicode;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Component\Utility\NestedArray;
 
-/**
- * Class CvValidatorBase.
- *
- * @package Drupal\clientside_validation
- */
 abstract class CvValidatorBase extends PluginBase implements CvValidatorInterface {
   use StringTranslationTrait;
 
@@ -55,47 +54,8 @@ abstract class CvValidatorBase extends PluginBase implements CvValidatorInterfac
       if (!isset($element['#attached'])) {
         $element['#attached'] = [];
       }
-      $element['#attached'] = NestedArray::mergeDeep($element['#attached'], $this->getPluginDefinition()['attachments']);
+      $element['#attached'] = NestedArray::mergeDeep($element['#attached'], $this->getPluginDefinition()['attached']);
     }
-  }
-
-  /**
-   * Get the value of an attribute of an element.
-   *
-   * @param array $element
-   *   The element to get the attribute from.
-   * @param string $attribute
-   *   The attribute of which to get the value.
-   *
-   * @return mixed
-   *   The attribute value.
-   */
-  protected function getAttributeValue(array $element, $attribute) {
-    return isset($element['#' . $attribute]) ?
-        $element['#' . $attribute]
-        : (isset($element['#attributes'][$attribute]) ? $element['#attributes'][$attribute] : NULL);
-  }
-
-  /**
-   * Get title for form element.
-   *
-   * @param array $element
-   *   Element.
-   * @param string $default
-   *   Default value for the title.
-   *
-   * @return \Drupal\Core\StringTranslation\TranslatableMarkup|mixed
-   *   Title value.
-   */
-  protected function getElementTitle(array $element, $default = '') {
-
-    $title = $this->getAttributeValue($element, 'title');
-
-    if (empty($title) && empty($default)) {
-      return t('This field');
-    }
-
-    return $title ? $title : $default;
   }
 
 }
