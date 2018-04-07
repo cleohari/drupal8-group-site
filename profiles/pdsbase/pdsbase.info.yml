@@ -60,6 +60,8 @@ dependencies:
   - panels_ipe
   - entity_browser
   - layout_discovery
+  - page_manager
+  - page_manager_ui
   - metatag_views
   - metatag_open_graph
   - metatag_hreflang
