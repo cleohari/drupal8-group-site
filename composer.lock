@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "16c235fd8f3edb3075cd2ef7ad9c11da",
+    "content-hash": "52ab87b30ec9dccd3a360865ca2211ed",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2297,17 +2297,11 @@
         },
         {
             "name": "drupal/page_manager",
-            "version": "4.0.0-beta2",
+            "version": "dev-4.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/page_manager",
-                "reference": "8.x-4.0-beta2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/page_manager-8.x-4.0-beta2.zip",
-                "reference": "8.x-4.0-beta2",
-                "shasum": "29a4dda0f068b5df5971eb8319c675cd8e5c78b3"
+                "reference": "0ad88858840cc99c8adef63e577c0f989bc3ab2c"
             },
             "require": {
                 "drupal/core": "^8.0.5",
@@ -2319,8 +2313,8 @@
                     "dev-4.x": "4.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-4.0-beta2",
-                    "datestamp": "1493410443",
+                    "version": "8.x-4.0-beta2+4-dev",
+                    "datestamp": "1521562984",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -2356,7 +2350,8 @@
                 "source": "https://git.drupal.org/project/page_manager.git",
                 "issues": "https://www.drupal.org/project/issues/page_manager",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            }
+            },
+            "time": "2018-03-20T16:18:33+00:00"
         },
         {
             "name": "drupal/panelizer",
@@ -8234,7 +8229,7 @@
         "drupal/typed_data": 15,
         "drupal/sendgrid_integration": 20,
         "drupal/rules": 15,
-        "drupal/page_manager": 10,
+        "drupal/page_manager": 20,
         "drupal/libraries": 20,
         "drupal/group": 5,
         "drupal/filebrowser": 5,

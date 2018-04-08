@@ -1,0 +1,22 @@
+uuid: f19cf397-ca5e-4772-a0d1-7cc6c6ddf94d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.pds_global_alert
+  module:
+    - text
+id: node.pds_global_alert.body
+field_name: body
+entity_type: node
+bundle: pds_global_alert
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary
