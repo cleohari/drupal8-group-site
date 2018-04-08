@@ -1,0 +1,23 @@
+uuid: 3ca74b7c-da11-4e62-aa9b-d1f83a9b26d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pds_important_flag
+    - node.type.pds_global_alert
+id: node.pds_global_alert.field_pds_important_flag
+field_name: field_pds_important_flag
+entity_type: node
+bundle: pds_global_alert
+label: 'Important Flag'
+description: 'Use this field to flag the item as being important.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

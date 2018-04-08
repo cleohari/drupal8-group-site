@@ -1,0 +1,65 @@
+uuid: dc369f99-8909-4920-9a21-b140dae8dad3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pds_global_alert.body
+    - field.field.node.pds_global_alert.field_pds_alert_type
+    - field.field.node.pds_global_alert.field_pds_end_date
+    - field.field.node.pds_global_alert.field_pds_important_flag
+    - field.field.node.pds_global_alert.field_pds_start_date
+    - node.type.pds_global_alert
+  module:
+    - datetime
+    - options
+    - text
+    - user
+id: node.pds_global_alert.default
+targetEntityType: node
+bundle: pds_global_alert
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_pds_alert_type:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_pds_end_date:
+    weight: 2
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: long
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_pds_important_flag:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_pds_start_date:
+    weight: 1
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: long
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden:
+  links: true

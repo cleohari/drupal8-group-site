@@ -1,0 +1,17 @@
+uuid: e2485af5-8ae7-4241-92b8-2dd86b242928
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'PDS Global Alert'
+type: pds_global_alert
+description: 'This content type is used to communicate items to all tenants about the system.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

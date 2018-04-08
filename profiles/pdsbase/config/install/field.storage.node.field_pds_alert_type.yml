@@ -1,0 +1,33 @@
+uuid: c3aa70a3-c936-4d88-87f3-36be960f8c31
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_pds_alert_type
+field_name: field_pds_alert_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'System Message'
+      label: 'System Message'
+    -
+      value: 'Release Information'
+      label: 'Release Information'
+    -
+      value: 'Maintenance Window'
+      label: 'Maintenance Window'
+    -
+      value: 'Emergency Maintenance Window'
+      label: 'Emergency Maintenance Window'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
