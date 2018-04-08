@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.tenant
+    - node.type.pds_tenant_message
+  module:
+    - gnode
+    - node
+id: group_content_type_f81952fae7f62
+label: 'Tenant: Group node (PDS Tenant Message)'
+description: 'Adds <em class="placeholder">PDS Tenant Message</em> content to groups both publicly and privately.'
+group_type: tenant
+content_plugin: 'group_node:pds_tenant_message'
+plugin_config:
+  group_cardinality: 1
+  entity_cardinality: 1
+  use_creation_wizard: false
