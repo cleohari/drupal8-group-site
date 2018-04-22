@@ -6,3 +6,10 @@ core = 7.x
 dependencies[] = redis
 files[] = src/RedisLog.php
 php = 5.5
+
+; Information added by Drupal.org packaging script on 2017-11-15
+version = "8.x-1.0-beta2"
+core = "8.x"
+project = "redis_watchdog"
+datestamp = "1510709587"
+

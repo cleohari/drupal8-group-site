@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\clientside_validation\Plugin\CvValidator\MaxLength.
+ */
 
 namespace Drupal\clientside_validation\Plugin\CvValidator;
 
@@ -27,13 +31,13 @@ class MaxLength extends CvValidatorBase {
     if ($element['#type'] == 'select') {
       return [
         'messages' => [
-          'maxlength' => $this->t('@title field can only have a maximum of @max values.', ['@title' => $this->getElementTitle($element), '@max' => $this->getAttributeValue($element, 'maxlength')]),
+          'maxlength' => $this->t('@title field can only have a maximum of @max values.', ['@title' => $element['#title'], '@max' => $element['#maxlength']]),
         ],
       ];
     }
     return [
       'messages' => [
-        'maxlength' => $this->t('@title field has a maximum length of @max.', ['@title' => $this->getElementTitle($element), '@max' => $this->getAttributeValue($element, 'maxlength')]),
+        'maxlength' => $this->t('@title field has a maximum length of @max.', ['@title' => $element['#title'], '@max' => $element['#maxlength']]),
       ],
     ];
   }

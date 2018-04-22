@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Contains \Drupal\clientside_validation\Annotation\CvValidator.
+ */
 
 namespace Drupal\clientside_validation\Annotation;
 

@@ -1,0 +1,24 @@
+uuid: 7df27d2b-60e7-44e3-ba43-9cf370b18c0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pds_end_date
+    - node.type.pds_global_alert
+  module:
+    - datetime
+id: node.pds_global_alert.field_pds_end_date
+field_name: field_pds_end_date
+entity_type: node
+bundle: pds_global_alert
+label: 'End Date'
+description: 'This is the date that the item should stop displaying automatically.'
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: relative
+    default_date: '+7 days'
+default_value_callback: ''
+settings: {  }
+field_type: datetime

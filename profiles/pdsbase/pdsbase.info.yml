@@ -59,9 +59,9 @@ dependencies:
   - panels
   - panels_ipe
   - entity_browser
+  - layout_discovery
   - page_manager
   - page_manager_ui
-  - layout_discovery
   - metatag_views
   - metatag_open_graph
   - metatag_hreflang
@@ -91,6 +91,7 @@ dependencies:
   - paragraphs
   - superfish
   - video_embed_field
+  - user_default_page
   - default_content
   - token_filter
   - pds_create_node_from_webform

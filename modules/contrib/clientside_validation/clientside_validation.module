@@ -16,7 +16,7 @@ function clientside_validation_form_alter(&$form, FormStateInterface &$form_stat
 /**
  * Form after build callback.
  */
-function clientside_validation_form_after_build($form, FormStateInterface $form_state) {
+function clientside_validation_form_after_build(&$form, FormStateInterface &$form_state) {
   clientside_validation_add_validation($form, $form_state, $form['#form_id']);
   clientside_validation_form_after_build_recurse($form['#form_id'], $form, $form_state);
 
@@ -30,7 +30,7 @@ function clientside_validation_form_after_build_recurse($form_id, &$form, &$form
   if (($children = Drupal\Core\Render\Element::children($form))) {
     foreach ($children as $item) {
       $element = &$form[$item];
-      clientside_validation_add_validation($element, $form_state, $form_id);
+      clientside_validation_add_validation($element, $form_state, $form_id) || $validation_added;
       if (
         isset($element['#type'])
         && $element['#type'] == 'submit'

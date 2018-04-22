@@ -1,0 +1,23 @@
+uuid: 670ae9ed-3c5c-4e3e-866b-d33014dd6afb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pds_alert_type
+    - node.type.pds_global_alert
+  module:
+    - options
+id: node.pds_global_alert.field_pds_alert_type
+field_name: field_pds_alert_type
+entity_type: node
+bundle: pds_global_alert
+label: 'Alert Type'
+description: 'This field details the type of the Global Alert message.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 'System Message'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -76,7 +76,6 @@ class ActionForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $params = null) {
     /** @var NodeInterface $node */
-
     $this->error = false;
     $node = $params['node'];
     $actions = $params['actions'];

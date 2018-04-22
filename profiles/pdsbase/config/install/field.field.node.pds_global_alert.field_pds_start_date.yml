@@ -1,0 +1,24 @@
+uuid: 5f4fa3a2-2121-4717-9337-644161298113
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pds_start_date
+    - node.type.pds_global_alert
+  module:
+    - datetime
+id: node.pds_global_alert.field_pds_start_date
+field_name: field_pds_start_date
+entity_type: node
+bundle: pds_global_alert
+label: 'Start Date'
+description: 'This is the date the item should start displaying.'
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -2,6 +2,7 @@
 
 namespace Drupal\fontyourface\Form;
 
+use Drupal\Core\Url;
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\fontyourface\FontDisplayInterface;
@@ -41,11 +42,13 @@ class FontDisplayForm extends EntityForm {
 
     /* You will need additional form elements for your custom properties. */
 
-    $fonts = Font::loadEnabledFonts();
+    $fonts = Font::loadActivatedFonts();
     if (empty($fonts)) {
-      drupal_set_message($this->t('Please select at least one font before picking a font style.'));
-      $form_state->setRedirect('entity.font.collection');
+      drupal_set_message($this->t('Please enable at least one font before creating/updating a font style.'), 'warning');
+      $this->redirect('entity.font.collection')->send();
+      exit();
     }
+
     $available_fonts = [];
     foreach ($fonts as $font) {
       $available_fonts[$font->url->value] = $font->name->value;

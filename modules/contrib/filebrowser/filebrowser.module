@@ -218,17 +218,9 @@ function filebrowser_node_view(array &$build, NodeInterface $node, EntityViewDis
     // get the argument $fid from query
     $fid = \Drupal::request()->query->get('fid');
 
-    // retrieve from cache
-    $cid = 'filebrowser/' . $node->id() . '/' . $fid;
-    if ($result = \Drupal::cache('default')->get($cid)) {
-      $display_list['files'] = $result->data['files'];
-      $display_list['data']  = $result->data['data'];
-    }
-    else {
-      // not in cache so we will rebuild the data
-      $list = new \Drupal\filebrowser\File\DisplayFileList($node, $fid);
-      $display_list = $list->get();
-    }
+    // we will not use cache
+    $list = new \Drupal\filebrowser\File\DisplayFileList($node, $fid);
+    $display_list = $list->get();
 
     // Insert file listing content part
     $contents = $manager->createPresentation($node, $display_list);
@@ -239,7 +231,7 @@ function filebrowser_node_view(array &$build, NodeInterface $node, EntityViewDis
     $build['filebrowser_statistics'] = $statistics->get();
 
     $renderer = \Drupal::service('renderer');
-    $renderer->addCacheableDependency($build, $node->id());
+    $renderer->addCacheableDependency($build, $node);
   }
 }
 

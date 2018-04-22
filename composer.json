@@ -10,8 +10,8 @@
         "codemirror/codemirror": "5.25.2",
         "composer/installers": "^1.0.24",
         "wikimedia/composer-merge-plugin": "^1.4",
-        "drupal/core": "^8.4",
-        "drupal/redis_watchdog": "1.x-dev",
+        "drupal/core": "~8.5",
+        "drupal/redis_watchdog": "^1.0",
         "drupal/redis": "^1.0@RC",
         "drupal/webform": "^5.0@beta",
         "drupal/typed_data": "^1.0@alpha",
@@ -20,7 +20,7 @@
         "drupal/rules": "^3.0@alpha",
         "drupal/pathauto": "^1.0",
         "drupal/panels": "^4.2",
-        "drupal/page_manager": "^4.0@beta",
+        "drupal/page_manager": "4.x-dev",
         "drupal/metatag": "^1.3",
         "drupal/mailsystem": "^4.1",
         "drupal/libraries": "3.x-dev",
@@ -32,7 +32,7 @@
         "drupal/ckeditor_templates": "^1.0",
         "drupal/panelizer": "^4.0",
         "drupal/admin_toolbar": "^1.20",
-        "drupal/clientside_validation": "1.x-dev",
+        "drupal/clientside_validation": "^1.0",
         "jquery/geocomplete": "1.7.0",
         "jquery/icheck": "1.0.2 ",
         "jquery/image-picker": "0.3.0",
@@ -56,7 +56,9 @@
         "drupal/default_content": "^1.0",
         "drupal/token_filter": "^1.0",
         "drupal/menu_token": "^1.0",
-        "joshtronic/php-loremipsum": "dev-master"
+        "joshtronic/php-loremipsum": "dev-master",
+        "drupal/advagg": "^3.4",
+        "drupal/user_default_page": "^2.0"
     },
     "replace": {
 

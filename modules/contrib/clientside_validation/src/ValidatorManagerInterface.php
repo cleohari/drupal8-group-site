@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\clientside_validation\ValidatorManagerInterface.
+ */
+
 namespace Drupal\clientside_validation;
 
 use Drupal\Component\Plugin\PluginManagerInterface;
