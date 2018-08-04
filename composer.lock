@@ -5470,6 +5470,38 @@
             "time": "2018-04-03T05:14:20+00:00"
         },
         {
+            "name": "taz77/menu_token",
+            "version": "dev-8.x-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/taz77/drupal-menu_token",
+                "reference": "578545d3d96b807ae4da8b458014c9978181c5a0"
+            },
+            "require": {
+                "drupal/token": "^1.0"
+            },
+            "replace": {
+                "drupal/menu_token": "1.*"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "See contributors",
+                    "homepage": "https://www.drupal.org/node/353073/committers",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Menu Token module provides tokens, that can be used in title or in path of menu items (links).",
+            "homepage": "http://drupal.org/project/menu_token",
+            "support": {
+                "issues": "http://drupal.org/project/issues/menu_token"
+            },
+            "time": "2018-08-04T15:50:43+00:00"
+        },
+        {
             "name": "twig/twig",
             "version": "v1.35.3",
             "source": {
@@ -8104,6 +8136,7 @@
         "drupal/group": 5,
         "drupal/filebrowser": 5,
         "joshtronic/php-loremipsum": 20,
+        "taz77/menu_token": 20,
         "behat/mink": 20,
         "behat/mink-selenium2-driver": 20
     },
