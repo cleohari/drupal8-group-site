@@ -2301,7 +2301,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/page_manager",
-                "reference": "0ad88858840cc99c8adef63e577c0f989bc3ab2c"
+                "reference": "d99c1507907cda8940accd33fd016ef496e49876"
             },
             "require": {
                 "drupal/core": "^8.0.5",
@@ -2313,8 +2313,8 @@
                     "dev-4.x": "4.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-4.0-beta2+4-dev",
-                    "datestamp": "1521562984",
+                    "version": "8.x-4.0-beta3+0-dev",
+                    "datestamp": "1523670484",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -2351,7 +2351,7 @@
                 "issues": "https://www.drupal.org/project/issues/page_manager",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
             },
-            "time": "2018-03-20T16:18:33+00:00"
+            "time": "2018-04-14T01:41:41+00:00"
         },
         {
             "name": "drupal/panelizer",
