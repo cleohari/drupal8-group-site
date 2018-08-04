@@ -1,0 +1,5 @@
+ckeditor-addin-placeholder:
+  version: 1.x
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
