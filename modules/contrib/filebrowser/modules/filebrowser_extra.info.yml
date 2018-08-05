@@ -5,8 +5,8 @@ package: Filebrowser
 type: module
 dependencies:
   - filebrowser
-# Information added by Drupal.org packaging script on 2018-03-24
-version: '8.x-2.0-rc8'
+# Information added by Drupal.org packaging script on 2018-05-24
+version: '8.x-2.0-rc9'
 core: '8.x'
 project: 'filebrowser'
-datestamp: 1521904090
+datestamp: 1527166103
