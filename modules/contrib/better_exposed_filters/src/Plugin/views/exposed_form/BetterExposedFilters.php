@@ -1247,6 +1247,7 @@ Title Desc|Z -> A</pre> Leave the replacement text blank to remove an option alt
           $secondary[$identifier] = $form[$identifier];
           unset($form[$identifier]);
           $secondary[$identifier]['#title'] = $form['#info'][$filter_info_name]['label'];
+          $secondary[$identifier]['#description'] = $form['#info'][$filter_info_name]['description'];
           unset($form['#info'][$filter_info_name]);
         }
       }
