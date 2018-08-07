@@ -6,7 +6,7 @@
 
 namespace Drupal\filebrowser;
 
-use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Extension\ModuleUninstallValidatorInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -21,19 +21,23 @@ class FilebrowserUninstallValidator implements ModuleUninstallValidatorInterface
    * @var \Drupal\Core\Entity\Query\QueryInterface
    */
   protected $entityQuery;
+
+  /**
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
   protected $entityTypeManager;
 
   /**
-   * Constructs a new BookUninstallValidator.
+   * Constructs a new FilebrowserUninstallValidator.
    *
-   * @param \Drupal\Core\Entity\EntityTypeManager EntityTypeManager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface EntityTypeManager
    * @param \Drupal\Core\Entity\Query\QueryFactory $query_factory
    *   The entity query factory.
    * @param \Drupal\Core\StringTranslation\TranslationInterface $string_translation
    *   The string translation service.
    */
 
-  public function __construct(EntityTypeManager $entity_type_manager, QueryFactory $query_factory, TranslationInterface $string_translation) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, QueryFactory $query_factory, TranslationInterface $string_translation) {
     $this->entityQuery = $query_factory->get('node');
     $this->stringTranslation = $string_translation;
     $this->entityTypeManager = $entity_type_manager;
@@ -45,7 +49,7 @@ class FilebrowserUninstallValidator implements ModuleUninstallValidatorInterface
   public function validate($module) {
     $reasons = [];
     if ($module == 'filebrowser') {
-      // The book node type is provided by the Book module. Prevent uninstall
+      // The Filebrowser node type is provided by the Filebrowser module. Prevent uninstall
       // if there are any nodes of that type.
       if ($this->hasNodes()) {
         $reasons[] = $this->t('To uninstall Filebrowser, delete all nodes of type %type', ['%type' => 'dir_listing']);

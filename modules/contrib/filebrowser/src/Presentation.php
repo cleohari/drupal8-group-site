@@ -183,6 +183,8 @@ class Presentation extends ControllerBase{
       $rows_aligned[] = array_replace(array_flip(array_keys($header)), $row);
     }
 
+    \Drupal::service('page_cache_kill_switch')->trigger();
+
     return [
       '#theme' => 'table',
       '#header' => $header,

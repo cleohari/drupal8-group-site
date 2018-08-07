@@ -229,9 +229,7 @@ function filebrowser_node_view(array &$build, NodeInterface $node, EntityViewDis
     // Show the statistics of this listing
     $statistics = new \Drupal\filebrowser\Statistics($display_list);
     $build['filebrowser_statistics'] = $statistics->get();
-
-    $renderer = \Drupal::service('renderer');
-    $renderer->addCacheableDependency($build, $node);
+    $build['#cache']['max-age'] = 0;
   }
 }
 
