@@ -7,7 +7,7 @@ node {
       sh 'composer require drush/drush'
     }
     stage('Install'){
-      sh 'bash ./profiles/pdsbase/scripts/install.drush.sh'
+      sh 'bash profiles/pdsbase/scripts/install.drush.sh'
     }
     stage('Cleanup'){
       sh 'chmod -R 777 sites/default'
