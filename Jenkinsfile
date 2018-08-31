@@ -12,9 +12,6 @@ node {
   stage('Composer CC'){
     sh 'composer clear-cache'
   }
-  stage('Install Drush'){
-    sh 'composer require drush/drush'
-  }
   stage('Install'){
     sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
     sh './profiles/pdsbase/scripts/install.drush.sh'
