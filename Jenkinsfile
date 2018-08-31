@@ -7,8 +7,10 @@ node {
       sh 'composer require drush/drush'
     }
     stage('Install'){
-    def stdout = sh(script: 'pwd', returnStdout: true)
-    println stdout
+    def stdout1 = sh(script: 'pwd', returnStdout: true)
+    println stdout1
+        def stdout2 = sh(script: 'ls', returnStdout: true)
+        println stdout2
         sh './profiles/pdsbase/scripts/install.drush.sh'
     }
     stage('Cleanup'){
