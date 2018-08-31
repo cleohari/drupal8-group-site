@@ -7,6 +7,7 @@ node {
       sh 'composer require drush/drush'
     }
     stage('Install'){
+    sh 'pwd'
       sh 'bash profiles/pdsbase/scripts/install.drush.sh'
     }
     stage('Cleanup'){
