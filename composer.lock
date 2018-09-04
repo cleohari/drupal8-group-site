@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56d2c41feafbd22a29440d954be760f6",
+    "content-hash": "40fa5a857f01037bc426044d1ccc5fb2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6993,7 +6993,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/taz77/drupal-menu_token",
-                "reference": "578545d3d96b807ae4da8b458014c9978181c5a0"
+                "reference": "18e943f1bb88af9ec94cdd644c41a824d790f047"
             },
             "require": {
                 "drupal/token": "^1.0"
@@ -7017,7 +7017,7 @@
             "support": {
                 "issues": "http://drupal.org/project/issues/menu_token"
             },
-            "time": "2018-08-04T15:50:43+00:00"
+            "time": "2018-08-04T15:56:09+00:00"
         },
         {
             "name": "twig/twig",
