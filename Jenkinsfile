@@ -38,8 +38,8 @@ node
   finally {
     // Success or failure, always send notifications
     notifyBuild(currentBuild.result)
-    sh 'chmod -R 777 sites/default'
   }
+  cleanWs()
 }
 
 def notifyBuild(String buildStatus = 'STARTED') {
