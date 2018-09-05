@@ -43,7 +43,7 @@ node
   finally {
     // Success or failure, always send notifications
     notifyBuild(currentBuild.result)
-    cleanWs()
+    // cleanWs()
   }
 }
 
