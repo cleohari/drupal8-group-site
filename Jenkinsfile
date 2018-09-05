@@ -6,6 +6,7 @@ node
   currentBuild.result = "SUCCESS"
 
   try {
+    notifyBuild('STARTED')
     stage('Clone Repo')
     {
       checkout scm
@@ -28,10 +29,6 @@ node
       sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
       sh './profiles/pdsbase/scripts/install.drush.sh'
     }
-    stage('Cleanup')
-    {
-      sh 'chmod -R 777 sites/default'
-    }
   }
   catch(e) {
     // If there was an exception thrown, the build failed
@@ -41,6 +38,7 @@ node
   finally {
     // Success or failure, always send notifications
     notifyBuild(currentBuild.result)
+    sh 'chmod -R 777 sites/default'
   }
 }
 
