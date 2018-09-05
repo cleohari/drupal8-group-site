@@ -1,16 +1,16 @@
 node
 {
   env.BUILDSPACE = pwd()
-  echo
-  "BUILDSPACE is ${env.BUILDSPACE}"
+  echo "BUILDSPACE is ${env.BUILDSPACE}"
 
   currentBuild.result = "SUCCESS"
 
   try {
     stage('Clone Repo')
     {
-      checkout
-      scm
+      checkout scm
+      def commitHash = checkout(scm).GIT_COMMIT
+      echo "Commit Hash is ${commitHash}"
     }
     stage('Setup ENV')
     {
@@ -21,20 +21,16 @@ node
     }
     stage('Composer CC')
     {
-      sh
-      'composer clear-cache'
+      sh 'composer clear-cache'
     }
     stage('Install')
     {
-      sh
-      'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
-      sh
-      './profiles/pdsbase/scripts/install.drush.sh'
+      sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
+      sh './profiles/pdsbase/scripts/install.drush.sh'
     }
     stage('Cleanup')
     {
-      sh
-      'chmod -R 777 sites/default'
+      sh 'chmod -R 777 sites/default'
     }
   }
   catch
@@ -54,14 +50,10 @@ def notifyBuild(String buildStatus = 'STARTED') {
   buildStatus = buildStatus ? : 'SUCCESSFUL'
 
   // Default values
-  def
-  colorName = 'RED'
-  def
-  colorCode = '#FF0000'
-  def
-  subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
-  def
-  summary = "${subject} (${env.BUILD_URL})"
+  def colorName = 'RED'
+  def colorCode = '#FF0000'
+  def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+  def summary = "${subject} (${env.BUILD_URL})"
 
   // Override default values based on build status
   if (buildStatus == 'STARTED') {
@@ -76,10 +68,5 @@ def notifyBuild(String buildStatus = 'STARTED') {
   }
 
   // Send notifications
-  slackSend(color
-:
-  colorCode, message
-:
-  summary
-)
+  slackSend(color:colorCode, message: summary)
 }
