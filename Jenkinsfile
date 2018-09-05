@@ -4,30 +4,32 @@ node
   echo "BUILDSPACE is ${env.BUILDSPACE}"
 
   currentBuild.result = "SUCCESS"
+  environment {
+      PDS_DB_HOST = 'localhost'
+      PDS_DB_USERNAME = 'pds'
+      PDS_DB_USERPASSWORD = 'pds12345'
+      PDS_DB_NAME = 'pds'
+      PDS_RD_HOST = 'localhost'
+      PDS_RD_NR = '1'
+      PDS_DRUPAL_NAME = 'adminpds'
+      PDS_DRUPAL_PASS = 'horse-staple-battery'
+      PDS_DRUPAL_SITENAME = 'PDS'
+      PDS_DRUPAL_SITENEMAIL = 'drupal@fastglass.net'
+  }
 
   try {
     notifyBuild('STARTED')
-    stage('Clone Repo')
-    {
+    stage('Clone Repo') {
       checkout scm
       def commitHash = checkout(scm).GIT_COMMIT
       echo "Commit Hash is ${commitHash}"
     }
-    stage('Setup ENV')
-    {
-      withEnv(['PDS_DB_HOST=localhost', 'PDS_DB_USERNAME=pds', 'PDS_DB_USERPASSWORD=pds12345', 'PDS_DB_NAME=pds', 'PDS_RD_HOST=localhost', 'PDS_RD_NR=1', 'PDS_DRUPAL_NAME=adminpds', 'PDS_DRUPAL_PASS=horse-staple-battery', 'PDS_DRUPAL_SITENAME=PDS', 'PDS_DRUPAL_SITENEMAIL=drupal@fastglass.net'])
-      {
-        // some block
-      }
-    }
-    stage('Composer CC')
-    {
+    stage('Composer CC') {
       sh 'composer clear-cache'
     }
-    stage('Install')
-    {
+    stage('Install')  {
       sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
-      sh './profiles/pdsbase/scripts/install.drush.sh'
+      sh 'bash ./profiles/pdsbase/scripts/install.drush.sh'
     }
   }
   catch(e) {
@@ -65,5 +67,5 @@ def notifyBuild(String buildStatus = 'STARTED') {
   }
 
   // Send notifications
-  slackSend(color:colorCode, message: summary)
+  slackSend(color: colorCode, message: summary)
 }
