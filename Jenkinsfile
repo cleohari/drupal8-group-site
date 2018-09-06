@@ -16,18 +16,17 @@ node
       PDS_DRUPAL_SITENAME = 'PDS'
       PDS_DRUPAL_SITENEMAIL = 'drupal@fastglass.net'
   }
-
+  stage('Clone Repo') {
+    checkout scm
+    def commitHash = checkout(scm).GIT_COMMIT
+    echo "Commit Hash is ${commitHash}"
+    sh 'printenv'
+  }
+  stage('Composer CC') {
+    sh 'composer clear-cache'
+  }
   try {
     notifyBuild('STARTED')
-    stage('Clone Repo') {
-      checkout scm
-      def commitHash = checkout(scm).GIT_COMMIT
-      echo "Commit Hash is ${commitHash}"
-      sh 'printenv'
-    }
-    stage('Composer CC') {
-      sh 'composer clear-cache'
-    }
     stage('Install')  {
       withEnv(['PDS_DB_HOST=localhost', 'PDS_DB_USERNAME=pds', 'PDS_DB_USERPASSWORD=pds12345', 'PDS_DB_NAME=pds', 'PDS_RD_HOST=localhost', 'PDS_RD_NR=1', 'PDS_DRUPAL_NAME=adminpds', 'PDS_DRUPAL_PASS=horse-staple-battery', 'PDS_DRUPAL_SITENAME=PDS', 'PDS_DRUPAL_SITENEMAIL=drupal@fastglass.net']) {
           sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
@@ -38,12 +37,21 @@ node
   catch(e) {
     // If there was an exception thrown, the build failed
     currentBuild.result = "FAILED"
-    throw e
   }
   finally {
     // Success or failure, always send notifications
     notifyBuild(currentBuild.result)
     cleanWs()
+  }
+  try {
+    notifyBuild('STARTED')
+    stage('Unit Tests') {
+      sh './vendor/bin/phpunit --testsuite=unit -c core/'
+    }
+  }
+  catch(e) {
+      // If there was an exception thrown, the build failed
+      currentBuild.result = "FAILED"
   }
 }
 
