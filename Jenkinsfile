@@ -20,7 +20,6 @@ node
     checkout scm
     def commitHash = checkout(scm).GIT_COMMIT
     echo "Commit Hash is ${commitHash}"
-    sh 'printenv'
   }
   stage('Composer CC') {
     sh 'composer clear-cache'
