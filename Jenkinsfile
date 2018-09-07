@@ -44,7 +44,10 @@ node
   try {
     notifyBuild('STARTED')
     stage('Unit Tests') {
-      sh './vendor/bin/phpunit --testsuite=unit -c core/'
+      catchError {
+        sh './vendor/bin/phpunit --testsuite=unit -c core/'
+      }
+      echo currentBuild.result
     }
   }
   catch(e) {
