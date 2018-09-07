@@ -40,7 +40,6 @@ node
   finally {
     // Success or failure, always send notifications
     notifyBuild(currentBuild.result)
-    cleanWs()
   }
   try {
     notifyBuild('STARTED')
@@ -52,6 +51,7 @@ node
       // If there was an exception thrown, the build failed
       currentBuild.result = "FAILED"
   }
+  cleanWs()
 }
 
 def notifyBuild(String buildStatus = 'STARTED') {
