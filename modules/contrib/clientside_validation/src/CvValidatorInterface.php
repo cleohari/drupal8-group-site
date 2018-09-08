@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Provides Drupal\clientside_validation\CvValidatorInterface
- */
 
 namespace Drupal\clientside_validation;
 
@@ -19,7 +15,7 @@ interface CvValidatorInterface extends PluginInspectionInterface {
    *
    * @param array $element
    *   The form element to validate.
-   * @param FormStateInterface $form_state
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The form state of the form this element belongs to.
    */
   public function addValidation(array &$element, FormStateInterface $form_state);

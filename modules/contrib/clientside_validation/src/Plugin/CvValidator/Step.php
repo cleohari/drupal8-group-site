@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\clientside_validation\Plugin\CvValidator\Step.
- */
 
 namespace Drupal\clientside_validation\Plugin\CvValidator;
 
@@ -26,17 +22,25 @@ class Step extends CvValidatorBase {
    * {@inheritdoc}
    */
   protected function getRules($element, FormStateInterface $form_state) {
-    if ($element['#step'] !== 'any') {
-      if (isset($element['#min'])) {
+    $step = $this->getAttributeValue($element, 'step');
+    if ($step !== 'any') {
+      if (($min = $this->getAttributeValue($element, 'min'))) {
         return [
           'messages' => [
-            'step' => $this->t('The value in @title has to be greater than @min by steps of @step.', ['@title' => $element['#title'], '@step' => $element['#step'], '@min' => $element['#min']]),
+            'step' => $this->t('The value in @title has to be greater than @min by steps of @step.', [
+              '@title' => $this->getElementTitle($element),
+              '@step' => $step,
+              '@min' => $min,
+            ]),
           ],
         ];
       }
       return [
         'messages' => [
-          'step' => $this->t('The value in @title has to be divisible by @step.', ['@title' => $element['#title'], '@step' => $element['#step']]),
+          'step' => $this->t('The value in @title has to be divisible by @step.', [
+            '@title' => $this->getElementTitle($element),
+            '@step' => $step,
+          ]),
         ],
       ];
     }

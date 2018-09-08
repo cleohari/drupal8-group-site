@@ -3,9 +3,11 @@ name: Clientside Validation jQuery
 description: 'Uses the jQuery Validate plugin as the clientside validation library.'
 package: Clientside Validation
 # core: 8.x
+dependencies:
+  - clientside_validation:clientside_validation
 
-# Information added by Drupal.org packaging script on 2015-11-11
-version: '8.x-1.0-rc1'
+# Information added by Drupal.org packaging script on 2018-08-15
+version: '8.x-1.0-rc4'
 core: '8.x'
 project: 'clientside_validation'
-datestamp: 1447255087
+datestamp: 1534320489
