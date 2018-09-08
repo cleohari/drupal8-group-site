@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4212d4cf77f7e178365a1e485ba9c697",
+    "content-hash": "cb10c1d82d314a920210c87fa80da7bd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3481,12 +3481,12 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/sendgrid_integration",
-                "reference": "c021a6eefafc057038383f9898c0059aab6c69c4"
+                "reference": "a345c3a93babd0c5ac1063f6cce8a44aff01b3cf"
             },
             "require": {
                 "drupal/core": "~8.0",
                 "drupal/mailsystem": "^4",
-                "fastglass/sendgrid": ">=1.0.6",
+                "fastglass/sendgrid": ">=1.0.10",
                 "html2text/html2text": "~4.0.1"
             },
             "type": "drupal-module",
@@ -3495,8 +3495,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.2+3-dev",
-                    "datestamp": "1531065221",
+                    "version": "8.x-1.3+2-dev",
+                    "datestamp": "1536198184",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -3532,7 +3532,7 @@
                 "source": "http://cgit.drupalcode.org/sendgrid_integration",
                 "issues": "https://drupal.org/project/issues/sendgrid_integration"
             },
-            "time": "2018-07-28T00:48:58+00:00"
+            "time": "2018-09-08T16:33:33+00:00"
         },
         {
             "name": "drupal/superfish",
@@ -3760,6 +3760,10 @@
             ],
             "authors": [
                 {
+                    "name": "TR",
+                    "homepage": "https://www.drupal.org/user/202830"
+                },
+                {
                     "name": "fago",
                     "homepage": "https://www.drupal.org/user/16747"
                 }
@@ -3930,7 +3934,7 @@
                 },
                 "drupal": {
                     "version": "8.x-5.0-rc18",
-                    "datestamp": "1533682980",
+                    "datestamp": "1536257580",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
@@ -4216,16 +4220,16 @@
         },
         {
             "name": "fastglass/sendgrid",
-            "version": "1.0.8",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/taz77/sendgrid-php-ng.git",
-                "reference": "40f2af64f9cbd19d291d106016822c95402b9fa7"
+                "reference": "e2417bf4de01ad6774b262dc49d63e93305894da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/taz77/sendgrid-php-ng/zipball/40f2af64f9cbd19d291d106016822c95402b9fa7",
-                "reference": "40f2af64f9cbd19d291d106016822c95402b9fa7",
+                "url": "https://api.github.com/repos/taz77/sendgrid-php-ng/zipball/e2417bf4de01ad6774b262dc49d63e93305894da",
+                "reference": "e2417bf4de01ad6774b262dc49d63e93305894da",
                 "shasum": ""
             },
             "require": {
@@ -4238,7 +4242,7 @@
             },
             "require-dev": {
                 "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "~4.4",
+                "phpunit/phpunit": "~7.3",
                 "vlucas/phpdotenv": "~1.0"
             },
             "type": "library",
@@ -4259,14 +4263,14 @@
                 }
             ],
             "description": "This library allows you to send emails through SendGrid using PHP and Guzzle 6.x.",
-            "homepage": "https://github.com/taz77/sendgrid-php",
+            "homepage": "https://github.com/taz77/sendgrid-php-ng",
             "keywords": [
                 "email",
                 "grid",
                 "send",
                 "sendgrid"
             ],
-            "time": "2017-08-17T00:06:47+00:00"
+            "time": "2018-09-08T16:28:37+00:00"
         },
         {
             "name": "grasmash/expander",
@@ -9715,7 +9719,6 @@
         "drupal/redis": 5,
         "drupal/webform": 10,
         "drupal/typed_data": 15,
-        "drupal/sendgrid_integration": 20,
         "drupal/rules": 15,
         "drupal/page_manager": 20,
         "drupal/libraries": 20,
@@ -9724,6 +9727,7 @@
         "drupal/better_exposed_filters": 20,
         "joshtronic/php-loremipsum": 20,
         "taz77/menu_token": 20,
+        "drupal/sendgrid_integration": 20,
         "behat/mink": 20,
         "behat/mink-selenium2-driver": 20
     },
