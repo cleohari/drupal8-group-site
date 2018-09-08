@@ -41,18 +41,13 @@ node
     // Success or failure, always send notifications
     notifyBuild(currentBuild.result)
   }
-  try {
-    notifyBuild('STARTED')
-    stage('Unit Tests') {
-      catchError {
-        sh './vendor/bin/phpunit --testsuite=unit -c core/'
-      }
-      echo currentBuild.result
+  stage('Unit Tests') {
+    try {
+      sh './vendor/bin/phpunit --testsuite=unit -c core/'
     }
-  }
-  catch(e) {
-      // If there was an exception thrown, the build failed
-      currentBuild.result = "FAILED"
+    catch (error) {
+
+    }
   }
   cleanWs()
 }
