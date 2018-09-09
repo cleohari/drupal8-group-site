@@ -1,7 +1,9 @@
-name: Typed Data
+name: Typed Data Widgets Test
 type: module
-description: 'Extends the core Typed Data API with new APIs and features.'
+description: 'Implements example forms using typed data widgets.'
 # core: 8.x
+dependencies:
+  - drupal:typed_data
 
 # Information added by Drupal.org packaging script on 2018-09-08
 version: '8.x-1.0-alpha2'

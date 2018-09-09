@@ -9,20 +9,20 @@ use Drupal\Core\TypedData\Type\StringInterface;
 use Drupal\typed_data\DataFilterBase;
 
 /**
- * A data filter lowering all string characters.
+ * A data filter call "strip_tags()".
  *
  * @DataFilter(
- *   id = "lower",
- *   label = @Translation("Converts a string to lower case.")
+ *   id = "striptags",
+ *   label = @Translation("The striptags filter strips SGML/XML tags and replace adjacent whitespace by one space."),
  * )
  */
-class LowerFilter extends DataFilterBase {
+class StripTagsFilter extends DataFilterBase {
 
   /**
    * {@inheritdoc}
    */
   public function filter(DataDefinitionInterface $definition, $value, array $arguments, BubbleableMetadata $bubbleable_metadata = NULL) {
-    return mb_strtolower($value);
+    return strip_tags($value);
   }
 
   /**

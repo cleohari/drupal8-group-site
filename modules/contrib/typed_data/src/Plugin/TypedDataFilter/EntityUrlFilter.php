@@ -2,41 +2,45 @@
 
 namespace Drupal\typed_data\Plugin\TypedDataFilter;
 
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\TypedData\EntityDataDefinitionInterface;
 use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\Core\TypedData\DataDefinition;
 use Drupal\Core\TypedData\DataDefinitionInterface;
-use Drupal\Core\TypedData\Type\StringInterface;
 use Drupal\typed_data\DataFilterBase;
 
 /**
- * A data filter lowering all string characters.
+ * A data filter that provides the URL of an entity.
  *
  * @DataFilter(
- *   id = "lower",
- *   label = @Translation("Converts a string to lower case.")
+ *   id = "entity_url",
+ *   label = @Translation("Provides the URL of an entity."),
  * )
  */
-class LowerFilter extends DataFilterBase {
+class EntityUrlFilter extends DataFilterBase {
 
   /**
    * {@inheritdoc}
    */
   public function filter(DataDefinitionInterface $definition, $value, array $arguments, BubbleableMetadata $bubbleable_metadata = NULL) {
-    return mb_strtolower($value);
+    assert($value instanceof EntityInterface);
+    // @todo: url() is deprecated, but toUrl() does not work for file entities,
+    // thus remove url() once toUrl() works for file entities also.
+    return $value->url('canonical', ['absolute' => TRUE]);
   }
 
   /**
    * {@inheritdoc}
    */
   public function canFilter(DataDefinitionInterface $definition) {
-    return is_subclass_of($definition->getClass(), StringInterface::class);
+    return $definition instanceof EntityDataDefinitionInterface;
   }
 
   /**
    * {@inheritdoc}
    */
   public function filtersTo(DataDefinitionInterface $definition, array $arguments) {
-    return DataDefinition::create('string');
+    return DataDefinition::create('uri');
   }
 
 }
