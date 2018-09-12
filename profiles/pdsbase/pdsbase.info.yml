@@ -100,6 +100,7 @@ dependencies:
   - pds_configuration_base_data
   - pds_configuration_pds_group_tenant
   - ckeditor_addin_placeholder
+  - pds_tenant_admin_menu
 
 themes:
   - bartik
