@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: pds-tenant-admin-menu
+label: 'Tenant Admin Menu'
+description: 'This is the Tenant Admin menu which will only be available to that role.'
+locked: false
