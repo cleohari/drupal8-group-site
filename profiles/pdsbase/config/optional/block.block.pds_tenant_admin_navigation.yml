@@ -2,11 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.pds-tenant-admin-menu
+  - system.menu.pds-tenant-admin-menu
   module:
-    - superfish
+  - superfish
+  - user
   theme:
-    - enterpriseplus
+  - enterpriseplus
 id: pds_tenant_admin_navigation
 theme: enterpriseplus
 region: navigation
@@ -66,4 +67,12 @@ settings:
   custom_list_class: 'cta-active cta-active--email'
   custom_item_class: ''
   custom_link_class: ''
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      tenant_admin: tenant_admin
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
