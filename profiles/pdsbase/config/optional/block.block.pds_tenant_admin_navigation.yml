@@ -12,9 +12,9 @@ theme: enterpriseplus
 region: navigation
 weight: -21
 provider: null
-plugin: 'superfish:main'
+plugin: 'superfish:pds-tenant-admin-menu'
 settings:
-  id: 'superfish:main'
+  id: 'superfish:pds-tenant-admin-menu'
   label: 'PDS Tenant Admin Navigation'
   provider: superfish
   label_display: '0'
