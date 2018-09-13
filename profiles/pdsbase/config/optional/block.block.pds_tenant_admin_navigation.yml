@@ -1,21 +1,22 @@
 langcode: en
-status: false
+status: true
 dependencies:
   config:
-  - system.menu.main
+  - system.menu.pds-tenant-admin-menu
   module:
   - superfish
+  - user
   theme:
   - enterpriseplus
-id: enterpriseplus_mainnavigation_2
+id: pds_tenant_admin_navigation
 theme: enterpriseplus
 region: navigation
 weight: -21
 provider: null
-plugin: 'superfish:main'
+plugin: 'superfish:pds-tenant-admin-menu'
 settings:
-  id: 'superfish:main'
-  label: 'Main navigation'
+  id: 'superfish:pds-tenant-admin-menu'
+  label: 'PDS Tenant Admin Navigation'
   provider: superfish
   label_display: '0'
   level: '1'
@@ -66,4 +67,12 @@ settings:
   custom_list_class: 'cta-active cta-active--email'
   custom_item_class: ''
   custom_link_class: ''
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      tenant_admin: tenant_admin
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

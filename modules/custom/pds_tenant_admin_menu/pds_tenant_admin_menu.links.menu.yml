@@ -1,0 +1,13 @@
+pds_tenant_admin_menu.admin:
+  title: 'Home'
+  description: 'This is the landing page after login.'
+  url: internal:/tenant-admin/home
+  menu_name: pds-tenant-admin-menu
+  weight: 100
+pds_tenant_admin_menu.admin_2:
+  title: 'Level 2 menu'
+  description: 'example of how to make an admin settings page link'
+  url: http://example.com/this-is-some-example
+  parent: pds_tenant_admin_menu.admin
+  menu_name: pds-tenant-admin-menu
+  weight: 100

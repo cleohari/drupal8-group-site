@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - user
+  - user
 id: custom_tenant_admin_landing_page
 label: 'Tenant Admin Landing Page'
 description: 'This is the landing page for a Tenant Admin user'
@@ -10,11 +10,12 @@ use_admin_theme: false
 path: /tenant-admin/home
 access_logic: and
 access_conditions:
-  -
-    id: user_role
-    roles:
-      tenant_admin: tenant_admin
-    negate: false
-    context_mapping:
-      user: current_user
+-
+  id: user_role
+  roles:
+    administrator: administrator
+    tenant_admin: tenant_admin
+  negate: false
+  context_mapping:
+    user: current_user
 parameters: {  }

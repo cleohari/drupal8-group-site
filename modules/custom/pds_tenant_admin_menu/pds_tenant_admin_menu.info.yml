@@ -1,0 +1,6 @@
+name: PDS Tenant Admin Menu Links
+type: module
+description: Links for the Tenant Admin menu.
+core: 8.x
+version: 8.x-1.x-dev
+package: PDS
