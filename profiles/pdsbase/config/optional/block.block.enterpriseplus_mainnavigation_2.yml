@@ -1,12 +1,12 @@
 langcode: en
-status: true
+status: false
 dependencies:
   config:
-    - system.menu.main
+  - system.menu.main
   module:
-    - superfish
+  - superfish
   theme:
-    - enterpriseplus
+  - enterpriseplus
 id: enterpriseplus_mainnavigation_2
 theme: enterpriseplus
 region: navigation
