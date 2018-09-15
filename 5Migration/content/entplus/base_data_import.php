@@ -163,7 +163,7 @@ foreach ($files as $file) {
   //<editor-fold desc=End Date content settings">
   if ($json_data['field_pds_alert_type'] != NULL) {
     $field_pds_alert_type = [
-      'value' => $json_data['field_pds_alert_type']['value'],
+      'value' => $json_data['field_pds_alert_type'][0]['value'],
     ];
     $node->set('field_pds_alert_type', $field_pds_alert_type);
   }
@@ -172,7 +172,7 @@ foreach ($files as $file) {
   //<editor-fold desc=Important Flag content settings">
   if ($json_data['field_pds_important_flag'] != NULL) {
     $field_pds_important_flag = [
-      'value' => $json_data['field_pds_important_flag']['value'],
+      'value' => $json_data['field_pds_important_flag'][0]['value'],
     ];
     $node->set('field_pds_important_flag', $field_pds_important_flag);
   }
@@ -181,7 +181,7 @@ foreach ($files as $file) {
   //<editor-fold desc=Start Date content settings">
   if ($json_data['field_pds_start_date'] != NULL) {
     $field_pds_start_date = [
-      'value' => $json_data['field_pds_start_date']['value'],
+      'value' => $json_data['field_pds_start_date'][0]['value'],
     ];
     $node->set('field_pds_start_date', $field_pds_start_date);
   }
@@ -190,7 +190,7 @@ foreach ($files as $file) {
   //<editor-fold desc=End Date content settings">
   if ($json_data['field_pds_end_date'] != NULL) {
     $field_pds_end_date = [
-      'value' => $json_data['field_pds_end_date']['value'],
+      'value' => $json_data['field_pds_end_date'][0]['value'],
     ];
     $node->set('field_pds_end_date', $field_pds_end_date);
   }

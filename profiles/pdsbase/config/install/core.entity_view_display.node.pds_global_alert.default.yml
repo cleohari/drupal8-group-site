@@ -1,65 +1,92 @@
-uuid: dc369f99-8909-4920-9a21-b140dae8dad3
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.pds_global_alert.body
-    - field.field.node.pds_global_alert.field_pds_alert_type
-    - field.field.node.pds_global_alert.field_pds_end_date
-    - field.field.node.pds_global_alert.field_pds_important_flag
-    - field.field.node.pds_global_alert.field_pds_start_date
-    - node.type.pds_global_alert
+  - field.field.node.pds_global_alert.body
+  - field.field.node.pds_global_alert.field_pds_alert_type
+  - field.field.node.pds_global_alert.field_pds_end_date
+  - field.field.node.pds_global_alert.field_pds_important_flag
+  - field.field.node.pds_global_alert.field_pds_start_date
+  - node.type.pds_global_alert
   module:
-    - datetime
-    - options
-    - text
-    - user
+  - datetime
+  - text
 id: node.pds_global_alert.default
 targetEntityType: node
 bundle: pds_global_alert
 mode: default
 content:
   body:
-    label: hidden
-    type: text_default
+    type: text_textarea_with_summary
+    weight: 1
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_pds_alert_type:
     weight: 4
     settings: {  }
     third_party_settings: {  }
-    region: content
-  field_pds_alert_type:
-    weight: 0
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
+    type: options_select
     region: content
   field_pds_end_date:
-    weight: 2
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: long
+    weight: 3
+    settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_pds_important_flag:
-    weight: 3
-    label: above
+    weight: 5
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      display_label: true
     third_party_settings: {  }
-    type: boolean
+    type: boolean_checkbox
     region: content
   field_pds_start_date:
-    weight: 1
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: long
+    weight: 2
+    settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 9
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 8
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
 hidden:
-  links: true
+  path: true
+  promote: true
