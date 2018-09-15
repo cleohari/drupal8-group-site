@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.pds_global_alert.body
+    - field.field.node.pds_global_alert.field_pds_alert_type
+    - field.field.node.pds_global_alert.field_pds_end_date
+    - field.field.node.pds_global_alert.field_pds_important_flag
+    - field.field.node.pds_global_alert.field_pds_start_date
+    - node.type.pds_global_alert
+  module:
+    - options
+    - text
+    - user
+id: node.pds_global_alert.teaser
+targetEntityType: node
+bundle: pds_global_alert
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 1
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_pds_alert_type:
+    type: list_default
+    weight: 0
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_pds_end_date: true
+  field_pds_important_flag: true
+  field_pds_start_date: true
+  links: true
