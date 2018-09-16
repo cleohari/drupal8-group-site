@@ -59,8 +59,7 @@
         "drupal/user_default_page": "^2.0",
         "taz77/menu_token": "dev-8.x-1.x",
         "drush/drush": "^9.3",
-        "drupal/sendgrid_integration": "1.x-dev",
-        "drupal/features": "^3.8"
+        "drupal/sendgrid_integration": "1.x-dev"
     },
     "replace": {
 
