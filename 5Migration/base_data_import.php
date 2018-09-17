@@ -95,13 +95,13 @@ foreach ($files as $file) {
 
   //<editor-fold desc="Slideshow content settings">
   //If field_mt_slideshow_text field exists.
-  //if ($json_data['field_mt_slideshow_text'] != NULL) {
-   // $field_mt_slideshow_text = [
-   //   'value' => character_replacement($json_data['field_mt_slideshow_text'][0]['value']),
-    //  'format' => $json_data['field_mt_slideshow_text'][0]['format'],
-    //];
-    //$node->set('field_mt_slideshow_text', $field_mt_slideshow_text);
-  //}
+  if ($json_data['field_mt_slideshow_text'] != NULL) {
+    $field_mt_slideshow_text = [
+      'value' => character_replacement($json_data['field_mt_slideshow_text'][0]['value']),
+      'format' => $json_data['field_mt_slideshow_text'][0]['format'],
+    ];
+    $node->set('field_mt_slideshow_text', $field_mt_slideshow_text);
+  }
 
   //If field_mt_bg_video_youtube field exists.
   if ($json_data['field_mt_bg_video_youtube'] != NULL) {
