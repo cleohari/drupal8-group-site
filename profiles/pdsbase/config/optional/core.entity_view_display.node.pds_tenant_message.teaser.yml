@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.pds_tenant_message.body
+    - field.field.node.pds_tenant_message.field_pds_end_date
+    - field.field.node.pds_tenant_message.field_pds_important_flag
+    - field.field.node.pds_tenant_message.field_pds_start_date
+    - field.field.node.pds_tenant_message.field_pds_tenant_message_type
+    - node.type.pds_tenant_message
+  module:
+    - text
+    - user
+id: node.pds_tenant_message.teaser
+targetEntityType: node
+bundle: pds_tenant_message
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_pds_end_date: true
+  field_pds_important_flag: true
+  field_pds_start_date: true
+  field_pds_tenant_message_type: true
