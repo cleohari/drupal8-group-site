@@ -21,14 +21,14 @@ pds_tenant_admin_menu.all_alerts:
 pds_tenant_admin_menu.active_tenant_messages:
   title: 'Active Messages'
   description: 'All active tenant messages.'
-  url: internal:/tenant-admin/active-tenant-messages)
+  url: internal:/tenant-admin/active-tenant-messages
   parent: pds_tenant_admin_menu.admin
   menu_name: pds-tenant-admin-menu
   weight: 100
 pds_tenant_admin_menu.all_tenant_messages:
   title: 'All Messages'
   description: 'All active and historical tenant messages.'
-  url: internal:/tenant-admin/active-tenant-messages)
+  url: internal:/tenant-admin/active-tenant-messages
   parent: pds_tenant_admin_menu.active_tenant_messages
   menu_name: pds-tenant-admin-menu
   weight: 100
