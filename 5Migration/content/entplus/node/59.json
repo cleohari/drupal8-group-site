@@ -1,0 +1,137 @@
+{
+  "nid": [
+    {
+      "value": 59
+    }
+  ],
+  "uuid": [
+    {
+      "value": "a285589b-de0c-4fe6-a9bc-5b00bc6de449"
+    }
+  ],
+  "vid": [
+    {
+      "value": 59
+    }
+  ],
+  "langcode": [
+    {
+      "value": "en"
+    }
+  ],
+  "type": [
+    {
+      "target_id": "pds_global_alert",
+      "target_type": "node_type",
+      "target_uuid": "e2485af5-8ae7-4241-92b8-2dd86b242928"
+    }
+  ],
+  "revision_timestamp": [
+    {
+      "value": "2018-09-13T20:45:42+00:00",
+      "format": "Y-m-d\\TH:i:sP"
+    }
+  ],
+  "revision_uid": [
+    {
+      "target_id": 1,
+      "target_type": "user",
+      "target_uuid": "548afdb1-08b3-499a-9716-c892f82536a6",
+      "url": "\/user\/1"
+    }
+  ],
+  "revision_log": [],
+  "status": [
+    {
+      "value": true
+    }
+  ],
+  "title": [
+    {
+      "value": "Global Alert 1"
+    }
+  ],
+  "uid": [
+    {
+      "target_id": 1,
+      "target_type": "user",
+      "target_uuid": "548afdb1-08b3-499a-9716-c892f82536a6",
+      "url": "\/user\/1"
+    }
+  ],
+  "created": [
+    {
+      "value": "2018-09-13T20:44:52+00:00",
+      "format": "Y-m-d\\TH:i:sP"
+    }
+  ],
+  "changed": [
+    {
+      "value": "2018-09-13T20:45:42+00:00",
+      "format": "Y-m-d\\TH:i:sP"
+    }
+  ],
+  "promote": [
+    {
+      "value": false
+    }
+  ],
+  "sticky": [
+    {
+      "value": false
+    }
+  ],
+  "default_langcode": [
+    {
+      "value": true
+    }
+  ],
+  "revision_translation_affected": [
+    {
+      "value": true
+    }
+  ],
+  "metatag": {
+    "value": {
+      "title": "Global Alert 1 | pds142",
+      "canonical_url": "http:\/\/default\/node\/59",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Maecenas ultricies mi eget mauris pharetra et ultrices neque. In iaculis nunc sed augue. Eu facilisis sed odio morbi quis commodo odio aenean. Tellus molestie nunc non blandit massa enim. Ac ut consequat semper viverra nam libero justo laoreet sit. Orci phasellus egestas tellus rutrum tellus. Ligula ullamcorper malesuada proin libero nunc consequat interdum."
+    }
+  },
+  "path": [
+    {
+      "alias": null,
+      "pid": null,
+      "langcode": "en"
+    }
+  ],
+  "menu_link": [],
+  "body": [
+    {
+      "value": "\u003Cp\u003ELorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Maecenas ultricies mi eget mauris pharetra et ultrices neque. In iaculis nunc sed augue. Eu facilisis sed odio morbi quis commodo odio aenean. Tellus molestie nunc non blandit massa enim. Ac ut consequat semper viverra nam libero justo laoreet sit. Orci phasellus egestas tellus rutrum tellus. Ligula ullamcorper malesuada proin libero nunc consequat interdum. Massa sed elementum tempus egestas sed sed risus pretium. Diam ut venenatis tellus in metus vulputate eu. Ultricies lacus sed turpis tincidunt id. Leo a diam sollicitudin tempor id eu. Sagittis purus sit amet volutpat consequat mauris nunc congue nisi. Arcu dui vivamus arcu felis bibendum.\u003C\/p\u003E\r\n\r\n\u003Cp\u003EAt erat pellentesque adipiscing commodo elit. Et sollicitudin ac orci phasellus egestas tellus. Sodales ut eu sem integer vitae justo eget magna. Egestas integer eget aliquet nibh praesent tristique magna sit. Faucibus in ornare quam viverra orci sagittis eu. Nibh cras pulvinar mattis nunc sed. Mollis aliquam ut porttitor leo a. Bibendum arcu vitae elementum curabitur vitae. Turpis egestas integer eget aliquet nibh. Ut ornare lectus sit amet est placerat in egestas. Lectus proin nibh nisl condimentum. Gravida in fermentum et sollicitudin ac orci. Morbi quis commodo odio aenean sed adipiscing diam donec. Porta non pulvinar neque laoreet suspendisse interdum consectetur. Pharetra vel turpis nunc eget. Potenti nullam ac tortor vitae purus faucibus ornare. Vitae tempus quam pellentesque nec nam. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra.\u003C\/p\u003E\r\n",
+      "format": "basic_html",
+      "processed": "\u003Cp\u003ELorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Maecenas ultricies mi eget mauris pharetra et ultrices neque. In iaculis nunc sed augue. Eu facilisis sed odio morbi quis commodo odio aenean. Tellus molestie nunc non blandit massa enim. Ac ut consequat semper viverra nam libero justo laoreet sit. Orci phasellus egestas tellus rutrum tellus. Ligula ullamcorper malesuada proin libero nunc consequat interdum. Massa sed elementum tempus egestas sed sed risus pretium. Diam ut venenatis tellus in metus vulputate eu. Ultricies lacus sed turpis tincidunt id. Leo a diam sollicitudin tempor id eu. Sagittis purus sit amet volutpat consequat mauris nunc congue nisi. Arcu dui vivamus arcu felis bibendum.\u003C\/p\u003E\n\n\u003Cp\u003EAt erat pellentesque adipiscing commodo elit. Et sollicitudin ac orci phasellus egestas tellus. Sodales ut eu sem integer vitae justo eget magna. Egestas integer eget aliquet nibh praesent tristique magna sit. Faucibus in ornare quam viverra orci sagittis eu. Nibh cras pulvinar mattis nunc sed. Mollis aliquam ut porttitor leo a. Bibendum arcu vitae elementum curabitur vitae. Turpis egestas integer eget aliquet nibh. Ut ornare lectus sit amet est placerat in egestas. Lectus proin nibh nisl condimentum. Gravida in fermentum et sollicitudin ac orci. Morbi quis commodo odio aenean sed adipiscing diam donec. Porta non pulvinar neque laoreet suspendisse interdum consectetur. Pharetra vel turpis nunc eget. Potenti nullam ac tortor vitae purus faucibus ornare. Vitae tempus quam pellentesque nec nam. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra.\u003C\/p\u003E",
+      "summary": ""
+    }
+  ],
+  "field_pds_alert_type": [
+    {
+      "value": "System Message"
+    }
+  ],
+  "field_pds_end_date": [
+    {
+      "value": "2018-09-20"
+    }
+  ],
+  "field_pds_important_flag": [
+    {
+      "value": false
+    }
+  ],
+  "field_pds_start_date": [
+    {
+      "value": "2018-09-13"
+    }
+  ]
+}

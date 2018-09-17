@@ -95,13 +95,13 @@ foreach ($files as $file) {
 
   //<editor-fold desc="Slideshow content settings">
   //If field_mt_slideshow_text field exists.
-  if ($json_data['field_mt_slideshow_text'] != NULL) {
-    $field_mt_slideshow_text = [
-      'value' => character_replacement($json_data['field_mt_slideshow_text'][0]['value']),
-      'format' => $json_data['field_mt_slideshow_text'][0]['format'],
-    ];
-    $node->set('field_mt_slideshow_text', $field_mt_slideshow_text);
-  }
+  //if ($json_data['field_mt_slideshow_text'] != NULL) {
+   // $field_mt_slideshow_text = [
+   //   'value' => character_replacement($json_data['field_mt_slideshow_text'][0]['value']),
+    //  'format' => $json_data['field_mt_slideshow_text'][0]['format'],
+    //];
+    //$node->set('field_mt_slideshow_text', $field_mt_slideshow_text);
+  //}
 
   //If field_mt_bg_video_youtube field exists.
   if ($json_data['field_mt_bg_video_youtube'] != NULL) {
@@ -158,6 +158,43 @@ foreach ($files as $file) {
     ];
     $node->set('field_mt_subtitle', $field_mt_subtitle);
   }
+  //</editor-fold>
+
+  //<editor-fold desc=End Date content settings">
+  if ($json_data['field_pds_alert_type'] != NULL) {
+    $field_pds_alert_type = [
+      'value' => $json_data['field_pds_alert_type'][0]['value'],
+    ];
+    $node->set('field_pds_alert_type', $field_pds_alert_type);
+  }
+  //</editor-fold>
+
+  //<editor-fold desc=Important Flag content settings">
+  if ($json_data['field_pds_important_flag'] != NULL) {
+    $field_pds_important_flag = [
+      'value' => $json_data['field_pds_important_flag'][0]['value'],
+    ];
+    $node->set('field_pds_important_flag', $field_pds_important_flag);
+  }
+  //</editor-fold>
+
+  //<editor-fold desc=Start Date content settings">
+  if ($json_data['field_pds_start_date'] != NULL) {
+    $field_pds_start_date = [
+      'value' => $json_data['field_pds_start_date'][0]['value'],
+    ];
+    $node->set('field_pds_start_date', $field_pds_start_date);
+  }
+  //</editor-fold>
+
+  //<editor-fold desc=End Date content settings">
+  if ($json_data['field_pds_end_date'] != NULL) {
+    $field_pds_end_date = [
+      'value' => $json_data['field_pds_end_date'][0]['value'],
+    ];
+    $node->set('field_pds_end_date', $field_pds_end_date);
+  }
+  //</editor-fold>
   //</editor-fold>
 
   $node->set('uid', 1);
