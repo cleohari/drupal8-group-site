@@ -195,6 +195,15 @@ foreach ($files as $file) {
     $node->set('field_pds_end_date', $field_pds_end_date);
   }
   //</editor-fold>
+
+  //<editor-fold desc=Tenant Message Type content settings">
+  if ($json_data['field_pds_tenant_message_type'] != NULL) {
+    $field_pds_tenant_message_type = [
+      'value' => $json_data['field_pds_tenant_message_type'][0]['value'],
+    ];
+    $node->set('field_pds_tenant_message_type', $field_pds_tenant_message_type);
+  }
+  //</editor-fold>
   //</editor-fold>
 
   $node->set('uid', 1);
