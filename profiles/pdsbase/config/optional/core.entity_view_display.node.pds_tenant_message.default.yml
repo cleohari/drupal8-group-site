@@ -27,7 +27,7 @@ content:
     region: content
   field_pds_end_date:
     weight: 2
-    label: above
+    label: inline
     settings:
       format_type: medium
       timezone_override: ''
@@ -36,7 +36,7 @@ content:
     region: content
   field_pds_important_flag:
     weight: 3
-    label: above
+    label: inline
     settings:
       format: default
       format_custom_false: ''
@@ -46,7 +46,7 @@ content:
     region: content
   field_pds_start_date:
     weight: 1
-    label: above
+    label: inline
     settings:
       format_type: medium
       timezone_override: ''
@@ -55,7 +55,7 @@ content:
     region: content
   field_pds_tenant_message_type:
     weight: 0
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default

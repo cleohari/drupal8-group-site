@@ -4,6 +4,7 @@ dependencies:
   config:
     - page_manager.page.custom_tenant_admin_landing_page
     - views.view.pds_global_alerts_view
+    - views.view.pds_tenant_messages_view
   module:
     - panels
     - views
@@ -20,8 +21,17 @@ variant_settings:
       views_label: ''
       items_per_page: none
       region: first_above
-      weight: 0
-      uuid: dd892572-901b-4c27-a5d5-848999d8b9f1
+      weight: 0      
+      context_mapping: {  }
+    9759a6b8-e8b5-4bae-bffb-06089923ae04:
+      id: 'views_block:pds_tenant_messages_view-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: second_above
+      weight: 0      
       context_mapping: {  }
   id: panels_variant
   label: null
@@ -32,7 +42,6 @@ variant_settings:
   storage_type: page_manager
   storage_id: custom_tenant_admin_landing_page-panels_variant-0
   builder: standard
-  uuid: abd76c34-be93-457f-85d9-7027da9c194f
 page: custom_tenant_admin_landing_page
 weight: 0
 selection_criteria: {  }

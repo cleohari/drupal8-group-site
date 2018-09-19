@@ -95,13 +95,13 @@ foreach ($files as $file) {
 
   //<editor-fold desc="Slideshow content settings">
   //If field_mt_slideshow_text field exists.
-  //if ($json_data['field_mt_slideshow_text'] != NULL) {
-   // $field_mt_slideshow_text = [
-   //   'value' => character_replacement($json_data['field_mt_slideshow_text'][0]['value']),
-    //  'format' => $json_data['field_mt_slideshow_text'][0]['format'],
-    //];
-    //$node->set('field_mt_slideshow_text', $field_mt_slideshow_text);
-  //}
+  if ($json_data['field_mt_slideshow_text'] != NULL) {
+    $field_mt_slideshow_text = [
+      'value' => character_replacement($json_data['field_mt_slideshow_text'][0]['value']),
+      'format' => $json_data['field_mt_slideshow_text'][0]['format'],
+    ];
+    $node->set('field_mt_slideshow_text', $field_mt_slideshow_text);
+  }
 
   //If field_mt_bg_video_youtube field exists.
   if ($json_data['field_mt_bg_video_youtube'] != NULL) {
@@ -193,6 +193,15 @@ foreach ($files as $file) {
       'value' => $json_data['field_pds_end_date'][0]['value'],
     ];
     $node->set('field_pds_end_date', $field_pds_end_date);
+  }
+  //</editor-fold>
+
+  //<editor-fold desc=Tenant Message Type content settings">
+  if ($json_data['field_pds_tenant_message_type'] != NULL) {
+    $field_pds_tenant_message_type = [
+      'value' => $json_data['field_pds_tenant_message_type'][0]['value'],
+    ];
+    $node->set('field_pds_tenant_message_type', $field_pds_tenant_message_type);
   }
   //</editor-fold>
   //</editor-fold>
