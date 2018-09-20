@@ -208,19 +208,19 @@ foreach ($files as $file) {
   //<editor-fold desc=Tenant Message Type content settings">
   if ($json_data['field_pds_address'] != NULL) {
     $field_pds_address = [
-      'langcode' => $json_data['langcode'][0]['value'],
-      'country_code' => $json_data['country_code'][0]['value'],
-      'administrative_area' => $json_data['administrative_area'][0]['value'],
-      'locality' => $json_data['locality'][0]['value'],
-      'dependent_locality' => $json_data['dependent_locality'][0]['value'],
-      'postal_code' => $json_data['postal_code'][0]['value'],
-      'sorting_code' => $json_data['sorting_code'][0]['value'],
-      'address_line1' => $json_data['address_line1'][0]['value'],
-      'address_line2' => $json_data['address_line2'][0]['value'],
-      'organization' => $json_data['organization'][0]['value'],
-      'given_name' => $json_data['given_name'][0]['value'],
-      'additional_name' => $json_data['additional_name'][0]['value'],
-      'family_name' => $json_data['family_name'][0]['value'],
+      'langcode' => $json_data['field_pds_address'][0]['langcode'],
+      'country_code' => $json_data['field_pds_address'][0]['country_code'],
+      'administrative_area' => $json_data['field_pds_address'][0]['administrative_area'],
+      'locality' => $json_data['field_pds_address'][0]['locality'],
+      'dependent_locality' => $json_data['field_pds_address'][0]['dependent_locality'],
+      'postal_code' => $json_data['field_pds_address'][0]['postal_code'],
+      'sorting_code' => $json_data['field_pds_address'][0]['sorting_code'],
+      'address_line1' => $json_data['field_pds_address'][0]['address_line1'],
+      'address_line2' => $json_data['field_pds_address'][0]['address_line2'],
+      'organization' => $json_data['field_pds_address'][0]['organization'],
+      'given_name' => $json_data['field_pds_address'][0]['given_name'],
+      'additional_name' => $json_data['field_pds_address'][0]['additional_name'],
+      'family_name' => $json_data['field_pds_address'][0]['family_name'],
     ];
     $node->set('field_pds_address', $field_pds_address);
   }
