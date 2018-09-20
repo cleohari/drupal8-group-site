@@ -204,6 +204,73 @@ foreach ($files as $file) {
     $node->set('field_pds_tenant_message_type', $field_pds_tenant_message_type);
   }
   //</editor-fold>
+
+  //<editor-fold desc=Tenant Message Type content settings">
+  if ($json_data['field_pds_address'] != NULL) {
+    $field_pds_address = [
+      'langcode' => $json_data['langcode'][0]['value'],
+      'country_code' => $json_data['country_code'][0]['value'],
+      'administrative_area' => $json_data['administrative_area'][0]['value'],
+      'locality' => $json_data['locality'][0]['value'],
+      'dependent_locality' => $json_data['dependent_locality'][0]['value'],
+      'postal_code' => $json_data['postal_code'][0]['value'],
+      'sorting_code' => $json_data['sorting_code'][0]['value'],
+      'address_line1' => $json_data['address_line1'][0]['value'],
+      'address_line2' => $json_data['address_line2'][0]['value'],
+      'organization' => $json_data['organization'][0]['value'],
+      'given_name' => $json_data['given_name'][0]['value'],
+      'additional_name' => $json_data['additional_name'][0]['value'],
+      'family_name' => $json_data['family_name'][0]['value'],
+    ];
+    $node->set('field_pds_address', $field_pds_address);
+  }
+  //</editor-fold>
+
+  //<editor-fold desc=EIN Type content settings">
+  if ($json_data['field_pds_ein'] != NULL) {
+    $field_pds_ein = [
+      'value' => $json_data['field_pds_ein'][0]['value'],
+    ];
+    $node->set('field_pds_ein', $field_pds_ein);
+  }
+  //</editor-fold>
+
+  //<editor-fold desc=Plan Effective Date Type content settings">
+  if ($json_data['field_pds_plan_effective_date'] != NULL) {
+    $field_pds_plan_effective_date = [
+      'value' => $json_data['field_pds_plan_effective_date'][0]['value'],
+    ];
+    $node->set('field_pds_plan_effective_date', $field_pds_plan_effective_date);
+  }
+  //</editor-fold>
+
+  //<editor-fold desc=Plan Number content settings">
+  if ($json_data['field_pds_plan_number'] != NULL) {
+    $field_pds_plan_number = [
+      'value' => $json_data['field_pds_plan_number'][0]['value'],
+    ];
+    $node->set('field_pds_plan_number', $field_pds_plan_number);
+  }
+  //</editor-fold>
+
+  //<editor-fold desc=Plan Year Begin Date content settings">
+  if ($json_data['field_pds_plan_year_begin_date'] != NULL) {
+    $field_pds_plan_year_begin_date = [
+      'value' => $json_data['field_pds_plan_year_begin_date'][0]['value'],
+    ];
+    $node->set('field_pds_plan_year_begin_date', $field_pds_plan_year_begin_date);
+  }
+  //</editor-fold>
+
+  //<editor-fold desc=Plan Year End Date content settings">
+  if ($json_data['field_pds_plan_year_end_date'] != NULL) {
+    $field_pds_plan_year_end_date = [
+      'value' => $json_data['field_pds_plan_year_end_date'][0]['value'],
+    ];
+    $node->set('field_pds_plan_year_end_date', $field_pds_plan_year_end_date);
+  }
+  //</editor-fold>
+
   //</editor-fold>
 
   $node->set('uid', 1);
