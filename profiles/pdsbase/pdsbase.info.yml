@@ -96,6 +96,7 @@ dependencies:
   - token_filter
   - pds_create_node_from_webform
   - menu_token
+  - address
   - pds_custom_tokens
   - pds_configuration_base_data
   - pds_configuration_pds_group_tenant

@@ -1,0 +1,78 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pds_plan.body
+    - field.field.node.pds_plan.field_pds_address
+    - field.field.node.pds_plan.field_pds_ein
+    - field.field.node.pds_plan.field_pds_plan_effective_date
+    - field.field.node.pds_plan.field_pds_plan_number
+    - field.field.node.pds_plan.field_pds_plan_year_begin_date
+    - field.field.node.pds_plan.field_pds_plan_year_end_date
+    - node.type.pds_plan
+  module:
+    - address
+    - datetime
+    - user
+id: node.pds_plan.default
+targetEntityType: node
+bundle: pds_plan
+mode: default
+content:
+  field_pds_address:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_pds_ein:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_pds_plan_effective_date:
+    weight: 3
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: html_date
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_pds_plan_number:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_pds_plan_year_begin_date:
+    weight: 4
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: html_yearless_date
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_pds_plan_year_end_date:
+    weight: 5
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: html_yearless_date
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  links:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
