@@ -8,6 +8,8 @@ dependencies:
     - field.storage.node.field_pds_plan_year_begin_date
     - field.storage.node.field_pds_plan_year_end_date
     - node.type.pds_plan
+    - user.role.administrator
+    - user.role.tenant_admin
   module:
     - datetime
     - node
@@ -28,9 +30,11 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            administrator: administrator
+            tenant_admin: tenant_admin
       cache:
         type: tag
         options: {  }
@@ -72,6 +76,67 @@ display:
             next: ››
       style:
         type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            field_pds_ein: field_pds_ein
+            field_pds_plan_number: field_pds_plan_number
+            field_pds_plan_effective_date: field_pds_plan_effective_date
+            field_pds_plan_year_begin_date: field_pds_plan_year_begin_date
+            field_pds_plan_year_end_date: field_pds_plan_year_end_date
+          info:
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pds_ein:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pds_plan_number:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pds_plan_effective_date:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pds_plan_year_begin_date:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pds_plan_year_end_date:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: title
+          empty_table: false
       row:
         type: fields
       fields:
@@ -461,6 +526,131 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Title
+            description: 'The Title contains this value'
+            use_operator: false
+            operator: title_op
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              tenant_admin: '0'
+              tenant_user: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+        field_pds_ein_value:
+          id: field_pds_ein_value
+          table: node__field_pds_ein
+          field: field_pds_ein_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: starts
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_pds_ein_value_op
+            label: EIN
+            description: 'The EIN starts with this value'
+            use_operator: false
+            operator: field_pds_ein_value_op
+            identifier: field_pds_ein_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              tenant_admin: '0'
+              tenant_user: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_pds_plan_number_value:
+          id: field_pds_plan_number_value
+          table: node__field_pds_plan_number
+          field: field_pds_plan_number_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: starts
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_pds_plan_number_value_op
+            label: 'Plan Number'
+            description: 'The Plan Number starts with this string'
+            use_operator: false
+            operator: field_pds_plan_number_value_op
+            identifier: field_pds_plan_number_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              tenant_admin: '0'
+              tenant_user: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
       sorts:
         created:
           id: created
@@ -489,9 +679,10 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_pds_ein'
         - 'config:field.storage.node.field_pds_plan_effective_date'
@@ -504,16 +695,18 @@ display:
     display_title: Page
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        metatag_display_extender: {  }
       path: tenant-admin/plans
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_pds_ein'
         - 'config:field.storage.node.field_pds_plan_effective_date'
