@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.pds_plan
+id: node.pds_plan.title
+field_name: title
+entity_type: node
+bundle: pds_plan
+label: 'Plan Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

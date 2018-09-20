@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pds_ein
+    - node.type.pds_plan
+id: node.pds_plan.field_pds_ein
+field_name: field_pds_ein
+entity_type: node
+bundle: pds_plan
+label: EIN
+description: 'This is the plan''s EIN value.  It should be entered in the format XX-XXXXXXX'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
