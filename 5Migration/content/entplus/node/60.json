@@ -1,1 +1,93 @@
-{"nid":[{"value":60}],"uuid":[{"value":"1e2eda26-fe23-4bfa-9458-fb3325f68c7e"}],"vid":[{"value":60}],"langcode":[{"value":"en"}],"type":[{"target_id":"pds_global_alert","target_type":"node_type","target_uuid":"e2485af5-8ae7-4241-92b8-2dd86b242928"}],"revision_timestamp":[{"value":"2018-09-13T20:46:29+00:00","format":"Y-m-d\\TH:i:sP"}],"revision_uid":[{"target_id":1,"target_type":"user","target_uuid":"548afdb1-08b3-499a-9716-c892f82536a6","url":"\/user\/1"}],"revision_log":[],"status":[{"value":true}],"title":[{"value":"Global Alert 2"}],"uid":[{"target_id":1,"target_type":"user","target_uuid":"548afdb1-08b3-499a-9716-c892f82536a6","url":"\/user\/1"}],"created":[{"value":"2018-09-13T20:45:48+00:00","format":"Y-m-d\\TH:i:sP"}],"changed":[{"value":"2018-09-13T20:46:29+00:00","format":"Y-m-d\\TH:i:sP"}],"promote":[{"value":false}],"sticky":[{"value":false}],"default_langcode":[{"value":true}],"revision_translation_affected":[{"value":true}],"metatag":{"value":{"title":"Global Alert 2 | pds142","canonical_url":"http:\/\/default\/node\/60","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum sed arcu non odio euismod lacinia at quis. Mattis nunc sed blandit libero volutpat sed cras ornare. Tincidunt nunc pulvinar sapien et. Metus dictum at tempor commodo ullamcorper. Ut lectus arcu bibendum at varius vel. Venenatis lectus magna fringilla urna porttitor. Sed elementum tempus egestas sed. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Erat imperdiet sed euismod nisi porta lorem mollis aliquam."}},"path":[{"alias":null,"pid":null,"langcode":"en"}],"menu_link":[],"body":[{"value":"\u003Cp\u003ELorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum sed arcu non odio euismod lacinia at quis. Mattis nunc sed blandit libero volutpat sed cras ornare. Tincidunt nunc pulvinar sapien et. Metus dictum at tempor commodo ullamcorper. Ut lectus arcu bibendum at varius vel. Venenatis lectus magna fringilla urna porttitor. Sed elementum tempus egestas sed. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Neque ornare aenean euismod elementum nisi quis.\u003C\/p\u003E\r\n","format":"basic_html","processed":"\u003Cp\u003ELorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum sed arcu non odio euismod lacinia at quis. Mattis nunc sed blandit libero volutpat sed cras ornare. Tincidunt nunc pulvinar sapien et. Metus dictum at tempor commodo ullamcorper. Ut lectus arcu bibendum at varius vel. Venenatis lectus magna fringilla urna porttitor. Sed elementum tempus egestas sed. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Neque ornare aenean euismod elementum nisi quis.\u003C\/p\u003E","summary":""}],"field_pds_alert_type":[{"value":"Release Information"}],"field_pds_end_date":[{"value":"2018-10-20"}],"field_pds_important_flag":[{"value":false}],"field_pds_start_date":[{"value":"2018-09-13"}]}
+{
+  "nid": [{
+    "value": 60
+  }],
+  "uuid": [{
+    "value": "1e2eda26-fe23-4bfa-9458-fb3325f68c7e"
+  }],
+  "vid": [{
+    "value": 60
+  }],
+  "langcode": [{
+    "value": "en"
+  }],
+  "type": [{
+    "target_id": "pds_global_alert",
+    "target_type": "node_type",
+    "target_uuid": "e2485af5-8ae7-4241-92b8-2dd86b242928"
+  }],
+  "revision_timestamp": [{
+    "value": "2018-09-13T20:46:29+00:00",
+    "format": "Y-m-d\\TH:i:sP"
+  }],
+  "revision_uid": [{
+    "target_id": 1,
+    "target_type": "user",
+    "target_uuid": "548afdb1-08b3-499a-9716-c892f82536a6",
+    "url": "\/user\/1"
+  }],
+  "revision_log": [],
+  "status": [{
+    "value": true
+  }],
+  "title": [{
+    "value": "Global Alert 2"
+  }],
+  "uid": [{
+    "target_id": 1,
+    "target_type": "user",
+    "target_uuid": "548afdb1-08b3-499a-9716-c892f82536a6",
+    "url": "\/user\/1"
+  }],
+  "created": [{
+    "value": "2018-09-13T20:45:48+00:00",
+    "format": "Y-m-d\\TH:i:sP"
+  }],
+  "changed": [{
+    "value": "2018-09-13T20:46:29+00:00",
+    "format": "Y-m-d\\TH:i:sP"
+  }],
+  "promote": [{
+    "value": false
+  }],
+  "sticky": [{
+    "value": false
+  }],
+  "default_langcode": [{
+    "value": true
+  }],
+  "revision_translation_affected": [{
+    "value": true
+  }],
+  "metatag": {
+    "value": {
+      "title": "Global Alert 2 | pds142",
+      "canonical_url": "http:\/\/default\/node\/60",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum sed arcu non odio euismod lacinia at quis. Mattis nunc sed blandit libero volutpat sed cras ornare. Tincidunt nunc pulvinar sapien et. Metus dictum at tempor commodo ullamcorper. Ut lectus arcu bibendum at varius vel. Venenatis lectus magna fringilla urna porttitor. Sed elementum tempus egestas sed. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Erat imperdiet sed euismod nisi porta lorem mollis aliquam."
+    }
+  },
+  "path": [{
+    "alias": null,
+    "pid": null,
+    "langcode": "en"
+  }],
+  "menu_link": [],
+  "body": [{
+    "value": "\u003Cp\u003ELorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum sed arcu non odio euismod lacinia at quis. Mattis nunc sed blandit libero volutpat sed cras ornare. Tincidunt nunc pulvinar sapien et. Metus dictum at tempor commodo ullamcorper. Ut lectus arcu bibendum at varius vel. Venenatis lectus magna fringilla urna porttitor. Sed elementum tempus egestas sed. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Neque ornare aenean euismod elementum nisi quis.\u003C\/p\u003E\r\n",
+    "format": "basic_html",
+    "processed": "\u003Cp\u003ELorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum sed arcu non odio euismod lacinia at quis. Mattis nunc sed blandit libero volutpat sed cras ornare. Tincidunt nunc pulvinar sapien et. Metus dictum at tempor commodo ullamcorper. Ut lectus arcu bibendum at varius vel. Venenatis lectus magna fringilla urna porttitor. Sed elementum tempus egestas sed. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Neque ornare aenean euismod elementum nisi quis.\u003C\/p\u003E",
+    "summary": ""
+  }],
+  "field_pds_alert_type": [{
+    "value": "Release Information"
+  }],
+  "field_pds_end_date": [{
+    "value": "2018-10-20"
+  }],
+  "field_pds_important_flag": [{
+    "value": false
+  }],
+  "field_pds_start_date": [{
+    "value": "2018-09-13"
+  }]
+}
