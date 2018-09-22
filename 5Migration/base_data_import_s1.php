@@ -2,7 +2,8 @@
 define('DRUPAL_DIR', getcwd());
 use Drupal\Core\DrupalKernel;
 use Symfony\Component\HttpFoundation\Request;
-
+use \Drupal\node\Entity\Node;
+use \Drupal\file\Entity\File;
 // Specify relative path to the drupal root.
 $autoloader = require_once DRUPAL_DIR . '/autoload.php';
 $request = Request::createFromGlobals();
@@ -11,12 +12,10 @@ $kernel->boot();
 
 require_once DRUPAL_DIR . '/core/includes/database.inc';
 require_once DRUPAL_DIR . '/core/includes/schema.inc';
-
+require_once DRUPAL_DIR . '/core/includes/file.inc';
 $_SERVER['SCRIPT_NAME'] = '/s1.pds.l/index.php';
 
-echo "DRUAPALAKLSKDKLDSFJ " . DRUPAL_DIR . "\n";
-
-use \Drupal\node\Entity\Node;
+print_r("Drupal Directory: " . DRUPAL_DIR . "\n");
 
 $files = array_slice(scandir(getcwd() . '/5Migration/content/entplus/node', 0), 2);
 print_r("Starting content creation!\n");
@@ -24,10 +23,11 @@ foreach ($files as $file) {
   $json = file_get_contents(getcwd() . '/5Migration/content/entplus/node/' . $file);
   $json_data = json_decode($json, TRUE);
 
+  // @todo fix this.
+  // The script breaks here.
   $node = Node::create(['type' => $json_data['type'][0]['target_id']]);
-  $node->set('title', $json_data['title'][0]['value']);
+  // print_r("Filename: " . $file);
 
-  //<editor-fold desc="Base Node settings">
   //Body can now be an array with a value and a format.
   //If body field exists.
   if ($json_data['body'][0]['value'] != NULL) {
@@ -97,27 +97,6 @@ foreach ($files as $file) {
     ];
     $node->set('field_mt_video', $field_mt_video);
   }
-  //</editor-fold>
-
-  //<editor-fold desc="Product content settings">
-
-  //</editor-fold>
-
-  //<editor-fold desc="Service content settings">
-  //</editor-fold>
-
-  //<editor-fold desc="Showcase content settings">
-  //</editor-fold>
-
-  //<editor-fold desc="Slideshow content settings">
-  //If field_mt_slideshow_text field exists.
-  //if ($json_data['field_mt_slideshow_text'] != NULL) {
-   // $field_mt_slideshow_text = [
-   //   'value' => character_replacement($json_data['field_mt_slideshow_text'][0]['value']),
-    //  'format' => $json_data['field_mt_slideshow_text'][0]['format'],
-    //];
-    //$node->set('field_mt_slideshow_text', $field_mt_slideshow_text);
-  //}
 
   //If field_mt_bg_video_youtube field exists.
   if ($json_data['field_mt_bg_video_youtube'] != NULL) {
@@ -210,14 +189,13 @@ foreach ($files as $file) {
     ];
     $node->set('field_pds_end_date', $field_pds_end_date);
   }
-  //</editor-fold>
-  //</editor-fold>
+
 
   $node->set('uid', 1);
   $node->status = 1;
   $node->enforceIsNew();
   $node->save();
-  //print_r("Node with nid " . $node->id() . " saved!\n");
+  print_r("Node with nid " . $node->id() . " saved!\n");
 }
 print_r("Finished content creation!\n");
 
