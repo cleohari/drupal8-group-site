@@ -94,7 +94,6 @@ dependencies:
   - user_default_page
   - default_content
   - token_filter
-  - pds_create_node_from_webform
   - menu_token
   - address
   - pds_custom_tokens
