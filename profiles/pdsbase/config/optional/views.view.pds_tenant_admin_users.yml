@@ -8,10 +8,10 @@ dependencies:
   module:
     - user
 id: pds_tenant_admin_users
-label: 'Tenant Admin Users'
+label: 'PDS Tenant Admin Users'
 module: views
 description: 'This is a list of all of the Tenant Admin Users for the site.'
-tag: ''
+tag: 'PDS'
 base_table: users_field_data
 base_field: uid
 core: 8.x
