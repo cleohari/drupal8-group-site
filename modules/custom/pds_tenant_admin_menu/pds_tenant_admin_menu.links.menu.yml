@@ -47,8 +47,18 @@ pds_tenant_admin_menu.users:
   weight: 100
 pds_tenant_admin_menu.tenant_admin_users:
   title: 'Tenant Admin Users'
-  description: 'All active system alerts.'
+  description: 'All users that have the Tenant Admin role assigned to them.'
   url: internal:/tenant-admin/tenant-admin-users
   parent: pds_tenant_admin_menu.users
   menu_name: pds-tenant-admin-menu
   weight: 100
+pds_tenant_admin_menu.tenant_base_users:
+  title: 'Tenant Base Users'
+  description: 'All users that have the Tenant Base role assigned to them.'
+  url: internal:/tenant-admin/tenant-base-users
+  parent: pds_tenant_admin_menu.users
+  menu_name: pds-tenant-admin-menu
+  weight: 100
+
+
+
