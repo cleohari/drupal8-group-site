@@ -60,7 +60,8 @@
         "taz77/menu_token": "dev-8.x-1.x",
         "drush/drush": "^9.3",
         "drupal/sendgrid_integration": "1.x-dev",
-        "drupal/address": "^1.4"
+        "drupal/address": "^1.4",
+        "drupal/views_autocomplete_filters": "^1.2"
     },
     "replace": {
 
