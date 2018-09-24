@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.pds_user_group.field_pds_group_default_email
+    - group.type.pds_user_group
+id: group.pds_user_group.default
+targetEntityType: group
+bundle: pds_user_group
+mode: default
+content:
+  field_pds_group_default_email:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: 'Default Email Address'
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: 'Group Name'
+    third_party_settings: {  }
+hidden:
+  path: true
+  uid: true
