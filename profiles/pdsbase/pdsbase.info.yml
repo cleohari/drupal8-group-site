@@ -96,6 +96,7 @@ dependencies:
   - token_filter
   - menu_token
   - address
+  - views_autocomplete_filters
   - pds_custom_tokens
   - pds_configuration_base_data
   - pds_configuration_pds_group_tenant
