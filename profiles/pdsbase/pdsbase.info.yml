@@ -99,6 +99,7 @@ dependencies:
   - address
   - views_autocomplete_filters
   - restui
+  - redirect_after_login
   - pds_custom_tokens
   - pds_configuration_base_data
   - pds_configuration_pds_group_tenant

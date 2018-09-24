@@ -62,7 +62,8 @@
         "drupal/sendgrid_integration": "1.x-dev",
         "drupal/address": "^1.4",
         "drupal/views_autocomplete_filters": "^1.2",
-        "drupal/restui": "^1.15"
+        "drupal/restui": "^1.15",
+        "drupal/redirect_after_login": "^2.3"
     },
     "replace": {
 
