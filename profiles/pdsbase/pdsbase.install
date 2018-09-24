@@ -123,17 +123,17 @@ function pds_cleanup_tasks() {
 
   //TODO - Commenting this out temporarily as we won't be using groups exactly as this is implemented.
   //Adding the base users to the Groups.
-  $group = \Drupal\group\Entity\Group::load(1);
-  $group->addMember(user_load_by_name('user1_ta_g1'));
-  $group->addMember(user_load_by_name('user2_ta_g1'));
-  $group->addMember(user_load_by_name('user1_tu_g1'));
-  $group->addMember(user_load_by_name('user2_tu_g1'));
-  $result = $group->save();
+  //$group = \Drupal\group\Entity\Group::load(1);
+  //$group->addMember(user_load_by_name('user1_ta_g1'));
+  //$group->addMember(user_load_by_name('user2_ta_g1'));
+  //$group->addMember(user_load_by_name('user1_tu_g1'));
+  //$group->addMember(user_load_by_name('user2_tu_g1'));
+  //$result = $group->save();
 
-  $group = \Drupal\group\Entity\Group::load(2);
-  $group->addMember(user_load_by_name('user1_ta_g2'));
-  $group->addMember(user_load_by_name('user2_ta_g2'));
-  $group->addMember(user_load_by_name('user1_tu_g2'));
-  $group->addMember(user_load_by_name('user2_tu_g2'));
-  $result = $group->save();
+  //$group = \Drupal\group\Entity\Group::load(2);
+  //$group->addMember(user_load_by_name('user1_ta_g2'));
+  //$group->addMember(user_load_by_name('user2_ta_g2'));
+  //$group->addMember(user_load_by_name('user1_tu_g2'));
+  //$group->addMember(user_load_by_name('user2_tu_g2'));
+  //$result = $group->save();
 }
