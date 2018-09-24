@@ -37,6 +37,7 @@ dependencies:
   - views_ui
   - tour
   - automated_cron
+  - rest
   - webform
   - webform_ui
   - webform_bootstrap
@@ -97,6 +98,7 @@ dependencies:
   - menu_token
   - address
   - views_autocomplete_filters
+  - restui
   - redirect_after_login
   - pds_custom_tokens
   - pds_configuration_base_data
