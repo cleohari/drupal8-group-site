@@ -1,0 +1,6 @@
+login_redirection:
+  anonymous: null
+  authenticated: /
+  administrator: /tenant-admin/home
+  tenant_admin: /tenant-admin/home
+  tenant_user: /
