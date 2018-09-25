@@ -1,6 +1,19 @@
 <?php
 
+define('DRUPAL_DIR', getcwd());
+use Drupal\Core\DrupalKernel;
+use Symfony\Component\HttpFoundation\Request;
 use \Drupal\node\Entity\Node;
+use \Drupal\file\Entity\File;
+// Specify relative path to the drupal root.
+$autoloader = require_once DRUPAL_DIR . '/autoload.php';
+$request = Request::createFromGlobals();
+$kernel = DrupalKernel::createFromRequest($request, $autoloader, 'prod');
+$kernel->boot();
+
+require_once DRUPAL_DIR . '/core/includes/database.inc';
+require_once DRUPAL_DIR . '/core/includes/schema.inc';
+require_once DRUPAL_DIR . '/core/includes/file.inc';
 
 $files = array_slice(scandir(getcwd() . '/5Migration/content/entplus/node', 0), 2);
 print_r("Starting content creation!\n");
