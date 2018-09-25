@@ -1,10 +1,11 @@
 node
-{
-  env.BUILDSPACE = pwd()
-  echo "BUILDSPACE is ${env.BUILDSPACE}"
+  {
+    env.BUILDSPACE = pwd()
+    echo "BUILDSPACE is ${env.BUILDSPACE}"
+    def notifier = new org.gradiant.jenkins.slack.SlackNotifier()
 
-  currentBuild.result = "SUCCESS"
-  environment {
+    currentBuild.result = "SUCCESS"
+    environment {
       PDS_DB_HOST = 'localhost'
       PDS_DB_USERNAME = 'pds'
       PDS_DB_USERPASSWORD = 'pds12345'
@@ -15,42 +16,47 @@ node
       PDS_DRUPAL_PASS = 'horse-staple-battery'
       PDS_DRUPAL_SITENAME = 'PDS'
       PDS_DRUPAL_SITENEMAIL = 'drupal@fastglass.net'
-  }
-  stage('Clone Repo') {
-    checkout scm
-    def commitHash = checkout(scm).GIT_COMMIT
-    echo "Commit Hash is ${commitHash}"
-  }
-  stage('Composer CC') {
-    sh 'composer clear-cache'
-  }
-  try {
-    notifyBuild('STARTED')
-    stage('Install')  {
-      withEnv(['PDS_DB_HOST=localhost', 'PDS_DB_USERNAME=pds', 'PDS_DB_USERPASSWORD=pds12345', 'PDS_DB_NAME=pds', 'PDS_RD_HOST=localhost', 'PDS_RD_NR=1', 'PDS_DRUPAL_NAME=adminpds', 'PDS_DRUPAL_PASS=horse-staple-battery', 'PDS_DRUPAL_SITENAME=PDS', 'PDS_DRUPAL_SITENEMAIL=drupal@fastglass.net']) {
+      SLACK_CHANNEL = 'cicd'
+      SLACK_DOMAIN = 'fastglass'
+      SLACK_CREDENTIALS = 'jenkins-slack-credentials-id'
+      CHANGE_LIST = 'true'
+      TEST_SUMMARY = 'true'
+    }
+    stage('Clone Repo') {
+      checkout scm
+      def commitHash = checkout(scm).GIT_COMMIT
+      echo "Commit Hash is ${commitHash}"
+    }
+    stage('Composer CC') {
+      sh 'composer clear-cache'
+    }
+    try {
+      notifyBuild('STARTED')
+      stage('Install') {
+        withEnv(['PDS_DB_HOST=localhost', 'PDS_DB_USERNAME=pds', 'PDS_DB_USERPASSWORD=pds12345', 'PDS_DB_NAME=pds', 'PDS_RD_HOST=localhost', 'PDS_RD_NR=1', 'PDS_DRUPAL_NAME=adminpds', 'PDS_DRUPAL_PASS=horse-staple-battery', 'PDS_DRUPAL_SITENAME=PDS', 'PDS_DRUPAL_SITENEMAIL=drupal@fastglass.net']) {
           sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
           sh 'bash ./profiles/pdsbase/scripts/install.drush.sh'
+        }
       }
     }
-  }
-  catch(e) {
-    // If there was an exception thrown, the build failed
-    currentBuild.result = "FAILED"
-  }
-  finally {
-    // Success or failure, always send notifications
-    notifyBuild(currentBuild.result)
-  }
-  stage('Unit Tests') {
-    try {
-      sh './vendor/bin/phpunit --testsuite=unit -c core/'
+    catch (e) {
+      // If there was an exception thrown, the build failed
+      currentBuild.result = "FAILED"
     }
-    catch (error) {
+    finally {
+      // Success or failure, always send notifications
+      notifyBuild(currentBuild.result)
+    }
+    stage('Unit Tests') {
+      try {
+        sh './vendor/bin/phpunit --testsuite=unit -c core/'
+      }
+      catch (error) {
 
+      }
     }
+    cleanWs()
   }
-  cleanWs()
-}
 
 def notifyBuild(String buildStatus = 'STARTED') {
   // build status of null means successful
