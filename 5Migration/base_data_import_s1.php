@@ -23,10 +23,12 @@ foreach ($files as $file) {
   $json = file_get_contents(getcwd() . '/5Migration/content/entplus/node/' . $file);
   $json_data = json_decode($json, TRUE);
 
+  // print_r("JSON Data\n" . $json_data . "\n");
   // @todo fix this.
   // The script breaks here.
   $node = Node::create(['type' => $json_data['type'][0]['target_id']]);
-  // print_r("Filename: " . $file);
+  $node->set('title', $json_data['title'][0]['value']);
+
 
   //Body can now be an array with a value and a format.
   //If body field exists.
