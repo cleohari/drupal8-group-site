@@ -1,0 +1,86 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/1?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_document_type"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_document_type\/parent": [
+            null
+        ]
+    },
+    "tid": [
+        {
+            "value": 1
+        }
+    ],
+    "uuid": [
+        {
+            "value": "98550fac-daae-42a0-a479-abee59c3997c"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "pds_document_type"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "Example Template 1",
+            "lang": "en"
+        }
+    ],
+    "description": [
+        {
+            "value": "<p>This is the example template 1 document type<\/p>\r\n",
+            "format": "basic_html",
+            "processed": "<p>This is the example template 1 document type<\/p>",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_document_type\/parent": [
+            null
+        ]
+    },
+    "changed": [
+        {
+            "value": "2018-09-27T15:22:00+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Example Template 1 | pds160",
+                "canonical_url": "http:\/\/default\/taxonomy\/term\/1",
+                "description": "This is the example template 1 document type"
+            }
+        }
+    ]
+}
