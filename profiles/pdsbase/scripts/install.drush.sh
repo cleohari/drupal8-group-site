@@ -133,5 +133,4 @@ echo "Cleaning all caches."
 # Last minute cleanse.
 drush cr
 drush pm-enable pds_configuration_base_data -y
-#drush scr ${DWD}/5Migration/base_data_import.php
-#drush cr
+drush cr
