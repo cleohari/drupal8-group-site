@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+id: pds_user_group
+label: 'User Group'
+description: 'The User Group is a way to organize users of common types into a logical group.'
+creator_membership: true
+creator_wizard: false
+creator_roles:
+  - pds_user_group-admin

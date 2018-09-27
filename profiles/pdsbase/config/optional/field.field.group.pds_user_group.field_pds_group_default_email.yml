@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_pds_group_default_email
+    - group.type.pds_user_group
+id: group.pds_user_group.field_pds_group_default_email
+field_name: field_pds_group_default_email
+entity_type: group
+bundle: pds_user_group
+label: 'Default Email Address'
+description: 'This is the default email address to be used to notify people of task completion.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email
