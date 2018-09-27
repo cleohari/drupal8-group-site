@@ -120,6 +120,7 @@ function pdsbase_install_tasks($install_state) {
  */
 function pds_cleanup_tasks() {
   node_access_rebuild();
+  \Drupal::service('module_installer')->install(['pds_configuration_base_data']);
 
   //TODO - Commenting this out temporarily as we won't be using groups exactly as this is implemented.
   //Adding the base users to the Groups.
@@ -130,7 +131,7 @@ function pds_cleanup_tasks() {
   $group->addMember(user_load_by_name('user2_tu_g1'));
   $result = $group->save();
 
-  /*$group = \Drupal\group\Entity\Group::load(2);
+  $group = \Drupal\group\Entity\Group::load(2);
   $group->addMember(user_load_by_name('user1_ta_g2'));
   $group->addMember(user_load_by_name('user2_ta_g2'));
   $group->addMember(user_load_by_name('user1_tu_g2'));
