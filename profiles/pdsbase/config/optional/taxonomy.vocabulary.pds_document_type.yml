@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'PDS Document Type'
+vid: pds_document_type
+description: 'This taxonomy type lists all of the available document types that can a template can be classified as.'
+hierarchy: 0
+weight: 0
