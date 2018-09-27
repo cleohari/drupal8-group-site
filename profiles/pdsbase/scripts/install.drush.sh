@@ -132,5 +132,3 @@ composer dump-autoload --optimize
 echo "Cleaning all caches."
 # Last minute cleanse.
 drush cr
-php ${DWD}/5Migration/base_data_import.php
-drush cr
