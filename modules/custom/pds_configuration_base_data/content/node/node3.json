@@ -1,0 +1,163 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/node\/3?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/node\/page"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/node\/page\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/page\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ]
+    },
+    "nid": [
+        {
+            "value": 3
+        }
+    ],
+    "uuid": [
+        {
+            "value": "ed21d71e-e7c7-4922-8d34-ab253e84f42e"
+        }
+    ],
+    "vid": [
+        {
+            "value": 3
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "page"
+        }
+    ],
+    "revision_timestamp": [
+        {
+            "value": "2018-09-27T00:28:42+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/node\/page\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "bf90e869-1320-414a-a1c6-23650a210bfc"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/page\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "bf90e869-1320-414a-a1c6-23650a210bfc"
+                    }
+                ],
+                "lang": "en"
+            }
+        ]
+    },
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "title": [
+        {
+            "value": "Team Members",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2018-09-27T00:28:42+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2018-09-27T00:28:42+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "promote": [
+        {
+            "value": false
+        }
+    ],
+    "sticky": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Team Members | pds159",
+                "canonical_url": "http:\/\/default\/node\/3",
+                "description": "Completely drive standardized initiatives with principle-centered ROI. Progressively aggregate emerging content rather than leveraged bandwidth and tech-enabled innovative materials with a touch of uniqueness.\n\n\n\n\n \n\nLorem Ipsum\n\nFounder & CEO"
+            }
+        }
+    ],
+    "body": [
+        {
+            "value": "<div class=\"subheader\">\r\n<p class=\"large\">Completely drive standardized initiatives with principle-centered ROI. Progressively aggregate emerging content rather than leveraged bandwidth <a href=\"#\">and tech-enabled innovative materials<\/a> with a touch of uniqueness.<\/p>\r\n<\/div>\r\n\r\n<div class=\"row\">\r\n<div class=\"col-md-4 col-sm-6\">\r\n<div class=\"team-member clearfix\"><a class=\"overlayed\" href=\"#\"><img alt=\"team member one\" src=\"http:\/\/mttprojects.s3.amazonaws.com\/demo.morethanthemes.com\/levelplus\/about-1.jpg\" \/> <\/a>\r\n\r\n<h3><a href=\"#\">Lorem Ipsum<\/a><\/h3>\r\n\r\n<p class=\"subtitle\">Founder & CEO<\/p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\r\n\r\n<ul class=\"list-unstyled\">\r\n\t<li class=\"phone\"><i class=\"fa fa-phone\"><span class=\"sr-only\">phone<\/span><\/i> +1 212-582-8102<\/li>\r\n\t<li class=\"email\"><i class=\"fa fa-envelope\"><span class=\"sr-only\">email<\/span><\/i> <a href=\"mailto:lorem.ipsum@enterpriseplus.com\">lorem.ipsum@enterpriseplus.com<\/a><\/li>\r\n<\/ul>\r\n\r\n<ul class=\"icons-list text-center\">\r\n\t<li class=\"facebook\"><a href=\"http:\/\/www.facebook.com\/morethan.just.themes\/\"><i class=\"fa fa-facebook\"><span class=\"sr-only\">facebook<\/span><\/i><\/a><\/li>\r\n\t<li class=\"twitter\"><a href=\"http:\/\/twitter.com\/morethanthemes\/\"><i class=\"fa fa-twitter\"><span class=\"sr-only\">twitter<\/span><\/i><\/a><\/li>\r\n\t<li class=\"googleplus\"><a href=\"https:\/\/plus.google.com\/118354321025436191714\/posts\"><i class=\"fa fa-google-plus\"><span class=\"sr-only\">google plus<\/span><\/i><\/a><\/li>\r\n\t<li class=\"linkedin\"><a href=\"http:\/\/www.linkedin.com\/company\/more-than-themes\/\"><i class=\"fa fa-linkedin\"><span class=\"sr-only\">linkedin<\/span><\/i><\/a><\/li>\r\n<\/ul>\r\n<\/div>\r\n<\/div>\r\n\r\n<div class=\"col-md-4 col-sm-6\">\r\n<div class=\"team-member clearfix\"><a class=\"overlayed\" href=\"#\"><img alt=\"team member two\" src=\"http:\/\/mttprojects.s3.amazonaws.com\/demo.morethanthemes.com\/levelplus\/about-2.jpg\" \/> <\/a>\r\n\r\n<h3><a href=\"#\">Lorem Ipsum<\/a><\/h3>\r\n\r\n<p class=\"subtitle\">Chief Operating Officer<\/p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\r\n\r\n<ul class=\"list-unstyled\">\r\n\t<li class=\"phone\"><i class=\"fa fa-phone\"><span class=\"sr-only\">phone<\/span><\/i> +1 212-582-8102<\/li>\r\n\t<li class=\"email\"><i class=\"fa fa-envelope\"><span class=\"sr-only\">email<\/span><\/i> <a href=\"mailto:lorem.ipsum@enterpriseplus.com\">lorem.ipsum@enterpriseplus.com<\/a><\/li>\r\n<\/ul>\r\n\r\n<ul class=\"icons-list text-center\">\r\n\t<li class=\"facebook\"><a href=\"http:\/\/www.facebook.com\/morethan.just.themes\/\"><i class=\"fa fa-facebook\"><span class=\"sr-only\">facebook<\/span><\/i><\/a><\/li>\r\n\t<li class=\"twitter\"><a href=\"http:\/\/twitter.com\/morethanthemes\/\"><i class=\"fa fa-twitter\"><span class=\"sr-only\">twitter<\/span><\/i><\/a><\/li>\r\n\t<li class=\"googleplus\"><a href=\"https:\/\/plus.google.com\/118354321025436191714\/posts\"><i class=\"fa fa-google-plus\"><span class=\"sr-only\">google plus<\/span><\/i><\/a><\/li>\r\n\t<li class=\"linkedin\"><a href=\"http:\/\/www.linkedin.com\/company\/more-than-themes\/\"><i class=\"fa fa-linkedin\"><span class=\"sr-only\">linkedin<\/span><\/i><\/a><\/li>\r\n<\/ul>\r\n<\/div>\r\n<\/div>\r\n\r\n<div class=\"clearfix visible-sm\">&nbsp;<\/div>\r\n\r\n<div class=\"col-md-4 col-sm-6\">\r\n<div class=\"team-member clearfix\"><a class=\"overlayed\" href=\"#\"><img alt=\"team member three\" src=\"http:\/\/mttprojects.s3.amazonaws.com\/demo.morethanthemes.com\/levelplus\/about-3.jpg\" \/> <\/a>\r\n\r\n<h3><a href=\"#\">Lorem Ipsum<\/a><\/h3>\r\n\r\n<p class=\"subtitle\">Chief Financial Officer<\/p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\r\n\r\n<ul class=\"list-unstyled\">\r\n\t<li class=\"phone\"><i class=\"fa fa-phone\"><span class=\"sr-only\">phone<\/span><\/i> +1 212-582-8102<\/li>\r\n\t<li class=\"email\"><i class=\"fa fa-envelope\"><span class=\"sr-only\">email<\/span><\/i> <a href=\"mailto:lorem.ipsum@enterpriseplus.com\">lorem.ipsum@enterpriseplus.com<\/a><\/li>\r\n<\/ul>\r\n\r\n<ul class=\"icons-list text-center\">\r\n\t<li class=\"facebook\"><a href=\"http:\/\/www.facebook.com\/morethan.just.themes\/\"><i class=\"fa fa-facebook\"><span class=\"sr-only\">facebook<\/span><\/i><\/a><\/li>\r\n\t<li class=\"twitter\"><a href=\"http:\/\/twitter.com\/morethanthemes\/\"><i class=\"fa fa-twitter\"><span class=\"sr-only\">twitter<\/span><\/i><\/a><\/li>\r\n\t<li class=\"googleplus\"><a href=\"https:\/\/plus.google.com\/118354321025436191714\/posts\"><i class=\"fa fa-google-plus\"><span class=\"sr-only\">google plus<\/span><\/i><\/a><\/li>\r\n\t<li class=\"linkedin\"><a href=\"http:\/\/www.linkedin.com\/company\/more-than-themes\/\"><i class=\"fa fa-linkedin\"><span class=\"sr-only\">linkedin<\/span><\/i><\/a><\/li>\r\n<\/ul>\r\n<\/div>\r\n<\/div>\r\n\r\n<div class=\"clearfix visible-md visible-lg\">&nbsp;<\/div>\r\n\r\n<div class=\"col-md-4 col-sm-6\">\r\n<div class=\"team-member clearfix\"><a class=\"overlayed\" href=\"#\"><img alt=\"team member four\" src=\"http:\/\/mttprojects.s3.amazonaws.com\/demo.morethanthemes.com\/levelplus\/about-4.jpg\" \/> <\/a>\r\n\r\n<h3><a href=\"#\">Lorem Ipsum<\/a><\/h3>\r\n\r\n<p class=\"subtitle\">Chief Financial Officer<\/p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\r\n\r\n<ul class=\"list-unstyled\">\r\n\t<li class=\"phone\"><i class=\"fa fa-phone\"><span class=\"sr-only\">phone<\/span><\/i> +1 212-582-8102<\/li>\r\n\t<li class=\"email\"><i class=\"fa fa-envelope\"><span class=\"sr-only\">email<\/span><\/i> <a href=\"mailto:lorem.ipsum@enterpriseplus.com\">lorem.ipsum@enterpriseplus.com<\/a><\/li>\r\n<\/ul>\r\n\r\n<ul class=\"icons-list text-center\">\r\n\t<li class=\"facebook\"><a href=\"http:\/\/www.facebook.com\/morethan.just.themes\/\"><i class=\"fa fa-facebook\"><span class=\"sr-only\">facebook<\/span><\/i><\/a><\/li>\r\n\t<li class=\"twitter\"><a href=\"http:\/\/twitter.com\/morethanthemes\/\"><i class=\"fa fa-twitter\"><span class=\"sr-only\">twitter<\/span><\/i><\/a><\/li>\r\n\t<li class=\"googleplus\"><a href=\"https:\/\/plus.google.com\/118354321025436191714\/posts\"><i class=\"fa fa-google-plus\"><span class=\"sr-only\">google plus<\/span><\/i><\/a><\/li>\r\n\t<li class=\"linkedin\"><a href=\"http:\/\/www.linkedin.com\/company\/more-than-themes\/\"><i class=\"fa fa-linkedin\"><span class=\"sr-only\">linkedin<\/span><\/i><\/a><\/li>\r\n<\/ul>\r\n<\/div>\r\n<\/div>\r\n\r\n<div class=\"clearfix visible-sm\">&nbsp;<\/div>\r\n\r\n<div class=\"col-md-4 col-sm-6\">\r\n<div class=\"team-member clearfix\"><a class=\"overlayed\" href=\"#\"><img alt=\"team member five\" src=\"http:\/\/mttprojects.s3.amazonaws.com\/demo.morethanthemes.com\/levelplus\/about-5.jpg\" \/> <\/a>\r\n\r\n<h3><a href=\"#\">Lorem Ipsum<\/a><\/h3>\r\n\r\n<p class=\"subtitle\">Chief Financial Officer<\/p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\r\n\r\n<ul class=\"list-unstyled\">\r\n\t<li class=\"phone\"><i class=\"fa fa-phone\"><span class=\"sr-only\">phone<\/span><\/i> +1 212-582-8102<\/li>\r\n\t<li class=\"email\"><i class=\"fa fa-envelope\"><span class=\"sr-only\">email<\/span><\/i> <a href=\"mailto:lorem.ipsum@enterpriseplus.com\">lorem.ipsum@enterpriseplus.com<\/a><\/li>\r\n<\/ul>\r\n\r\n<ul class=\"icons-list text-center\">\r\n\t<li class=\"facebook\"><a href=\"http:\/\/www.facebook.com\/morethan.just.themes\/\"><i class=\"fa fa-facebook\"><span class=\"sr-only\">facebook<\/span><\/i><\/a><\/li>\r\n\t<li class=\"twitter\"><a href=\"http:\/\/twitter.com\/morethanthemes\/\"><i class=\"fa fa-twitter\"><span class=\"sr-only\">twitter<\/span><\/i><\/a><\/li>\r\n\t<li class=\"googleplus\"><a href=\"https:\/\/plus.google.com\/118354321025436191714\/posts\"><i class=\"fa fa-google-plus\"><span class=\"sr-only\">google plus<\/span><\/i><\/a><\/li>\r\n\t<li class=\"linkedin\"><a href=\"http:\/\/www.linkedin.com\/company\/more-than-themes\/\"><i class=\"fa fa-linkedin\"><span class=\"sr-only\">linkedin<\/span><\/i><\/a><\/li>\r\n<\/ul>\r\n<\/div>\r\n<\/div>\r\n\r\n<div class=\"col-md-4 col-sm-6\">\r\n<div class=\"team-member clearfix\"><a class=\"overlayed\" href=\"#\"><img alt=\"team member six\" src=\"http:\/\/mttprojects.s3.amazonaws.com\/demo.morethanthemes.com\/levelplus\/about-6.jpg\" \/> <\/a>\r\n\r\n<h3><a href=\"#\">Lorem Ipsum<\/a><\/h3>\r\n\r\n<p class=\"subtitle\">Chief Financial Officer<\/p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\r\n\r\n<ul class=\"list-unstyled\">\r\n\t<li class=\"phone\"><i class=\"fa fa-phone\"><span class=\"sr-only\">phone<\/span><\/i> +1 212-582-8102<\/li>\r\n\t<li class=\"email\"><i class=\"fa fa-envelope\"><span class=\"sr-only\">email<\/span><\/i> <a href=\"mailto:lorem.ipsum@enterpriseplus.com\">lorem.ipsum@enterpriseplus.com<\/a><\/li>\r\n<\/ul>\r\n\r\n<ul class=\"icons-list text-center\">\r\n\t<li class=\"facebook\"><a href=\"http:\/\/www.facebook.com\/morethan.just.themes\/\"><i class=\"fa fa-facebook\"><span class=\"sr-only\">facebook<\/span><\/i><\/a><\/li>\r\n\t<li class=\"twitter\"><a href=\"http:\/\/twitter.com\/morethanthemes\/\"><i class=\"fa fa-twitter\"><span class=\"sr-only\">twitter<\/span><\/i><\/a><\/li>\r\n\t<li class=\"googleplus\"><a href=\"https:\/\/plus.google.com\/118354321025436191714\/posts\"><i class=\"fa fa-google-plus\"><span class=\"sr-only\">google plus<\/span><\/i><\/a><\/li>\r\n\t<li class=\"linkedin\"><a href=\"http:\/\/www.linkedin.com\/company\/more-than-themes\/\"><i class=\"fa fa-linkedin\"><span class=\"sr-only\">linkedin<\/span><\/i><\/a><\/li>\r\n<\/ul>\r\n<\/div>\r\n<\/div>\r\n<\/div>\r\n",
+            "format": "full_html",
+            "processed": "<div class=\"subheader\">\n<p class=\"large\">Completely drive standardized initiatives with principle-centered ROI. Progressively aggregate emerging content rather than leveraged bandwidth <a href=\"#\">and tech-enabled innovative materials<\/a> with a touch of uniqueness.<\/p>\n<\/div>\n\n<div class=\"row\">\n<div class=\"col-md-4 col-sm-6\">\n<div class=\"team-member clearfix\"><a class=\"overlayed\" href=\"#\"><img alt=\"team member one\" src=\"http:\/\/mttprojects.s3.amazonaws.com\/demo.morethanthemes.com\/levelplus\/about-1.jpg\" \/> <\/a>\n\n<h3><a href=\"#\">Lorem Ipsum<\/a><\/h3>\n\n<p class=\"subtitle\">Founder &amp; CEO<\/p>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\n\n<ul class=\"list-unstyled\">\n\t<li class=\"phone\"><i class=\"fa fa-phone\"><span class=\"sr-only\">phone<\/span><\/i> +1 212-582-8102<\/li>\n\t<li class=\"email\"><i class=\"fa fa-envelope\"><span class=\"sr-only\">email<\/span><\/i> <a href=\"mailto:lorem.ipsum@enterpriseplus.com\">lorem.ipsum@enterpriseplus.com<\/a><\/li>\n<\/ul>\n\n<ul class=\"icons-list text-center\">\n\t<li class=\"facebook\"><a href=\"http:\/\/www.facebook.com\/morethan.just.themes\/\"><i class=\"fa fa-facebook\"><span class=\"sr-only\">facebook<\/span><\/i><\/a><\/li>\n\t<li class=\"twitter\"><a href=\"http:\/\/twitter.com\/morethanthemes\/\"><i class=\"fa fa-twitter\"><span class=\"sr-only\">twitter<\/span><\/i><\/a><\/li>\n\t<li class=\"googleplus\"><a href=\"https:\/\/plus.google.com\/118354321025436191714\/posts\"><i class=\"fa fa-google-plus\"><span class=\"sr-only\">google plus<\/span><\/i><\/a><\/li>\n\t<li class=\"linkedin\"><a href=\"http:\/\/www.linkedin.com\/company\/more-than-themes\/\"><i class=\"fa fa-linkedin\"><span class=\"sr-only\">linkedin<\/span><\/i><\/a><\/li>\n<\/ul>\n<\/div>\n<\/div>\n\n<div class=\"col-md-4 col-sm-6\">\n<div class=\"team-member clearfix\"><a class=\"overlayed\" href=\"#\"><img alt=\"team member two\" src=\"http:\/\/mttprojects.s3.amazonaws.com\/demo.morethanthemes.com\/levelplus\/about-2.jpg\" \/> <\/a>\n\n<h3><a href=\"#\">Lorem Ipsum<\/a><\/h3>\n\n<p class=\"subtitle\">Chief Operating Officer<\/p>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\n\n<ul class=\"list-unstyled\">\n\t<li class=\"phone\"><i class=\"fa fa-phone\"><span class=\"sr-only\">phone<\/span><\/i> +1 212-582-8102<\/li>\n\t<li class=\"email\"><i class=\"fa fa-envelope\"><span class=\"sr-only\">email<\/span><\/i> <a href=\"mailto:lorem.ipsum@enterpriseplus.com\">lorem.ipsum@enterpriseplus.com<\/a><\/li>\n<\/ul>\n\n<ul class=\"icons-list text-center\">\n\t<li class=\"facebook\"><a href=\"http:\/\/www.facebook.com\/morethan.just.themes\/\"><i class=\"fa fa-facebook\"><span class=\"sr-only\">facebook<\/span><\/i><\/a><\/li>\n\t<li class=\"twitter\"><a href=\"http:\/\/twitter.com\/morethanthemes\/\"><i class=\"fa fa-twitter\"><span class=\"sr-only\">twitter<\/span><\/i><\/a><\/li>\n\t<li class=\"googleplus\"><a href=\"https:\/\/plus.google.com\/118354321025436191714\/posts\"><i class=\"fa fa-google-plus\"><span class=\"sr-only\">google plus<\/span><\/i><\/a><\/li>\n\t<li class=\"linkedin\"><a href=\"http:\/\/www.linkedin.com\/company\/more-than-themes\/\"><i class=\"fa fa-linkedin\"><span class=\"sr-only\">linkedin<\/span><\/i><\/a><\/li>\n<\/ul>\n<\/div>\n<\/div>\n\n<div class=\"clearfix visible-sm\">\u00a0<\/div>\n\n<div class=\"col-md-4 col-sm-6\">\n<div class=\"team-member clearfix\"><a class=\"overlayed\" href=\"#\"><img alt=\"team member three\" src=\"http:\/\/mttprojects.s3.amazonaws.com\/demo.morethanthemes.com\/levelplus\/about-3.jpg\" \/> <\/a>\n\n<h3><a href=\"#\">Lorem Ipsum<\/a><\/h3>\n\n<p class=\"subtitle\">Chief Financial Officer<\/p>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\n\n<ul class=\"list-unstyled\">\n\t<li class=\"phone\"><i class=\"fa fa-phone\"><span class=\"sr-only\">phone<\/span><\/i> +1 212-582-8102<\/li>\n\t<li class=\"email\"><i class=\"fa fa-envelope\"><span class=\"sr-only\">email<\/span><\/i> <a href=\"mailto:lorem.ipsum@enterpriseplus.com\">lorem.ipsum@enterpriseplus.com<\/a><\/li>\n<\/ul>\n\n<ul class=\"icons-list text-center\">\n\t<li class=\"facebook\"><a href=\"http:\/\/www.facebook.com\/morethan.just.themes\/\"><i class=\"fa fa-facebook\"><span class=\"sr-only\">facebook<\/span><\/i><\/a><\/li>\n\t<li class=\"twitter\"><a href=\"http:\/\/twitter.com\/morethanthemes\/\"><i class=\"fa fa-twitter\"><span class=\"sr-only\">twitter<\/span><\/i><\/a><\/li>\n\t<li class=\"googleplus\"><a href=\"https:\/\/plus.google.com\/118354321025436191714\/posts\"><i class=\"fa fa-google-plus\"><span class=\"sr-only\">google plus<\/span><\/i><\/a><\/li>\n\t<li class=\"linkedin\"><a href=\"http:\/\/www.linkedin.com\/company\/more-than-themes\/\"><i class=\"fa fa-linkedin\"><span class=\"sr-only\">linkedin<\/span><\/i><\/a><\/li>\n<\/ul>\n<\/div>\n<\/div>\n\n<div class=\"clearfix visible-md visible-lg\">\u00a0<\/div>\n\n<div class=\"col-md-4 col-sm-6\">\n<div class=\"team-member clearfix\"><a class=\"overlayed\" href=\"#\"><img alt=\"team member four\" src=\"http:\/\/mttprojects.s3.amazonaws.com\/demo.morethanthemes.com\/levelplus\/about-4.jpg\" \/> <\/a>\n\n<h3><a href=\"#\">Lorem Ipsum<\/a><\/h3>\n\n<p class=\"subtitle\">Chief Financial Officer<\/p>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\n\n<ul class=\"list-unstyled\">\n\t<li class=\"phone\"><i class=\"fa fa-phone\"><span class=\"sr-only\">phone<\/span><\/i> +1 212-582-8102<\/li>\n\t<li class=\"email\"><i class=\"fa fa-envelope\"><span class=\"sr-only\">email<\/span><\/i> <a href=\"mailto:lorem.ipsum@enterpriseplus.com\">lorem.ipsum@enterpriseplus.com<\/a><\/li>\n<\/ul>\n\n<ul class=\"icons-list text-center\">\n\t<li class=\"facebook\"><a href=\"http:\/\/www.facebook.com\/morethan.just.themes\/\"><i class=\"fa fa-facebook\"><span class=\"sr-only\">facebook<\/span><\/i><\/a><\/li>\n\t<li class=\"twitter\"><a href=\"http:\/\/twitter.com\/morethanthemes\/\"><i class=\"fa fa-twitter\"><span class=\"sr-only\">twitter<\/span><\/i><\/a><\/li>\n\t<li class=\"googleplus\"><a href=\"https:\/\/plus.google.com\/118354321025436191714\/posts\"><i class=\"fa fa-google-plus\"><span class=\"sr-only\">google plus<\/span><\/i><\/a><\/li>\n\t<li class=\"linkedin\"><a href=\"http:\/\/www.linkedin.com\/company\/more-than-themes\/\"><i class=\"fa fa-linkedin\"><span class=\"sr-only\">linkedin<\/span><\/i><\/a><\/li>\n<\/ul>\n<\/div>\n<\/div>\n\n<div class=\"clearfix visible-sm\">\u00a0<\/div>\n\n<div class=\"col-md-4 col-sm-6\">\n<div class=\"team-member clearfix\"><a class=\"overlayed\" href=\"#\"><img alt=\"team member five\" src=\"http:\/\/mttprojects.s3.amazonaws.com\/demo.morethanthemes.com\/levelplus\/about-5.jpg\" \/> <\/a>\n\n<h3><a href=\"#\">Lorem Ipsum<\/a><\/h3>\n\n<p class=\"subtitle\">Chief Financial Officer<\/p>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\n\n<ul class=\"list-unstyled\">\n\t<li class=\"phone\"><i class=\"fa fa-phone\"><span class=\"sr-only\">phone<\/span><\/i> +1 212-582-8102<\/li>\n\t<li class=\"email\"><i class=\"fa fa-envelope\"><span class=\"sr-only\">email<\/span><\/i> <a href=\"mailto:lorem.ipsum@enterpriseplus.com\">lorem.ipsum@enterpriseplus.com<\/a><\/li>\n<\/ul>\n\n<ul class=\"icons-list text-center\">\n\t<li class=\"facebook\"><a href=\"http:\/\/www.facebook.com\/morethan.just.themes\/\"><i class=\"fa fa-facebook\"><span class=\"sr-only\">facebook<\/span><\/i><\/a><\/li>\n\t<li class=\"twitter\"><a href=\"http:\/\/twitter.com\/morethanthemes\/\"><i class=\"fa fa-twitter\"><span class=\"sr-only\">twitter<\/span><\/i><\/a><\/li>\n\t<li class=\"googleplus\"><a href=\"https:\/\/plus.google.com\/118354321025436191714\/posts\"><i class=\"fa fa-google-plus\"><span class=\"sr-only\">google plus<\/span><\/i><\/a><\/li>\n\t<li class=\"linkedin\"><a href=\"http:\/\/www.linkedin.com\/company\/more-than-themes\/\"><i class=\"fa fa-linkedin\"><span class=\"sr-only\">linkedin<\/span><\/i><\/a><\/li>\n<\/ul>\n<\/div>\n<\/div>\n\n<div class=\"col-md-4 col-sm-6\">\n<div class=\"team-member clearfix\"><a class=\"overlayed\" href=\"#\"><img alt=\"team member six\" src=\"http:\/\/mttprojects.s3.amazonaws.com\/demo.morethanthemes.com\/levelplus\/about-6.jpg\" \/> <\/a>\n\n<h3><a href=\"#\">Lorem Ipsum<\/a><\/h3>\n\n<p class=\"subtitle\">Chief Financial Officer<\/p>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p>\n\n<ul class=\"list-unstyled\">\n\t<li class=\"phone\"><i class=\"fa fa-phone\"><span class=\"sr-only\">phone<\/span><\/i> +1 212-582-8102<\/li>\n\t<li class=\"email\"><i class=\"fa fa-envelope\"><span class=\"sr-only\">email<\/span><\/i> <a href=\"mailto:lorem.ipsum@enterpriseplus.com\">lorem.ipsum@enterpriseplus.com<\/a><\/li>\n<\/ul>\n\n<ul class=\"icons-list text-center\">\n\t<li class=\"facebook\"><a href=\"http:\/\/www.facebook.com\/morethan.just.themes\/\"><i class=\"fa fa-facebook\"><span class=\"sr-only\">facebook<\/span><\/i><\/a><\/li>\n\t<li class=\"twitter\"><a href=\"http:\/\/twitter.com\/morethanthemes\/\"><i class=\"fa fa-twitter\"><span class=\"sr-only\">twitter<\/span><\/i><\/a><\/li>\n\t<li class=\"googleplus\"><a href=\"https:\/\/plus.google.com\/118354321025436191714\/posts\"><i class=\"fa fa-google-plus\"><span class=\"sr-only\">google plus<\/span><\/i><\/a><\/li>\n\t<li class=\"linkedin\"><a href=\"http:\/\/www.linkedin.com\/company\/more-than-themes\/\"><i class=\"fa fa-linkedin\"><span class=\"sr-only\">linkedin<\/span><\/i><\/a><\/li>\n<\/ul>\n<\/div>\n<\/div>\n<\/div>\n",
+            "summary": null,
+            "lang": "en"
+        }
+    ],
+    "field_mt_slideshow": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ]
+}

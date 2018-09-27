@@ -1,0 +1,163 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/node\/1?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/node\/page"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/node\/page\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/page\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ]
+    },
+    "nid": [
+        {
+            "value": 1
+        }
+    ],
+    "uuid": [
+        {
+            "value": "df441871-60b3-4f69-8625-692a1abb6d48"
+        }
+    ],
+    "vid": [
+        {
+            "value": 1
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "page"
+        }
+    ],
+    "revision_timestamp": [
+        {
+            "value": "2018-09-27T00:28:42+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/node\/page\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "bf90e869-1320-414a-a1c6-23650a210bfc"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/page\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "bf90e869-1320-414a-a1c6-23650a210bfc"
+                    }
+                ],
+                "lang": "en"
+            }
+        ]
+    },
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "title": [
+        {
+            "value": "Style guide",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2018-09-27T00:28:42+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2018-09-27T00:28:42+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "promote": [
+        {
+            "value": false
+        }
+    ],
+    "sticky": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Style guide | pds159",
+                "canonical_url": "http:\/\/default\/node\/1",
+                "description": "Phosfluorescently e-enable adaptive synergy for strategic quality vectors. Continually transform fully tested expertise with competitive technologies appropriately communicate.\n\nHeading 2\n\nDonec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
+            }
+        }
+    ],
+    "body": [
+        {
+            "value": "<p class=\"large\">Phosfluorescently e-enable adaptive synergy for strategic quality vectors. Continually transform fully tested expertise with competitive technologies appropriately communicate.<\/p>\r\n\r\n<h2>Heading 2<\/h2>\r\n\r\n<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer <a href=\"#\">posuere erat a ante<\/a> venenatis dapibus posuere velit aliquet.<\/p>\r\n\r\n<h2><a href=\"#\">Linked Heading 2<\/a><\/h2>\r\n\r\n<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer <a href=\"#\">posuere erat a ante<\/a> venenatis dapibus posuere velit aliquet.<\/p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, esse, quo distinctio dolores magni reprehenderit id est at fugiat veritatis fugit dignissimos sed ut facere molestias illo impedit. Tempora, iure!<\/p>\r\n\r\n<h3>Heading 3<\/h3>\r\n\r\n<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer <a href=\"#\">posuere erat a ante<\/a> venenatis dapibus posuere velit aliquet.<\/p>\r\n\r\n<h4>Heading 4<\/h4>\r\n\r\n<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer <a href=\"#\">posuere erat a ante<\/a> venenatis dapibus posuere velit aliquet.<\/p>\r\n\r\n<h5>Heading 5<\/h5>\r\n\r\n<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer <a href=\"#\">posuere erat a ante<\/a> venenatis dapibus posuere velit aliquet.<\/p>\r\n\r\n<blockquote>\r\n<p>Phosfluorescently e-enable adaptive synergy for strategic quality vectors. Continually transform fully tested <a href=\"#\">expertise with quote link<\/a>. Appropriately communicate adaptive imperatives rather than value-added potentialities. Conveniently harness frictionless outsourcing.<\/p>\r\n<\/blockquote>\r\n\r\n<h3>Messages<\/h3>\r\n\r\n<div aria-label=\"Status message\" class=\"messages messages--status\" role=\"contentinfo\">\r\n<h2 class=\"visually-hidden\">Status message<\/h2>\r\nSample status message. Page <em><strong>Typography<\/strong><\/em> has been updated.<\/div>\r\n\r\n<div aria-label=\"Error message\" class=\"messages messages--error\" role=\"contentinfo\">\r\n<h2 class=\"visually-hidden\">Status message<\/h2>\r\nSample error message. There is a security update available for your version of Drupal. To ensure the security of your server, you should update immediately! See the available updates page for more information.<\/div>\r\n\r\n<div aria-label=\"Warningmessage\" class=\"messages messages--warning\" role=\"contentinfo\">\r\n<h2 class=\"visually-hidden\">Status message<\/h2>\r\nSample warning message. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/div>\r\n\r\n<p>&nbsp;<\/p>\r\n\r\n<h3>Paragraph With Links<\/h3>\r\n\r\n<p>&nbsp;<\/p>\r\n\r\n<p>Lorem ipsum dolor sit amet, <a href=\"#\">consectetuer adipiscing<\/a> elit. Donec odio. Quisque volutpat mattis eros. <a href=\"#\">Nullam malesuada<\/a> erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.<\/p>\r\n\r\n<h3>Ordered List<\/h3>\r\n\r\n<ol>\r\n\t<li>This is a sample Ordered List.<\/li>\r\n\t<li>Lorem ipsum dolor sit amet consectetuer.<\/li>\r\n\t<li>Congue Quisque augue elit dolor.\r\n\t<ol>\r\n\t\t<li>Something goes here.<\/li>\r\n\t\t<li>And another here<\/li>\r\n\t<\/ol>\r\n\t<\/li>\r\n\t<li>Congue Quisque augue elit dolor nibh.<\/li>\r\n<\/ol>\r\n\r\n<h3>Unordered List<\/h3>\r\n\r\n<ul>\r\n\t<li>This is a sample <strong>Unordered List<\/strong>.<\/li>\r\n\t<li>Condimentum quis.<\/li>\r\n\t<li>Congue Quisque augue elit dolor.\r\n\t<ul>\r\n\t\t<li>Something goes here.<\/li>\r\n\t\t<li>And another here\r\n\t\t<ul>\r\n\t\t\t<li>Something here as well<\/li>\r\n\t\t\t<li>Something here as well<\/li>\r\n\t\t\t<li>Something here as well<\/li>\r\n\t\t<\/ul>\r\n\t\t<\/li>\r\n\t\t<li>Then one more<\/li>\r\n\t<\/ul>\r\n\t<\/li>\r\n\t<li>Nunc cursus sem et pretium sapien eget.<\/li>\r\n<\/ul>\r\n\r\n<h3>Fieldset<\/h3>\r\n\r\n<fieldset><legend>Account information<\/legend><\/fieldset>\r\n\r\n<h3>Buttons & Text fields<\/h3>\r\n\r\n<p><a class=\"button\" href=\"#\">Find out more<\/a><\/p>\r\n\r\n<h4>Text Fields<\/h4>\r\n\r\n<form action=\"#\">\r\n<div class=\"form-item form-type-textfield\"><input class=\"form-text\" name=\"subscribe\" onblur=\"if (this.value == '') {this.value = 'Your email address';}\" onfocus=\"if (this.value == 'Your email address') {this.value = '';}\" type=\"text\" value=\"Your email address\" \/><\/div>\r\n\r\n<div class=\"form-actions\"><input class=\"form-submit\" id=\"edit-submit-3\" name=\"subscribe\" type=\"submit\" value=\"Subscribe\" \/><\/div>\r\n<\/form>\r\n\r\n<form action=\"#\" class=\"container-inline\">\r\n<div class=\"form-item form-type-textfield\"><input class=\"form-text\" name=\"subscribe\" onblur=\"if (this.value == '') {this.value = 'Inline form items';}\" onfocus=\"if (this.value == 'Your email address') {this.value = '';}\" type=\"text\" value=\"Inline form items\" \/><\/div>\r\n\r\n<div class=\"form-actions\"><input class=\"form-submit\" id=\"edit-submit-4\" name=\"subscribe\" type=\"submit\" value=\"Subscribe\" \/><\/div>\r\n<\/form>\r\n\r\n<h4>Select Dropdown<\/h4>\r\n\r\n<p><select class=\"form-select\" name=\"select_field\"><option selected=\"selected\" value=\"All\">- Any -<\/option><option value=\"6\">Apartment<\/option><option value=\"7\">Family House<\/option><option value=\"8\">Office<\/option><\/select><\/p>\r\n\r\n<h3>Table<\/h3>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Header 1<\/th>\r\n\t\t\t<th>Header 2<\/th>\r\n\t\t<\/tr>\r\n\t\t<tr class=\"odd\">\r\n\t\t\t<td>row 1, cell 1<\/td>\r\n\t\t\t<td>row 1, cell 2<\/td>\r\n\t\t<\/tr>\r\n\t\t<tr class=\"even\">\r\n\t\t\t<td>row 2, cell 1<\/td>\r\n\t\t\t<td>row 2, cell 2<\/td>\r\n\t\t<\/tr>\r\n\t\t<tr class=\"odd\">\r\n\t\t\t<td>row 3, cell 1<\/td>\r\n\t\t\t<td>row 3, cell 2<\/td>\r\n\t\t<\/tr>\r\n\t<\/tbody>\r\n<\/table>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"row\">Heading 1<\/th>\r\n\t\t\t<td>Item 1<\/td>\r\n\t\t<\/tr>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"row\">Heading 2<\/th>\r\n\t\t\t<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<\/td>\r\n\t\t<\/tr>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"row\">Heading 3<\/th>\r\n\t\t\t<td>$5.99<\/td>\r\n\t\t<\/tr>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"row\">Total<\/th>\r\n\t\t\t<td>$5.99<\/td>\r\n\t\t<\/tr>\r\n\t<\/tbody>\r\n<\/table>\r\n\r\n<table>\r\n  <thead>\r\n    <tr>\r\n      <th>#<\/th>\r\n      <th>First Name<\/th>\r\n      <th>Last Name<\/th>\r\n      <th>Username<\/th>\r\n    <\/tr>\r\n  <\/thead>\r\n  <tbody>\r\n    <tr>\r\n      <th scope=\"row\">1<\/th>\r\n      <td>Mark<\/td>\r\n      <td>Otto<\/td>\r\n      <td>@mdo<\/td>\r\n    <\/tr>\r\n    <tr>\r\n      <th scope=\"row\">2<\/th>\r\n      <td>Jacob<\/td>\r\n      <td>Thornton<\/td>\r\n      <td>@fat<\/td>\r\n    <\/tr>\r\n    <tr>\r\n      <th scope=\"row\">3<\/th>\r\n      <td>Larry<\/td>\r\n      <td>the Bird<\/td>\r\n      <td>@twitter<\/td>\r\n    <\/tr>\r\n  <\/tbody>\r\n<\/table>",
+            "format": "full_html",
+            "processed": "<p class=\"large\">Phosfluorescently e-enable adaptive synergy for strategic quality vectors. Continually transform fully tested expertise with competitive technologies appropriately communicate.<\/p>\n\n<h2>Heading 2<\/h2>\n\n<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer <a href=\"#\">posuere erat a ante<\/a> venenatis dapibus posuere velit aliquet.<\/p>\n\n<h2><a href=\"#\">Linked Heading 2<\/a><\/h2>\n\n<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer <a href=\"#\">posuere erat a ante<\/a> venenatis dapibus posuere velit aliquet.<\/p>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, esse, quo distinctio dolores magni reprehenderit id est at fugiat veritatis fugit dignissimos sed ut facere molestias illo impedit. Tempora, iure!<\/p>\n\n<h3>Heading 3<\/h3>\n\n<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer <a href=\"#\">posuere erat a ante<\/a> venenatis dapibus posuere velit aliquet.<\/p>\n\n<h4>Heading 4<\/h4>\n\n<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer <a href=\"#\">posuere erat a ante<\/a> venenatis dapibus posuere velit aliquet.<\/p>\n\n<h5>Heading 5<\/h5>\n\n<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer <a href=\"#\">posuere erat a ante<\/a> venenatis dapibus posuere velit aliquet.<\/p>\n\n<blockquote>\n<p>Phosfluorescently e-enable adaptive synergy for strategic quality vectors. Continually transform fully tested <a href=\"#\">expertise with quote link<\/a>. Appropriately communicate adaptive imperatives rather than value-added potentialities. Conveniently harness frictionless outsourcing.<\/p>\n<\/blockquote>\n\n<h3>Messages<\/h3>\n\n<div aria-label=\"Status message\" class=\"messages messages--status\" role=\"contentinfo\">\n<h2 class=\"visually-hidden\">Status message<\/h2>\nSample status message. Page <em><strong>Typography<\/strong><\/em> has been updated.<\/div>\n\n<div aria-label=\"Error message\" class=\"messages messages--error\" role=\"contentinfo\">\n<h2 class=\"visually-hidden\">Status message<\/h2>\nSample error message. There is a security update available for your version of Drupal. To ensure the security of your server, you should update immediately! See the available updates page for more information.<\/div>\n\n<div aria-label=\"Warningmessage\" class=\"messages messages--warning\" role=\"contentinfo\">\n<h2 class=\"visually-hidden\">Status message<\/h2>\nSample warning message. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/div>\n\n<p>\u00a0<\/p>\n\n<h3>Paragraph With Links<\/h3>\n\n<p>\u00a0<\/p>\n\n<p>Lorem ipsum dolor sit amet, <a href=\"#\">consectetuer adipiscing<\/a> elit. Donec odio. Quisque volutpat mattis eros. <a href=\"#\">Nullam malesuada<\/a> erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.<\/p>\n\n<h3>Ordered List<\/h3>\n\n<ol>\n\t<li>This is a sample Ordered List.<\/li>\n\t<li>Lorem ipsum dolor sit amet consectetuer.<\/li>\n\t<li>Congue Quisque augue elit dolor.\n\t<ol>\n\t\t<li>Something goes here.<\/li>\n\t\t<li>And another here<\/li>\n\t<\/ol>\n\t<\/li>\n\t<li>Congue Quisque augue elit dolor nibh.<\/li>\n<\/ol>\n\n<h3>Unordered List<\/h3>\n\n<ul>\n\t<li>This is a sample <strong>Unordered List<\/strong>.<\/li>\n\t<li>Condimentum quis.<\/li>\n\t<li>Congue Quisque augue elit dolor.\n\t<ul>\n\t\t<li>Something goes here.<\/li>\n\t\t<li>And another here\n\t\t<ul>\n\t\t\t<li>Something here as well<\/li>\n\t\t\t<li>Something here as well<\/li>\n\t\t\t<li>Something here as well<\/li>\n\t\t<\/ul>\n\t\t<\/li>\n\t\t<li>Then one more<\/li>\n\t<\/ul>\n\t<\/li>\n\t<li>Nunc cursus sem et pretium sapien eget.<\/li>\n<\/ul>\n\n<h3>Fieldset<\/h3>\n\n<fieldset><legend>Account information<\/legend><\/fieldset>\n\n<h3>Buttons &amp; Text fields<\/h3>\n\n<p><a class=\"button\" href=\"#\">Find out more<\/a><\/p>\n\n<h4>Text Fields<\/h4>\n\n<form action=\"#\">\n<div class=\"form-item form-type-textfield\"><input class=\"form-text\" name=\"subscribe\" onblur=\"if (this.value == '') {this.value = 'Your email address';}\" onfocus=\"if (this.value == 'Your email address') {this.value = '';}\" type=\"text\" value=\"Your email address\" \/><\/div>\n\n<div class=\"form-actions\"><input class=\"form-submit\" id=\"edit-submit-3\" name=\"subscribe\" type=\"submit\" value=\"Subscribe\" \/><\/div>\n<\/form>\n\n<form action=\"#\" class=\"container-inline\">\n<div class=\"form-item form-type-textfield\"><input class=\"form-text\" name=\"subscribe\" onblur=\"if (this.value == '') {this.value = 'Inline form items';}\" onfocus=\"if (this.value == 'Your email address') {this.value = '';}\" type=\"text\" value=\"Inline form items\" \/><\/div>\n\n<div class=\"form-actions\"><input class=\"form-submit\" id=\"edit-submit-4\" name=\"subscribe\" type=\"submit\" value=\"Subscribe\" \/><\/div>\n<\/form>\n\n<h4>Select Dropdown<\/h4>\n\n<p><select class=\"form-select\" name=\"select_field\"><option selected=\"selected\" value=\"All\">- Any -<\/option><option value=\"6\">Apartment<\/option><option value=\"7\">Family House<\/option><option value=\"8\">Office<\/option><\/select><\/p>\n\n<h3>Table<\/h3>\n\n<table>\n\t<tbody>\n\t\t<tr>\n\t\t\t<th>Header 1<\/th>\n\t\t\t<th>Header 2<\/th>\n\t\t<\/tr>\n\t\t<tr class=\"odd\">\n\t\t\t<td>row 1, cell 1<\/td>\n\t\t\t<td>row 1, cell 2<\/td>\n\t\t<\/tr>\n\t\t<tr class=\"even\">\n\t\t\t<td>row 2, cell 1<\/td>\n\t\t\t<td>row 2, cell 2<\/td>\n\t\t<\/tr>\n\t\t<tr class=\"odd\">\n\t\t\t<td>row 3, cell 1<\/td>\n\t\t\t<td>row 3, cell 2<\/td>\n\t\t<\/tr>\n\t<\/tbody>\n<\/table>\n\n<table>\n\t<tbody>\n\t\t<tr>\n\t\t\t<th scope=\"row\">Heading 1<\/th>\n\t\t\t<td>Item 1<\/td>\n\t\t<\/tr>\n\t\t<tr>\n\t\t\t<th scope=\"row\">Heading 2<\/th>\n\t\t\t<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<\/td>\n\t\t<\/tr>\n\t\t<tr>\n\t\t\t<th scope=\"row\">Heading 3<\/th>\n\t\t\t<td>$5.99<\/td>\n\t\t<\/tr>\n\t\t<tr>\n\t\t\t<th scope=\"row\">Total<\/th>\n\t\t\t<td>$5.99<\/td>\n\t\t<\/tr>\n\t<\/tbody>\n<\/table>\n\n<table>\n  <thead>\n    <tr>\n      <th>#<\/th>\n      <th>First Name<\/th>\n      <th>Last Name<\/th>\n      <th>Username<\/th>\n    <\/tr>\n  <\/thead>\n  <tbody>\n    <tr>\n      <th scope=\"row\">1<\/th>\n      <td>Mark<\/td>\n      <td>Otto<\/td>\n      <td>@mdo<\/td>\n    <\/tr>\n    <tr>\n      <th scope=\"row\">2<\/th>\n      <td>Jacob<\/td>\n      <td>Thornton<\/td>\n      <td>@fat<\/td>\n    <\/tr>\n    <tr>\n      <th scope=\"row\">3<\/th>\n      <td>Larry<\/td>\n      <td>the Bird<\/td>\n      <td>@twitter<\/td>\n    <\/tr>\n  <\/tbody>\n<\/table>",
+            "summary": null,
+            "lang": "en"
+        }
+    ],
+    "field_mt_slideshow": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ]
+}
