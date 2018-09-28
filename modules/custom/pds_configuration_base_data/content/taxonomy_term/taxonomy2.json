@@ -1,0 +1,86 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/2?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_document_type"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_document_type\/parent": [
+            null
+        ]
+    },
+    "tid": [
+        {
+            "value": 2
+        }
+    ],
+    "uuid": [
+        {
+            "value": "eeaee68e-8ed6-4b3c-bbb2-071120a1e17a"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "pds_document_type"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "Example Template 2",
+            "lang": "en"
+        }
+    ],
+    "description": [
+        {
+            "value": "<p>This is for Example Template 2.<\/p>\r\n",
+            "format": "basic_html",
+            "processed": "<p>This is for Example Template 2.<\/p>",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_document_type\/parent": [
+            null
+        ]
+    },
+    "changed": [
+        {
+            "value": "2018-09-27T15:22:24+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Example Template 2 | pds160",
+                "canonical_url": "http:\/\/default\/taxonomy\/term\/2",
+                "description": "This is for Example Template 2."
+            }
+        }
+    ]
+}
