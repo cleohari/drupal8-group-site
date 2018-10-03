@@ -72,5 +72,8 @@ drush dce node 64 --file=$parentdir/modules/custom/pds_configuration_base_data/c
 drush dce node 65 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node65.json
 drush dce node 66 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node66.json
 drush dce node 67 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node67.json
+drush dce node 68 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node68.json
+drush dce node 69 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node69.json
+drush dce node 70 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node70.json
 echo Completed Node Export!!!
 #echo $targetdir
