@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'PDS Instruction Template Type'
+vid: pds_instruction_template_type
+description: 'This list contains the types of instruction template types that we support.'
+hierarchy: 0
+weight: 0

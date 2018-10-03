@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pds_instruction_template.body
+    - field.field.node.pds_instruction_template.field_pds_instruction_type
+    - node.type.pds_instruction_template
+  module:
+    - text
+    - user
+id: node.pds_instruction_template.default
+targetEntityType: node
+bundle: pds_instruction_template
+mode: default
+content:
+  body:
+    label: above
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_pds_instruction_type:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  links: true
