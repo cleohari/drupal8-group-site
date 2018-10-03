@@ -1,0 +1,174 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/node\/70?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/node\/pds_instruction_template"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/node\/pds_instruction_template\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/pds_instruction_template\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/pds_instruction_template\/field_pds_instruction_type": [
+            {
+                "href": "http:\/\/default\/taxonomy\/term\/5?_format=hal_json"
+            }
+        ]
+    },
+    "nid": [
+        {
+            "value": 70
+        }
+    ],
+    "uuid": [
+        {
+            "value": "4ecd14f1-f122-40f2-bafd-ec20a9687364"
+        }
+    ],
+    "vid": [
+        {
+            "value": 72
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "pds_instruction_template"
+        }
+    ],
+    "revision_timestamp": [
+        {
+            "value": "2018-10-03T19:31:47+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/node\/pds_instruction_template\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "55b241d8-e88d-4cb7-be6b-7dd7c9ea49bd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/pds_instruction_template\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "55b241d8-e88d-4cb7-be6b-7dd7c9ea49bd"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/pds_instruction_template\/field_pds_instruction_type": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/taxonomy\/term\/5?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_instruction_template_type"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "2c21993a-587d-43dd-b7fa-0a145abfd7d1"
+                    }
+                ]
+            }
+        ]
+    },
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "title": [
+        {
+            "value": "Sign Document",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2018-10-02T20:39:30+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2018-10-03T19:31:47+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "promote": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "sticky": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Sign Document | pds183",
+                "canonical_url": "http:\/\/default\/node\/70",
+                "description": "This is example instruction text for the Sign Document\u00a0section."
+            }
+        }
+    ],
+    "body": [
+        {
+            "value": "<p>This is example instruction text for the Sign Document&nbsp;section.<\/p>\r\n",
+            "format": "basic_html",
+            "processed": "<p>This is example instruction text for the Sign Document\u00a0section.<\/p>",
+            "summary": "",
+            "lang": "en"
+        }
+    ]
+}
