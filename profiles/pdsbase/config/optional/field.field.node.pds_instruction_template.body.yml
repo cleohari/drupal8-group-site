@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.pds_instruction_template
+  module:
+    - text
+id: node.pds_instruction_template.body
+field_name: body
+entity_type: node
+bundle: pds_instruction_template
+label: 'Instruction Text'
+description: 'This is the instruction text to be displayed to the users.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

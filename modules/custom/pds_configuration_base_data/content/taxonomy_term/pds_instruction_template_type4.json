@@ -1,0 +1,77 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/4?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_instruction_template_type"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_instruction_template_type\/parent": [
+            null
+        ]
+    },
+    "tid": [
+        {
+            "value": 4
+        }
+    ],
+    "uuid": [
+        {
+            "value": "3d0f6f44-69c2-4c2b-a382-ab54fb4b5587"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "pds_instruction_template_type"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "Questionnaire - Finalize and Submit",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 1
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_instruction_template_type\/parent": [
+            null
+        ]
+    },
+    "changed": [
+        {
+            "value": "2018-10-02T19:38:43+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Questionnaire - Finalize and Submit | pds183",
+                "canonical_url": "http:\/\/default\/taxonomy\/term\/4"
+            }
+        }
+    ]
+}
