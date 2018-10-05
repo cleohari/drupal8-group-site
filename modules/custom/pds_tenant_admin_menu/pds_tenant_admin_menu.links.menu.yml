@@ -40,8 +40,8 @@ pds_tenant_admin_menu.plams:
   menu_name: pds-tenant-admin-menu
   weight: 100
 pds_tenant_admin_menu.instructions:
-  title: 'Plans'
-  description: 'The list of plans currently loaded in the system.'
+  title: 'Instructions'
+  description: 'The list of Instructions currently loaded in the system.'
   url: internal:/tenant-admin/instruction-templates
   parent: pds_tenant_admin_menu.admin
   menu_name: pds-tenant-admin-menu
