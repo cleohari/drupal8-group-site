@@ -39,6 +39,13 @@ pds_tenant_admin_menu.plams:
   parent: pds_tenant_admin_menu.admin
   menu_name: pds-tenant-admin-menu
   weight: 100
+pds_tenant_admin_menu.instructions:
+  title: 'Instructions'
+  description: 'The list of Instructions currently loaded in the system.'
+  url: internal:/tenant-admin/instruction-templates
+  parent: pds_tenant_admin_menu.admin
+  menu_name: pds-tenant-admin-menu
+  weight: 100
 pds_tenant_admin_menu.users:
   title: 'Users'
   description: 'This section details the Users for the system.'
