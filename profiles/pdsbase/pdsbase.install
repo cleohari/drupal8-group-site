@@ -119,6 +119,9 @@ function pdsbase_install_tasks($install_state) {
  * This function rebuilds all the node permissions.
  */
 function pds_cleanup_tasks() {
+  $roleTenantAdmin =  \Drupal\user\Entity\Role::load('tenant_admin');
+  user_role_grant_permissions($roleTenantAdmin->id(), ['edit any pds_instruction_template content']);
+
   node_access_rebuild();
   \Drupal::service('module_installer')->install(['pds_configuration_base_data']);
 
