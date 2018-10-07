@@ -22,6 +22,7 @@ node
       CHANGE_LIST = 'true'
       TEST_SUMMARY = 'true'
     }
+    // Alert Slack to the start of the build.
     notifier.notifyStart()
     stage('Clone Repo') {
       checkout scm
@@ -41,13 +42,14 @@ node
       }
     }
     catch (e) {
-      // If there was an exception thrown, the build failed
+      // If there was an exception thrown, the build failed.
       currentBuild.result = "FAILED"
       notifier.notifyError(e)
     }
     finally {
       // Success or failure, always send notifications
       // notifyBuild(currentBuild.result)
+      notifier.notifyResult()
     }
     stage('Unit Tests') {
       try {
