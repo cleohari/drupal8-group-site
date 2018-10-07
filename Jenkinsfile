@@ -50,7 +50,7 @@ node
     finally {
       // Success or failure, always send notifications.
       // notifyBuild(currentBuild.result)
-      notifier.notifyResult()
+      notifier.notifyResultFull()
     }
     stage('Unit Tests') {
       try {
@@ -58,6 +58,7 @@ node
       }
       catch (e) {
         // Unit tests almost always fail so we ignore the failure and don't report it to Slack.
+        notifier.notifyResultFull()
       }
     }
     cleanWs()
