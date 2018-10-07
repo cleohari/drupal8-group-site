@@ -3,7 +3,11 @@ node
     env.BUILDSPACE = pwd()
     echo "BUILDSPACE is ${env.BUILDSPACE}"
     def notifier = new org.gradiant.jenkins.slack.SlackNotifier()
-
+    env.SLACK_CHANNEL = 'cicd'
+    env.SLACK_DOMAIN  = 'fastglass'
+    env.SLACK_CREDENTIALS = 'jenkins-slack-credentials-id'
+    env.CHANGE_LIST = 'true'
+    env.TEST_SUMMARY = 'true'
     currentBuild.result = "SUCCESS"
     environment {
       PDS_DB_HOST = 'localhost'
@@ -16,11 +20,11 @@ node
       PDS_DRUPAL_PASS = 'horse-staple-battery'
       PDS_DRUPAL_SITENAME = 'PDS'
       PDS_DRUPAL_SITENEMAIL = 'drupal@fastglass.net'
-      SLACK_CHANNEL = 'cicd'
-      SLACK_DOMAIN = 'fastglass'
-      SLACK_CREDENTIALS = 'jenkins-slack-credentials-id'
-      CHANGE_LIST = 'true'
-      TEST_SUMMARY = 'true'
+      // SLACK_CHANNEL = 'cicd'
+      // SLACK_DOMAIN = 'fastglass'
+      // SLACK_CREDENTIALS = 'jenkins-slack-credentials-id'
+      // CHANGE_LIST = 'true'
+      // TEST_SUMMARY = 'true'
     }
     // Alert Slack to the start of the build.
     notifier.notifyStart()
