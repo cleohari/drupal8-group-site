@@ -45,9 +45,10 @@ node
       // If there was an exception thrown, the build failed.
       currentBuild.result = "FAILED"
       notifier.notifyError(e)
+      throw e
     }
     finally {
-      // Success or failure, always send notifications
+      // Success or failure, always send notifications.
       // notifyBuild(currentBuild.result)
       notifier.notifyResult()
     }
