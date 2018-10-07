@@ -104,7 +104,7 @@ dependencies:
   - pds_custom_tokens
   - pds_configuration_pds_group_tenant
   - ckeditor_addin_placeholder
-  - pds_tenant_admin_menu1
+  - pds_tenant_admin_menu
 
 themes:
   - bartik
