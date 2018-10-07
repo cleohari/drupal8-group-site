@@ -49,6 +49,7 @@ node
       // If there was an exception thrown, the build failed.
       currentBuild.result = "FAILED"
       notifier.notifyError(e)
+      cleanWs()
       throw e
     }
     finally {
