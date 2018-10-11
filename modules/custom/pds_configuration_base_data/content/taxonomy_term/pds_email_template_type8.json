@@ -1,0 +1,77 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/8?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_email_template_type"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_email_template_type\/parent": [
+            null
+        ]
+    },
+    "tid": [
+        {
+            "value": 8
+        }
+    ],
+    "uuid": [
+        {
+            "value": "bdf42492-7fbb-48c3-a342-0ca1286e6dde"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "pds_email_template_type"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "Signature Process Complete",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 2
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_email_template_type\/parent": [
+            null
+        ]
+    },
+    "changed": [
+        {
+            "value": "2018-10-11T15:36:24+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Signature Process Complete | pds189",
+                "canonical_url": "http:\/\/default\/taxonomy\/term\/8"
+            }
+        }
+    ]
+}

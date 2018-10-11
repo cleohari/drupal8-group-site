@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'PDS Email Template Type'
+vid: pds_email_template_type
+description: 'This list contains the types of email template types that we support.'
+hierarchy: 0
+weight: 0

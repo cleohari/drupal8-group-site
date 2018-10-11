@@ -1,0 +1,77 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/9?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_email_template_type"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_email_template_type\/parent": [
+            null
+        ]
+    },
+    "tid": [
+        {
+            "value": 9
+        }
+    ],
+    "uuid": [
+        {
+            "value": "954e9e67-5a4e-428e-a558-cd26230f37c7"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "pds_email_template_type"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "General Invite",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 1
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_email_template_type\/parent": [
+            null
+        ]
+    },
+    "changed": [
+        {
+            "value": "2018-10-11T15:36:24+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "General Invite | pds189",
+                "canonical_url": "http:\/\/default\/taxonomy\/term\/9"
+            }
+        }
+    ]
+}
