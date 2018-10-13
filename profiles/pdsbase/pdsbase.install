@@ -119,7 +119,7 @@ function pdsbase_install_tasks($install_state) {
  * This function rebuilds all the node permissions.
  */
 function pds_cleanup_tasks() {
-  //Update Tenant Admin roles at the end of the installation process.
+  // Update Tenant Admin roles at the end of the installation process.
   $roleTenantAdmin =  \Drupal\user\Entity\Role::load('tenant_admin');
   user_role_grant_permissions($roleTenantAdmin->id(), ['edit any pds_instruction_template content']);
   user_role_grant_permissions($roleTenantAdmin->id(), ['edit any pds_email_template content']);
