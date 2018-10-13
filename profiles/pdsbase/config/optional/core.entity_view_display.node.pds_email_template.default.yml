@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pds_email_template.body
+    - field.field.node.pds_email_template.field_pds_email_template_type
+    - node.type.pds_email_template
+  module:
+    - text
+    - user
+id: node.pds_email_template.default
+targetEntityType: node
+bundle: pds_email_template
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_pds_email_template_type:
+    weight: 0
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  links: true

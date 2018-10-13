@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'PDS Email Template'
+type: pds_email_template
+description: 'This content type houses custom email templates that Tenant Admins can use to provide their own email messaging to users for certain functionality.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true
