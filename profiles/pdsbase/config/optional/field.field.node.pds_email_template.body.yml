@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.pds_email_template
+  module:
+    - text
+id: node.pds_email_template.body
+field_name: body
+entity_type: node
+bundle: pds_email_template
+label: 'Email Body'
+description: 'This is the email template text to be displayed to the users.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

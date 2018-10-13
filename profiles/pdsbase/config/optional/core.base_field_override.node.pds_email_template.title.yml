@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.pds_email_template
+id: node.pds_email_template.title
+field_name: title
+entity_type: node
+bundle: pds_email_template
+label: 'Email Template Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

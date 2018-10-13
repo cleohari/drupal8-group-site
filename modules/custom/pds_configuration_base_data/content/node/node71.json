@@ -1,0 +1,188 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/tenant-admin\/email-template\/files-published?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/node\/pds_email_template"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/node\/pds_email_template\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/pds_email_template\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/pds_email_template\/field_pds_email_template_type": [
+            {
+                "href": "http:\/\/default\/taxonomy\/term\/7?_format=hal_json"
+            }
+        ]
+    },
+    "nid": [
+        {
+            "value": 71
+        }
+    ],
+    "uuid": [
+        {
+            "value": "f310c7be-de88-4e86-8e51-ad0a1fb8e50e"
+        }
+    ],
+    "vid": [
+        {
+            "value": 81
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "pds_email_template"
+        }
+    ],
+    "revision_timestamp": [
+        {
+            "value": "2018-10-13T13:01:26+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/node\/pds_email_template\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "60a39649-be0e-4517-8927-692abc057e34"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/pds_email_template\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "60a39649-be0e-4517-8927-692abc057e34"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/pds_email_template\/field_pds_email_template_type": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/taxonomy\/term\/7?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_email_template_type"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "93f5a66b-0711-40ef-b1d1-8ec76045cf4b"
+                    }
+                ]
+            }
+        ]
+    },
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "title": [
+        {
+            "value": "Example Files Published Template",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2018-10-13T13:00:47+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2018-10-13T13:01:26+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "promote": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "sticky": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Example Files Published Template | pds188",
+                "canonical_url": "http:\/\/default\/tenant-admin\/email-template\/files-published",
+                "description": "Run in circles\u00a0jump on human and sleep on her all night long be long in the bed, purr in the morning and then give a bite to every human around for not waking up request food, purr loud scratch the walls, the floor, the windows, the humans\u00a0and\u00a0show belly\u00a0jump launch to pounce upon little yarn mouse, bare fangs at toy run hide in litter box until treats are fed\u00a0pee in the shoemeow\u00a0eat an easter feather as if it were a bird then burp victoriously, but tender.\u00a0Meow\u00a0cereal boxes make for five star accommodation\u00a0and who's the baby.\u00a0Put butt in owner's face\u00a0instantly break out into full speed gal"
+            }
+        }
+    ],
+    "path": [
+        {
+            "alias": "\/tenant-admin\/email-template\/files-published",
+            "pid": 12,
+            "langcode": "en",
+            "lang": "en"
+        }
+    ],
+    "body": [
+        {
+            "value": "<p>Run in circles&nbsp;jump on human and sleep on her all night long be long in the bed, purr in the morning and then give a bite to every human around for not waking up request food, purr loud scratch the walls, the floor, the windows, the humans&nbsp;and&nbsp;show belly&nbsp;jump launch to pounce upon little yarn mouse, bare fangs at toy run hide in litter box until treats are fed&nbsp;pee in the shoemeow&nbsp;eat an easter feather as if it were a bird then burp victoriously, but tender.&nbsp;Meow&nbsp;cereal boxes make for five star accommodation&nbsp;and who's the baby.&nbsp;Put butt in owner's face&nbsp;instantly break out into full speed gallop across the house for no reason&nbsp;chew foot&nbsp;find a way to fit in tiny box&nbsp;meow loudly just to annoy owners&nbsp;play riveting piece on synthesizer keyboard&nbsp;but&nbsp;i'm going to lap some water out of my master's cup meow.&nbsp;Eat the fat cats food&nbsp;pounce on unsuspecting person&nbsp;chew iPad power cord, and&nbsp;lick the curtain just to be annoying&nbsp;so&nbsp;cat dog hate mouse eat string barf pillow no baths hate everything&nbsp;destroy the blinds.&nbsp;Lay on arms while you're using the keyboard&nbsp;kitty kitty, and intently stare at the same spot&nbsp;ask to be pet then attack owners hand, so ptracy, and&nbsp;scratch the furniture. Hunt anything that moves why must they do that, yet&nbsp;sniff all the things&nbsp;stinky cat&nbsp;but&nbsp;chew the plant&nbsp;if it smells like fish eat as much as you wish.&nbsp;Lounge in doorway&nbsp;the fat cat sat on the mat bat away with paws, for&nbsp;purr when being pet&nbsp;howl uncontrollably for no reason.&nbsp;Love&nbsp;somehow manage to catch a bird but have no idea what to do next, so play with it until it dies of shock. Chew foot&nbsp;find empty spot in cupboard and sleep all day,&nbsp;eat prawns daintily with a claw then lick paws clean wash down prawns with a lap of carnation milk then retire to the warmest spot on the couch to claw at the fabric before taking a catnap, so&nbsp;get my claw stuck in the dog's ear&nbsp;munch on tasty moths.&nbsp;Jump around on couch, meow constantly until given food,&nbsp;hide at bottom of staircase to trip human&nbsp;friends are not foodcereal boxes make for five star accommodation&nbsp;lick the plastic bag, yet attack feet&nbsp;ooh, are those your $250 dollar sandals? lemme use that as my litter box. Intrigued by the shower&nbsp;be superioryet&nbsp;thinking longingly about tuna brine&nbsp;run up and down stairs.&nbsp;Chill on the couch table&nbsp;leave fur on owners clothes&nbsp;but&nbsp;tuxedo cats always looking dapper&nbsp;poop on grasses&nbsp;mark territory&nbsp;leave fur on owners clothes.&nbsp;Rub face on owner&nbsp;i like cats because they are fat and fluffy&nbsp;sit on humanmunch, munch, chomp, chomp&nbsp;but&nbsp;meow all night&nbsp;for&nbsp;unwrap toilet paper&nbsp;so&nbsp;give me some of your food give me some of your food give me some of your food meh, i don't want it.&nbsp;Bird bird bird bird bird bird human why take bird out i could have eaten that.&nbsp;I like big cats and i can not lie.&nbsp;<br \/>\r\n&nbsp;<\/p>\r\n",
+            "format": "pds_email_template_editor",
+            "processed": "<p>Run in circles\u00a0jump on human and sleep on her all night long be long in the bed, purr in the morning and then give a bite to every human around for not waking up request food, purr loud scratch the walls, the floor, the windows, the humans\u00a0and\u00a0show belly\u00a0jump launch to pounce upon little yarn mouse, bare fangs at toy run hide in litter box until treats are fed\u00a0pee in the shoemeow\u00a0eat an easter feather as if it were a bird then burp victoriously, but tender.\u00a0Meow\u00a0cereal boxes make for five star accommodation\u00a0and who's the baby.\u00a0Put butt in owner's face\u00a0instantly break out into full speed gallop across the house for no reason\u00a0chew foot\u00a0find a way to fit in tiny box\u00a0meow loudly just to annoy owners\u00a0play riveting piece on synthesizer keyboard\u00a0but\u00a0i'm going to lap some water out of my master's cup meow.\u00a0Eat the fat cats food\u00a0pounce on unsuspecting person\u00a0chew iPad power cord, and\u00a0lick the curtain just to be annoying\u00a0so\u00a0cat dog hate mouse eat string barf pillow no baths hate everything\u00a0destroy the blinds.\u00a0Lay on arms while you're using the keyboard\u00a0kitty kitty, and intently stare at the same spot\u00a0ask to be pet then attack owners hand, so ptracy, and\u00a0scratch the furniture. Hunt anything that moves why must they do that, yet\u00a0sniff all the things\u00a0stinky cat\u00a0but\u00a0chew the plant\u00a0if it smells like fish eat as much as you wish.\u00a0Lounge in doorway\u00a0the fat cat sat on the mat bat away with paws, for\u00a0purr when being pet\u00a0howl uncontrollably for no reason.\u00a0Love\u00a0somehow manage to catch a bird but have no idea what to do next, so play with it until it dies of shock. Chew foot\u00a0find empty spot in cupboard and sleep all day,\u00a0eat prawns daintily with a claw then lick paws clean wash down prawns with a lap of carnation milk then retire to the warmest spot on the couch to claw at the fabric before taking a catnap, so\u00a0get my claw stuck in the dog's ear\u00a0munch on tasty moths.\u00a0Jump around on couch, meow constantly until given food,\u00a0hide at bottom of staircase to trip human\u00a0friends are not foodcereal boxes make for five star accommodation\u00a0lick the plastic bag, yet attack feet\u00a0ooh, are those your $250 dollar sandals? lemme use that as my litter box. Intrigued by the shower\u00a0be superioryet\u00a0thinking longingly about tuna brine\u00a0run up and down stairs.\u00a0Chill on the couch table\u00a0leave fur on owners clothes\u00a0but\u00a0tuxedo cats always looking dapper\u00a0poop on grasses\u00a0mark territory\u00a0leave fur on owners clothes.\u00a0Rub face on owner\u00a0i like cats because they are fat and fluffy\u00a0sit on humanmunch, munch, chomp, chomp\u00a0but\u00a0meow all night\u00a0for\u00a0unwrap toilet paper\u00a0so\u00a0give me some of your food give me some of your food give me some of your food meh, i don't want it.\u00a0Bird bird bird bird bird bird human why take bird out i could have eaten that.\u00a0I like big cats and i can not lie.\u00a0<br \/>\n\u00a0<\/p>\n",
+            "summary": "",
+            "lang": "en"
+        }
+    ]
+}

@@ -10,3 +10,4 @@ permissions:
   - 'use text format basic_html'
   - 'use text format full_html'
   - 'use text format restricted_html'
+  - 'use text format pds_email_template_editor'
