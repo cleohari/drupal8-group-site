@@ -14,9 +14,15 @@ node
     env.TEST_SUMMARY = 'true'
     // Alert Slack to the start of the build.
     notifier.notifyStart()
-    echo "Creating test database"
-    def database = new CreateMySQLDatabase(this)
+    // def database = new CreateMySQLDatabase(this)
     def destroyall = new DestroyTestMySQLDatabase(this)
+    mysqlhost = 'localhost'
+    drupaladminuser = 'pdsadmin'
+    drupaladminuserpass = 'pass12345'
+    drupalsitename = 'My PDS Site'
+    drupalsitemail = 'drupal@fastglass.net'
+    subsite1dir = 's1.pds.l'
+    subsite2dir = 's2.pds.l'
 
     stage('Clone Repo') {
       checkout scm
@@ -27,6 +33,27 @@ node
       sh 'composer clear-cache'
     }
     try {
+      withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'mysql-root', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+        stage('Install Base') {
+              def test_database_credentials = createDatabase.groovy {
+                rootname = USERNAME
+                rootpass = PASSWORD
+              }
+            // def sitebasedb = database.createMySQLDatabase(USERNAME, PASSWORD)
+            sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
+            // sh "./profiles/pdsbase/scripts/install.drush.sh -g ${mysqlhost} -i ${sitebasedb.dbUser} -j ${sitebasedb.dbPass} -n ${sitebasedb.dbName} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail}"
+        }
+        stage('Install Subsite 1') {
+
+            // def site1db = database.createMySQLDatabase(USERNAME, PASSWORD)
+            sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
+            // sh "./profiles/pdsbase/scripts/install.drush.sub.sh -g ${mysqlhost} -i ${site1db.dbUser} -j ${site1db.dbPass} -n ${site1db.dbName} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail} -s ${subsite1dir}"
+        }
+        stage('Install Subsite 2') {
+
+            // def site2db = database.createMySQLDatabase(USERNAME, PASSWORD)
+            sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
+            // sh "./profiles/pdsbase/scripts/install.drush.sub.sh -g ${mysqlhost} -i ${site2db.dbUser} -j ${site2db.dbPass} -n ${site2db.dbName} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail} -s ${subsite2dir}"
       stage('Install') {
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'mysql-root', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
           // def site1db = database.createMySQLDatabase(USERNAME, PASSWORD)
@@ -38,6 +65,16 @@ node
           }
           // echo "Delete database and user"
           // destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
+        }
+        stage('Teardown'){
+          echo "Test Variable contents"
+          println sitebasedb
+            echo "Tear down Main Site: ${sitebasedb}"
+            // def dest1 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, sitebasedb.dbName, sitebasedb.dbUser)
+            echo "Tear down Subsite 1"
+            // def dest2 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
+            echo "Tear down Subsite 2"
+            // def dest3 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site2db.dbName, site2db.dbUser)
         }
       }
     }
