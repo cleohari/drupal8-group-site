@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.pds_code_action_status.field_pds_code_text_value
+    - taxonomy.vocabulary.pds_code_action_status
+id: taxonomy_term.pds_code_action_status.default
+targetEntityType: taxonomy_term
+bundle: pds_code_action_status
+mode: default
+content:
+  field_pds_code_text_value:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

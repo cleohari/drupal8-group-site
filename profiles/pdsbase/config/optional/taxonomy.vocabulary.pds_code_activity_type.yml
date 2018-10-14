@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'PDS Code Activity Type'
+vid: pds_code_activity_type
+description: 'This is the Activity Type that has been completed on the content.'
+hierarchy: 0
+weight: 0

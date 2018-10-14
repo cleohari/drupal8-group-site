@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'PDS Code Action Required'
+vid: pds_code_action_required
+description: 'This is the Action Required that needs to be taken for the content.'
+hierarchy: 0
+weight: 0

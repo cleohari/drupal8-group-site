@@ -1,0 +1,83 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/15?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_code_action_status"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_code_action_status\/parent": [
+            null
+        ]
+    },
+    "tid": [
+        {
+            "value": 15
+        }
+    ],
+    "uuid": [
+        {
+            "value": "8d01618b-dfe2-400b-8604-4707ad6dbe4c"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "pds_code_action_status"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "N\/A",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 3
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_code_action_status\/parent": [
+            null
+        ]
+    },
+    "changed": [
+        {
+            "value": "2018-10-14T13:15:11+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "N\/A | pds192",
+                "canonical_url": "http:\/\/default\/taxonomy\/term\/15"
+            }
+        }
+    ],
+    "field_pds_code_text_value": [
+        {
+            "value": "N",
+            "lang": "en"
+        }
+    ]
+}
