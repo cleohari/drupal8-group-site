@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'PDS Code Item Type'
+vid: pds_code_item_type
+description: 'This is the Item Type that the document is.'
+hierarchy: 0
+weight: 0
