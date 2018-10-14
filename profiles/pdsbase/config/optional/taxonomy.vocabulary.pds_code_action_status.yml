@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'PDS Code Action Status'
+vid: pds_code_action_status
+description: 'This is the Action Status Code that the content has been assigned.'
+hierarchy: 0
+weight: 0
