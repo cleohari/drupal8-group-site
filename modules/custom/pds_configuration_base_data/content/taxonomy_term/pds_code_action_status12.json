@@ -1,0 +1,83 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/12?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_code_action_status"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_code_action_status\/parent": [
+            null
+        ]
+    },
+    "tid": [
+        {
+            "value": 12
+        }
+    ],
+    "uuid": [
+        {
+            "value": "fee8b6ed-872c-48fa-862d-cc05057b1f51"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "pds_code_action_status"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "Incomplete",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_code_action_status\/parent": [
+            null
+        ]
+    },
+    "changed": [
+        {
+            "value": "2018-10-14T13:14:24+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Incomplete | pds192",
+                "canonical_url": "http:\/\/default\/taxonomy\/term\/12"
+            }
+        }
+    ],
+    "field_pds_code_text_value": [
+        {
+            "value": "I",
+            "lang": "en"
+        }
+    ]
+}

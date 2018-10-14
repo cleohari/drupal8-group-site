@@ -1,0 +1,82 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/17?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_code_action_required"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_code_action_required\/parent": [
+            null
+        ]
+    },
+    "tid": [
+        {
+            "value": 17
+        }
+    ],
+    "uuid": [
+        {
+            "value": "02254177-7975-493b-82b1-e718f9a013ec"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "pds_code_action_required"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "Finalize and Submit",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 1
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_code_action_required\/parent": [
+            null
+        ]
+    },
+    "changed": [
+        {
+            "value": "2018-10-14T13:25:01+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Finalize and Submit | pds192",
+                "canonical_url": "http:\/\/default\/taxonomy\/term\/17"
+            }
+        }
+    ],
+    "field_pds_code_integer_value": [
+        {
+            "value": 2
+        }
+    ]
+}

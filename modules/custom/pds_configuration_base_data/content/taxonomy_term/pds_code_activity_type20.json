@@ -1,0 +1,83 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/20?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_code_activity_type"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_code_activity_type\/parent": [
+            null
+        ]
+    },
+    "tid": [
+        {
+            "value": 20
+        }
+    ],
+    "uuid": [
+        {
+            "value": "b764c6bf-1bf9-4a40-8738-32c6a143732d"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "pds_code_activity_type"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "Deleted",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 1
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_code_activity_type\/parent": [
+            null
+        ]
+    },
+    "changed": [
+        {
+            "value": "2018-10-14T13:31:32+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Deleted | pds192",
+                "canonical_url": "http:\/\/default\/taxonomy\/term\/20"
+            }
+        }
+    ],
+    "field_pds_code_integer_value": [
+        {
+            "value": 2,
+            "lang": "en"
+        }
+    ]
+}

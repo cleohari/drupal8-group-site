@@ -1,0 +1,82 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/18?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_code_action_required"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_code_action_required\/parent": [
+            null
+        ]
+    },
+    "tid": [
+        {
+            "value": 18
+        }
+    ],
+    "uuid": [
+        {
+            "value": "b94872e1-4f65-41ce-997d-8cf267e3aa5c"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "pds_code_action_required"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "Sign Document",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 2
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/pds_code_action_required\/parent": [
+            null
+        ]
+    },
+    "changed": [
+        {
+            "value": "2018-10-14T13:25:01+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Sign Document | pds192",
+                "canonical_url": "http:\/\/default\/taxonomy\/term\/18"
+            }
+        }
+    ],
+    "field_pds_code_integer_value": [
+        {
+            "value": 3
+        }
+    ]
+}
