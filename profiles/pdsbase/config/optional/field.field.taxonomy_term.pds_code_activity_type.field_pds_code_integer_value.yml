@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_pds_code_integer_value
+    - taxonomy.vocabulary.pds_code_activity_type
+id: taxonomy_term.pds_code_activity_type.field_pds_code_integer_value
+field_name: field_pds_code_integer_value
+entity_type: taxonomy_term
+bundle: pds_code_activity_type
+label: 'Integer Value'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
