@@ -50,7 +50,7 @@ node
     }
     stage('Unit Tests') {
       try {
-        // sh './vendor/bin/phpunit --testsuite=unit -c core/'
+        sh './vendor/bin/phpunit --testsuite=unit -c core/'
       }
       catch (e) {
         // Unit tests almost always fail so we ignore the failure and don't report it to Slack.
