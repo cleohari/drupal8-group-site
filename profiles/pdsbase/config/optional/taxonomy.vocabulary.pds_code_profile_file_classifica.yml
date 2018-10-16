@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'PDS Code Profile File Classification Access'
+vid: pds_code_profile_file_classifica
+description: 'This is the File Classification Access type that has been noted for the content.  Note that this is not needed for "None" access'
+hierarchy: 0
+weight: 0
