@@ -123,7 +123,9 @@ function pds_cleanup_tasks() {
   $roleTenantAdmin =  \Drupal\user\Entity\Role::load('tenant_admin');
   user_role_grant_permissions($roleTenantAdmin->id(), ['edit any pds_instruction_template content']);
   user_role_grant_permissions($roleTenantAdmin->id(), ['edit any pds_email_template content']);
+  user_role_grant_permissions($roleTenantAdmin->id(), ['create pds_signer_role content']);
   user_role_grant_permissions($roleTenantAdmin->id(), ['edit any pds_signer_role content']);
+  user_role_grant_permissions($roleTenantAdmin->id(), ['create pds_security_profile content']);
   user_role_grant_permissions($roleTenantAdmin->id(), ['edit any pds_security_profile content']);
 
   node_access_rebuild();
