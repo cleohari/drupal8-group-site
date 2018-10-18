@@ -53,6 +53,48 @@ pds_tenant_admin_menu.instructions:
   parent: pds_tenant_admin_menu.admin
   menu_name: pds-tenant-admin-menu
   weight: 100
+pds_tenant_admin_menu.security_profiles:
+  title: 'Security Profiles'
+  description: 'The list of Security Profiles currently defined in the system.'
+  url: internal:/tenant-admin/security-profiles
+  parent: pds_tenant_admin_menu.admin
+  menu_name: pds-tenant-admin-menu
+  weight: 100
+pds_tenant_admin_menu.security_profiles_add:
+  title: 'Add Security Profile'
+  description: 'Add a new Security Profiles.'
+  url: internal:/node/add/pds_security_profile
+  parent: pds_tenant_admin_menu.admin
+  menu_name: pds-tenant-admin-menu
+  weight: 100
+pds_tenant_admin_menu.security_profiles_list:
+  title: 'List Security Profiles'
+  description: 'The list of Security Profiles currently defined in the system.'
+  url: internal:/tenant-admin/signer_roles
+  parent: pds_tenant_admin_menu.admin
+  menu_name: pds-tenant-admin-menu
+  weight: 100
+pds_tenant_admin_menu.signer_roles:
+  title: 'Signer Roles'
+  description: 'The list of Signer Roles currently defined in the system.'
+  url: internal:/tenant-admin/security-profiles
+  parent: pds_tenant_admin_menu.admin
+  menu_name: pds-tenant-admin-menu
+  weight: 100
+pds_tenant_admin_menu.signer_roles_add:
+  title: 'Add Signer Roles'
+  description: 'Add a new Signer Roles.'
+  url: internal:/node/add/pds_security_profile
+  parent: pds_tenant_admin_menu.admin
+  menu_name: pds-tenant-admin-menu
+  weight: 100
+pds_tenant_admin_menu.signer_roles_list:
+  title: 'List Signer Roles'
+  description: 'The list of Signer Roles currently defined in the system.'
+  url: internal:/tenant-admin/signer_roles
+  parent: pds_tenant_admin_menu.admin
+  menu_name: pds-tenant-admin-menu
+  weight: 100
 pds_tenant_admin_menu.users:
   title: 'Users'
   description: 'This section details the Users for the system.'
