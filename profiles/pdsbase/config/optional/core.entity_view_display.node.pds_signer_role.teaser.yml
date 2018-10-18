@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.pds_signer_role.body
+    - node.type.pds_signer_role
+  module:
+    - text
+    - user
+id: node.pds_signer_role.teaser
+targetEntityType: node
+bundle: pds_signer_role
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 0
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+hidden:
+  links: true

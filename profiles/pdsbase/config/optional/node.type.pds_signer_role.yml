@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'PDS Signer Role'
+type: pds_signer_role
+description: 'This content type contains the Signer Roles.  This is used as part of the Security Profile to filter items for processing.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

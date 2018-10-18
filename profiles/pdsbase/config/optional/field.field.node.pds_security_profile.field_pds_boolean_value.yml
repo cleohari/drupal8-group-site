@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pds_boolean_value
+    - node.type.pds_security_profile
+id: node.pds_security_profile.field_pds_boolean_value
+field_name: field_pds_boolean_value
+entity_type: node
+bundle: pds_security_profile
+label: 'Answer Questionnaires'
+description: 'Check this box if a user will be allowed to answer a Questionnaire '
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
