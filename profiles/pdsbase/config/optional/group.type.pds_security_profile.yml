@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+id: pds_security_profile
+label: 'Security Profile'
+description: 'The Security Profile contains information that tells the system how to process a published Document/Questionnaire.'
+creator_membership: true
+creator_wizard: false
+creator_roles:
+  - pds_security_profile-admin

@@ -1,0 +1,50 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.pds_security_profile.field_pds_access_type
+    - field.field.group.pds_security_profile.field_pds_boolean_value
+    - field.field.group.pds_security_profile.field_pds_classification_access
+    - field.field.group.pds_security_profile.field_pds_signer_role_relation
+    - group.type.pds_security_profile
+id: group.pds_security_profile.default
+targetEntityType: group
+bundle: pds_security_profile
+mode: default
+content:
+  field_pds_access_type:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pds_boolean_value:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_pds_classification_access:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_pds_signer_role_relation:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true
+  uid: true

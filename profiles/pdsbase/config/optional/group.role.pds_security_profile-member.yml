@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.pds_security_profile
+id: pds_security_profile-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: pds_security_profile
+permissions_ui: true
+permissions: {  }

@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+id: pds_signer_role
+label: 'Signer Role'
+description: 'This content type contains the Signer Roles.  This is used as part of the Security Profile to filter items for processing.'
+creator_membership: true
+creator_wizard: true
+creator_roles:
+  - pds_signer_role-admin

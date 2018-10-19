@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.pds_security_profile
+  enforced:
+    config:
+      - user.role.tenant_admin
+id: pds_security_profile-4579702b9
+label: 'Tenant Admin'
+weight: 3
+internal: true
+audience: outsider
+group_type: pds_security_profile
+permissions_ui: false
+permissions: {  }

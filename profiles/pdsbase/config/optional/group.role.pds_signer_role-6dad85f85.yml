@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.pds_signer_role
+  enforced:
+    config:
+      - user.role.tenant_user
+id: pds_signer_role-6dad85f85
+label: 'Tenant User'
+weight: 4
+internal: true
+audience: outsider
+group_type: pds_signer_role
+permissions_ui: false
+permissions: {  }

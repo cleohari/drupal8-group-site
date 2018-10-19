@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.pds_security_profile
+id: pds_security_profile-admin
+label: Admin
+weight: 100
+internal: false
+audience: member
+group_type: pds_security_profile
+permissions_ui: true
+permissions:
+  - 'access content overview'
+  - 'administer group'
+  - 'delete group'
+  - 'edit group'
+  - 'view group'
+  - 'administer members'
+  - 'update own group_membership content'
+  - 'leave group'
+  - 'view group_membership content'
+  - 'access group_node overview'

@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.pds_security_profile
+id: pds_security_profile-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: pds_security_profile
+permissions_ui: true
+permissions: {  }
