@@ -7,44 +7,46 @@ dependencies:
     - field.field.group.pds_security_profile.field_pds_classification_access
     - field.field.group.pds_security_profile.field_pds_signer_role_relation
     - group.type.pds_security_profile
+  module:
+    - path
 id: group.pds_security_profile.default
 targetEntityType: group
 bundle: pds_security_profile
 mode: default
 content:
   field_pds_access_type:
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_pds_boolean_value:
-    weight: 1
+    weight: 31
     settings:
-      display_label: true
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: boolean_checkbox
+    type: entity_reference_autocomplete
     region: content
   field_pds_classification_access:
-    weight: 3
-    settings: {  }
+    weight: 32
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: options_select
-    region: content
-  field_pds_signer_role_relation:
-    weight: 4
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
+    type: entity_reference_autocomplete
     region: content
   label:
     type: string_textfield
-    weight: 0
+    weight: -5
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  path: true
+  field_pds_boolean_value: true
+  field_pds_signer_role_relation: true
   uid: true
