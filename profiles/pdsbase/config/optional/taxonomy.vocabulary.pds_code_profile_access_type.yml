@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'PDS Code Profile Access Type'
-vid: pds_code_profile_access_type
-description: 'This is the Access Type that has been Published content has.'
-hierarchy: 0
-weight: 0
