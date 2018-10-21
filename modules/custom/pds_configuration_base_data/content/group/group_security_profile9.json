@@ -12,16 +12,6 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/group\/pds_security_profile\/field_pds_access_type": [
-            {
-                "href": "http:\/\/default\/taxonomy\/term\/23?_format=hal_json"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/group\/pds_security_profile\/field_pds_classification_access": [
-            {
-                "href": "http:\/\/default\/taxonomy\/term\/24?_format=hal_json"
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/group\/pds_security_profile\/field_pds_signer_role_relation": [
             {
                 "href": "http:\/\/default\/group\/4?_format=hal_json"
@@ -68,44 +58,10 @@
                 },
                 "uuid": [
                     {
-                        "value": "0260f52e-0574-4780-b903-ff3943291327"
+                        "value": "a97338c2-fdeb-449c-adf7-5406ffab7467"
                     }
                 ],
                 "lang": "en"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/group\/pds_security_profile\/field_pds_access_type": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/taxonomy\/term\/23?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_code_profile_access_type"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "5ee655ed-a7fb-4d65-9b00-e32d926ac383"
-                    }
-                ]
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/group\/pds_security_profile\/field_pds_classification_access": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/taxonomy\/term\/24?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/pds_code_profile_file_classifica"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "60aa9ccb-a520-4a65-9d76-ff68f0d34d27"
-                    }
-                ]
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/group\/pds_security_profile\/field_pds_signer_role_relation": [
@@ -135,7 +91,7 @@
     ],
     "changed": [
         {
-            "value": "2018-10-19T21:41:51+00:00",
+            "value": "2018-10-21T00:45:01+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -149,14 +105,24 @@
     "metatag": [
         {
             "value": {
-                "title": "| pds195",
+                "title": "| pds195test",
                 "canonical_url": "http:\/\/default\/node"
             }
+        }
+    ],
+    "field_pds_access_type": [
+        {
+            "value": "S"
         }
     ],
     "field_pds_boolean_value": [
         {
             "value": true
+        }
+    ],
+    "field_pds_file_class_access": [
+        {
+            "value": "A"
         }
     ]
 }
