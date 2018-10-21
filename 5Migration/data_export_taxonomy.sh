@@ -25,9 +25,4 @@ drush dce taxonomy_term 17 --file=$parentdir/modules/custom/pds_configuration_ba
 drush dce taxonomy_term 18 --file=$parentdir/modules/custom/pds_configuration_base_data/content/taxonomy_term/pds_code_action_required18.json
 drush dce taxonomy_term 19 --file=$parentdir/modules/custom/pds_configuration_base_data/content/taxonomy_term/pds_code_activity_type19.json
 drush dce taxonomy_term 20 --file=$parentdir/modules/custom/pds_configuration_base_data/content/taxonomy_term/pds_code_activity_type20.json
-drush dce taxonomy_term 21 --file=$parentdir/modules/custom/pds_configuration_base_data/content/taxonomy_term/pds_code_profile_access_type21.json
-drush dce taxonomy_term 22 --file=$parentdir/modules/custom/pds_configuration_base_data/content/taxonomy_term/pds_code_profile_access_type22.json
-drush dce taxonomy_term 23 --file=$parentdir/modules/custom/pds_configuration_base_data/content/taxonomy_term/pds_code_profile_access_type23.json
-drush dce taxonomy_term 24 --file=$parentdir/modules/custom/pds_configuration_base_data/content/taxonomy_term/pds_code_profile_file_classifica24.json
-drush dce taxonomy_term 25 --file=$parentdir/modules/custom/pds_configuration_base_data/content/taxonomy_term/pds_code_profile_file_classifica25.json
 echo Completed Node Export!!!
