@@ -1,0 +1,52 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pds_security_profile.field_pds_access_type
+    - field.field.node.pds_security_profile.field_pds_boolean_value
+    - field.field.node.pds_security_profile.field_pds_classification_access
+    - field.field.node.pds_security_profile.field_pds_signer_role_relation
+    - node.type.pds_security_profile
+  module:
+    - user
+id: node.pds_security_profile.default
+targetEntityType: node
+bundle: pds_security_profile
+mode: default
+content:
+  field_pds_access_type:
+    weight: 1
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_pds_boolean_value:
+    weight: 0
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_pds_classification_access:
+    weight: 2
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_pds_signer_role_relation:
+    weight: 3
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  links: true

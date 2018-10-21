@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.pds_security_profile.field_pds_access_type
+    - field.field.node.pds_security_profile.field_pds_boolean_value
+    - field.field.node.pds_security_profile.field_pds_classification_access
+    - node.type.pds_security_profile
+  module:
+    - user
+id: node.pds_security_profile.teaser
+targetEntityType: node
+bundle: pds_security_profile
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_pds_access_type: true
+  field_pds_boolean_value: true
+  field_pds_classification_access: true

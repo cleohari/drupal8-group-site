@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pds_signer_role.body
+    - node.type.pds_signer_role
+  module:
+    - text
+    - user
+id: node.pds_signer_role.default
+targetEntityType: node
+bundle: pds_signer_role
+mode: default
+content:
+  body:
+    label: above
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  links: true

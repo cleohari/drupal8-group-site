@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.pds_signer_role
+  module:
+    - text
+id: node.pds_signer_role.body
+field_name: body
+entity_type: node
+bundle: pds_signer_role
+label: 'Signer Role Description'
+description: 'This is a brief description on what this Signer Role is set up to handle.  This is an optional field.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

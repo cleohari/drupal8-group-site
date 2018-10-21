@@ -15,6 +15,7 @@ drush dce node 7 --file=$parentdir/modules/custom/pds_configuration_base_data/co
 drush dce node 8 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node8.json
 drush dce node 9 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node9.json
 drush dce node 10 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node10.json
+echo 10 Nodes Complete...
 drush dce node 11 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node11.json
 drush dce node 12 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node12.json
 drush dce node 13 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node13.json
@@ -25,6 +26,7 @@ drush dce node 17 --file=$parentdir/modules/custom/pds_configuration_base_data/c
 drush dce node 18 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node18.json
 drush dce node 19 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node19.json
 drush dce node 20 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node20.json
+echo 20 Nodes Complete...
 drush dce node 21 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node21.json
 drush dce node 22 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node22.json
 drush dce node 23 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node23.json
@@ -35,6 +37,7 @@ drush dce node 27 --file=$parentdir/modules/custom/pds_configuration_base_data/c
 drush dce node 28 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node28.json
 drush dce node 29 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node29.json
 drush dce node 30 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node30.json
+echo 30 Nodes Complete...
 drush dce node 31 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node31.json
 drush dce node 32 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node32.json
 drush dce node 33 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node33.json
@@ -45,6 +48,7 @@ drush dce node 37 --file=$parentdir/modules/custom/pds_configuration_base_data/c
 drush dce node 38 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node38.json
 drush dce node 39 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node39.json
 drush dce node 40 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node40.json
+echo 40 Nodes Complete...
 drush dce node 41 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node41.json
 drush dce node 42 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node42.json
 drush dce node 43 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node43.json
@@ -55,6 +59,7 @@ drush dce node 47 --file=$parentdir/modules/custom/pds_configuration_base_data/c
 drush dce node 48 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node48.json
 drush dce node 49 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node49.json
 drush dce node 50 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node50.json
+echo 50 Nodes Complete...
 drush dce node 51 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node51.json
 drush dce node 52 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node52.json
 drush dce node 53 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node53.json
@@ -65,6 +70,7 @@ drush dce node 57 --file=$parentdir/modules/custom/pds_configuration_base_data/c
 drush dce node 58 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node58.json
 drush dce node 59 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node59.json
 drush dce node 60 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node60.json
+echo 60 Nodes Complete...
 drush dce node 61 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node61.json
 drush dce node 62 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node62.json
 drush dce node 63 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node63.json
@@ -75,9 +81,21 @@ drush dce node 67 --file=$parentdir/modules/custom/pds_configuration_base_data/c
 drush dce node 68 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node68.json
 drush dce node 69 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node69.json
 drush dce node 70 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node70.json
+echo 70 Nodes Complete...
 drush dce node 71 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node71.json
 drush dce node 72 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node72.json
 drush dce node 73 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node73.json
 drush dce node 74 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node74.json
+drush dce node 75 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node75.json
+drush dce node 76 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node76.json
+drush dce node 77 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node77.json
+drush dce node 78 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node78.json
+drush dce node 79 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node79.json
+drush dce node 80 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node80.json
+echo 80 Nodes Complete...
+drush dce node 81 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node81.json
+drush dce node 82 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node82.json
+drush dce node 83 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node83.json
+drush dce node 84 --file=$parentdir/modules/custom/pds_configuration_base_data/content/node/node84.json
 echo Completed Node Export!!!
 #echo $targetdir
