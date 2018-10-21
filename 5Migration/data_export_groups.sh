@@ -16,7 +16,7 @@ drush dce group 8 --file=$parentdir/modules/custom/pds_configuration_base_data/c
 drush dce group 9 --file=$parentdir/modules/custom/pds_configuration_base_data/content/group/group_security_profile9.json
 drush dce group 10 --file=$parentdir/modules/custom/pds_configuration_base_data/content/group/group_security_profile10.json
 echo 10 Groups Complete...
-drush dce group 11 --file=$parentdir/modules/custom/pds_configuration_base_data/content/group/group_security_profile11.json
-drush dce group 12 --file=$parentdir/modules/custom/pds_configuration_base_data/content/group/group_security_profile11.json
-drush dce group 13 --file=$parentdir/modules/custom/pds_configuration_base_data/content/group/group_security_profile12.json
+drush dce group 14 --file=$parentdir/modules/custom/pds_configuration_base_data/content/group/group_security_profile11.json
+drush dce group 12 --file=$parentdir/modules/custom/pds_configuration_base_data/content/group/group_security_profile12.json
+drush dce group 13 --file=$parentdir/modules/custom/pds_configuration_base_data/content/group/group_security_profile13.json
 echo Completed Groups Export!!!
