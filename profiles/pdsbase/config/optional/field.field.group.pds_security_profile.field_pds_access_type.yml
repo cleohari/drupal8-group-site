@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_pds_access_type
+    - group.type.pds_security_profile
+  module:
+    - options
+id: group.pds_security_profile.field_pds_access_type
+field_name: field_pds_access_type
+entity_type: group
+bundle: pds_security_profile
+label: 'Access Type'
+description: 'This is the Access Type for the Published content item.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

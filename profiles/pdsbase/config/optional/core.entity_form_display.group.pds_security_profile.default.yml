@@ -2,7 +2,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.group.pds_security_profile.field_pds_access_type
     - field.field.group.pds_security_profile.field_pds_boolean_value
+    - field.field.group.pds_security_profile.field_pds_file_class_access
     - field.field.group.pds_security_profile.field_pds_signer_role_relation
     - group.type.pds_security_profile
 id: group.pds_security_profile.default
@@ -10,6 +12,12 @@ targetEntityType: group
 bundle: pds_security_profile
 mode: default
 content:
+  field_pds_access_type:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_pds_boolean_value:
     type: boolean_checkbox
     weight: 1
@@ -17,14 +25,17 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_pds_signer_role_relation:
-    type: entity_reference_autocomplete
-    weight: 2
+  field_pds_file_class_access:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+  field_pds_signer_role_relation:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
     third_party_settings: {  }
   label:
     type: string_textfield
