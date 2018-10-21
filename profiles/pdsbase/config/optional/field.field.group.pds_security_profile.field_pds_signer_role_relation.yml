@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_pds_signer_role_relation
+    - group.type.pds_security_profile
+    - group.type.pds_signer_role
+id: group.pds_security_profile.field_pds_signer_role_relation
+field_name: field_pds_signer_role_relation
+entity_type: group
+bundle: pds_security_profile
+label: 'Signer Role'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:group'
+  handler_settings:
+    target_bundles:
+      pds_signer_role: pds_signer_role
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

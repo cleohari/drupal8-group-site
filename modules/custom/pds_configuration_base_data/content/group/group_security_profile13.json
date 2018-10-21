@@ -1,0 +1,128 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/group\/13?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/group\/pds_security_profile"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/group\/pds_security_profile\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/group\/pds_security_profile\/field_pds_signer_role_relation": [
+            {
+                "href": "http:\/\/default\/group\/7?_format=hal_json"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 13
+        }
+    ],
+    "uuid": [
+        {
+            "value": "80ff817d-28da-42a1-9fc3-3edf59a1bc48"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "pds_security_profile"
+        }
+    ],
+    "label": [
+        {
+            "value": "Participating Employer",
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/group\/pds_security_profile\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "a97338c2-fdeb-449c-adf7-5406ffab7467"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/group\/pds_security_profile\/field_pds_signer_role_relation": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/group\/7?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/group\/pds_signer_role"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "997b9489-f079-4b5c-8a50-1cd580b8ed4a"
+                    }
+                ]
+            }
+        ]
+    },
+    "created": [
+        {
+            "value": "2018-10-19T21:46:56+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2018-10-21T00:46:45+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "| pds195test",
+                "canonical_url": "http:\/\/default\/node"
+            }
+        }
+    ],
+    "field_pds_access_type": [
+        {
+            "value": "S"
+        }
+    ],
+    "field_pds_boolean_value": [
+        {
+            "value": false
+        }
+    ],
+    "field_pds_file_class_access": [
+        {
+            "value": "A"
+        }
+    ]
+}
