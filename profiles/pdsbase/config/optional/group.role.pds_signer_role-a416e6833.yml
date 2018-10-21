@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.pds_signer_role
+  enforced:
+    config:
+      - user.role.administrator
+id: pds_signer_role-a416e6833
+label: Administrator
+weight: 2
+internal: true
+audience: outsider
+group_type: pds_signer_role
+permissions_ui: false
+permissions: {  }

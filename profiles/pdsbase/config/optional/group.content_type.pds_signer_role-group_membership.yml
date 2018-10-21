@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.pds_signer_role
+  module:
+    - user
+id: pds_signer_role-group_membership
+label: 'Signer Role: Group membership'
+description: 'Adds users to groups as members.'
+group_type: pds_signer_role
+content_plugin: group_membership
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: true

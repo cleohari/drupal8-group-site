@@ -111,5 +111,5 @@ MAINTAINERS
 -----------
 
 Current maintainers:
- * Fernando Paredes García (develCuy) - https://www.drupal.org/user/125473
+ * Fernando Paredes Garcï¿½a (develCuy) - https://www.drupal.org/user/125473
  * Peter Draucbaher (peter.draucbaher)- https://www.drupal.org/user/2409142 

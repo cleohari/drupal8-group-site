@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+    - options
+id: group.field_pds_access_type
+field_name: field_pds_access_type
+entity_type: group
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'N'
+      label: None
+    -
+      value: V
+      label: 'View Only'
+    -
+      value: S
+      label: Sign
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
