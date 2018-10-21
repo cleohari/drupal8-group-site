@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_pds_file_class_access
+    - group.type.pds_security_profile
+  module:
+    - options
+id: group.pds_security_profile.field_pds_file_class_access
+field_name: field_pds_file_class_access
+entity_type: group
+bundle: pds_security_profile
+label: 'File Classification Access'
+description: 'This is the File Classification Access type that has been noted for the content item.  Note that this is not needed for "None" access'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
