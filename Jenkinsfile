@@ -28,14 +28,15 @@ node
     try {
       stage('Install') {
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'mysql-root', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-          def site1db = database.createMySQLDatabase(USERNAME, PASSWORD)
-          echo "FASTGLASSS CREATED DBUSER: ${site1db.dbUser}"
+          // def site1db = database.createMySQLDatabase(USERNAME, PASSWORD)
+          // echo "FASTGLASSS CREATED DBUSER: ${site1db.dbUser}"
           withEnv(['PDS_DB_HOST=localhost', 'PDS_DB_USERNAME=pds', 'PDS_DB_USERPASSWORD=pds12345', 'PDS_DB_NAME=pds', 'PDS_RD_HOST=localhost', 'PDS_RD_NR=1', 'PDS_DRUPAL_NAME=adminpds', 'PDS_DRUPAL_PASS=horse-staple-battery', 'PDS_DRUPAL_SITENAME=PDS', 'PDS_DRUPAL_SITENEMAIL=drupal@fastglass.net']) {
-            sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
-            sh 'bash ./profiles/pdsbase/scripts/install.drush.sh'
+            echo "Starting Drupal Install"
+            sh 'chmod u+x ./install.drush.sh'
+            sh 'bash ./install.drush.sh'
           }
-          echo "Delete database and user"
-          destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
+          // echo "Delete database and user"
+          // destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
         }
       }
     }
