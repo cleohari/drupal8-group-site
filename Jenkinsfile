@@ -51,6 +51,7 @@ node
     }
     stage('Unit Tests') {
       try {
+        sh 'composer run-script drupal-phpunit-upgrade'
         sh './vendor/bin/phpunit --testsuite=unit -c web/core/'
       }
       catch (e) {
