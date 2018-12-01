@@ -43,6 +43,7 @@ node
     catch (e) {
       // If there was an exception thrown, the build failed.
       notifier.notifyError(e)
+      exit 1
     }
     finally {
       // Success or failure, always send notifications.
