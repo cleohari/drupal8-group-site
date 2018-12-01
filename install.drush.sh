@@ -120,11 +120,11 @@ drush site-install pdsbase -y \
 --account-mail=$DSITEEMAIL \
 --db-url=mysql://$DBUSER:$DBPASS@$DBHOST/$DBNAME ;
 
-chmod 777 ${DWD}sites/default
-chmod 644 ${DWD}sites/default/settings.php
-echo "$REDIS_SETTINGS" >> ${DWD}sites/default/settings.php
-chmod 444 ${DWD}sites/default/settings.php
-chmod 555 ${DWD}sites/default
+chmod 777 ${DWD}/web/sites/default
+chmod 644 ${DWD}/web/sites/default/settings.php
+echo "$REDIS_SETTINGS" >> ${DWD}/web/sites/default/settings.php
+chmod 444 ${DWD}/web/sites/default/settings.php
+chmod 555 ${DWD}/web/sites/default
 
 echo "Optimize Composer Autoloader"
 cd ${DWD}
