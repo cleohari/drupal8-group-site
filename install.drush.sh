@@ -27,7 +27,7 @@ SET4="\$settings['redis.connection']['base'] = redisBaseID;"
 
 # Composer install is run as this will load what is in the composer.lock
 
-composer install
+composer install --no-dev
 
 if [[ -z "${PDS_DB_HOST}" ]]; then
   echo "Enter the DB Host Name"
