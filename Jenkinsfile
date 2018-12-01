@@ -52,7 +52,7 @@ node
     }
     stage('Unit Tests') {
       try {
-        sh 'composer run-script drupal-phpunit-upgrade'
+        sh 'composer update phpunit/phpunit phpspec/prophecy symfony/yaml --with-dependencies --no-progress'
         sh './vendor/bin/phpunit --testsuite=unit -c web/core/'
       }
       catch (e) {
