@@ -62,10 +62,19 @@ node
       }
     }
    // cleanWs()
-
   }
-    post {
+  post {
       always {
-      cleanWs()
+
       }
-    }
+      success{
+
+      }
+      failure {
+
+      }
+      cleanup{
+      echo "Delete Dir"
+          deleteDir()
+      }
+  }
