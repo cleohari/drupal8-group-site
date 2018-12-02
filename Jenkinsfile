@@ -43,7 +43,7 @@ node
     catch (e) {
       // If there was an exception thrown, the build failed.
       notifier.notifyError(e)
-     // cleanWs()
+      cleanWs()
       throw e
     }
     finally {
@@ -62,19 +62,4 @@ node
       }
     }
    // cleanWs()
-   post {
-         always {
-
-         }
-         success{
-
-         }
-         failure {
-
-         }
-         cleanup{
-         echo "Delete Dir"
-             deleteDir()
-         }
-   }
   }
