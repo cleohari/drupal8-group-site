@@ -62,9 +62,10 @@ node
       }
     }
    // cleanWs()
+
+  }
     post {
       always {
       cleanWs()
       }
     }
-  }
