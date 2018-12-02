@@ -43,6 +43,7 @@ node
     catch (e) {
       // If there was an exception thrown, the build failed.
       notifier.notifyError(e)
+     // cleanWs()
       throw e
     }
     finally {
@@ -60,5 +61,10 @@ node
         notifier.notifyResultFull()
       }
     }
-    cleanWs()
+   // cleanWs()
+    post {
+      always {
+      cleanWs()
+      }
+    }
   }
