@@ -43,6 +43,8 @@ node
     catch (e) {
       // If there was an exception thrown, the build failed.
       notifier.notifyError(e)
+      // If permissions are not changes Jenkins will not be able to clean the workspace.
+      sh 'chmod -R 777 web/sites/default'
       cleanWs()
       throw e
     }
@@ -50,6 +52,8 @@ node
       // Success or failure, always send notifications.
       // notifyBuild(currentBuild.result)
       notifier.notifyResultFull()
+            sh 'chmod -R 777 web/sites/default'
+            cleanWs()
     }
     stage('Unit Tests') {
       try {
@@ -61,5 +65,10 @@ node
         notifier.notifyResultFull()
       }
     }
-   // cleanWs()
+    post {
+      always {
+      sh 'chmod -R 777 web/sites/default'
+      cleanWs()
+      }
+    }
   }
