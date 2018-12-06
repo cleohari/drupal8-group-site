@@ -66,11 +66,6 @@ node
         notifier.notifyResultFull()
       }
     }
-    post {
-      always {
-        sh 'chmod -R 777 web/sites/default'
-        cleanWs()
-      }
-    }
+    sh 'chmod -R 777 web/sites/default'
     cleanWs()
   }
