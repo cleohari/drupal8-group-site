@@ -49,6 +49,20 @@ node
       cleanWs()
       throw e
     }
+    try {
+      stage('Unit Tests') {
+        sh 'composer update phpunit/phpunit phpspec/prophecy symfony/yaml --with-dependencies --no-progress'
+        sh './vendor/bin/phpunit --testsuite=unit -c web/core/'
+      }
+    }
+    catch (e) {
+      // If there was an exception thrown, the build failed.
+      notifier.notifyError(e)
+      // If permissions are not changes Jenkins will not be able to clean the workspace.
+      sh 'chmod -R 777 web/sites/default'
+      cleanWs()
+      throw e
+    }
     finally {
       // Success or failure, always send notifications.
       // notifyBuild(currentBuild.result)
@@ -56,16 +70,4 @@ node
       sh 'chmod -R 777 web/sites/default'
       cleanWs()
     }
-    stage('Unit Tests') {
-      try {
-        sh 'composer update phpunit/phpunit phpspec/prophecy symfony/yaml --with-dependencies --no-progress'
-        sh './vendor/bin/phpunit --testsuite=unit -c web/core/'
-      }
-      catch (e) {
-        // Unit tests almost always fail so we ignore the failure and don't report it to Slack.
-        notifier.notifyResultFull()
-      }
-    }
-    sh 'chmod -R 777 web/sites/default'
-    cleanWs()
   }
