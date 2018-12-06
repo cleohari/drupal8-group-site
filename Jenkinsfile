@@ -63,7 +63,7 @@ node
       cleanWs()
       throw e
     }
-    finally {
+    stage ('Cleanup') {
       // Success or failure, always send notifications.
       // notifyBuild(currentBuild.result)
       notifier.notifyResultFull()
