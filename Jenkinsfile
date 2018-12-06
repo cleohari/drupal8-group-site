@@ -1,13 +1,14 @@
 @Library('fastglass-shared-library') _
 import net.fastglass.jenkins.mysql.*
 import org.gradiant.jenkins.slack.*
+
 node
   {
     env.BUILDSPACE = pwd()
     echo "BUILDSPACE is ${env.BUILDSPACE}"
     def notifier = new SlackNotifier()
     env.SLACK_CHANNEL = 'cicd'
-    env.SLACK_DOMAIN  = 'fastglass'
+    env.SLACK_DOMAIN = 'fastglass'
     env.SLACK_CREDENTIALS = 'jenkins-slack-credentials-id'
     env.CHANGE_LIST = 'true'
     env.TEST_SUMMARY = 'true'
@@ -52,8 +53,8 @@ node
       // Success or failure, always send notifications.
       // notifyBuild(currentBuild.result)
       notifier.notifyResultFull()
-            sh 'chmod -R 777 web/sites/default'
-            cleanWs()
+      sh 'chmod -R 777 web/sites/default'
+      cleanWs()
     }
     stage('Unit Tests') {
       try {
@@ -67,8 +68,9 @@ node
     }
     post {
       always {
-      sh 'chmod -R 777 web/sites/default'
-      cleanWs()
+        sh 'chmod -R 777 web/sites/default'
+        cleanWs()
       }
     }
+    cleanWs()
   }
