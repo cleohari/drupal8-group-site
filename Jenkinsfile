@@ -49,20 +49,20 @@ node
       cleanWs()
       throw e
     }
-    try {
-      stage('Unit Tests') {
-        sh 'composer update phpunit/phpunit phpspec/prophecy symfony/yaml --with-dependencies --no-progress'
+
+    stage('Unit Tests') {
+      sh 'composer update phpunit/phpunit phpspec/prophecy symfony/yaml --with-dependencies --no-progress'
+      try {
         sh './vendor/bin/phpunit --testsuite=unit -c web/core/'
       }
+      catch (e) {
+        // If there was an exception thrown, the build failed.
+        notifier.notifyError(e)
+      }
     }
-    catch (e) {
-      // If there was an exception thrown, the build failed.
-      notifier.notifyError(e)
-      // If permissions are not changes Jenkins will not be able to clean the workspace.
-      sh 'chmod -R 777 web/sites/default'
-      cleanWs()
-    }
+
     notifier.notifyResultFull()
+    // If permissions are not changes Jenkins will not be able to clean the workspace.
     sh 'chmod -R 777 web/sites/default'
     cleanWs()
   }
