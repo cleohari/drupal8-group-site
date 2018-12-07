@@ -61,13 +61,8 @@ node
       // If permissions are not changes Jenkins will not be able to clean the workspace.
       sh 'chmod -R 777 web/sites/default'
       cleanWs()
-      throw e
     }
-    stage ('Cleanup') {
-      // Success or failure, always send notifications.
-      // notifyBuild(currentBuild.result)
-      notifier.notifyResultFull()
-      sh 'chmod -R 777 web/sites/default'
-      cleanWs()
-    }
+    notifier.notifyResultFull()
+    sh 'chmod -R 777 web/sites/default'
+    cleanWs()
   }
