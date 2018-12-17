@@ -98,7 +98,7 @@ pds_tenant_admin_menu.signer_roles_list:
 pds_tenant_admin_menu.site_admin:
   title: 'Site Admin'
   description: 'This section details the Site Administration for the system.'
-  url: internal:/tenant-admin/tenant-admin-users
+  url: internal:/admin/config/people/accounts
   menu_name: pds-tenant-admin-menu
   weight: 100
 pds_tenant_admin_menu.users:
