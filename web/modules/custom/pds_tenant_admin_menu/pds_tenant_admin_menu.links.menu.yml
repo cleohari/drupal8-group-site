@@ -95,6 +95,12 @@ pds_tenant_admin_menu.signer_roles_list:
   parent: pds_tenant_admin_menu.signer_roles
   menu_name: pds-tenant-admin-menu
   weight: 100
+pds_tenant_admin_menu.system_account_administration:
+  title: 'Admin'
+  description: 'This section details the Administration for the system.'
+  url: internal:/admin/people/permissions
+  menu_name: pds-system-account-administration
+  weight: 100
 pds_tenant_admin_menu.users:
   title: 'Users'
   description: 'This section details the Users for the system.'

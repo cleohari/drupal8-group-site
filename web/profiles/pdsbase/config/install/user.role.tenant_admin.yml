@@ -7,6 +7,7 @@ weight: 3
 is_admin: null
 permissions:
   - 'administer group'
+  - 'administer account settings'
   - 'use text format basic_html'
   - 'use text format full_html'
   - 'use text format restricted_html'
