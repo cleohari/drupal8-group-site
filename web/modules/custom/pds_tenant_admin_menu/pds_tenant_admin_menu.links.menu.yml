@@ -101,6 +101,20 @@ pds_tenant_admin_menu.site_admin:
   url: internal:/admin/config/people/accounts
   menu_name: pds-tenant-admin-menu
   weight: 100
+pds_tenant_admin_menu.site_admin_account_comm:
+  title: 'Communications'
+  description: 'This section details the default account setup and communications for the system.'
+  url: internal:/admin/config/people/accounts
+  parent: pds_tenant_admin_menu.site_admin
+  menu_name: pds-tenant-admin-menu
+  weight: 100
+pds_tenant_admin_menu.site_admin_questionnaires:
+  title: 'Questionnaires'
+  description: 'This section details the questionnaires for the system.'
+  url: internal:/admin/structure/webform
+  parent: pds_tenant_admin_menu.site_admin
+  menu_name: pds-tenant-admin-menu
+  weight: 100
 pds_tenant_admin_menu.users:
   title: 'Users'
   description: 'This section details the Users for the system.'
