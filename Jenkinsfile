@@ -35,46 +35,37 @@ node
     try {
       withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'mysql-root', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
         stage('Install Base') {
-              def test_database_credentials = createDatabase.groovy {
-                rootname = USERNAME
-                rootpass = PASSWORD
-              }
-            // def sitebasedb = database.createMySQLDatabase(USERNAME, PASSWORD)
-            sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
-            // sh "./profiles/pdsbase/scripts/install.drush.sh -g ${mysqlhost} -i ${sitebasedb.dbUser} -j ${sitebasedb.dbPass} -n ${sitebasedb.dbName} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail}"
-        }
-        stage('Install Subsite 1') {
-
+          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'mysql-root', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
             // def site1db = database.createMySQLDatabase(USERNAME, PASSWORD)
-            sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
-            // sh "./profiles/pdsbase/scripts/install.drush.sub.sh -g ${mysqlhost} -i ${site1db.dbUser} -j ${site1db.dbPass} -n ${site1db.dbName} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail} -s ${subsite1dir}"
-        }
-        stage('Install Subsite 2') {
-
-            // def site2db = database.createMySQLDatabase(USERNAME, PASSWORD)
-            sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
-            // sh "./profiles/pdsbase/scripts/install.drush.sub.sh -g ${mysqlhost} -i ${site2db.dbUser} -j ${site2db.dbPass} -n ${site2db.dbName} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail} -s ${subsite2dir}"
-      stage('Install') {
-        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'mysql-root', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-          // def site1db = database.createMySQLDatabase(USERNAME, PASSWORD)
-          // echo "FASTGLASSS CREATED DBUSER: ${site1db.dbUser}"
-          withEnv(['PDS_DB_HOST=localhost', 'PDS_DB_USERNAME=pds', 'PDS_DB_USERPASSWORD=pds12345', 'PDS_DB_NAME=pds', 'PDS_RD_HOST=localhost', 'PDS_RD_NR=1', 'PDS_DRUPAL_NAME=adminpds', 'PDS_DRUPAL_PASS=horse-staple-battery', 'PDS_DRUPAL_SITENAME=PDS', 'PDS_DRUPAL_SITENEMAIL=drupal@fastglass.net']) {
-            echo "Starting Drupal Install"
-            sh 'chmod u+x ./install.drush.sh'
-            sh 'bash ./install.drush.sh'
+            // echo "FASTGLASSS CREATED DBUSER: ${site1db.dbUser}"
+            withEnv(['PDS_DB_HOST=localhost', 'PDS_DB_USERNAME=pds', 'PDS_DB_USERPASSWORD=pds12345', 'PDS_DB_NAME=pds', 'PDS_RD_HOST=localhost', 'PDS_RD_NR=1', 'PDS_DRUPAL_NAME=adminpds', 'PDS_DRUPAL_PASS=horse-staple-battery', 'PDS_DRUPAL_SITENAME=PDS', 'PDS_DRUPAL_SITENEMAIL=drupal@fastglass.net']) {
+              echo "Starting Drupal Install"
+              sh 'chmod u+x ./install.drush.sh'
+              sh 'bash ./install.drush.sh'
+            }
+            // echo "Delete database and user"
+            // destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
           }
-          // echo "Delete database and user"
-          // destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
         }
-        stage('Teardown'){
+//        stage('Install Subsite 1') {
+//            // def site1db = database.createMySQLDatabase(USERNAME, PASSWORD)
+//            sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
+//            // sh "./profiles/pdsbase/scripts/install.drush.sub.sh -g ${mysqlhost} -i ${site1db.dbUser} -j ${site1db.dbPass} -n ${site1db.dbName} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail} -s ${subsite1dir}"
+//        }
+//        stage('Install Subsite 2') {
+//          // def site2db = database.createMySQLDatabase(USERNAME, PASSWORD)
+//          sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
+//          // sh "./profiles/pdsbase/scripts/install.drush.sub.sh -g ${mysqlhost} -i ${site2db.dbUser} -j ${site2db.dbPass} -n ${site2db.dbName} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail} -s ${subsite2dir}"
+//        }
+        stage('Teardown') {
           echo "Test Variable contents"
-          println sitebasedb
-            echo "Tear down Main Site: ${sitebasedb}"
-            // def dest1 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, sitebasedb.dbName, sitebasedb.dbUser)
-            echo "Tear down Subsite 1"
-            // def dest2 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
-            echo "Tear down Subsite 2"
-            // def dest3 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site2db.dbName, site2db.dbUser)
+//          println sitebasedb
+//          echo "Tear down Main Site: ${sitebasedb}"
+          // def dest1 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, sitebasedb.dbName, sitebasedb.dbUser)
+          echo "Tear down Subsite 1"
+          // def dest2 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
+          echo "Tear down Subsite 2"
+          // def dest3 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site2db.dbName, site2db.dbUser)
         }
       }
     }
@@ -97,7 +88,6 @@ node
         notifier.notifyError(e)
       }
     }
-
     notifier.notifyResultFull()
     // If permissions are not changes Jenkins will not be able to clean the workspace.
     sh 'chmod -R 777 web/sites/default'
