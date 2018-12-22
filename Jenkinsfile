@@ -5,46 +5,56 @@ import org.gradiant.jenkins.slack.*
 pipeline {
   agent any
   environment {
-    def mysqlhost = 'localhost'
-    def mysqluser = 'pds'
-    def mysqlpass = 'pds12345'
-    def mysqldbname = 'pds'
-    def drupaladminuser = 'pdsadmin'
-    def drupaladminuserpass = 'horse-staple-battery'
-    def drupalsitename = 'My PDS Site'
-    def drupalsitemail = 'drupal@fastglass.net'
-    def subsite1dir = 's1.pds.l'
-    def subsite2dir = 's2.pds.l'
-    def SLACK_CHANNEL = 'cicd'
-    def SLACK_DOMAIN = 'fastglass'
-    def SLACK_CREDENTIALS = 'jenkins-slack-credentials-id'
-    def CHANGE_LIST = 'true'
-    def TEST_SUMMARY = 'true'
+    MYSQLHOST = 'localhost'
+    MYSQLUSER = 'pds'
+    MYSQLPASS = 'pds12345'
+    MYSQLDBNAME = 'pds'
+    DRUPALADMINUSER = 'pdsadmin'
+    DRUPALADMINUSERPASS = 'horse-staple-battery'
+    DRUPALSITENAME = 'My PDS Site'
+    DRUPALSITEMAIL = 'drupal@fastglass.net'
+    SUBSITE1DIR = 's1.pds.l'
+    SUBSITE2DIR = 's2.pds.l'
+    SLACK_CHANNEL = 'cicd'
+    SLACK_DOMAIN = 'fastglass'
+    SLACK_CREDENTIALS = 'jenkins-slack-credentials-id'
+    CHANGE_LIST = 'true'
+    TEST_SUMMARY = 'true'
   }
-  def notifier = new SlackNotifier()
 
   // Alert Slack to the start of the build.
-  notifier.notifyStart()
+
   // def database = new CreateMySQLDatabase(this)
   // def destroyall = new DestroyTestMySQLDatabase(this)
 
   stages {
     stage('Clone Repo') {
-      checkout scm
-      def commitHash = checkout(scm).GIT_COMMIT
-      echo "Commit Hash is ${commitHash}"
+      steps {
+        script {
+          new SlackNotifier().notifyStart()
+        }
+        checkout scm
+        script {
+          def commitHash = checkout(scm).GIT_COMMIT
+          echo "Commit Hash is ${commitHash}"
+        }
+      }
     }
     stage('Composer CC') {
-      sh 'composer clear-cache'
+      steps {
+        sh 'composer clear-cache'
+      }
     }
     stage('Install Base') {
       steps {
         withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'mysql-root', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
           // def site1db = database.createMySQLDatabase(USERNAME, PASSWORD)
           // echo "FASTGLASSS CREATED DBUSER: ${site1db.dbUser}"
-          echo "Starting Drupal Install"
-          sh 'chmod u+x ./install.drush.sh'
-          sh 'bash ./install.drush.sh -g ${mysqlhost} -i ${mysqluser} -j ${mysqlpass} -n ${mysqldbname} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail}'
+          script {
+            echo "Starting Drupal Install"
+            sh 'chmod u+x ./install.drush.sh'
+            sh 'bash ./install.drush.sh -g $MYSQLHOST -i $MYSQLUSER -j $MYSQLPASS -n $MYSQLDBNAME -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t $DRUPALSITENAME -u $DRUPALSITEMAIL'
+          }
           // echo "Delete database and user"
           // destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
         }
@@ -61,26 +71,29 @@ pipeline {
       // }
       stage('Teardown') {
         steps {
-          echo "Test Variable contents"
-          // println sitebasedb
-          // echo "Tear down Main Site: ${sitebasedb}"
-          // def dest1 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, sitebasedb.dbName, sitebasedb.dbUser)
-          echo "Tear down Subsite 1"
-          // def dest2 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
-          echo "Tear down Subsite 2"
-          // def dest3 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site2db.dbName, site2db.dbUser)
+          script {
+            echo "Test Variable contents"
+            // println sitebasedb
+            // echo "Tear down Main Site: ${sitebasedb}"
+            // def dest1 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, sitebasedb.dbName, sitebasedb.dbUser)
+            echo "Tear down Subsite 1"
+            // def dest2 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
+            echo "Tear down Subsite 2"
+            // def dest3 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site2db.dbName, site2db.dbUser)
+          }
         }
       }
     }
     stage('Unit Tests') {
       steps {
-        sh 'composer update phpunit/phpunit phpspec/prophecy symfony/yaml --with-dependencies --no-progress'
-        try {
-          sh './vendor/bin/phpunit --testsuite=unit -c web/core/'
-        }
-        catch (e) {
-          // If there was an exception thrown, the build failed.
-          notifier.notifyError(e)
+        script {
+          sh 'composer update phpunit/phpunit phpspec/prophecy symfony/yaml --with-dependencies --no-progress'
+          try {
+            sh './vendor/bin/phpunit --testsuite=unit -c web/core/'
+          }
+          catch (e) {
+            new SlackNotifier().notifyError(e)
+          }
         }
       }
     }
