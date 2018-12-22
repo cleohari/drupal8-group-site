@@ -17,8 +17,11 @@ node
     // def database = new CreateMySQLDatabase(this)
     def destroyall = new DestroyTestMySQLDatabase(this)
     mysqlhost = 'localhost'
+    mysqluser = 'pds'
+    mysqlpass = 'pds12345'
+    mysqldbname = 'pds'
     drupaladminuser = 'pdsadmin'
-    drupaladminuserpass = 'pass12345'
+    drupaladminuserpass = 'horse-staple-battery'
     drupalsitename = 'My PDS Site'
     drupalsitemail = 'drupal@fastglass.net'
     subsite1dir = 's1.pds.l'
@@ -38,11 +41,9 @@ node
           withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'mysql-root', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
             // def site1db = database.createMySQLDatabase(USERNAME, PASSWORD)
             // echo "FASTGLASSS CREATED DBUSER: ${site1db.dbUser}"
-            withEnv(['PDS_DB_HOST=localhost', 'PDS_DB_USERNAME=pds', 'PDS_DB_USERPASSWORD=pds12345', 'PDS_DB_NAME=pds', 'PDS_RD_HOST=localhost', 'PDS_RD_NR=1', 'PDS_DRUPAL_NAME=adminpds', 'PDS_DRUPAL_PASS=horse-staple-battery', 'PDS_DRUPAL_SITENAME=PDS', 'PDS_DRUPAL_SITENEMAIL=drupal@fastglass.net']) {
-              echo "Starting Drupal Install"
-              sh 'chmod u+x ./install.drush.sh'
-              sh 'bash ./install.drush.sh'
-            }
+            echo "Starting Drupal Install"
+            sh 'chmod u+x ./install.drush.sh'
+            sh 'bash ./install.drush.sh -g ${mysqlhost} -i ${mysqluser} -j ${mysqlpass} -n ${mysqldbname} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail}'
             // echo "Delete database and user"
             // destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
           }
