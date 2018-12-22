@@ -2,6 +2,18 @@
 import net.fastglass.jenkins.mysql.*
 import org.gradiant.jenkins.slack.*
 
+environment {
+  def mysqlhost = 'localhost'
+  def mysqluser = 'pds'
+  def mysqlpass = 'pds12345'
+  def mysqldbname = 'pds'
+  def drupaladminuser = 'pdsadmin'
+  def drupaladminuserpass = 'horse-staple-battery'
+  def drupalsitename = 'My PDS Site'
+  def drupalsitemail = 'drupal@fastglass.net'
+  def subsite1dir = 's1.pds.l'
+  def subsite2dir = 's2.pds.l'
+}
 node
   {
     env.BUILDSPACE = pwd()
@@ -16,16 +28,6 @@ node
     notifier.notifyStart()
     // def database = new CreateMySQLDatabase(this)
     def destroyall = new DestroyTestMySQLDatabase(this)
-    mysqlhost = 'localhost'
-    mysqluser = 'pds'
-    mysqlpass = 'pds12345'
-    mysqldbname = 'pds'
-    drupaladminuser = 'pdsadmin'
-    drupaladminuserpass = 'horse-staple-battery'
-    drupalsitename = 'My PDS Site'
-    drupalsitemail = 'drupal@fastglass.net'
-    subsite1dir = 's1.pds.l'
-    subsite2dir = 's2.pds.l'
 
     stage('Clone Repo') {
       checkout scm
@@ -43,7 +45,7 @@ node
             // echo "FASTGLASSS CREATED DBUSER: ${site1db.dbUser}"
             echo "Starting Drupal Install"
             sh 'chmod u+x ./install.drush.sh'
-            sh 'bash ./install.drush.sh -g ${mysqlhost} -i ${mysqluser} -j ${mysqlpass} -n ${mysqldbname} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail}'
+            sh 'bash ./install.drush.sh -g $mysqlhost -i ${mysqluser} -j ${mysqlpass} -n ${mysqldbname} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail}'
             // echo "Delete database and user"
             // destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
           }
