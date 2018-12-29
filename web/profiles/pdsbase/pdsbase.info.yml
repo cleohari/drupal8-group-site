@@ -42,6 +42,7 @@ dependencies:
   - webform_ui
   - webform_bootstrap
   - webform_node
+  - webform_rest
   - book
   - rules
   - token
