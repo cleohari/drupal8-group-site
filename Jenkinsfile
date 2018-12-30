@@ -48,8 +48,8 @@ pipeline {
         script {
           withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'mysql-root', usernameVariable: 'DATABASE_USERNAME', passwordVariable: 'DATABASE_PASSWORD']]) {
             def test_database_credentials = buildTestMySQLDatabase {
-              dbUser = env.DATABASE_USERNAME
-              dbPass = env.DATABASE_PASSWORD
+              dbUser = $DATABASE_USERNAME
+              dbPass = $DATABASE_PASSWORD
             }
             echo 'Test Database Name: ' + test_database_credentials.dbName
             echo 'Test Username: ' + test_database_credentials.testUsername
