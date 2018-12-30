@@ -75,20 +75,6 @@ pipeline {
     //   sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
     //   // sh "./profiles/pdsbase/scripts/install.drush.sub.sh -g ${mysqlhost} -i ${site2db.dbUser} -j ${site2db.dbPass} -n ${site2db.dbName} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail} -s ${subsite2dir}"
     // }
-    stage('Teardown') {
-      steps {
-        script {
-          echo "Test Variable contents"
-          // println sitebasedb
-          // echo "Tear down Main Site: ${sitebasedb}"
-          // def dest1 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, sitebasedb.dbName, sitebasedb.dbUser)
-          echo "Tear down Subsite 1"
-          // def dest2 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
-          echo "Tear down Subsite 2"
-          // def dest3 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site2db.dbName, site2db.dbUser)
-        }
-      }
-    }
     stage('Unit Tests') {
       steps {
         script {
@@ -106,6 +92,14 @@ pipeline {
   post {
     always {
       script {
+        echo "Test Variable contents"
+        // println sitebasedb
+        // echo "Tear down Main Site: ${sitebasedb}"
+        // def dest1 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, sitebasedb.dbName, sitebasedb.dbUser)
+        echo "Tear down Subsite 1"
+        // def dest2 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
+        echo "Tear down Subsite 2"
+        // def dest3 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site2db.dbName, site2db.dbUser)
         new SlackNotifier().notifyResultFull()
         // If permissions are not changes Jenkins will not be able to clean the workspace.
         sh 'chmod -R 777 web/sites/default'
