@@ -50,13 +50,13 @@ pipeline {
             def dbrootuser = env.DATABASE_USERNAME
             def dbrootpass = env.DATABASE_PASSWORD
             echo "===================================================================================================================================================="
-            def test_database_credentials = buildTestMySQLDatabase {
+            def test_database_credentials_base = buildTestMySQLDatabase {
               dbUser = dbrootuser
               dbPass = dbrootpass
             }
-            echo 'Test Database Name: ' + test_database_credentials.dbName
-            echo 'Test Username: ' + test_database_credentials.testUsername
-            echo 'Test User Password: ' + test_database_credentials.testUserPassword
+            echo 'Test Database Name: ' + test_database_credentials_base.dbName
+            echo 'Test Username: ' + test_database_credentials_base.testUsername
+            echo 'Test User Password: ' + test_database_credentials_base.testUserPassword
           } // withCredentials
           echo "Starting Drupal Install"
           sh 'chmod u+x ./install.drush.sh'
@@ -94,14 +94,18 @@ pipeline {
   post {
     always {
       script {
-        echo "Test Variable contents"
-        // println sitebasedb
-        // echo "Tear down Main Site: ${sitebasedb}"
-        // def dest1 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, sitebasedb.dbName, sitebasedb.dbUser)
-        echo "Tear down Subsite 1"
-        // def dest2 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
-        echo "Tear down Subsite 2"
-        // def dest3 = destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site2db.dbName, site2db.dbUser)
+        withCredentials([usernamePassword(credentialsId: 'mysql-root', passwordVariable: 'DATABASE_PASSWORD', usernameVariable: 'DATABASE_USERNAME')]) {
+          def dbrootuser = env.DATABASE_USERNAME
+          def dbrootpass = env.DATABASE_PASSWORD
+          echo "===================================================================================================================================================="
+          destroyTestMySQLDatabase {
+            dbUser = dbrootuser
+            dbPass = dbrootpass
+            dbName = test_database_credentials_base.dbName
+          }
+          echo "Tear down Subsite 1"
+          echo "Tear down Subsite 2"
+        }
         new SlackNotifier().notifyResultFull()
         // If permissions are not changes Jenkins will not be able to clean the workspace.
         sh 'chmod -R 777 web/sites/default'
