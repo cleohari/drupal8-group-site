@@ -1,5 +1,4 @@
-@Library('mysql') _
-@Library('slack') _
+@Library('mysql', 'slack') _
 import org.gradiant.jenkins.slack.*
 
 pipeline {
