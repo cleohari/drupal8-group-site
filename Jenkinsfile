@@ -20,8 +20,12 @@ pipeline {
     CHANGE_LIST = 'true'
     TEST_SUMMARY = 'true'
   }
-  // def database = new CreateMySQLDatabase(this)
-  // def destroyall = new DestroyTestMySQLDatabase(this)
+
+  parameters {
+    string(name: 'baseSiteDbName', defaultValue: '')
+    string(name: 'baseSiteDbUser', defaultValue: '')
+    string(name: 'baseSiteDbUserPass', defaultValue: '')
+  }
 
   stages {
     stage('Clone Repo') {
@@ -53,15 +57,13 @@ pipeline {
               dbUser = dbrootuser
               dbPass = dbrootpass
             }
-            def basesite = [:]
-            basesite.dbName = test_database_credentials_base.dbName
-            basesite.testUsername = test_database_credentials_base.testUsername
-            basesite.testUserpass = test_database_credentials_base.testUserPassword
+            env.baseSiteDbName = test_database_credentials_base.dbName
+            env.baseSiteDbUser = test_database_credentials_base.testUsername
+            env.baseSiteDbUserPass = test_database_credentials_base.testUserPassword
           } // withCredentials
           echo "===================================================================================================================================================="
-          echo 'Test Database Name: ' + test_database_credentials_base.dbName
-          echo 'Test Username: ' + test_database_credentials_base.testUsername
-          echo 'Test User Password: ' + test_database_credentials_base.testUserPassword
+          echo 'Test Database Name: ' + env.baseSiteDbName
+          echo 'Test Username: ' + env.baseSiteDbUser
           echo "Starting Drupal Install"
           sh 'chmod u+x ./install.drush.sh'
           sh 'bash ./install.drush.sh -g $MYSQLHOST -i $MYSQLUSER -j $MYSQLPASS -n $MYSQLDBNAME -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
@@ -102,7 +104,7 @@ pipeline {
           def dbrootuser = env.DATABASE_USERNAME
           def dbrootpass = env.DATABASE_PASSWORD
           echo "===================================================================================================================================================="
-          destroyTestMySQLDatabase (dbUser = dbrootuser, dbPass = dbrootpass, dbName = test_database_credentials_base.dbName)
+          destroyTestMySQLDatabase (dbrootuser, dbrootpass, env.baseSiteDbName)
           echo "Tear down Subsite 1"
           echo "Tear down Subsite 2"
         } // withCredentials
