@@ -45,17 +45,24 @@ pipeline {
     }
     stage('Install Base') {
       steps {
-        // withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'mysql-root', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-        // def site1db = database.createMySQLDatabase(USERNAME, PASSWORD)
-        // echo "FASTGLASSS CREATED DBUSER: ${site1db.dbUser}"
         script {
+          withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'mysql-root', usernameVariable: 'DATABASE_USERNAME', passwordVariable: 'DATABASE_PASSWORD']]) {
+            def test_database_credentials = buildTestMySQLDatabase {
+              dbUser = env.DATABASE_USERNAME
+              dbPass = env.DATABASE_PASSWORD
+            }
+            echo 'Test Database Name: ' + test_database_credentials.dbName
+            echo 'Test Username: ' + test_database_credentials.testUsername
+            echo 'Test User Password: ' + test_database_credentials.testUserPassword
+          } // withCredentials
+
           echo "Starting Drupal Install"
           sh 'chmod u+x ./install.drush.sh'
           sh 'bash ./install.drush.sh -g $MYSQLHOST -i $MYSQLUSER -j $MYSQLPASS -n $MYSQLDBNAME -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
         }
         // echo "Delete database and user"
         // destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
-        // }
+
       }
     }
     // stage('Install Subsite 1') {
