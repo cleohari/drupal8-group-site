@@ -98,14 +98,10 @@ pipeline {
           def dbrootuser = env.DATABASE_USERNAME
           def dbrootpass = env.DATABASE_PASSWORD
           echo "===================================================================================================================================================="
-          destroyTestMySQLDatabase {
-            dbUser = dbrootuser
-            dbPass = dbrootpass
-            dbName = test_database_credentials_base.dbName
-          }
+          destroyTestMySQLDatabase (dbUser = dbrootuser, dbPass = dbrootpass, dbName = test_database_credentials_base.dbNam)
           echo "Tear down Subsite 1"
           echo "Tear down Subsite 2"
-        }
+        } // withCredentials
         new SlackNotifier().notifyResultFull()
         // If permissions are not changes Jenkins will not be able to clean the workspace.
         sh 'chmod -R 777 web/sites/default'
