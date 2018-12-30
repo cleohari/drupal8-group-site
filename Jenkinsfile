@@ -49,15 +49,19 @@ pipeline {
           withCredentials([usernamePassword(credentialsId: 'mysql-root', passwordVariable: 'DATABASE_PASSWORD', usernameVariable: 'DATABASE_USERNAME')]) {
             def dbrootuser = env.DATABASE_USERNAME
             def dbrootpass = env.DATABASE_PASSWORD
-            echo "===================================================================================================================================================="
             def test_database_credentials_base = buildTestMySQLDatabase {
               dbUser = dbrootuser
               dbPass = dbrootpass
             }
-            echo 'Test Database Name: ' + test_database_credentials_base.dbName
-            echo 'Test Username: ' + test_database_credentials_base.testUsername
-            echo 'Test User Password: ' + test_database_credentials_base.testUserPassword
+            def basesite = [:]
+            basesite.dbName = test_database_credentials_base.dbName
+            basesite.testUsername = test_database_credentials_base.testUsername
+            basesite.testUserpass = test_database_credentials_base.testUserPassword
           } // withCredentials
+          echo "===================================================================================================================================================="
+          echo 'Test Database Name: ' + test_database_credentials_base.dbName
+          echo 'Test Username: ' + test_database_credentials_base.testUsername
+          echo 'Test User Password: ' + test_database_credentials_base.testUserPassword
           echo "Starting Drupal Install"
           sh 'chmod u+x ./install.drush.sh'
           sh 'bash ./install.drush.sh -g $MYSQLHOST -i $MYSQLUSER -j $MYSQLPASS -n $MYSQLDBNAME -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
