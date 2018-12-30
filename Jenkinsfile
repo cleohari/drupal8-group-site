@@ -1,5 +1,5 @@
-@Library('fastglass-shared-library') _
-import net.fastglass.jenkins.mysql.*
+@Library('mysql') _
+@Library('slack') _
 import org.gradiant.jenkins.slack.*
 
 pipeline {
