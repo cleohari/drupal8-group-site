@@ -98,7 +98,7 @@ pipeline {
           def dbrootuser = env.DATABASE_USERNAME
           def dbrootpass = env.DATABASE_PASSWORD
           echo "===================================================================================================================================================="
-          destroyTestMySQLDatabase (dbUser = dbrootuser, dbPass = dbrootpass, dbName = test_database_credentials_base.dbNam)
+          destroyTestMySQLDatabase (dbUser = dbrootuser, dbPass = dbrootpass, dbName = test_database_credentials_base.dbName)
           echo "Tear down Subsite 1"
           echo "Tear down Subsite 2"
         } // withCredentials
