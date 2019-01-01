@@ -59,13 +59,13 @@ pipeline {
           withCredentials([usernamePassword(credentialsId: 'mysql-root', passwordVariable: 'DATABASE_PASSWORD', usernameVariable: 'DATABASE_USERNAME')]) {
             def dbrootuser = env.DATABASE_USERNAME
             def dbrootpass = env.DATABASE_PASSWORD
-            def test_database_credentials_base = buildTestMySQLDatabase {
+            def base_database_credentials_base = buildTestMySQLDatabase {
               dbUser = dbrootuser
               dbPass = dbrootpass
             }
-            env.baseSiteDbName = test_database_credentials_base.dbName
-            env.baseSiteDbUser = test_database_credentials_base.testUsername
-            env.baseSiteDbUserPass = test_database_credentials_base.testUserPassword
+            env.baseSiteDbName = base_database_credentials_base.dbName
+            env.baseSiteDbUser = base_database_credentials_base.testUsername
+            env.baseSiteDbUserPass = base_database_credentials_base.testUserPassword
           } // withCredentials
           echo "===================================================================================================================================================="
           echo 'Test Database Name: ' + env.baseSiteDbName
@@ -74,21 +74,55 @@ pipeline {
           sh 'chmod u+x ./install.drush.sh'
           sh 'bash ./install.drush.sh -g $MYSQLHOST -i ' + env.baseSiteDbUser + ' -j ' + env.baseSiteDbUserPass + ' -n ' + env.baseSiteDbName + ' -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
         }
-        // echo "Delete database and user"
-        // destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
-
       }
-    }
-    // stage('Install Subsite 1') {
-    //   // def site1db = database.createMySQLDatabase(USERNAME, PASSWORD)
-    //   sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
-    //   // sh "./profiles/pdsbase/scripts/install.drush.sub.sh -g ${mysqlhost} -i ${site1db.dbUser} -j ${site1db.dbPass} -n ${site1db.dbName} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail} -s ${subsite1dir}"
-    // }
-    // stage('Install Subsite 2') {
-    //   // def site2db = database.createMySQLDatabase(USERNAME, PASSWORD)
-    //   sh 'chmod u+x ./profiles/pdsbase/scripts/install.drush.sh'
-    //   // sh "./profiles/pdsbase/scripts/install.drush.sub.sh -g ${mysqlhost} -i ${site2db.dbUser} -j ${site2db.dbPass} -n ${site2db.dbName} -d ${drupaladminuser} -e ${drupaladminuserpass} -t ${drupalsitename} -u ${drupalsitemail} -s ${subsite2dir}"
-    // }
+    } // Install base
+    stage('Install S1') {
+      steps {
+        script {
+          withCredentials([usernamePassword(credentialsId: 'mysql-root', passwordVariable: 'DATABASE_PASSWORD', usernameVariable: 'DATABASE_USERNAME')]) {
+            def dbrootuser = env.DATABASE_USERNAME
+            def dbrootpass = env.DATABASE_PASSWORD
+            def s1_database_credentials_base = buildTestMySQLDatabase {
+              dbUser = dbrootuser
+              dbPass = dbrootpass
+            }
+            env.s1SiteDbName = s1_database_credentials_base.dbName
+            env.s1SiteDbUser = s1_database_credentials_base.testUsername
+            env.s1SiteDbUserPass = s1_database_credentials_base.testUserPassword
+          } // withCredentials
+          echo "===================================================================================================================================================="
+          echo 'Test Database Name: ' + env.s1SiteDbName
+          echo 'Test Username: ' + env.s1SiteDbUser
+          echo "Starting Drupal Install"
+          sh 'chmod u+x ./install.drush.sh'
+          sh 'bash ./install.drush.sh -g $MYSQLHOST -i ' + env.s1SiteDbUser + ' -j ' + env.s1SiteDbUserPass + ' -n ' + env.s1SiteDbName + ' -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
+        }
+      }
+    } // Install S1
+    stage('Install S2') {
+      steps {
+        script {
+          withCredentials([usernamePassword(credentialsId: 'mysql-root', passwordVariable: 'DATABASE_PASSWORD', usernameVariable: 'DATABASE_USERNAME')]) {
+            def dbrootuser = env.DATABASE_USERNAME
+            def dbrootpass = env.DATABASE_PASSWORD
+            def s2_database_credentials_base = buildTestMySQLDatabase {
+              dbUser = dbrootuser
+              dbPass = dbrootpass
+            }
+            env.s2SiteDbName = s2_database_credentials_base.dbName
+            env.s2SiteDbUser = s2_database_credentials_base.testUsername
+            env.s2SiteDbUserPass = s2_database_credentials_base.testUserPassword
+          } // withCredentials
+          echo "===================================================================================================================================================="
+          echo 'Test Database Name: ' + env.s2SiteDbName
+          echo 'Test Username: ' + env.s2SiteDbUser
+          echo "Starting Drupal Install"
+          sh 'chmod u+x ./install.drush.sh'
+          sh 'bash ./install.drush.sh -g $MYSQLHOST -i ' + env.s2SiteDbUser + ' -j ' + env.s2SiteDbUserPass + ' -n ' + env.s2SiteDbName + ' -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
+        }
+      }
+    } // Install S2
+
     stage('Unit Tests') {
       steps {
         script {
