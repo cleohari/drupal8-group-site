@@ -72,7 +72,7 @@ pipeline {
           echo 'Test Username: ' + env.baseSiteDbUser
           echo "Starting Drupal Install"
           sh 'chmod u+x ./install.drush.sh'
-          sh 'bash ./install.drush.sh -g $MYSQLHOST -i $env.baseSiteDbUser -j $env.baseSiteDbUserPass -n $env.baseSiteDbName -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
+          sh 'bash ./install.drush.sh -g $MYSQLHOST -i ' + env.baseSiteDbUser + ' -j ' + env.baseSiteDbUserPass + ' -n ' + env.baseSiteDbName + ' -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
         }
         // echo "Delete database and user"
         // destroyall.destroyTestMySQLDatabase(USERNAME, PASSWORD, site1db.dbName, site1db.dbUser)
@@ -117,9 +117,10 @@ pipeline {
         new SlackNotifier().notifyResultFull()
         // If permissions are not changes Jenkins will not be able to clean the workspace.
         sh 'chmod -R 777 web/sites/default'
-      }
+        cleanWs()
+      } // script
       cleanWs()
-    }
+    } // always
   }
 }
 
