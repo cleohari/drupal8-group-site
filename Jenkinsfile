@@ -25,6 +25,12 @@ pipeline {
     string(name: 'baseSiteDbName', defaultValue: '')
     string(name: 'baseSiteDbUser', defaultValue: '')
     string(name: 'baseSiteDbUserPass', defaultValue: '')
+    string(name: 's1SiteDbName', defaultValue: '')
+    string(name: 's1SiteDbUser', defaultValue: '')
+    string(name: 's1SiteDbUserPass', defaultValue: '')
+    string(name: 's2SiteDbName', defaultValue: '')
+    string(name: 's2SiteDbUser', defaultValue: '')
+    string(name: 's2SiteDbUserPass', defaultValue: '')
   }
 
   stages {
