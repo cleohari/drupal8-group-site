@@ -67,12 +67,13 @@ pipeline {
             env.baseSiteDbUser = base_database_credentials_base.testUsername
             env.baseSiteDbUserPass = base_database_credentials_base.testUserPassword
           } // withCredentials
-          echo "===================================================================================================================================================="
+          echo "============================================ BASE SITE ======================================================"
           echo 'Test Database Name: ' + env.baseSiteDbName
           echo 'Test Username: ' + env.baseSiteDbUser
           echo "Starting Drupal Install"
           sh 'chmod u+x ./install.drush.sh'
           sh 'bash ./install.drush.sh -g $MYSQLHOST -i ' + env.baseSiteDbUser + ' -j ' + env.baseSiteDbUserPass + ' -n ' + env.baseSiteDbName + ' -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
+          echo "============================================ /BASE SITE ======================================================"
         }
       }
     } // Install base
@@ -90,12 +91,13 @@ pipeline {
             env.s1SiteDbUser = s1_database_credentials_base.testUsername
             env.s1SiteDbUserPass = s1_database_credentials_base.testUserPassword
           } // withCredentials
-          echo "===================================================================================================================================================="
+          echo "============================================ S1 SITE ======================================================"
           echo 'Test Database Name: ' + env.s1SiteDbName
           echo 'Test Username: ' + env.s1SiteDbUser
           echo "Starting Drupal Install"
           sh 'chmod u+x ./install.drush.sh'
           sh 'bash ./install.drush.sh -g $MYSQLHOST -i ' + env.s1SiteDbUser + ' -j ' + env.s1SiteDbUserPass + ' -n ' + env.s1SiteDbName + ' -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
+          echo "============================================ /S1 SITE ======================================================"
         }
       }
     } // Install S1
@@ -113,16 +115,16 @@ pipeline {
             env.s2SiteDbUser = s2_database_credentials_base.testUsername
             env.s2SiteDbUserPass = s2_database_credentials_base.testUserPassword
           } // withCredentials
-          echo "===================================================================================================================================================="
+          echo "============================================ S2 SITE ======================================================"
           echo 'Test Database Name: ' + env.s2SiteDbName
           echo 'Test Username: ' + env.s2SiteDbUser
           echo "Starting Drupal Install"
           sh 'chmod u+x ./install.drush.sh'
           sh 'bash ./install.drush.sh -g $MYSQLHOST -i ' + env.s2SiteDbUser + ' -j ' + env.s2SiteDbUserPass + ' -n ' + env.s2SiteDbName + ' -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
+          echo "============================================ /S2 SITE ======================================================"
         }
       }
     } // Install S2
-
     stage('Unit Tests') {
       steps {
         script {
@@ -143,10 +145,12 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'mysql-root', passwordVariable: 'DATABASE_PASSWORD', usernameVariable: 'DATABASE_USERNAME')]) {
           def dbrootuser = env.DATABASE_USERNAME
           def dbrootpass = env.DATABASE_PASSWORD
-          echo "===================================================================================================================================================="
+          echo "Tear down Base"
           destroyTestMySQLDatabase (dbrootuser, dbrootpass, env.baseSiteDbName)
           echo "Tear down Subsite 1"
+          destroyTestMySQLDatabase (dbrootuser, dbrootpass, env.s1SiteDbName)
           echo "Tear down Subsite 2"
+          destroyTestMySQLDatabase (dbrootuser, dbrootpass, env.s2SiteDbName)
         } // withCredentials
         new SlackNotifier().notifyResultFull()
         // If permissions are not changes Jenkins will not be able to clean the workspace.
