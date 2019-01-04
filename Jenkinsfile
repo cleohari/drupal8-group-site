@@ -25,9 +25,11 @@ pipeline {
     string(name: 'baseSiteDbName', defaultValue: '')
     string(name: 'baseSiteDbUser', defaultValue: '')
     string(name: 'baseSiteDbUserPass', defaultValue: '')
+    string(name: 's1SiteSubDir', defaultValue: 's1.pds.com')
     string(name: 's1SiteDbName', defaultValue: '')
     string(name: 's1SiteDbUser', defaultValue: '')
     string(name: 's1SiteDbUserPass', defaultValue: '')
+    string(name: 's2SiteSubDir', defaultValue: 's2.pds.com')
     string(name: 's2SiteDbName', defaultValue: '')
     string(name: 's2SiteDbUser', defaultValue: '')
     string(name: 's2SiteDbUserPass', defaultValue: '')
@@ -96,7 +98,7 @@ pipeline {
           echo 'Test Username: ' + env.s1SiteDbUser
           echo "Starting Drupal Install"
           sh 'chmod u+x ./install.drush.sh'
-          sh 'bash ./install.drush.sh -g $MYSQLHOST -i ' + env.s1SiteDbUser + ' -j ' + env.s1SiteDbUserPass + ' -n ' + env.s1SiteDbName + ' -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
+          sh 'bash ./install.drush.sub.sh -g $MYSQLHOST -i ' + env.s1SiteDbUser + ' -j ' + env.s1SiteDbUserPass + ' -n ' + env.s1SiteDbName + ' -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL" -s ' + env.s1SiteSubDir
           echo "============================================ /S1 SITE ======================================================"
         }
       }
@@ -120,7 +122,7 @@ pipeline {
           echo 'Test Username: ' + env.s2SiteDbUser
           echo "Starting Drupal Install"
           sh 'chmod u+x ./install.drush.sh'
-          sh 'bash ./install.drush.sh -g $MYSQLHOST -i ' + env.s2SiteDbUser + ' -j ' + env.s2SiteDbUserPass + ' -n ' + env.s2SiteDbName + ' -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL"'
+          sh 'bash ./install.drush.sub.sh -g $MYSQLHOST -i ' + env.s2SiteDbUser + ' -j ' + env.s2SiteDbUserPass + ' -n ' + env.s2SiteDbName + ' -d $DRUPALADMINUSER -e $DRUPALADMINUSERPASS -t "$DRUPALSITENAME" -u "$DRUPALSITEMAIL" -s ' + env.s2SiteSubDir
           echo "============================================ /S2 SITE ======================================================"
         }
       }
