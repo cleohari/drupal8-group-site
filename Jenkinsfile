@@ -147,15 +147,15 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'mysql-root', passwordVariable: 'DATABASE_PASSWORD', usernameVariable: 'DATABASE_USERNAME')]) {
           def dbrootuser = env.DATABASE_USERNAME
           def dbrootpass = env.DATABASE_PASSWORD
-          // echo "Tear down Base"
-          // destroyTestMySQLDatabase (dbrootuser, dbrootpass, env.baseSiteDbName, env.baseSiteDbUser)
-          // echo "Done Base"
-          // echo "Tear down Subsite 1"
-          // destroyTestMySQLDatabase (dbrootuser, dbrootpass, env.s1SiteDbName, env.s1SiteDbUser)
-          // echo "Done S1"
-          // echo "Tear down Subsite 2"
-          // destroyTestMySQLDatabase (dbrootuser, dbrootpass, env.s2SiteDbName, env.s2SiteDbUser)
-          // echo "Done S2"
+          echo "Tear down Base"
+          destroyTestMySQLDatabase (dbrootuser, dbrootpass, env.baseSiteDbName, env.baseSiteDbUser)
+          echo "Done Base"
+          echo "Tear down Subsite 1"
+          destroyTestMySQLDatabase (dbrootuser, dbrootpass, env.s1SiteDbName, env.s1SiteDbUser)
+          echo "Done S1"
+          echo "Tear down Subsite 2"
+          destroyTestMySQLDatabase (dbrootuser, dbrootpass, env.s2SiteDbName, env.s2SiteDbUser)
+          echo "Done S2"
         } // withCredentials
         new SlackNotifier().notifyResultFull()
         // If permissions are not changes Jenkins will not be able to clean the workspace.
