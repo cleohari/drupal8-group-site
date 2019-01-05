@@ -58,7 +58,7 @@ while getopts ":g:i:j:n:r:o:d:e:t:u:h:s:" opt; do
 done
 
 ## Subsite install
-drush si pdsbase -y --sites-subdir=$SUBSITE \
+drush si -y --sites-subdir=$SUBSITE \
 --db-url=mysql://$DBUSER:$DBPASS@$DBHOST/$DBNAME \
 --account-name=$DNAME \
 --account-pass=$DPASS
