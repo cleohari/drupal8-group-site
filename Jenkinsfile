@@ -10,7 +10,6 @@ pipeline {
     DRUPALSITEMAIL = 'drupal@fastglass.net'
     SLACK_CHANNEL = 'cicd'
     SLACK_DOMAIN = 'fastglass'
-    SLACK_CREDENTIALS = 'jenkins-slack-credentials-id'
     CHANGE_LIST = 'true'
     TEST_SUMMARY = 'true'
   }
