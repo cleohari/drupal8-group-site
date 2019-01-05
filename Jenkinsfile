@@ -5,15 +5,9 @@ pipeline {
   agent any
   environment {
     MYSQLHOST = 'localhost'
-    MYSQLUSER = 'pds'
-    MYSQLPASS = 'pds12345'
-    MYSQLDBNAME = 'pds'
-    DRUPALADMINUSER = 'pdsadmin'
     DRUPALADMINUSERPASS = 'horse-staple-battery'
     DRUPALSITENAME = 'My PDS Site'
     DRUPALSITEMAIL = 'drupal@fastglass.net'
-    SUBSITE1DIR = 's1.pds.l'
-    SUBSITE2DIR = 's2.pds.l'
     SLACK_CHANNEL = 'cicd'
     SLACK_DOMAIN = 'fastglass'
     SLACK_CREDENTIALS = 'jenkins-slack-credentials-id'
