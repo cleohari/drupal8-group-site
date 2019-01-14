@@ -11,6 +11,7 @@ web/files/
 web/sites/*/files
 web/sites/*/private
 web/sites/*/translations
+web/sites/sites.php
 
 # Ignore default text files
 web/robots.txt
