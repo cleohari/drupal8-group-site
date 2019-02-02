@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts ":g:i:j:n:r:o:d:e:t:u:h" opt; do
+while getopts ":g:i:j:n:r:o:d:e:t:u:h:x:" opt; do
   case ${opt} in
     g )
       DBHOST=$OPTARG
@@ -32,6 +32,9 @@ while getopts ":g:i:j:n:r:o:d:e:t:u:h" opt; do
     u )
       DSITEEMAIL=$OPTARG
       ;;
+    x )
+      DELETESETTING=$OPTARG
+      ;;
     h )
       echo "Command Line Options"
       echo "-g Database Host"
@@ -44,6 +47,7 @@ while getopts ":g:i:j:n:r:o:d:e:t:u:h" opt; do
       echo "-e Drupal Admin Password"
       echo "-t Drupal Sitename"
       echo "-u Drupal Site email address"
+      echo "-x Set to \"yes\" to delete the existing settings files. Default to no. No quotes around the value"
       exit 1
       ;;
     \? )
@@ -57,6 +61,15 @@ done
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 suffix="profiles/pdsbase/scripts"
 DWD=${DIR%$suffix}
+
+if [[ -z "${DELETESETTING// }" ]]; then
+  DELETESETTING="no"
+fi
+
+if [[ "$DELETESETTING" = "yes" ]] ; then
+  chmod -R 777 ${DWD}/web/sites/default/
+  rm ${DWD}/web/sites/default/settings.php
+fi
 
 SET0="#Redis Settings"
 SET1="\$settings['redis.connection']['interface'] = 'PhpRedis';"
