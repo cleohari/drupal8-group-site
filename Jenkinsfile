@@ -5,6 +5,7 @@ pipeline {
   agent any
   environment {
     MYSQLHOST = 'localhost'
+    DRUPALADMINUSER = 'pdsadmin'
     DRUPALADMINUSERPASS = 'horse-staple-battery'
     DRUPALSITENAME = 'My PDS Site'
     DRUPALSITEMAIL = 'drupal@fastglass.net'
@@ -41,11 +42,6 @@ pipeline {
           def commitHash = checkout(scm).GIT_COMMIT
           echo "Commit Hash is ${commitHash}"
         }
-      }
-    }
-    stage('Composer CC') {
-      steps {
-        sh 'composer clear-cache'
       }
     }
     stage('Install Base') {
